@@ -1,22 +1,57 @@
-/*
-Please do not claim this website as your own. You don't have to give me credit but DON'T claim it's your code. When you use this as a base for your website please remove all tracking (Google Analytics, Heap).
-*/
+/* Typography   */
+@font-face {
+	font-family: bodyFont;
+	src: url("https://assets.codepen.io/6554302/AlumniSans-Light.ttf");
+}
+@font-face {
+	font-family: headerFont;
+	src: url("https://assets.codepen.io/6554302/Sora-Medium.ttf");
+}
 
-body {
-	font-family: "Roboto", sans-serif;
+.hey-text {
+	float: right;
+	/*text-align: right;*/
+}
+.headshot{
+	  flex-basis: 40%;
+}
+.headshot_text {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+}
+p {
+	font-family: "bodyFont", sans-serif;
 	font-size: 16px;
 	width: 100%;
 	height: 100%;
-	background: #fff;
 	margin: 0;
 	padding: 0;
 }
-
+span.stylish {
+	color: #142820;
+	-webkit-text-stroke-width: .2px;
+  -webkit-text-stroke-color: #c0c0c0;
+}
+#tagline {
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+}
+.hey_text {
+	font-size: 20px;
+  padding-left: 20px;
+}
+.headshot {
+	flex-grow:0;
+  flex-shrink:0;
+	float: left !important;
+}
 h2 {
 	color: #c0c0c0;
 	font-weight: 700;
 	font-size: 50px;
-	font-family: "Montserrat", sans-serif;
+	font-family: "headerFont", sans-serif;
 	text-transform: lowercase;
 }
 
@@ -24,7 +59,7 @@ h2:after {
 	content: "";
 	width: 50px;
 	height: 3px;
-	background: #40e0d0;
+	background: #c0c0c0;
 	display: block;
 	margin: 15px auto;
 	transition: all 0.2s ease-in-out;
@@ -41,7 +76,7 @@ h2:hover:after {
 h3,
 h4,
 h5 {
-	font-family: "Montserrat", sans-serif;
+	font-family: "headerFont", sans-serif;
 }
 
 /* SCROLL TO TOP ARROW */
@@ -50,7 +85,7 @@ h5 {
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
-	background: rgba(64, 224, 208, 0.8);
+	background: rgba(20, 40, 32, 0.8);
 	width: 50px;
 	height: 50px;
 	display: block;
@@ -67,7 +102,6 @@ h5 {
 	z-index: 999;
 }
 
-#return-to-top span {
 	color: #fff;
 	margin: 0;
 	position: relative;
@@ -82,7 +116,7 @@ h5 {
 }
 
 #return-to-top:hover {
-	background: rgba(64, 224, 208, 1);
+	background: rgba(21, 163, 106, 1);
 }
 
 #return-to-top:hover span {
@@ -100,7 +134,7 @@ h5 {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #008080;
+	background-color: #36454f;
 	z-index: 99;
 	height: 100%;
 }
@@ -111,7 +145,7 @@ h5 {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	background-image: url(http://marinamarques.pt/img/preloader.gif);
+	background-image: url(https://assets.codepen.io/6554302/ad27atzy1zxz-unscreen.gif);
 	background-repeat: no-repeat;
 	background-position: center;
 	margin: -100px 0 0 -100px;
@@ -137,7 +171,7 @@ h5 {
 
 .navbar-inverse .navbar-toggle:focus,
 .navbar-inverse .navbar-toggle:hover {
-	background-color: #40e0d0;
+	background-color: #c0c0c0;
 }
 
 .navbar-inverse .navbar-toggle {
@@ -180,13 +214,13 @@ h5 {
 	-webkit-transform: translateX(-50%);
 	transform: translateX(-50%);
 	height: 3px;
-	background: #40e0d0;
+	background: #c0c0c0;
 	-webkit-transition: 0.35s;
 	transition: 0.35s;
 }
 
 #ResponsiveNav li a:hover {
-	color: #40e0d0;
+	color: #c0c0c0;
 }
 
 #ResponsiveNav ul li a:hover:after,
@@ -196,13 +230,13 @@ h5 {
 }
 
 button.navbar-toggle.collapsed {
-	background-color: #008080;
+	background-color: #36454f;
 	border: none;
 }
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-	background-color: #40e0d0;
+	background-color: #c0c0c0;
 	border: none;
 }
 
@@ -261,15 +295,15 @@ button.navbar-toggle.collapsed {
 
 .brand-heading {
 	font-size: 100px;
-	font-family: "Montserrat", sans-serif;
+	font-family: "headerFont", sans-serif;
 	font-weight: 700;
 	text-align: left;
-	color: #40e0d0;
+	color: #c0c0c0;
 }
 
 .intro .intro-body .intro-text {
 	font-size: 25px;
-	font-family: "Montserrat", sans-serif;
+	font-family: "headerFont", sans-serif;
 	text-align: left;
 }
 
@@ -377,12 +411,12 @@ span.city {
 }
 
 .about-intro-text span {
-	color: #40e0d0;
+	color: #c0c0c0;
 	font-weight: 700;
 }
 
 .about-intro-text .fa-beer {
-	color: #40e0d0;
+	color: #c0c0c0;
 	font-size: 20px;
 }
 
@@ -392,9 +426,14 @@ span.city {
 	display: -ms-inline-flexbox;
 	display: inline-flex;
 }
-
+.charcoal {
+	color: #36454f;
+}
+.silver {
+	color: #c0c0c0;
+}
 .text {
-	background: #008080;
+	background: #36454fcf head;
 	color: #fff;
 	font-size: 18px;
 	height: 50px;
@@ -408,25 +447,28 @@ span.city {
 	height: 50px;
 	line-height: 40px;
 	box-sizing: border-box;
-	border: 4px solid #008080;
+	border: 4px solid #36454f;
 	border-left: none;
 	-webkit-transition: 600ms -webkit-transform ease-in-out;
 	transition: 600ms -webkit-transform ease-in-out;
 	transition: 600ms transform ease-in-out;
 	transition: 600ms transform ease-in-out, 600ms -webkit-transform ease-in-out;
-	-webkit-transform: rotateY(90deg);
+	-webkit-transform: Y(90deg);
 	transform: rotateY(90deg);
 	-webkit-transform-origin: left;
 	transform-origin: left;
-	color: #008080;
+	color: #36454f;
 	background: #fff;
 	text-align: center;
 }
 
 a .fa-arrow-circle-down {
-	color: #008080;
+	color: #36454f;
 }
-
+#tagline span:hover {
+	-webkit-transform: scaleY(0deg);
+	transform: rotateY(0deg);
+}
 .button-group:hover .icon-cv {
 	-webkit-transform: rotateY(0deg);
 	transform: rotateY(0deg);
@@ -445,11 +487,10 @@ a .fa-arrow-circle-down {
 	padding: 0;
 	overflow: hidden;
 }
-.img-responsive-headshot {
+img.headshot {
 	width: 50%;
-	height?: auto;
+	height: auto;
 }
-]
 
 .about-inner > img {
 	display: block;
@@ -498,7 +539,7 @@ div.button-social a {
 }
 
 div.button-social a:hover {
-	color: #40e0d0;
+	color: #c0c0c0;
 }
 
 .button-group:focus,
@@ -506,35 +547,21 @@ div.button-social a:hover {
 .text:focus {
 	outline: 0;
 }
-
-/*/ start count stats /*/
-
-#counter-stats {
-	margin-top: 50px;
-	width: 100%;
-	height: auto;
-}
-
-.stats {
+.sign-off {
 	text-align: center;
-	font-size: 35px;
-	font-weight: 700;
-	font-family: "Montserrat", sans-serif;
-	text-transform: lowercase;
 }
-
-.stats .fa {
-	color: #008080;
-	font-size: 60px;
+.sign-off h3 {
+	color: ;
 }
-
-/*/ end count stats /*/
-
+]
 /*/ end about /*/
 
-/*/ start about work experience /*/
+/*/ start about education & experience /*/
 
 #experience {
+	margin-top: 20px;
+}
+#education {
 	margin-top: 20px;
 }
 
@@ -545,10 +572,24 @@ div.button-social a:hover {
 	text-align: center;
 }
 
+#education h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+#education h2 {
+	font-weight: 700;
+	margin-top: 22px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
 .timeline-label h4 {
 	margin-top: 0;
 	font-size: 30px;
-	color: #40e0d0;
+	color: #c0c0c0;
 	padding: 16px 0px;
 	font-weight: 700;
 }
@@ -571,7 +612,7 @@ div.button-social a:hover {
 }
 
 .text-timeline {
-	background: #40e0d0;
+	background: #c0c0c0;
 	color: #fff;
 	font-size: 18px;
 	height: 40px;
@@ -585,7 +626,7 @@ div.button-social a:hover {
 	height: 40px;
 	line-height: 30px;
 	box-sizing: border-box;
-	border: 4px solid #40e0d0;
+	border: 4px solid #c0c0c0;
 	border-left: none;
 	-webkit-transition: 600ms -webkit-transform ease-in-out;
 	transition: 600ms -webkit-transform ease-in-out;
@@ -595,7 +636,7 @@ div.button-social a:hover {
 	transform: rotateY(90deg);
 	-webkit-transform-origin: left;
 	transform-origin: left;
-	color: #40e0d0;
+	color: #c0c0c0;
 	background: #fff;
 	text-align: center;
 }
@@ -633,13 +674,13 @@ div.button-social a:hover {
 	margin-top: 0;
 	margin-bottom: 0.333em;
 	font-size: 18px;
-	color: #40e0d0;
+	color: #c0c0c0;
 	font-weight: 700;
 }
 
 .timeline .timeline-experience-info .timeline-role {
 	font-size: 16px;
-	color: #008080;
+	color: #36454f;
 	font-weight: 600;
 }
 
@@ -730,7 +771,7 @@ div.button-social a:hover {
 }
 
 .portfolio-details h3 {
-	color: #008080;
+	color: #ee;
 	font-weight: 700;
 	font-size: 25px;
 	font-family: "Montserrat", sans-serif;
@@ -750,9 +791,9 @@ li.portfolio-tag {
 	font-size: 9px;
 	font-family: "Montserrat", sans-serif;
 	font-weight: 700;
-	color: #40e0d0;
+	color: #c0c0c0;
 	display: inline;
-	border: 2px solid #40e0d0;
+	border: 2px solid #c0c0c0;
 	padding: 8px;
 }
 
@@ -773,7 +814,7 @@ span.portfolio-link {
 	left: 0;
 	-webkit-transform: scale(0);
 	transform: scale(0);
-	background: #40e0d0;
+	background: #c0c0c0;
 	opacity: 0.9;
 }
 
@@ -826,7 +867,7 @@ div.button-weblink {
 }
 
 #services h3 {
-	color: #40e0d0;
+	color: #c0c0c0;
 	font-size: 22px;
 	font-weight: bold;
 	text-transform: lowercase;
@@ -834,7 +875,7 @@ div.button-weblink {
 
 #services .fa {
 	font-size: 60px;
-	color: #008080;
+	color: #36454f;
 }
 
 #services .rotate:hover {
@@ -941,7 +982,7 @@ footer a {
 footer a:hover,
 footer a:after,
 footer a:visited footer a:focus {
-	color: #40e0d0;
+	color: #c0c0c0;
 }
 
 #copyright {
@@ -971,4 +1012,19 @@ footer a:visited footer a:focus {
 	.services-item {
 		margin-bottom: 15%;
 	}
+}
+#startup {
+	height: 5%;
+	width: auto;
+}
+ul.lang-icons {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333333;
+}
+
+li {
+	float: left;
 }
