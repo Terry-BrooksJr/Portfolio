@@ -1,7 +1,3 @@
-/*
-Please do not claim this website as your own. You don't have to give me credit but DON'T claim it's your code. When you use this as a base for your website please remove all tracking (Google Analytics, Heap).
-*/
-
 // PreLoader
 jQuery.noConflict();
 (function ($) {
@@ -67,7 +63,7 @@ window.onload = function () {
 	// INJECT CSS
 	var css = document.createElement("style");
 	css.type = "text/css";
-	css.innerHTML = ".txt-rotate > .wrap { border-right: 10px solid #40E0D0 }";
+	css.innerHTML = ".txt-rotate > .wrap { border-right: 10px solid #152208 }";
 	document.body.appendChild(css);
 };
 
@@ -80,7 +76,16 @@ var TxtRotate = function (el, toRotate, period) {
 	this.tick();
 	this.isDeleting = false;
 };
-
+///
+// var TxtGrow = function (el, toRotate, period) {
+// 	this.toScale = toRotate;
+// 	this.el = el;
+// 	this.loopNum = 0;
+// 	this.period = parseInt(period, 1) || 1000;
+// 	this.txt = "";
+// 	this.tick();
+// 	this.isDeleting = false;
+// };
 TxtRotate.prototype.tick = function () {
 	var i = this.loopNum % this.toRotate.length;
 	var fullTxt = this.toRotate[i];
@@ -149,4 +154,4 @@ var today = new Date();
 var year = today.getFullYear();
 
 var copyright = document.getElementById("copyright");
-copyright.innerHTML = "© Marina Marques " + year;
+copyright.innerHTML = "© Terry Brooks " + year;
