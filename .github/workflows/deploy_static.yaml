@@ -1,0 +1,16 @@
+name: Deploy Static Sitew
+
+on:
+  push:
+    branches:  [ master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+        - name: Deploy
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./public
