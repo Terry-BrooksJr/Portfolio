@@ -1816,3 +1816,14 @@
 	animation-iteration-count: 1;
 	animation-fill-mode: forwards; 
   }
+
+  .updating-social-links {
+	border-radius: 25px;
+	border: 2px solid #fff;
+	padding: 20px;
+	width: 250px;
+	height: auto;
+	display: flex;
+	justify-content: space-around;
+
+  }
