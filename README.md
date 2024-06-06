@@ -16,4 +16,4 @@ This is the Updated 2024 Terry Brooks, Jr. Developer Portfolio ReModel project. 
 This project is licensed under the MIT License - see the LICENSE file for details
 
 # TODO:
- - Complete Full Launch 06/01/2024 
+ - Complete Full Launch 06/15/2024 
