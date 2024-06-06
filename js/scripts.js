@@ -26,7 +26,7 @@ jQuery(function ($) {
 	
 	
 /*--------------------------------------------------
-Function CustomFunction
+Function CustomFunction - Template
 ---------------------------------------------------*/
 
 	function CustomFunction() {
@@ -1269,7 +1269,7 @@ Function Showcase Portfolio
 	}//End Showcase Portfolio
 	
 	
-	
+	1
 	
 /*--------------------------------------------------
 Function Showcase Gallery
@@ -2252,12 +2252,17 @@ function removeAnimation(el){
 }
 });	
 
-// SECTION - Flipdown Countdown Timer 
+
+/*--------------------------------------------------
+Element Flipdown Counter
+---------------------------------------------------*/
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	
 	// Set up FlipDown
-	var flipdown = new FlipDown(1717246800)
+	var flipdown = new FlipDown(1721048400)
   
 	  // Start the countdown
 	  .start()
