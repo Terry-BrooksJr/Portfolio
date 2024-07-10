@@ -2262,7 +2262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	
 	// Set up FlipDown
-	var flipdown = new FlipDown(1721048400)
+	var flipdown = new FlipDown(1722502800)
   
 	  // Start the countdown
 	  .start()
