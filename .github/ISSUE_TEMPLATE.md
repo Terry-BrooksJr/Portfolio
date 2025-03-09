@@ -1,4 +1,4 @@
-name: Blackberry-Py General ISSUE TEMPLATE
+name: Blackberry.py General ISSUE TEMPLATE
 about: General Issue Template for All Issues
 title: ""
 description: ""
