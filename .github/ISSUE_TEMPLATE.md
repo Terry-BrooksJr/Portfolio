@@ -7,7 +7,7 @@ body:
     id: input-1
     attributes:
       value: " "
-      label: Primary Isssue
+      label: Primary Issue
       description: Please Explain The Main Issue
       placeholder: When I ..., The application does ....
   - type: input
