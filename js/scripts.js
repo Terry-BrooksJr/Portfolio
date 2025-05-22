@@ -21,7 +21,7 @@ jQuery(function ($) {
 		ContactForm();	
 		PlayVideo();
 		ContactMap();
-		CustomFunction();
+		// CustomFunction();
 	});
 	
 	
