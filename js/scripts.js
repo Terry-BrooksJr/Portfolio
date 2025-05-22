@@ -2262,7 +2262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	
 	// Set up FlipDown
-const FLIPDOWN_TIMESTAMP = 1734302693;
+const FLIPDOWN_TIMESTAMP = 1751256060;
 var flipdown = new FlipDown(FLIPDOWN_TIMESTAMP).start().ifEnded(() => {
 		console.log('The countdown has ended!');
 	  });
