@@ -21,7 +21,7 @@ jQuery(function ($) {
 		ContactForm();	
 		PlayVideo();
 		ContactMap();
-		CustomFunction();
+		// CustomFunction();
 	});
 	
 	
@@ -2262,7 +2262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	
 	// Set up FlipDown
-const FLIPDOWN_TIMESTAMP = 1731679200;
+const FLIPDOWN_TIMESTAMP = 1734302693;
 var flipdown = new FlipDown(FLIPDOWN_TIMESTAMP).start().ifEnded(() => {
 		console.log('The countdown has ended!');
 	  });
