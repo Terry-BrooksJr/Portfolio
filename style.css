@@ -27,6 +27,27 @@ Primary use:	Showcase Portfolio
 /*--------------------------------------------------
 	01. General Settings
 ---------------------------------------------------*/
+:root {
+    --primary-dark: #0A0F0D;
+    --primary-light: #F8F8F2;
+    --secondary: #125D98;
+    --accent-gold: #F4A300;
+    --accent-clay: #DB3A34;
+    --accent-teal: #2AA876;
+    --highlight-yellow: #FFDD57;
+    --alt-background: #181B1F;
+    --title-font: font-family: 'Unbounded';
+    --body-font: font-family: 'Manrope', sans-serif;
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  font-style: bold;
+  font-display: swap;
+  src:
+    url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/Unbounded-Bold.woff2) format('woff2'),
+    url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/Unbounded-Bold.woff) format('woff');
+}
 
 	html,body{
 		font-family: 'Poppins', sans-serif;
@@ -41,6 +62,9 @@ Primary use:	Showcase Portfolio
 		-khtml-user-select: none; /* Konqueror HTML */
 		-moz-user-select: none; /* Firefox */
 		-ms-user-select: none; /* Internet Explorer/Edge */		
+	}
+	#copyright-block {
+		color: #fff
 	}
 	
 	html {
@@ -113,7 +137,21 @@ Primary use:	Showcase Portfolio
 		font-weight: 600;
 		color:#000;
 	}
-	
+	.cta-button {
+  font-family: var(--title-font);
+  background-color: var(--accent-gold);
+  color: var(--primary-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--accent-clay);
+}
+
 	.light-content b, .light-content strong, .dark-section b, .dark-section strong {
 		font-weight: 600;
 		color:#fff;

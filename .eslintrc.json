@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "es2021": true
+  },
+  "plugins": ["jquery"],
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "indent": ["error", 2],
+    "no-trailing-spaces": "warn"
+  }
+}
