@@ -218,12 +218,12 @@ Function Scroll Effects
 		if ($('body').hasClass("swap-logo")) {
 		
 			var imgLogoWhite = document.querySelector('.white-logo');
-			var originalSrcWhite = 'images/logo-white.png';
-			var updatedSrcWhite = 'images/logo-white-symbol.png';
-			
+			var originalSrcWhite = 'images/logo-white.svg';
+			var updatedSrcWhite = 'images/logo-white-symbol.svg';
+
 			var imgLogoBlack = document.querySelector('.black-logo');
-			var originalSrcBlack = 'images/logo.png';
-			var updatedSrcBlack = 'images/logo-symbol.png';
+			var originalSrcBlack = 'images/logo.svg';
+			var updatedSrcBlack = 'images/logo-symbol.svg';
 			
 			// Create a scroll trigger
 			
@@ -2268,7 +2268,18 @@ Function Shortcodes
 			});
 		});
 		
-		$(".flexnav").flexNav({ 'animationSpeed' : 250 });
+		// Initialize flexNav with error handling
+		setTimeout(function() {
+			try {
+				if (typeof $.fn.flexNav === 'function') {
+					$(".flexnav").flexNav({ 'animationSpeed' : 250 });
+				} else {
+					console.warn('flexNav plugin not loaded or not accessible');
+				}
+			} catch (e) {
+				console.error('Error initializing flexNav:', e);
+			}
+		}, 100);
 		
 		// Project Share	
 		

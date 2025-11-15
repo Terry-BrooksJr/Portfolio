@@ -15,293 +15,30 @@
         ga('send', 'pageview');
     </script>
 
-    <title>Terry A. Brooks, Jr. | Blackberry Py Dev | Homepage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Homepage for DevOps, Backend Engineer Terry Brooks" />
+    <title>Terry A. Brooks, Jr. | Backend Engineering Meets Automation | DevOps Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Homepage for DevOps, Backend Engineer Terry Brooks" >
     <meta name="author" content="Terry Brooks, Jr. ">
-    <meta charset="UTF-8" />
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <meta charset="UTF-8" >
     <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css'>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link href="css/all.min.css" rel="stylesheet" />
+    <!-- Typography fonts from transcript specifications -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Legacy font support -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@b8599ae68a0c120c6dde1a148b5ee6f871852a9b/style.css" rel="stylesheet" />
+    <!-- Local Stylesheets -->
+    <link href="style.css" rel="stylesheet">
 
-    <style>
-        .index {
-            background-color: var(--primary-dark);
-            padding-bottom: 72px;
-            padding-top: 80px;
-            text-align: center;
-            position: relative;
-            opacity: 0.9;
-        }
-
-        .index::after {
-            content: "";
-            background: url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/circuit_board_overlay.png) no-repeat center;
-            background-position: 100% bottom;
-            background-size: 250px auto;
-            opacity: 0.25;
-            top: 0;
-            left: 0;
-            bottom: 5%;
-            right: 5%;
-            position: absolute;
-            z-index: -1;
-        }
-
-        .btn {
-            background-color: var(--accent-clay);
-            color: #fff;
-            border-radius: 0;
-        }
-
-        .btn:hover {
-            color: #fff;
-            background-color: #8a2522;
-        }
-
-        .terminal-window {
-            width: 800px;
-            height: 400px;
-            background: #1a1a1a;
-            border-radius: 8px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            background: #0A0F0D;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.4;
-            color: #00ff00;
-            overflow-y: scroll;
-            text-align: left;
-        }
-
-        .terminal-header {
-            background: linear-gradient(135deg, #333, #2a2a2a);
-            height: 30px;
-            border-radius: 8px 8px 0 0;
-            display: flex;
-            align-items: center;
-            padding: 0 12px;
-            border-bottom: 1px solid #444;
-        }
-
-        .terminal-buttons {
-            display: flex;
-            gap: 8px;
-        }
-
-        .terminal-button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-        }
-
-        .close {
-            background: #ff5f57;
-        }
-
-        .minimize {
-            background: #ffbd2e;
-        }
-
-        .maximize {
-            background: #28ca42;
-        }
-
-        .terminal-title {
-            flex: 1;
-            text-align: center;
-            color: #ccc;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .terminal-body {
-            flex: 1;
-            background: #0A0F0D;
-            padding: 20px;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        .terminal-content {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .terminal-output {
-            flex: 1;
-            overflow-y: auto;
-            margin-bottom: 10px;
-        }
-
-        .terminal-line {
-            margin: 2px 0;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-
-        .prompt {
-            color: #00ff00;
-            display: flex;
-            align-items: center;
-        }
-
-        .user-info {
-            color: #00ff00;
-            font-weight: bold;
-        }
-
-        .at-symbol {
-            color: #ffffff;
-        }
-
-        .hostname {
-            color: #00ff00;
-            font-weight: bold;
-        }
-
-        .separator {
-            color: #ffffff;
-            margin: 0 2px;
-        }
-
-        .current-dir {
-            color: #5555ff;
-            font-weight: bold;
-        }
-
-        .prompt-symbol {
-            color: #ffffff;
-            margin-left: 4px;
-        }
-
-        .command {
-            color: #ffffff;
-            margin-left: 8px;
-        }
-
-        .output {
-            color: #cccccc;
-            margin-left: 0;
-        }
-
-        .error {
-            color: #ff5555;
-        }
-
-        .success {
-            color: #55ff55;
-        }
-
-        .warning {
-            color: #ffff55;
-        }
-
-        .input-line {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .terminal-input {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: #ffffff;
-            font-family: inherit;
-            font-size: inherit;
-            flex: 1;
-            margin-left: 8px;
-            caret-color: #00ff00;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 16px;
-            background: #00ff00;
-            animation: blink 1s infinite;
-            margin-left: 2px;
-        }
-
-        @keyframes blink {
-
-            0%,
-            50% {
-                opacity: 1;
-            }
-
-            51%,
-            100% {
-                opacity: 0;
-            }
-        }
-
-        /* Scrollbar styling */
-        .terminal-output::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .terminal-output::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        .terminal-output::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 4px;
-        }
-
-        .terminal-output::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        /* Additional styling for realistic look */
-        .file-listing {
-            color: #ffffff;
-        }
-
-        .directory {
-            color: #5555ff;
-            font-weight: bold;
-        }
-
-        .executable {
-            color: #55ff55;
-            font-weight: bold;
-        }
-
-        .hidden-file {
-            color: #888888;
-        }
-
-        .permissions {
-            color: #ffff55;
-        }
-
-
-        #welcome-animation {
-            font-size: 4.5em;
-            color: var(--accent-clay);
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
 </head>
 
 
@@ -309,24 +46,24 @@
 
 
     <main class="cd-main">
-        <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Loading">
-            <div class="outer">
-                <div class="inner">
-                    <div class="trackbar">
-                        <div class="preloader-intro">
-                            <span>Loading</span>
-                        </div>
-                        <div class="loadbar"></div>
-                        <div class="percentage-wrapper">
-                            <div class="percentage" id="precent"></div>
-                        </div>
+        <!-- Terminal Preloader -->
+        <div class="terminal-preloader" id="terminal-preloader">
+            <div class="terminal-boot-window">
+                <div class="terminal-boot-header">
+                    <div class="boot-buttons">
+                        <div class="boot-button boot-close"></div>
+                        <div class="boot-button boot-minimize"></div>
+                        <div class="boot-button boot-maximize"></div>
                     </div>
-                    <div class="percentage-intro">Please wait, almost there...</div>
+                    <div class="boot-title">terry@backend-systems: ~</div>
+                </div>
+
+                <div class="terminal-boot-body" id="boot-output">
+                    <!-- Boot sequence will be populated by JavaScript -->
                 </div>
             </div>
         </div>
-        <!--/Preloader -->
+        <!--/Terminal Preloader -->
         <div class="cd-index cd-main-content">
             <!-- Page Content -->
             <div id="clapat-page-content" class="light-content" data-bgcolor="#0A0F0D">
@@ -336,8 +73,8 @@
                         <!-- Logo -->
                         <div id="logo" class="hide-ball">
                             <a class="ajax-link" data-type="page-transition" href="index.html">
-                                <img class="black-logo" src="images/logo.png" alt="Logo">
-                                <img class="white-logo" src="images/logo-white.png" alt="Logo">
+                                <img class="black-logo" src="images/logo.svg" alt="Logo">
+                                <img class="white-logo" src="images/logo-white.svg" alt="Logo">
                             </a>
                         </div>
                         <!--/Logo -->
@@ -370,8 +107,8 @@
                                                     </div>
                                                 </a></li>
                                             <li class="link menu-timeline"><a class="ajax-link"
-                                                    data-type="page-transition" href="#">
-                                                    <div class="before-span"><span data-hover="">Contact</span></div>
+                                                    data-type="page-transition" href="pages/contact.html">
+                                                    <div class="before-span"><span data-hover="Connect">Contact</span></div>
                                                 </a></li>
 
                                         </ul>
@@ -414,10 +151,29 @@
                                                 Brooks, Jr.</span></h1>
                                         <div class="inner">
                                             <h2 id="welcome-animation" class="primary-font-title caption-timeline">
-                                                Welcome</h2>
-                                            <p id="sub-welcome-message" class="caption-text">I am a DevOps Engineer and
-                                                Backend Developer with a passion for building scalable and efficient
-                                                solutions.</p>
+                                                Backend Engineering Meets Automation</h2>
+                                            <p id="sub-welcome-message" class="caption-text">Crafting systems with purpose, precision, and curiosity. Where uptime meets attitude.</p>
+
+                                            <div class="hero-cta-buttons">
+                                                <a href="pages/projects.html"
+                                                   class="btn cta-button ajax-link"
+                                                   data-type="page-transition"
+                                                   role="button"
+                                                   aria-label="View my portfolio projects"
+                                                >View My Work</a>
+                                                <a href="pages/stack.html"
+                                                   class="btn cta-button ajax-link"
+                                                   data-type="page-transition"
+                                                   role="button"
+                                                   aria-label="Browse the technology stack I use"
+                                                >Browse the Stack</a>
+                                                <a href="pages/cv.html"
+                                                   class="btn cta-button ajax-link"
+                                                   data-type="page-transition"
+                                                   role="button"
+                                                   aria-label="Download or view my resume"
+                                                >Get the Resume</a>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -478,7 +234,6 @@
 
 
         <div id="app"></div>
-        </div>
         <!--/Page Content -->
     </main>
     <div class="cd-cover-layer"></div>
@@ -495,51 +250,23 @@
     <div id="rotate-device"></div>
 
 
+    <!-- External Dependencies -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Google Maps removed - not used in current contact page implementation -->
 
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/clapat.js"></script>    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/plugins.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/common.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@a429560b7148f9f73018a84095f50769a9bc09e8/js/scripts.js"></script>
-    <script>
-
-
-        welcomeString = ['Welcome', 'Καλωσόρισμα', 'Bienvenido', 'Willkommen', 'Bienvenue', 'ようこそ', '欢迎', '환영합니다', 'Добро пожаловать'];
-        let welcomeTyped = new Typed('#welcome-animation', {
-            strings: welcomeString,
-            smartBackspace: true,
-            startDelay: 2000,
-            backDelay: 2500,
-            typeSpeed: 30,
-            shuffle: true,
-            showCursor: false,
-            loop: true,
-            onStringTyped: function () {
-                changeColor();
-            }
-        });
-
-        let colorPool = ['#125D98', '#F4A300', '#2AA876', '#DB3A34']
-        const randomColor = (arr) => {
-            let randomIdx = Math.floor(Math.random() * arr.length)
-            return arr[randomIdx]
-        }
-
-        const changeColor = () => {
-            $('#welcome-animation').css('color', randomColor(colorPool))
-        };
-
-    </script>
+    <!-- Local Scripts with cache busting -->
+    <script src="js/clapat.js?v=1.0.1"></script>
+    <script src="js/plugins.js?v=1.0.1"></script>
+    <script src="js/common.js?v=1.0.1"></script>
+    <script src="js/scripts.js?v=1.0.1"></script>
 </body>
 
 </html>

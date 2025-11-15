@@ -6,24 +6,79 @@ jQuery(function ($) {
   $(document).ready(function() {
 
     'use strict';
-    HeightTitles();
-    PageLoad();
-    ScrollEffects();
-    Sliders();
-    FirstLoad();
-    PageLoadActions();
-    FitThumbScreenGSAP();
-    ShowcaseOverlapping();
-    ShowcasePortfolio();
-    ShowcaseGallery();
-    FitThumbScreenWEBGL();
-    Shortcodes();
-    Core();
-    JustifiedGrid();
-    Lightbox();
-    PlayVideo();
-    UpdateCopyright();
-    // CustomFunction();
+
+    // Initialize functions with error handling
+    try {
+      InitializeGSAPContext();
+    } catch (e) { console.warn('InitializeGSAPContext failed:', e); }
+
+    try {
+      HeightTitles();
+    } catch (e) { console.warn('HeightTitles failed:', e); }
+
+    try {
+      PageLoad();
+    } catch (e) { console.warn('PageLoad failed:', e); }
+
+    try {
+      ScrollEffects();
+    } catch (e) { console.warn('ScrollEffects failed:', e); }
+
+    try {
+      Sliders();
+    } catch (e) { console.warn('Sliders failed:', e); }
+
+    try {
+      FirstLoad();
+    } catch (e) { console.warn('FirstLoad failed:', e); }
+
+    try {
+      PageLoadActions();
+    } catch (e) { console.warn('PageLoadActions failed:', e); }
+
+    try {
+      FitThumbScreenGSAP();
+    } catch (e) { console.warn('FitThumbScreenGSAP failed:', e); }
+
+    try {
+      ShowcaseOverlapping();
+    } catch (e) { console.warn('ShowcaseOverlapping failed:', e); }
+
+    try {
+      ShowcasePortfolio();
+    } catch (e) { console.warn('ShowcasePortfolio failed:', e); }
+
+    try {
+      ShowcaseGallery();
+    } catch (e) { console.warn('ShowcaseGallery failed:', e); }
+
+    try {
+      FitThumbScreenWEBGL();
+    } catch (e) { console.warn('FitThumbScreenWEBGL failed:', e); }
+
+    try {
+      Shortcodes();
+    } catch (e) { console.warn('Shortcodes failed:', e); }
+
+    try {
+      Core();
+    } catch (e) { console.warn('Core failed:', e); }
+
+    try {
+      JustifiedGrid();
+    } catch (e) { console.warn('JustifiedGrid failed:', e); }
+
+    try {
+      Lightbox();
+    } catch (e) { console.warn('Lightbox failed:', e); }
+
+    try {
+      PlayVideo();
+    } catch (e) { console.warn('PlayVideo failed:', e); }
+
+    try {
+      UpdateCopyright();
+    } catch (e) { console.warn('UpdateCopyright failed:', e); }
   });
 
 
@@ -52,12 +107,39 @@ Function Copyright Updater
     const currentYear = new Date().getFullYear();
     // const copyrightElement = document.getElementById('copyright-block');
     const copyrightYear = $('#copyright-year');
-    copyrightYear.text(currentYear);
+    if (copyrightYear.length > 0) {
+      copyrightYear.text(currentYear);
+    }
   };
+  /*--------------------------------------------------
+	GSAP Context Management - Montoya Theme Compatible
+---------------------------------------------------*/
+  let ctx;
+
+  const InitializeGSAPContext = () => {
+    // Create GSAP context for proper cleanup
+    try {
+      if (typeof gsap !== 'undefined') {
+        ctx = gsap.context(() => {
+          // All GSAP animations will be registered here
+        });
+      } else {
+        console.warn('GSAP not loaded, skipping context initialization');
+      }
+    } catch (error) {
+      console.error('GSAP context initialization failed:', error);
+    }
+  };
+
   /*--------------------------------------------------
 	Function Cleanup Before Ajax
 ---------------------------------------------------*/
   const CleanupBeforeAjax = () => {
+    // Kill GSAP context for proper cleanup
+    if (ctx) {
+      ctx.kill();
+    }
+
     // reset all scroll triggers
     let triggers = ScrollTrigger.getAll();
     triggers.forEach( trigger => {
@@ -66,6 +148,9 @@ Function Copyright Updater
 
     ClapatSlider.instances.forEach(slider => slider.off());
     ClapatSlider.instances = [];
+
+    // Reinitialize context for next page
+    InitializeGSAPContext();
   };
 
 
@@ -2275,3 +2360,154 @@ document.addEventListener('DOMContentLoaded', () => {
   var LoadViaAjax = window.LoadViaAjax;
 
 });
+
+/*--------------------------------------------------
+Index Page Specific JavaScript
+---------------------------------------------------*/
+
+// Welcome message typing animation
+const IndexWelcomeAnimation = () => {
+  const welcomeString = ['Welcome', 'Καλωσόρισμα', 'Bienvenido', 'Willkommen', 'Bienvenue', 'ようこそ', '欢迎', '환영합니다', 'Добро пожаловать'];
+  const targetElement = document.getElementById('welcome-animation');
+
+  if (typeof Typed !== 'undefined' && targetElement) {
+    try {
+      let welcomeTyped = new Typed('#welcome-animation', {
+        strings: welcomeString,
+        smartBackspace: true,
+        startDelay: 2000,
+        backDelay: 2500,
+        typeSpeed: 30,
+        shuffle: true,
+        showCursor: false,
+        loop: true,
+        onStringTyped: function () {
+          changeColor();
+        }
+      });
+    } catch (error) {
+      console.warn('Typed.js initialization failed:', error);
+      // Fallback: show static welcome message
+      if (targetElement) {
+        targetElement.textContent = 'Welcome';
+      }
+    }
+  } else {
+    console.warn('Typed.js not loaded or welcome-animation element not found');
+    // Fallback: show static welcome message
+    if (targetElement) {
+      targetElement.textContent = 'Backend Engineering Meets Automation';
+    }
+  }
+};
+
+/**
+ * Color changing function for welcome animation
+ * Uses CSS variables for color consistency with the current palette.
+ */
+let colorPool = [
+  'var(--accent-teal)',
+  'var(--accent-gold)',
+  'var(--accent-clay)',
+  'var(--highlight-yellow)'
+];
+const randomColor = (arr) => {
+  let randomIdx = Math.floor(Math.random() * arr.length);
+  return arr[randomIdx];
+};
+
+const changeColor = () => {
+  if (typeof $ !== 'undefined') {
+    $('#welcome-animation').css('color', randomColor(colorPool));
+  }
+};
+
+/*--------------------------------------------------
+Terminal Boot Sequence for Preloader
+---------------------------------------------------*/
+
+// Boot sequence configuration
+const bootSequence = [
+  { text: 'Initializing Terry Brooks Portfolio System...', delay: 300, class: 'boot-info' },
+  { text: 'Loading DevOps modules...', delay: 200, class: '' },
+  { text: '✓ Backend Engineering protocols loaded', delay: 150, class: 'boot-success' },
+  { text: '✓ Infrastructure automation ready', delay: 150, class: 'boot-success' },
+  { text: '✓ Docker containers initialized', delay: 100, class: 'boot-success' },
+  { text: '✓ Kubernetes orchestration online', delay: 100, class: 'boot-success' },
+  { text: '✓ CI/CD pipelines configured', delay: 100, class: 'boot-success' },
+  { text: '✓ Monitoring systems active', delay: 100, class: 'boot-success' },
+  { text: '', delay: 200, class: '' },
+  { text: 'System Status:', delay: 100, class: 'boot-info' },
+  { text: '  - Reliability: 99.9% uptime', delay: 100, class: '' },
+  { text: '  - Scalability: Auto-scaling enabled', delay: 100, class: '' },
+  { text: '  - Observability: Full stack monitoring', delay: 100, class: '' },
+  { text: '', delay: 200, class: '' },
+  { text: 'terry@backend-systems:~$ ./launch_portfolio.sh', delay: 300, class: 'boot-warning' },
+  { text: 'Launching portfolio interface...', delay: 200, class: '' },
+  { text: '✓ Portfolio systems online', delay: 500, class: 'boot-success' },
+  { text: 'Welcome to the Terry Brooks DevOps Experience!', delay: 800, class: 'boot-success' }
+];
+
+let bootIndex = 0;
+let bootTimeout;
+
+function displayBootLine() {
+  try {
+    if (bootIndex < bootSequence.length) {
+      const line = bootSequence[bootIndex];
+      const bootOutput = document.getElementById('boot-output');
+
+      if (bootOutput) {
+        const lineElement = document.createElement('div');
+        lineElement.className = `boot-line ${line.class}`;
+        lineElement.textContent = line.text;
+        lineElement.style.animationDelay = '0s';
+        bootOutput.appendChild(lineElement);
+
+        bootIndex++;
+        bootTimeout = setTimeout(displayBootLine, line.delay);
+      } else {
+        console.warn('Boot output element not found');
+        // Fallback: complete boot sequence immediately
+        completeBootSequence();
+      }
+    } else {
+      completeBootSequence();
+    }
+  } catch (error) {
+    console.error('Boot sequence error:', error);
+    completeBootSequence();
+  }
+}
+
+function completeBootSequence() {
+  // Boot sequence complete, hide preloader
+  setTimeout(() => {
+    const preloader = document.getElementById('terminal-preloader');
+    if (preloader) {
+      preloader.style.opacity = '0';
+      preloader.style.transition = 'opacity 0.5s ease-out';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        document.body.classList.remove('hidden');
+      }, 500);
+    } else {
+      // Fallback: just remove hidden class from body
+      document.body.classList.remove('hidden');
+    }
+  }, 1000);
+}
+
+// Initialize terminal boot sequence and welcome animation
+const InitializeIndexPageFeatures = () => {
+  // Start boot sequence when page loads (only on pages with terminal preloader)
+  if (document.getElementById('terminal-preloader')) {
+    setTimeout(displayBootLine, 500);
+  }
+
+  // Initialize welcome animation
+  IndexWelcomeAnimation();
+};
+
+// Start when page loads
+window.addEventListener('load', InitializeIndexPageFeatures);
