@@ -283,6 +283,7 @@ Function Page Load
   function PageLoad() {
 
     gsap.set($('.menu-timeline .before-span'), {y: 120, opacity:0});
+    gsap.set($('.nav-height, nav .outer, nav .inner'), {opacity:0});
 
     // Page Navigation Events
     $('.preloader-wrap').on('mouseenter', function() {
@@ -300,7 +301,7 @@ Function Page Load
       $('#ball p').remove();
     });
 
-    $('body').removeClass('hidden').removeClass('hidden-ball');
+    $('body').removeClass('hidden').removeClass('hidden-ball').removeClass('page-is-changing').removeClass('show-loader');
 
     gsap.to($('#header-container'), {duration: 0.5, opacity:1, delay:0.2, ease:Power2.easeOut});
 
@@ -2334,8 +2335,8 @@ Function Showcase Gallery
     JustifiedGrid();
     Lightbox();
     PlayVideo();
-    ContactForm();
-    ContactMap();
+    if (typeof ContactForm === 'function') ContactForm();
+    if (typeof ContactMap === 'function') ContactMap();
     CustomFunction();
 
   };//End Load Via Ajax
@@ -2500,9 +2501,26 @@ function completeBootSequence() {
 
 // Initialize terminal boot sequence and welcome animation
 const InitializeIndexPageFeatures = () => {
-  // Start boot sequence when page loads (only on pages with terminal preloader)
-  if (document.getElementById('terminal-preloader')) {
-    setTimeout(displayBootLine, 500);
+  // Check if preloader has already been shown during this session
+  const hasSeenPreloader = sessionStorage.getItem('preloaderShown');
+  const preloader = document.getElementById('terminal-preloader');
+
+  if (preloader) {
+    if (hasSeenPreloader) {
+      // Skip preloader - user has already seen it this session
+      preloader.style.display = 'none';
+      document.body.classList.remove('hidden');
+
+      // Also hide the old-style preloader elements
+      const preloaderWrap = document.querySelector('.preloader-wrap');
+      if (preloaderWrap) {
+        preloaderWrap.style.display = 'none';
+      }
+    } else {
+      // Show preloader and mark as seen
+      sessionStorage.setItem('preloaderShown', 'true');
+      setTimeout(displayBootLine, 500);
+    }
   }
 
   // Initialize welcome animation
