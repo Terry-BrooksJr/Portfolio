@@ -6,12 +6,14 @@ jQuery(function ($) {
   $(document).ready(function() {
 
     'use strict';
-
+     
     // Initialize functions with error handling
     try {
       InitializeGSAPContext();
     } catch (e) { console.warn('InitializeGSAPContext failed:', e); }
-
+    try {
+      BurgerMenuAnimation();
+    } catch (e) { console.warn('BurgerMenuAnimation failed:', e); }
     try {
       HeightTitles();
     } catch (e) { console.warn('HeightTitles failed:', e); }
@@ -95,9 +97,22 @@ Function CustomFunction - Template
   
 
   /*--------------------------------------------------
-Function TypeWelcomeMessage
+Function Burger Menu Animation
 ---------------------------------------------------*/
+const BurgerMenuAnimation = () => {
+  var logoBlack = document.getElementById('black-logo');
+  var logoWhite = document.getElementById('white-logo');
+  var overlay = document.getElementById('ba-menu');
 
+logoBlack.addEventListener('click', function() {
+  this.classList.toggle("close");
+  overlay.classList.toggle("overlay");
+});
+logoWhite.addEventListener('click', function() {
+  this.classList.toggle("close");
+  overlay.classList.toggle("overlay");
+});
+};
 
   /*--------------------------------------------------
 Function Copyright Updater
@@ -283,7 +298,7 @@ Function Page Load
   function PageLoad() {
 
     gsap.set($('.menu-timeline .before-span'), {y: 120, opacity:0});
-    gsap.set($('.nav-height, nav .outer, nav .inner'), {opacity:0});
+    gsap.set($('nav, .nav-height, nav .outer, nav .inner'), {opacity:0});
 
     // Page Navigation Events
     $('.preloader-wrap').on('mouseenter', function() {
@@ -2529,3 +2544,6 @@ const InitializeIndexPageFeatures = () => {
 
 // Start when page loads
 window.addEventListener('load', InitializeIndexPageFeatures);
+
+
+console.log('Scripts initialized.');

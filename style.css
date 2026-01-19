@@ -1096,3 +1096,136 @@ footer.showcase-footer {
   color: #cccccc;
   font-size: 0.9rem;
 }
+/* Fix typing animation layout shift */
+#welcome-animation {
+  display: inline-block;
+  min-width: 20ch; /* Accommodate longest string "Добро пожаловать" */
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  #welcome-animation {
+    min-width: 18ch;
+  }
+}
+
+@media (max-width: 479px) {
+  #welcome-animation {
+    min-width: 16ch;
+  }
+}
+
+/* Ensure parent container centers the typing animation */
+#hero-styles .inner {
+  text-align: center;
+}
+
+#ba-burger-menu {
+	cursor: pointer;
+	height: 27px;
+	width: 27px;
+	margin: 50px;
+	overflow: visible;
+	position: relative;
+	z-index: 2;
+
+	.ba > span,
+	.ba > span:before,
+	.ba span:after {
+		background: #fff;
+		display: block;
+		height: 2px;
+		opacity: 1;
+		position: absolute;
+		transition: 0.3s ease-in-out;
+	}
+
+	.ba > span:before,
+	span:after {
+		content: '';
+	}
+
+	// TOP
+	.ba > span:before {
+		left: 0px;
+		top: -10px;
+		width: 27px;
+	}
+
+	// MIDDLE
+	.ba > span {
+		right: 0px;
+		top: 13px;
+		width: 27px;
+	}
+
+	// BOTTOM
+	.ba > span:after {
+		left: 0px;
+		top: 10px;
+		width: 27px;
+	}
+
+	// ROTATION ON CLICK
+	&.close {
+		// TOP
+		.ba > span:before {
+			top: 0px;
+			transform: rotate(90deg);
+			width: 27px;
+		}
+
+		// MIDDLE
+		.ba > span {
+			transform: rotate(-45deg);
+			top: 13px;
+			width: 27px;
+		}
+
+		// BOTTOM
+		.ba > span:after {
+			top: 0px;
+			left: 0;
+			transform: rotate(90deg);
+			opacity: 0;
+			width: 0;
+		}
+	}
+}
+
+#ba-menu {
+	z-index: 1;
+	min-width: 100%;
+	min-height: 100%;
+	position: fixed;
+	top: 0;
+	height: 0;
+	visibility: hidden;
+	opacity: 0;
+	text-align: center;
+	padding-top: 20px;
+	transition: all 0.3s ease-in-out;
+
+	&.overlay {
+		visibility: visible;
+		opacity: 1;
+		padding-top: 100px;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	.ba-unordered-list {
+		padding: 0;
+	}
+
+	.ba-list {
+		list-style: none;
+	}
+
+	.ba-link {
+		color: #fff;
+		display: block;
+		font-size: 32px;
+		margin-bottom: 30px;
+		text-decoration: none;
+	}
+}
