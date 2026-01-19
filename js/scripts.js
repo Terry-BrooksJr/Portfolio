@@ -112,6 +112,18 @@ logoWhite.addEventListener('click', function() {
   this.classList.toggle("close");
   overlay.classList.toggle("overlay");
 });
+document.querySelectorAll('.ba-link').forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault(); // stop default navigation
+
+    const targetPage = link.getAttribute('href');
+
+    // Optional: animation, logging, analytics, dramatic pause
+    console.log(`Navigating to ${targetPage}`);
+
+    window.location.href = targetPage;
+  });
+});
 };
 
   /*--------------------------------------------------
