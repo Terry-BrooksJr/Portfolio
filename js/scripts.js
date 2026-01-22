@@ -1398,8 +1398,6 @@ Function Showcase Portfolio
   }//End Showcase Portfolio
 
 
-  1;
-
   /*--------------------------------------------------
 Function Showcase Gallery
 ---------------------------------------------------*/
