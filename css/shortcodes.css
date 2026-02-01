@@ -1585,7 +1585,62 @@
 	.light-content .light-section .accordion .accordion-content {
 		color:#444;
 	}
-	
+
+	/* Drop Cap for accordion content first letter */
+	.accordion .accordion-content::first-letter {
+		float: left;
+		font-size: 3.5em;
+		line-height: 0.8;
+		padding-right: 0.15em;
+		padding-top: 0.1em;
+		font-weight: 700;
+		color: inherit;
+		font-family: inherit;
+	}
+
+	.accordion.bigger-acc .accordion-content::first-letter {
+		font-size: 4em;
+		line-height: 0.75;
+		padding-right: 0.12em;
+	}
+
+	/* Image inline with text wrap - float image to align with first line */
+	.accordion .accordion-content img,
+	.accordion .accordion-content .content-image {
+		float: left;
+		margin: 0 20px 15px 0;
+		max-width: 200px;
+		height: auto;
+		shape-outside: margin-box;
+		shape-margin: 15px;
+	}
+
+	.accordion.bigger-acc .accordion-content img,
+	.accordion.bigger-acc .accordion-content .content-image {
+		max-width: 250px;
+		margin: 0 25px 20px 0;
+		shape-margin: 20px;
+	}
+
+	/* Float image right variant */
+	.accordion .accordion-content img.float-right,
+	.accordion .accordion-content .content-image.float-right {
+		float: right;
+		margin: 0 0 15px 20px;
+	}
+
+	.accordion.bigger-acc .accordion-content img.float-right,
+	.accordion.bigger-acc .accordion-content .content-image.float-right {
+		margin: 0 0 20px 25px;
+	}
+
+	/* Clear float after content */
+	.accordion .accordion-content::after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
 	.acc-icon-wrap {
 		width: 30px;
 		height: 30px;
