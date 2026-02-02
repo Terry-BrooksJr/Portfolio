@@ -1,0 +1,32 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Static Developer/Portfolio for Github",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Terry-BrooksJr/Portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "terry",
+    "brooks",
+    "developer"
+  ],
+  "author": "Terry A. Brooks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Terry-BrooksJr/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Terry-BrooksJr/Portfolio#readme",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "eslint-plugin-jquery": "^1.5.1",
+    "globals": "^16.2.0"
+  }
+}

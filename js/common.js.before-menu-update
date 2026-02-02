@@ -1589,7 +1589,7 @@ Function First Load
 				$('#header-container').removeClass('light-content-header').removeClass('dark-content-header');
 			} , 50 );
 			$(".flexnav").removeClass("flexnav-show");
-			$('#burger-menu').removeClass("open");
+			$('#menu-burger').removeClass("open");
 			
 			gsap.to("nav", {duration: 0.3, backgroundColor: document.querySelector("#clapat-page-content").getAttribute("data-bgcolor")});
 			
@@ -1621,10 +1621,10 @@ Function First Load
 		});
 
 		
-		$('#burger-menu, .menu .button-text').on('click', function() {
-			$('#burger-menu, nav').toggleClass('open');			
+		$('#burger-wrapper, .menu .button-text').on('click', function() {
+			$('#menu-burger, nav').toggleClass('open');			
 			setTimeout( function(){			
-				if ($('#burger-menu').hasClass("open")) {
+				if ($('#menu-burger').hasClass("open")) {
 					
 					$('.flexnav').addClass('flexnav-show');
 					gsap.to('nav', {duration: 0.3, opacity:1, ease:Power2.easeInOut});

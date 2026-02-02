@@ -1366,7 +1366,32 @@
 		padding-left:30px;
 		padding-right:30px;
 	}
-	
+
+	/* Mobile hero height constraints */
+	#hero-image-wrapper,
+	#hero-image,
+	#hero-caption {
+		height: 70vh !important;
+		max-height: 70vh;
+	}
+
+	#hero-image {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+	}
+
+	#hero.has-image #hero-caption {
+		height: 70vh;
+	}
+
+	/* Hero title mobile sizing */
+	.hero-title {
+		font-size: calc(1rem + 16vw);
+		line-height: calc(1rem + 15vw);
+		margin-bottom: 1rem;
+	}
+
 }
 
 @media only screen and (max-width: 479px) {
@@ -1414,6 +1439,34 @@
 		padding-left:20px;
 		padding-right:20px;
 	}
-		
+
+	/* Mobile hero height constraints (smaller screens) */
+	#hero-image-wrapper,
+	#hero-image,
+	#hero-caption {
+		height: 60vh !important;
+		max-height: 60vh;
+	}
+
+	#hero.has-image #hero-caption {
+		height: 60vh;
+		padding-top: 60px;
+		padding-bottom: 30px;
+	}
+
+	/* Hero title and subtitle mobile sizing */
+	.hero-title {
+		font-size: calc(1rem + 12vw);
+		line-height: calc(1rem + 11vw);
+		margin-bottom: 0.75rem;
+	}
+
+	.hero-subtitle,
+	#sub-welcome-message {
+		font-size: 14px;
+		line-height: 20px;
+		margin-top: 0.5rem;
+	}
+
 }			
 	

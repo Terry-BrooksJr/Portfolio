@@ -23,20 +23,26 @@ Primary use:	Showcase Portfolio
 01. General Settings
 ---------------------------------------------------*/
 :root {
-  /* Colors */
-  --primary-dark: #0A0F0D;
-  --primary-light: #F8F8F2;
-  --secondary: #125D98;
-  --accent-gold: #F4A300;
+  /* Colors - Updated to match transcript specifications */
+  --accent-gold: #C29E5D;
+  --accent-teal: #219EBC;
+  --deep-brown: #362C28;
+  --warm-gray: #D8CABF;
+  --black: #0F0F0F;
+
+  /* Legacy color support (for gradual transition) */
+  --primary-dark: var(--black);
+  --primary-light: var(--warm-gray);
+  --secondary: var(--accent-teal);
   --accent-clay: #DB3A34;
-  --accent-teal: #2AA876;
   --highlight-yellow: #FFDD57;
-  --alt-background: #181B1F;
-  
-  /* Typography - Fixed: removed property names */
-  --title-font: 'Unbounded', sans-serif;
-  --body-font: 'Manrope', sans-serif;
-  --primary-font: 'Poppins', sans-serif;
+  --alt-background: var(--deep-brown);
+
+  /* Typography - Updated to match transcript recommendations */
+  --title-font: 'Sora', 'Space Grotesk', 'Syne', sans-serif;
+  --body-font: 'IBM Plex Sans', 'Work Sans', 'Inter', sans-serif;
+  --code-font: 'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', monospace;
+  --primary-font: var(--body-font);
   
   /* Spacing */
   --header-height: 120px;
@@ -65,8 +71,8 @@ body {
   font-size: 16px;
   height: 100%;
   width: 100%;
-  color: #444;
-  background-color: #fff;
+  color: var(--warm-gray);
+  background-color: var(--black);
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -318,7 +324,6 @@ header {
   position: fixed;
   box-sizing: border-box;
   z-index: 1000;
-  pointer-events: none;
   transition: background 0s ease-in-out;
 }
 
@@ -352,6 +357,24 @@ header {
   width: auto;
   max-width: none;
   transition: opacity 0.15s ease-in-out;
+}
+
+/* Logo visibility control */
+#logo .black-logo {
+  display: block;
+}
+
+#logo .white-logo {
+  display: none;
+}
+
+/* Show white logo on light content */
+.light-content #logo .black-logo {
+  display: none;
+}
+
+.light-content #logo .white-logo {
+  display: block;
 }
 
 /* Burger menu improvements */
@@ -503,11 +526,743 @@ footer.showcase-footer {
 }
 
 /* Landscape orientation lock for mobile */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
   and (orientation: landscape) {
   #rotate-device {
     display: block;
   }
+}
+
+/*--------------------------------------------------
+08. Index Page Specific Styles
+---------------------------------------------------*/
+.index {
+  background-color: var(--primary-dark);
+  padding-bottom: 72px;
+  padding-top: 80px;
+  text-align: center;
+  position: relative;
+  opacity: 0.9;
+}
+
+.index::after {
+  content: "";
+  background: url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/circuit_board_overlay.png) no-repeat center;
+  background-position: 100% bottom;
+  background-size: 250px auto;
+  opacity: 0.25;
+  top: 0;
+  left: 0;
+  bottom: 5%;
+  right: 5%;
+  position: absolute;
+  z-index: -1;
+}
+
+.btn {
+  background-color: var(--accent-clay);
+  color: #fff;
+  border-radius: 0;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #8a2522;
+}
+
+#welcome-animation {
+  font-size: 3.5em;
+  color: var(--accent-gold);
+  text-align: center;
+  margin-top: 20px;
+  font-family: var(--title-font);
+}
+
+.hero-cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  font-family: var(--title-font);
+  background-color: var(--accent-gold);
+  color: var(--black);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-medium);
+  border: 2px solid var(--accent-gold);
+}
+
+.cta-button:hover {
+  background-color: transparent;
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+/* Mobile CTA Button Styles */
+@media (max-width: 767px) {
+  .hero-cta-buttons {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto 0;
+  }
+
+  .cta-button {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-cta-buttons {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .cta-button {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/*--------------------------------------------------
+09. Terminal Interface Styles
+---------------------------------------------------*/
+.terminal-window {
+  width: 800px;
+  height: 400px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  background: #0A0F0D;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #00ff00;
+  overflow-y: scroll;
+  text-align: left;
+}
+
+.terminal-header {
+  background: linear-gradient(135deg, #333, #2a2a2a);
+  height: 30px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid #444;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.close { background: #ff5f57; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #28ca42; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.terminal-body {
+  flex: 1;
+  background: #0A0F0D;
+  padding: 20px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.terminal-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-output {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.terminal-line {
+  margin: 2px 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.prompt {
+  color: #00ff00;
+  display: flex;
+  align-items: center;
+}
+
+.user-info, .hostname {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.at-symbol, .separator, .prompt-symbol {
+  color: #ffffff;
+}
+
+.separator {
+  margin: 0 2px;
+}
+
+.current-dir {
+  color: #5555ff;
+  font-weight: bold;
+}
+
+.prompt-symbol {
+  margin-left: 4px;
+}
+
+.command {
+  color: #ffffff;
+  margin-left: 8px;
+}
+
+.output {
+  color: #cccccc;
+  margin-left: 0;
+}
+
+.error {
+  color: #ff5555;
+}
+
+.success {
+  color: #55ff55;
+}
+
+.warning {
+  color: #ffff55;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  margin-left: 8px;
+  caret-color: #00ff00;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: #00ff00;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+/* Terminal scrollbar styling */
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Terminal file styling */
+.file-listing {
+  color: #ffffff;
+}
+
+.directory {
+  color: #5555ff;
+  font-weight: bold;
+}
+
+.executable {
+  color: #55ff55;
+  font-weight: bold;
+}
+
+.hidden-file {
+  color: #888888;
+}
+
+.permissions {
+  color: #ffff55;
+}
+
+/*--------------------------------------------------
+10. Terminal Preloader Styles
+---------------------------------------------------*/
+.terminal-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0c0c0c;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.terminal-boot-window {
+  width: 80%;
+  max-width: 800px;
+  height: 60%;
+  max-height: 500px;
+  background: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-boot-header {
+  background: linear-gradient(135deg, #333, #2a2a2a);
+  height: 30px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-bottom: 1px solid #444;
+}
+
+.boot-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.boot-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+}
+
+.boot-close { background: #ff5f57; }
+.boot-minimize { background: #ffbd2e; }
+.boot-maximize { background: #28ca42; }
+
+.boot-title {
+  flex: 1;
+  text-align: center;
+  color: #ccc;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.terminal-boot-body {
+  flex: 1;
+  background: #0c0c0c;
+  padding: 20px;
+  overflow-y: auto;
+  color: #00ff00;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.boot-line {
+  margin: 4px 0;
+  opacity: 0;
+  animation: fadeInText 0.1s ease-in forwards;
+}
+
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+  }
+}
+
+.boot-success { color: #55ff55; }
+.boot-warning { color: #ffff55; }
+.boot-error { color: #ff5555; }
+.boot-info { color: #5555ff; }
+
+.boot-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: #00ff00;
+  animation: blink 1s infinite;
+}
+
+/*--------------------------------------------------
+11. About Page Specific Styles
+---------------------------------------------------*/
+.terminal-section {
+  background: #0A0F0D;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-top: 2rem;
+}
+
+.terminal-section .terminal-content {
+  padding: 20px;
+  color: #00ff00;
+}
+
+/* Timeline Styling */
+.timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.timeline-list::before {
+  content: '';
+  position: absolute;
+  left: 2rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-gold);
+}
+
+.timeline-item {
+  display: flex;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.timeline-year {
+  flex: 0 0 4rem;
+  font-weight: bold;
+  color: var(--accent-gold);
+  font-family: var(--title-font);
+  position: relative;
+}
+
+.timeline-year::after {
+  content: '';
+  position: absolute;
+  right: -1.5rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--accent-gold);
+  border-radius: 50%;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-left: 3rem;
+  color: var(--warm-gray);
+}
+
+.timeline-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--warm-gray);
+  font-family: var(--title-font);
+}
+
+.timeline-content p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/*--------------------------------------------------
+12. Contact Page Specific Styles
+---------------------------------------------------*/
+.contact-section {
+  padding: 4rem 0;
+}
+
+.contact-method {
+  background: var(--deep-brown);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border: 2px solid var(--accent-gold);
+  transition: all var(--transition-medium);
+}
+
+.contact-method:hover {
+  background: var(--accent-gold);
+  color: var(--black);
+}
+
+.contact-method h3 {
+  color: var(--accent-gold);
+  font-family: var(--title-font);
+  margin-bottom: 1rem;
+}
+
+.contact-method:hover h3 {
+  color: var(--black);
+}
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.social-link {
+  background: var(--deep-brown);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid var(--accent-teal);
+  transition: all var(--transition-medium);
+  text-decoration: none;
+  color: var(--warm-gray);
+}
+
+.social-link:hover {
+  background: var(--accent-teal);
+  color: var(--black);
+  transform: translateY(-5px);
+}
+
+.social-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--accent-teal);
+}
+
+.social-link:hover .social-icon {
+  color: var(--black);
+}
+
+.ping-terminal {
+  background: #0A0F0D;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-family: var(--code-font);
+  margin: 2rem 0;
+  border: 1px solid var(--accent-gold);
+}
+
+.ping-line {
+  color: #00ff00;
+  margin: 0.5rem 0;
+}
+
+.ping-stats {
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+/* Fix typing animation layout shift */
+#welcome-animation {
+  display: inline-block;
+  min-width: 20ch; /* Accommodate longest string "Добро пожаловать" */
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  #welcome-animation {
+    min-width: 18ch;
+  }
+}
+
+@media (max-width: 479px) {
+  #welcome-animation {
+    min-width: 16ch;
+  }
+}
+
+/* Ensure parent container centers the typing animation */
+#hero-styles .inner {
+  text-align: center;
+}
+
+/* Burger Menu Container */
+#burger-menu {
+	cursor: pointer;
+	height: 27px;
+	width: 27px;
+	margin: 50px;
+	overflow: visible;
+	position: relative;
+	z-index: 100001;
+}
+
+/* Burger Icon Lines - Base Styles */
+#burger-menu .ba > span,
+#burger-menu .ba > span:before,
+#burger-menu .ba > span:after {
+	background: #fff;
+	display: block;
+	height: 2px;
+	opacity: 1;
+	position: absolute;
+	transition: 0.3s ease-in-out;
+}
+
+#burger-menu .ba > span:before,
+#burger-menu .ba > span:after {
+	content: '';
+}
+
+/* TOP line */
+#burger-menu .ba > span:before {
+	left: 0px;
+	top: -10px;
+	width: 27px;
+}
+
+/* MIDDLE line */
+#burger-menu .ba > span {
+	right: 0px;
+	top: 13px;
+	width: 27px;
+}
+
+/* BOTTOM line */
+#burger-menu .ba > span:after {
+	left: 0px;
+	top: 10px;
+	width: 27px;
+}
+
+/* Navigation Overlay Menu */
+#ba-menu {
+	z-index: 100000;
+	min-width: 100%;
+	min-height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+	text-align: center;
+	padding-top: 20px;
+	transition: all 0.3s ease-in-out;
+}
+
+#ba-menu.overlay {
+	visibility: visible;
+	opacity: 1;
+	padding-top: 100px;
+	background: rgba(0, 0, 0, 0.9);
+}
+
+#ba-menu .ba-unordered-list {
+	padding: 0;
+}
+
+#ba-menu .ba-list {
+	list-style: none;
+}
+
+#ba-menu .ba-link {
+	color: #fff;
+	display: block;
+	font-size: 32px;
+	margin-bottom: 30px;
+	text-decoration: none;
+}
+
+#ba-menu .ba-link:hover {
+	color: #F4A300;
+}
+
+/* Burger menu open state - X animation */
+#burger-menu.open .ba > span:before {
+	top: 0px;
+	transform: rotate(90deg);
+	width: 27px;
+}
+
+#burger-menu.open .ba > span {
+	transform: rotate(-45deg);
+	top: 13px;
+	width: 27px;
+}
+
+#burger-menu.open .ba > span:after {
+	top: 0px;
+	left: 0;
+	transform: rotate(90deg);
+	opacity: 0;
+	width: 0;
+}
+
+/* Center the hero inner content */
+#hero-styles .inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* horizontal centering */
+  justify-content: center;
+  text-align: center;
+  padding-inline: 20px;  /* prevents edge hugging on mobile */
+}
+
+/* Keep the welcome text centered and constrained */
+#welcome-animation {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  /* Prevent overflow */
+  overflow-wrap: anywhere;   /* breaks long chunks safely */
+  word-break: normal;
+  hyphens: auto;
+}
+
+#welcome-animation {
+  font-size: clamp(1.6rem, 5vw, 3.5rem);
+  line-height: 1.1;
+}
+
+#welcome-animation {
+  width: 100%;
+  max-width: 28ch; /* or whatever looks right */
 }

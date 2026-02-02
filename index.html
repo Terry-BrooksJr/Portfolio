@@ -1,294 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		
-		ga('create', 'code_here', 'auto');
-		ga('send', 'pageview');
-	</script>
-    
-    <title>Terry A. Brooks, Jr. | Blackberry Py Dev | Homepage</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Homepage for DevOps, Backend Engineer Terry Brooks" />
-    <meta name="author" content="Terry Brooks, Jr. ">
-    <meta charset="UTF-8" />    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'code_here', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <title>Terry A. Brooks, Jr. | Backend Engineering Meets Automation | DevOps Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Homepage for DevOps, Backend Engineer Terry Brooks" >
+    <meta name="author" content="Terry Brooks, Jr.">
+    <meta charset="UTF-8" >
     <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" type="text/css" href="css/flipdown.css">
-    <script type="text/javascript" src="js/flipdown.js"></script>    
-    <link href="style.css" rel="stylesheet" />
-    <link href="css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet"> 
-   
+    <!-- Typography fonts from transcript specifications -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Legacy font support -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+    <!-- Local Stylesheets -->
+    <link href="style.css" rel="stylesheet">
+
 </head>
 
 
-<body class="hidden hidden-ball smooth-scroll1 rounded-borders" data-primary-color="#8c6144">
+<body class="hidden index hidden-ball smooth-scroll1 rounded-borders" data-primary-color="#8c6144">
 
-	
-	<main>		
-        <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Loading">
-            <div class="outer">
-                <div class="inner">                    
-                    <div class="trackbar">
-                    	<div class="preloader-intro">
-                        	<span>Loading</span>
-                        </div>
-                        <div class="loadbar"></div>
-                        <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
+
+    <main class="cd-main">
+        <!-- Terminal Preloader -->
+        <div class="terminal-preloader" id="terminal-preloader">
+            <div class="terminal-boot-window">
+                <div class="terminal-boot-header">
+                    <div class="boot-buttons">
+                        <div class="boot-button boot-close"></div>
+                        <div class="boot-button boot-minimize"></div>
+                        <div class="boot-button boot-maximize"></div>
                     </div>
-                    
-                    <div class="percentage-intro">Please wait, almost there...</div>                     
+                    <div class="boot-title">terry@backend-systems: ~</div>
+                </div>
+
+                <div class="terminal-boot-body" id="boot-output">
+                    <!-- Boot sequence will be populated by JavaScript -->
                 </div>
             </div>
         </div>
-        <!--/Preloader -->     
-        
+        <!--/Terminal Preloader -->
         <div class="cd-index cd-main-content">
-    
-        <!-- Page Content -->
-        <div id="clapat-page-content" class="light-content" data-bgcolor="#0c0c0c">
-            
-            <!-- Header -->
-            <header class="fullscreen-menu invert-header" data-menucolor="#0c0c0c">
-                <div id="header-container">
-                
-                
-                <!-- Logo -->
-                <div id="logo" class="hide-ball">
-                    <a class="ajax-link" data-type="page-transition" href="index.html">
-                        <img class="black-logo" src="images/logo.png" alt="Logo">
-                        <img class="white-logo" src="images/logo-white.png" alt="Logo">
-                    </a>
-                </div>
-                <!--/Logo -->
-                            
-                
-                <!-- Navigation -->
-                <!--
-                <nav> 
-                	<div class="nav-height">
-                        <div class="outer">
-                            <div class="inner">           
-                                <ul data-breakpoint="10025" class="flexnav">
-                                    <li class="link menu-timeline"><a class="" href="#" disabled aria-disabled="true"><div class="before-span">Portfolio(coming soon)</div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><div class="before-span"><span data-hover="About">About</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="contact.html"><div class="before-span"><span data-hover="Contact">Contact</span></div></a></li>
-                                    </li>
-                                </ul>            
-                            </div>
-                        </div> 
-                    </div>          
-                </nav>
-             -->
-                <!--/Navigation -->
-                
-                <!-- Menu Burger -->
-                                <!--
+            <!-- Page Content -->
+            <div id="clapat-page-content" class="light-content" data-bgcolor="#0A0F0D">
+                <!-- Header -->
+                <header class="fullscreen-menu invert-header" data-menucolor="#181B1F">
+                    <div id="header-container">
+                        <!-- Logo -->
+                        <div id="logo" class="hide-ball">
+                                <img id="black-logo" class="black-logo" src="images/logo.svg" alt="Logo">
+                                <img id="white-logo" class="white-logo" src="images/logo-white.svg" alt="Logo">
+                        </div>
+                        <!--/Logo -->
+                        <!-- Navigation -->
+                    <div id="burger-menu">
+                            <span class="ba"></span>
 
-                <div class="button-wrap right menu burger-lines">
-                    <div class="icon-wrap parallax-wrap">
-                        <div class="button-icon parallax-element">
-                            <div id="burger-wrapper">
-                                <div id="menu-burger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
+                        <div id="ba-menu">
+                            <ul class="ba-unordered-list">
+                                <li class="ba-list"><a class="ba-link" href="pages/about.html">About</a></li>
+                                <li class="ba-list"><a class="ba-link" href="pages/projects.html">Projects</a></li>
+                                <li class="ba-list"><a class="ba-link" href="pages/stack.html">Tech Stack</a></li>
+                                <li class="ba-list"><a class="ba-link" href="pages/contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </header>
+                <!--/Header -->
+                <!-- Content Scroll -->
+                <div id="content-scroll">
+                    <!-- Main -->
+                    <div id="main">
+                        <!-- Hero Section -->
+                        <div id="hero">
+                            <div id="hero-styles">
+                                                            <img id="hero-image" class="hero-translate" src="images/hero-homepage.png" alt="Hero Image">
+
+                                        <div class="inner">
+                                            
+                                            <h2 id="welcome-animation" class="primary-font-title caption-timeline">
+                                                Backend Engineering Meets Automation</h2>
+                                            <p id="sub-welcome-message" class="caption-text">Crafting systems with purpose, precision, and curiosity. Where uptime meets attitude.</p>
+
+                                            <div class="hero-cta-buttons">
+                                                <a href="pages/projects.html"
+                                                   class="btn cta-button ajax-link"
+                                                   data-type="page-transition"
+                                                   role="button"
+                                                   aria-label="View my portfolio projects"
+                                                >View My Work</a>
+                                                <a href="pages/stack.html"
+                                                   class="btn cta-button ajax-link"
+                                                   data-type="page-transition"
+                                                   role="button"
+                                                   aria-label="Browse the technology stack I use"
+                                                >Browse the Stack</a>
+                                                <a href="pages/cv.html"
+                                                   class="btn cta-button ajax-link"
+                                                   data-type="page-transition"
+                                                   role="button"
+                                                   aria-label="Download or view my resume"
+                                                >Get the Resume</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div> 
-                </div>
-                -->
-                <!--/Menu Burger -->
-            
-                </div>
-            </header>
-            <!--/Header -->
-            
-            
-            
-            <!-- Content Scroll -->
-            <div id="content-scroll">
-            
-            
-                <!-- Main -->
-                <div id="main">
-                
-                    <!-- Hero Section -->
-                    <div id="hero">
-                        <div id="hero-styles">
-                            <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center height-title">
-                                <div class="inner">                                    
-                                    <h1 class="hero-title caption-timeline primary-font-title"><span>Terry A. Brooks, Jr.</span></h1>
-                                    <div class="hero-subtitle caption-timeline">
-                                    	<span>A PASSIONATE, <br class="destroy"> CUSTOMER-OBSESSED, <br class="destroy"> METRICS-DRIVEN, <br class="destroy"> RESULT-ORIENTED, <br class="destroy">PROBLEM-SOLVER.</span>
-                                    </div>                                   
-                                </div>
-                            </div>
-                            
-                            <div class="flipdown-container">
-                                <h2 class="text-center" id="launch-annoucement"> Updates Will Be Launched in...</h2>
-                                <div id="flipdown" class="flipdown flipdown__theme-light mx-auto"></div>
-                                <h5 class="mt-3 text-center">June 30th 2025 </h5>
-                              </div>
-
-                            <div id="hero-footer">
-                            	<div class="hero-footer-left">
-                                	<div class="button-wrap right scroll-down">
-                                        <div class="icon-wrap parallax-wrap">
-                                            <div class="button-icon parallax-element">
-                                                <i class="fa-solid fa-angle-down"></i>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="button-text sticky right"><span data-hover="Scroll to Explore">Scroll to Explore</span></div>  -->
-                                    </div>
-                                </div>
-                                <!-- <div class="hero-footer-right">
+                        <!-- <div class="hero-footer-right">
                     				<div id="info-text">Featured Projects</div>
                                 </div> -->
-                            </div>                                  
-                        </div>
-                    </div>         
-                        
-                    <!--/Hero Section -->
-                    
-                    
-                    <!-- Main Content -->
-                    <div id="main-content">
-                        </div>
-                        <!--/Main Page Content -->
-                        
-                        
-                        <!-- Page Navigation --> 
-                        <div id="page-nav">
-                            <div class="page-nav-wrap">
-                                <div class="page-nav-caption content-full-width text-align-center height-title">                                 
-                                    <div class="inner">
-                                    	<div class="next-hero-subtitle caption-timeline"><span>WHILE THE SITE IS UNDERGOING A REMODEL...</span></div>
-                                        <a id="linkedin-forward" class="page-title next-ajax-link-page" data-type="page-transition" data-centerline='LinkedIn' href="#">
-                                            <div class="next-hero-title primary-font-title caption-timeline"><span><a href="https://www.linkedin.com/terryabrooks" target="_blank">Pardon My Dust</span></a></div>
-                                        </a>
-                                        <div class="mt-5 next-hero-subtitle caption-timeline"><span>LEARN MORE ABOUT ME AND MY WORK FROM ONE OF MY SOCIAL PROFILES!</span></div>
-
-                                    </div>
-               
-                                </div>
-                            </div>
-                            <div class="mx-auto text-center updating-social-links row">
-                            <div class="d-flex justify-content-around primary-font-title">
-                               <a  href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i id="updating-social-twitter" class="fa-brands fa-x-twitter fa-3x"></i></a>
-                                <a  href="https://github.com/Terry-BrooksJr" target="_blank"><i id="updating-social-github" class="fa-brands fa-github fa-3x"></i></a>
-                                <a  href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i id="updating-social-linkedin" class="fa-brands fa-linkedin fa-3x"></i></a>
-
-                            </div>
-
-                        </div>
-                        </div>      
-                        <!--/Page Navigation -->
-                        
-
                     </div>
-                    <!--/Main Content --> 
-                
                 </div>
-                <!--/Main -->
-                
-                <!-- Footer -->
-                <footer class="hidden">        	
-                    <div id="footer-container">
-                        
-                        <div id="backtotop" class="button-wrap left">
-                            <div class="icon-wrap parallax-wrap">
-                                <div class="button-icon parallax-element">
-                                    <i class="fa-solid fa-angle-up"></i>
-                                </div>
-                            </div>
-                            <div class="button-text sticky left"><span data-hover="Back Top">Back Top</span></div> 
+            </div>
+            <!--/Hero Section -->
+            <!-- Main Content -->
+        </div>
+
+        </div> <!--/Page Navigation -->
+
+        <!--/Main Content -->
+
+        </div>
+        <!--/Main -->
+
+        <!-- Footer -->
+        <footer>
+            <div id="footer-container">
+
+                <div id="backtotop" class="button-wrap left">
+                    <div class="icon-wrap parallax-wrap">
+                        <div class="button-icon parallax-element">
+                            <i style="color:#fff" class="fa-solid fa-angle-up"></i>
                         </div>
-                        
-                        <div class="footer-middle">
-                            <div class="copyright"><span id="copyright-year"></span> © Terry A. Brooks, Jr. All rights reserved.</div>
-                        </div>
-                        <div class="socials-wrap">            	
-                            <div class="socials-icon"><i class="fa-solid fa-share-nodes"></i></div>
-                            <div class="socials-text">Follow Me</div>
-                            <ul class="socials">
-                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></span></li>
-                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://github.com/Terry-BrooksJr" target="_blank"><i class="fa-brands fa-github"></i></a></span></li>
-                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></span></li>
-                            </ul>                
-                        </div>
-                        
                     </div>
-                </footer>
-                <!--/Footer -->
-            
-        
-        	</div>
-            <!--/Content Scroll -->
-            
-            
-            <div id="app"></div>
-            
-            
-		</div>    
+                </div>
+                <div class="footer-middle">
+                    <div id="copyright-block" class="copyright"><span id="copyright-year"></span> © Terry A. Brooks, Jr.
+                        All rights reserved.</div>
+                </div>
+                <div class="socials-wrap">
+                    <div class="socials-icon"><i style="color:#fff" class="fa-solid fa-share-nodes"></i></div>
+                    <div class="socials-text" style="color:#fff">Follow Me</div>
+                    <ul class="socials">
+                        <li><span class="parallax-wrap"><a class="parallax-element"
+                                    href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i style="color:#fff"
+                                        class="fa-brands fa-x-twitter"></i></a></span></li>
+                        <li><span class="parallax-wrap"><a class="parallax-element"
+                                    href="https://github.com/Terry-BrooksJr" target="_blank"><i style="color:#fff"
+                                        class="fa-brands fa-github"></i></a></span></li>
+                        <li><span class="parallax-wrap"><a class="parallax-element"
+                                    href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i
+                                        class="fa-brands fa-linkedin" style="color:#fff"></i></a></span></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <!--/Footer -->
+    <!--/Content Scroll -->
+
+
+        <div id="app"></div>
         <!--/Page Content -->
-    
-		</div>
-	</main>
-    
-    
-    
-    
+    </main>
     <div class="cd-cover-layer"></div>
     <div id="magic-cursor">
         <div id="ball">
-        	<div id="ball-drag-x"></div>
+            <div id="ball-drag-x"></div>
             <div id="ball-drag-y"></div>
-        	<div id="ball-loader"></div>
+            <div id="ball-loader"></div>
         </div>
     </div>
     <div id="clone-image">
-    	<div class="hero-translate"></div>
+        <div class="hero-translate"></div>
     </div>
     <div id="rotate-device"></div>
-    
-    
+
+
+    <!-- External Dependencies -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
-    <script src="js/jquery.min.js"></script>       
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
-    
-    <script src="js/clapat.js"></script>
-	<script src="js/plugins.js"></script>
-    
-    <script src="js/common.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <!-- Google Maps removed - not used in current contact page implementation -->
 
-
-
-
+    <!-- Local Scripts with cache busting -->
+    <script src="js/clapat.js?v=1.0.1"></script>
+    <script src="js/plugins.js?v=1.0.1"></script>
+    <script src="js/common.js?v=1.0.1"></script>
+    <script src="js/scripts.js?v=1.0.1"></script>
 </body>
 
 </html>
