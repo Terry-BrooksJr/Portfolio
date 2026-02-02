@@ -1252,114 +1252,117 @@ footer.showcase-footer {
   text-align: center;
 }
 
-#ba-burger-menu {
+/* Burger Menu Container */
+#burger-menu {
 	cursor: pointer;
 	height: 27px;
 	width: 27px;
 	margin: 50px;
 	overflow: visible;
 	position: relative;
-	z-index: 2;
-
-	.ba > span,
-	.ba > span:before,
-	.ba span:after {
-		background: #fff;
-		display: block;
-		height: 2px;
-		opacity: 1;
-		position: absolute;
-		transition: 0.3s ease-in-out;
-	}
-
-	.ba > span:before,
-	span:after {
-		content: '';
-	}
-
-	// TOP
-	.ba > span:before {
-		left: 0px;
-		top: -10px;
-		width: 27px;
-	}
-
-	// MIDDLE
-	.ba > span {
-		right: 0px;
-		top: 13px;
-		width: 27px;
-	}
-
-	// BOTTOM
-	.ba > span:after {
-		left: 0px;
-		top: 10px;
-		width: 27px;
-	}
-
-	// ROTATION ON CLICK
-	&.close {
-		// TOP
-		.ba > span:before {
-			top: 0px;
-			transform: rotate(90deg);
-			width: 27px;
-		}
-
-		// MIDDLE
-		.ba > span {
-			transform: rotate(-45deg);
-			top: 13px;
-			width: 27px;
-		}
-
-		// BOTTOM
-		.ba > span:after {
-			top: 0px;
-			left: 0;
-			transform: rotate(90deg);
-			opacity: 0;
-			width: 0;
-		}
-	}
+	z-index: 100001;
 }
 
+/* Burger Icon Lines - Base Styles */
+#burger-menu .ba > span,
+#burger-menu .ba > span:before,
+#burger-menu .ba > span:after {
+	background: #fff;
+	display: block;
+	height: 2px;
+	opacity: 1;
+	position: absolute;
+	transition: 0.3s ease-in-out;
+}
+
+#burger-menu .ba > span:before,
+#burger-menu .ba > span:after {
+	content: '';
+}
+
+/* TOP line */
+#burger-menu .ba > span:before {
+	left: 0px;
+	top: -10px;
+	width: 27px;
+}
+
+/* MIDDLE line */
+#burger-menu .ba > span {
+	right: 0px;
+	top: 13px;
+	width: 27px;
+}
+
+/* BOTTOM line */
+#burger-menu .ba > span:after {
+	left: 0px;
+	top: 10px;
+	width: 27px;
+}
+
+/* Navigation Overlay Menu */
 #ba-menu {
 	z-index: 100000;
 	min-width: 100%;
 	min-height: 100%;
 	position: fixed;
 	top: 0;
-	height: 0;
+	left: 0;
+	height: 100%;
 	visibility: hidden;
 	opacity: 0;
 	text-align: center;
 	padding-top: 20px;
 	transition: all 0.3s ease-in-out;
+}
 
-	&.overlay {
-		visibility: visible;
-		opacity: 1;
-		padding-top: 100px;
-		background: rgba(0, 0, 0, 0.5);
-	}
+#ba-menu.overlay {
+	visibility: visible;
+	opacity: 1;
+	padding-top: 100px;
+	background: rgba(0, 0, 0, 0.9);
+}
 
-	.ba-unordered-list {
-		padding: 0;
-	}
+#ba-menu .ba-unordered-list {
+	padding: 0;
+}
 
-	.ba-list {
-		list-style: none;
-	}
+#ba-menu .ba-list {
+	list-style: none;
+}
 
-	.ba-link {
-		color: #fff;
-		display: block;
-		font-size: 32px;
-		margin-bottom: 30px;
-		text-decoration: none;
-	}
+#ba-menu .ba-link {
+	color: #fff;
+	display: block;
+	font-size: 32px;
+	margin-bottom: 30px;
+	text-decoration: none;
+}
+
+#ba-menu .ba-link:hover {
+	color: #F4A300;
+}
+
+/* Burger menu open state - X animation */
+#burger-menu.open .ba > span:before {
+	top: 0px;
+	transform: rotate(90deg);
+	width: 27px;
+}
+
+#burger-menu.open .ba > span {
+	transform: rotate(-45deg);
+	top: 13px;
+	width: 27px;
+}
+
+#burger-menu.open .ba > span:after {
+	top: 0px;
+	left: 0;
+	transform: rotate(90deg);
+	opacity: 0;
+	width: 0;
 }
 
 /* Center the hero inner content */
