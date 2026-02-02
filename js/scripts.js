@@ -102,28 +102,43 @@ Function Burger Menu Animation
 const BurgerMenuAnimation = () => {
   var logoBlack = document.getElementById('black-logo');
   var logoWhite = document.getElementById('white-logo');
+  var burgerMenu = document.getElementById('burger-menu');
   var overlay = document.getElementById('ba-menu');
 
-logoBlack.addEventListener('click', function() {
-  this.classList.toggle("close");
-  overlay.classList.toggle("overlay");
-});
-logoWhite.addEventListener('click', function() {
-  this.classList.toggle("close");
-  overlay.classList.toggle("overlay");
-});
-document.querySelectorAll('.ba-link').forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault(); // stop default navigation
+  // Toggle menu function
+  const toggleMenu = () => {
+    if (burgerMenu) burgerMenu.classList.toggle("open");
+    if (overlay) overlay.classList.toggle("overlay");
+  };
 
-    const targetPage = link.getAttribute('href');
+  // Burger menu click handler
+  if (burgerMenu) {
+    burgerMenu.addEventListener('click', toggleMenu);
+  }
 
-    // Optional: animation, logging, analytics, dramatic pause
-    console.log(`Navigating to ${targetPage}`);
+  // Logo click handlers (optional - keep for backwards compatibility)
+  if (logoBlack) {
+    logoBlack.addEventListener('click', function() {
+      this.classList.toggle("close");
+      toggleMenu();
+    });
+  }
+  if (logoWhite) {
+    logoWhite.addEventListener('click', function() {
+      this.classList.toggle("close");
+      toggleMenu();
+    });
+  }
 
-    window.location.href = targetPage;
+  // Navigation link handlers
+  document.querySelectorAll('.ba-link').forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();
+      const targetPage = link.getAttribute('href');
+      console.log(`Navigating to ${targetPage}`);
+      window.location.href = targetPage;
+    });
   });
-});
 };
 
   /*--------------------------------------------------
