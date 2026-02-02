@@ -100,30 +100,30 @@ Function CustomFunction - Template
 Function Burger Menu Animation
 ---------------------------------------------------*/
 const BurgerMenuAnimation = () => {
-  var logoBlack = document.getElementById('black-logo');
-  var logoWhite = document.getElementById('white-logo');
-  var overlay = document.getElementById('ba-menu');
+  // Standard Montoya theme burger menu animation
+  // Uses the documented menu burger pattern with #menu-burger
+  var menuBurger = document.getElementById('menu-burger');
+  var burgerWrapper = document.getElementById('burger-wrapper');
 
-logoBlack.addEventListener('click', function() {
-  this.classList.toggle("close");
-  overlay.classList.toggle("overlay");
-});
-logoWhite.addEventListener('click', function() {
-  this.classList.toggle("close");
-  overlay.classList.toggle("overlay");
-});
-document.querySelectorAll('.ba-link').forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault(); // stop default navigation
+  if (menuBurger && burgerWrapper) {
+    burgerWrapper.addEventListener('click', function() {
+      document.body.classList.toggle('menu-open');
+      menuBurger.classList.toggle('open');
+    });
+  }
 
-    const targetPage = link.getAttribute('href');
-
-    // Optional: animation, logging, analytics, dramatic pause
-    console.log(`Navigating to ${targetPage}`);
-
-    window.location.href = targetPage;
+  // Handle ajax-link navigation (Montoya standard pattern)
+  document.querySelectorAll('.ajax-link').forEach(link => {
+    link.addEventListener('click', event => {
+      // Allow default AJAX handling from theme
+      // Only prevent default if AJAX is disabled
+      if (document.body.classList.contains('disable-ajaxload')) {
+        event.preventDefault();
+        const targetPage = link.getAttribute('href');
+        window.location.href = targetPage;
+      }
+    });
   });
-});
 };
 
   /*--------------------------------------------------

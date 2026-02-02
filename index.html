@@ -29,20 +29,18 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    <!-- Typography fonts from transcript specifications -->
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Work+Sans:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400;500&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Legacy font support -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Six+Caps&display=swap" rel="stylesheet">
+    <!-- Typography - Primary Fonts -->
+    <!-- Orbitron: Headings | Inter: Body | Bricolage Grotesque & Syne: Buttons/Callouts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Code/Terminal fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Local Stylesheets -->
     <link href="style.css" rel="stylesheet">
 
 </head>
 
 
-<body class="hidden index hidden-ball smooth-scroll1 rounded-borders" data-primary-color="#8c6144">
+<body class="hidden index hidden-ball smooth-scroll rounded-borders" data-primary-color="#8c6144">
 
 
     <main class="cd-main">
@@ -77,19 +75,39 @@
                         </div>
                         <!--/Logo -->
                         <!-- Navigation -->
-                    <div id="burger-menu">
-                            <span class="ba"></span>
-
-                        <div id="ba-menu">
-                            <ul class="ba-unordered-list">
-                                <li class="ba-list"><a class="ba-link" href="pages/about.html">About</a></li>
-                                <li class="ba-list"><a class="ba-link" href="pages/projects.html">Projects</a></li>
-                                <li class="ba-list"><a class="ba-link" href="pages/stack.html">Tech Stack</a></li>
-                                <li class="ba-list"><a class="ba-link" href="pages/contact.html">Contact</a></li>
-                            </ul>
+                    <!-- Navigation -->
+                    <nav>
+                        <div class="nav-height">
+                            <div class="outer">
+                                <div class="inner">
+                                    <ul data-breakpoint="10025" class="flexnav">
+                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><div class="before-span"><span data-hover="Me">About</span></div></a></li>
+                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="pages/projects.html"><div class="before-span"><span data-hover="Portfolio">Projects</span></div></a></li>
+                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="stack.html"><div class="before-span"><span data-hover="Tools">Tech Stack</span></div></a></li>
+                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="pages/contact.html"><div class="before-span"><span data-hover="Say Hi">Contact</span></div></a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                       
+                    </nav>
+                    <!--/Navigation -->
+
+                    <!-- Menu Burger -->
+                    <div class="button-wrap right menu burger-dots">
+                        <div class="icon-wrap parallax-wrap">
+                            <div class="button-icon parallax-element">
+                                <div id="burger-wrapper">
+                                    <div id="menu-burger">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
                     </div>
+                    <!--/Menu Burger -->
                 </header>
                 <!--/Header -->
                 <!-- Content Scroll -->
@@ -114,7 +132,7 @@
                                                    role="button"
                                                    aria-label="View my portfolio projects"
                                                 >View My Work</a>
-                                                <a href="pages/stack.html"
+                                                <a href="stack.html"
                                                    class="btn cta-button ajax-link"
                                                    data-type="page-transition"
                                                    role="button"
