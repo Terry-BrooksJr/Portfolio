@@ -1,8 +1,11 @@
 /*------------------------------------------------------------------
 Project:	Serano - Creative Portfolio Template
-Version:	1.1 (Refactored)
-Primary use:	Showcase Portfolio 
+Version:	1.2 (Typography Update)
+Primary use:	Showcase Portfolio
 -------------------------------------------------------------------*/
+
+/* Google Fonts Import - Primary Typography */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap');
 
 @import url("css/content.css");
 @import url("css/showcase.css");
@@ -14,7 +17,7 @@ Primary use:	Showcase Portfolio
 02. Magic Cursor
 03. Page Preloader
 04. Header Elements
-05. Main Content 
+05. Main Content
 06. Footer Elements
 07. Responsive Media Queries
 -------------------------------------------------------------------*/
@@ -38,16 +41,22 @@ Primary use:	Showcase Portfolio
   --highlight-yellow: #FFDD57;
   --alt-background: var(--deep-brown);
 
-  /* Typography - Updated to match transcript recommendations */
-  --title-font: 'Sora', 'Space Grotesk', 'Syne', sans-serif;
-  --body-font: 'IBM Plex Sans', 'Work Sans', 'Inter', sans-serif;
+  /* Typography - New Implementation */
+  /* Headings: Orbitron - futuristic, techy, bold */
+  --title-font: 'Orbitron', sans-serif;
+  /* Body: Inter - clean, highly legible */
+  --body-font: 'Inter', sans-serif;
+  /* Playful/Buttons/Callouts: Bricolage Grotesque or Syne */
+  --accent-font: 'Bricolage Grotesque', 'Syne', sans-serif;
+  /* Code/Terminal: Monospace stack */
   --code-font: 'JetBrains Mono', 'IBM Plex Mono', 'Fira Code', monospace;
+  /* Legacy support */
   --primary-font: var(--body-font);
-  
+
   /* Spacing */
   --header-height: 120px;
   --footer-height: 120px;
-  
+
   /* Transitions */
   --transition-fast: 0.2s ease-in-out;
   --transition-medium: 0.3s ease-in-out;
@@ -66,9 +75,10 @@ Primary use:	Showcase Portfolio
 
 html,
 body {
-  font-family: var(--primary-font);
+  font-family: var(--body-font);
   font-weight: 400;
   font-size: 16px;
+  line-height: 1.6;
   height: 100%;
   width: 100%;
   color: var(--warm-gray);
@@ -77,6 +87,82 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+/*--------------------------------------------------
+Typography - Orbitron for Headings, Inter for Body
+---------------------------------------------------*/
+
+/* Headings - Orbitron (futuristic, techy) */
+h1, h2, h3, h4, h5, h6,
+.title,
+.hero-title,
+.big-title,
+.primary-font-title,
+.next-hero-title,
+.slide-hero-title {
+  font-family: var(--title-font);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Body text - Inter (clean, legible) */
+body, p, li, span,
+.content,
+.hero-subtitle,
+.caption-text,
+.accordion-content,
+.narrative-text {
+  font-family: var(--body-font);
+  font-weight: 400;
+}
+
+/* Buttons and Callouts - Bricolage Grotesque/Syne (playful character) */
+.btn,
+.cta-button,
+.button-text,
+.button-wrap,
+.ajax-link,
+nav a,
+.flexnav a,
+.menu-timeline a {
+  font-family: var(--accent-font);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* Code/Terminal elements */
+code, pre,
+.terminal-preloader,
+.terminal-boot-window,
+.ping-terminal,
+.ping-line,
+.ping-stats {
+  font-family: var(--code-font);
+  font-weight: 400;
+}
+
+/* Specific weight adjustments */
+h1 { font-weight: 700; }
+h2 { font-weight: 600; }
+h3, h4 { font-weight: 500; }
+h5, h6 { font-weight: 400; }
+
+/* Navigation text */
+.flexnav span,
+.before-span span {
+  font-family: var(--accent-font);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Footer text */
+.copyright,
+.socials-text {
+  font-family: var(--body-font);
+  font-weight: 400;
 }
 
 html {
@@ -392,23 +478,70 @@ header {
   pointer-events: initial;
 }
 
-.burger-dots #menu-burger span {
+#menu-burger {
+  width: 22px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#menu-burger span {
   display: block;
-  position: absolute;
-  height: 5px;
-  width: 5px;
-  border-radius: 5px;
-  background-color: #000;
+  height: 2px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
   opacity: 1;
-  top: 8px;
-  left: 0;
-  transform: rotate(0deg);
-  transition: background-color 0.05s ease-in-out,
-              transform var(--transition-fast),
-              height var(--transition-fast),
-              width var(--transition-fast),
-              top var(--transition-fast),
-              left var(--transition-fast);
+  transition: transform 0.3s ease-in-out,
+              opacity 0.3s ease-in-out,
+              background-color 0.3s ease-in-out;
+}
+
+/* Dark content - dark burger lines */
+.dark-content #menu-burger span,
+.invert-header #menu-burger span {
+  background-color: #000;
+}
+
+/* Light content - white burger lines */
+.light-content #menu-burger span {
+  background-color: #fff;
+}
+
+/* Burger dots variant (three dots) */
+.burger-dots #menu-burger {
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.burger-dots #menu-burger span {
+  height: 4px;
+  width: 4px;
+  border-radius: 50%;
+}
+
+/* Burger lines variant (three lines) */
+.burger-lines #menu-burger span {
+  height: 2px;
+  border-radius: 2px;
+}
+
+/* Menu open state animation */
+.menu-open #menu-burger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-open #menu-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-open #menu-burger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /*--------------------------------------------------
@@ -1265,4 +1398,144 @@ footer.showcase-footer {
 #welcome-animation {
   width: 100%;
   max-width: 28ch; /* or whatever looks right */
+}
+
+
+
+.accordion-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  position: relative;
+}
+
+.accordion-content img {
+  width: 60px;
+  height: auto;
+  flex-shrink: 0;
+  float: left;
+  shape-outside: margin-box;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.accordion-content p {
+  margin: 0;
+  text-align: justify;
+}
+
+.accordion-content p::first-letter {
+  float: left;
+  font-size: 3.2rem;
+  line-height: 1;
+  font-weight: bold;
+  margin-right: 0.25rem;
+  margin-top: 0.1rem;
+  color: #000;
+}
+dd.accordion-content {
+  position: relative;
+  overflow: hidden;
+  padding: 1em;
+}
+
+.icon-wrap {
+  float: left;
+  shape-outside: url('/images/icons/core-drivers-icon.png');
+  shape-margin: 10px;
+  width: 150px;
+  height: auto;
+  margin-right: 1em;
+}
+
+.wrap-icon {
+  width: 100%;
+  height: auto;
+  display: block;
+  clip-path: inset(0%); /* needed for shape-outside to apply */
+}
+
+.narrative-text::first-letter {
+  float: left;
+  font-size: 3em;
+  line-height: 1;
+  font-weight: bold;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
+}
+
+.wrapped-icon {
+  float: left;
+  width: 150px;
+  height: auto;
+  shape-margin: 1rem;
+  -webkit-shape-outside: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+  shape-outside: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+}
+
+.wrapped-icon.core-driver {
+  shape-outside: polygon(48% 0%, 65% 4%, 82% 18%, 89% 42%, 85% 65%, 68% 88%, 32% 90%, 15% 72%, 11% 44%, 20% 18%);
+  clip-path: polygon(48% 0%, 65% 4%, 82% 18%, 89% 42%, 85% 65%, 68% 88%, 32% 90%, 15% 72%, 11% 44%, 20% 18%);
+}
+
+.wrapped-icon.social-work {
+  shape-outside: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  clip-path: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+}
+
+.wrapped-icon.turning-point {
+  shape-outside: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  clip-path: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+}
+
+.wrapped-icon.current-role {
+  shape-outside: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  clip-path: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+}
+
+.wrapped-icon.devops-future {
+  shape-outside: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+}
+
+.accordion-content .icon-container {
+  float: left;
+  width: 120px;
+  height: 120px;
+  shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  margin: 0 1.5rem 1rem 0;
+  -webkit-shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  shape-margin: 8px;
+}
+
+.icon-container img {
+  float: left;
+  width: 130px;
+  height: auto;
+  shape-outside: url(/images/icons/core-drivers-icon.png);
+  -webkit-shape-outside: url(/images/icons/core-drivers-icon.png);
+  clip-path: url(#core-drivers-clip);
+  shape-margin: 16px;
+  margin-right: 20px;
+  margin-bottom: 12px;
+  display: block;
+}
+.wrap-icon {
+    float: left;
+    width: 100px;
+    shape-outside: url("/images/icons/core-drivers-icon.png");
+    -webkit-shape-outside: url("/images/icons/core-drivers-icon.png");
+    shape-margin: 1rem;
+    margin: 0 1.5rem 1rem 0;
+    clip-path: url("#core-drivers-clip");
+}
+
+.wrap-core-drivers {
+    shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+    clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
 }
