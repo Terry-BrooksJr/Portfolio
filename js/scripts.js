@@ -100,30 +100,10 @@ Function CustomFunction - Template
 Function Burger Menu Animation
 ---------------------------------------------------*/
 const BurgerMenuAnimation = () => {
-  // Standard Montoya theme burger menu animation
-  // Uses the documented menu burger pattern with #menu-burger
-  var menuBurger = document.getElementById('menu-burger');
-  var burgerWrapper = document.getElementById('burger-wrapper');
-
-  if (menuBurger && burgerWrapper) {
-    burgerWrapper.addEventListener('click', function() {
-      document.body.classList.toggle('menu-open');
-      menuBurger.classList.toggle('open');
-    });
-  }
-
-  // Handle ajax-link navigation (Montoya standard pattern)
-  document.querySelectorAll('.ajax-link').forEach(link => {
-    link.addEventListener('click', event => {
-      // Allow default AJAX handling from theme
-      // Only prevent default if AJAX is disabled
-      if (document.body.classList.contains('disable-ajaxload')) {
-        event.preventDefault();
-        const targetPage = link.getAttribute('href');
-        window.location.href = targetPage;
-      }
-    });
-  });
+  // Burger menu animation is handled by common.js FirstLoad()
+  // The template's common.js binds #burger-wrapper and .menu .button-text
+  // click handlers with full GSAP animation support
+  // This function is kept as a no-op for LoadViaAjax compatibility
 };
 
   /*--------------------------------------------------
@@ -2346,6 +2326,8 @@ Function Showcase Gallery
   window.LoadViaAjax = function() {
     HeightTitles();
     CleanupBeforeAjax();
+    BurgerMenuAnimation();
+    UpdateCopyright();
     FirstLoad();
     ScrollEffects();
     Sliders();

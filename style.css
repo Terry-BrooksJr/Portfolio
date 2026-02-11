@@ -63,15 +63,7 @@ Primary use:	Showcase Portfolio
   --transition-slow: 0.5s ease-in-out;
 }
 
-@font-face {
-  font-family: 'Unbounded';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src:
-    url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/Unbounded-Bold.woff2) format('woff2'),
-    url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/Unbounded-Bold.woff) format('woff');
-}
+/* Unbounded font removed - not used in current typography system */
 
 html,
 body {
@@ -682,7 +674,7 @@ footer.showcase-footer {
 
 .index::after {
   content: "";
-  background: url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/circuit_board_overlay.png) no-repeat center;
+  background: url(images/circuit_board_overlay.png) no-repeat center;
   background-position: 100% bottom;
   background-size: 250px auto;
   opacity: 0.25;
@@ -1438,44 +1430,94 @@ dd.accordion-content {
   padding: 1em;
 }
 
-.icon-wrap {
-  float: left;
-  shape-outside: url('/images/icons/core-drivers-icon.png');
-  shape-margin: 10px;
-  width: 150px;
-  height: auto;
-  margin-right: 1em;
-}
+/*--------------------------------------------------
+Accordion Icon System - Consolidated
+---------------------------------------------------
+USAGE:
+- .accordion-icon: Base class for all accordion floated icons
+- .accordion-icon--{variant}: Modifier for specific icon shapes
+  Variants: core-drivers, social-work, turning-point, current-role, devops-future
 
-.wrap-icon {
-  width: 100%;
+EXAMPLE:
+<img src="icon.png" alt="" class="accordion-icon accordion-icon--core-drivers">
+---------------------------------------------------*/
+
+/* Base accordion icon - floated left with text wrap */
+.accordion-icon {
+  float: left;
+  width: 120px;
   height: auto;
+  margin: 0 1.5rem 1rem 0;
+  shape-margin: 12px;
   display: block;
-  clip-path: inset(0%); /* needed for shape-outside to apply */
+  /* Default octagonal shape */
+  shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  -webkit-shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
 }
 
-.narrative-text::first-letter {
-  float: left;
-  font-size: 3em;
-  line-height: 1;
-  font-weight: bold;
-  margin-right: 0.1em;
-  margin-top: 0.05em;
+/* Variant: Core Drivers - irregular gem shape */
+.accordion-icon--core-drivers {
+  shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  -webkit-shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  -webkit-clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
 }
 
+/* Variant: Social Work - organic rounded shape */
+.accordion-icon--social-work {
+  shape-outside: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  clip-path: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  -webkit-shape-outside: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  -webkit-clip-path: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+}
+
+/* Variant: Turning Point - asymmetric crystal */
+.accordion-icon--turning-point {
+  shape-outside: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  clip-path: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  -webkit-shape-outside: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  -webkit-clip-path: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+}
+
+/* Variant: Current Role - badge shape */
+.accordion-icon--current-role {
+  shape-outside: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  clip-path: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  -webkit-shape-outside: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  -webkit-clip-path: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+}
+
+/* Variant: DevOps Future - hexagonal tech shape */
+.accordion-icon--devops-future {
+  shape-outside: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  -webkit-shape-outside: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  -webkit-clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+}
+
+/*--------------------------------------------------
+Legacy icon classes - Deprecated, use .accordion-icon instead
+---------------------------------------------------*/
+/* @deprecated Use .accordion-icon */
+.wrap-icon,
 .wrapped-icon {
   float: left;
-  width: 150px;
+  width: 120px;
   height: auto;
-  shape-margin: 1rem;
-  -webkit-shape-outside: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-  shape-outside: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-  clip-path: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+  margin: 0 1.5rem 1rem 0;
+  shape-margin: 12px;
+  display: block;
+  shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
 }
 
+/* @deprecated Legacy variant mappings */
+.wrap-icon.wrap-core-drivers,
 .wrapped-icon.core-driver {
-  shape-outside: polygon(48% 0%, 65% 4%, 82% 18%, 89% 42%, 85% 65%, 68% 88%, 32% 90%, 15% 72%, 11% 44%, 20% 18%);
-  clip-path: polygon(48% 0%, 65% 4%, 82% 18%, 89% 42%, 85% 65%, 68% 88%, 32% 90%, 15% 72%, 11% 44%, 20% 18%);
+  shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
 }
 
 .wrapped-icon.social-work {
@@ -1498,41 +1540,220 @@ dd.accordion-content {
   clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
 }
 
+/* Accordion content icon container - wrapper element */
 .accordion-content .icon-container {
   float: left;
   width: 120px;
   height: 120px;
+  margin: 0 1.5rem 1rem 0;
+  shape-margin: 8px;
   shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
   clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
-  margin: 0 1.5rem 1rem 0;
   -webkit-shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
   -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
-  shape-margin: 8px;
 }
 
-.icon-container img {
-  float: left;
-  width: 130px;
+/* Images inside icon containers inherit clip from container */
+.accordion-content .icon-container img {
+  width: 100%;
   height: auto;
-  shape-outside: url(/images/icons/core-drivers-icon.png);
-  -webkit-shape-outside: url(/images/icons/core-drivers-icon.png);
-  clip-path: url(#core-drivers-clip);
-  shape-margin: 16px;
-  margin-right: 20px;
-  margin-bottom: 12px;
   display: block;
 }
-.wrap-icon {
-    float: left;
-    width: 100px;
-    shape-outside: url("/images/icons/core-drivers-icon.png");
-    -webkit-shape-outside: url("/images/icons/core-drivers-icon.png");
-    shape-margin: 1rem;
-    margin: 0 1.5rem 1rem 0;
-    clip-path: url("#core-drivers-clip");
+
+/*--------------------------------------------------
+Narrative Text Styling
+---------------------------------------------------*/
+/*--------------------------------------------------
+DD Element Typography & Layout System
+---------------------------------------------------
+Implements:
+1. Drop cap styling for first letter
+2. Inline image placement with shape-aware text wrapping
+3. Per-item customization based on PNG silhouettes
+4. Section isolation between dd elements
+---------------------------------------------------*/
+
+/* Base dd element - isolated layout context */
+dd.accordion-content {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5em;
+  contain: layout style; /* Section isolation */
+  display: block;
 }
 
-.wrap-core-drivers {
+/* Clear floats within each dd to prevent layout leakage */
+dd.accordion-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*--------------------------------------------------
+DD Icon System - Shape-aware text wrapping
+Uses shape-outside: url() for true alpha-based wrapping
+---------------------------------------------------*/
+
+/* Base icon class */
+.dd-icon {
+  float: left;
+  width: 140px;
+  height: auto;
+  margin: 0 1.25rem 0.75rem 0;
+  shape-margin: 15px;
+  display: block;
+  /* Use the image's alpha channel for text wrapping */
+  shape-outside: url('images/icons/core-driver.png');
+  shape-image-threshold: 0.1;
+}
+
+/* Per-icon shape-outside using actual PNG alpha channels */
+.dd-icon--core-drivers {
+  shape-outside: url('images/icons/core-driver.png');
+  width: 130px;
+}
+
+.dd-icon--social-work {
+  shape-outside: url('images/icons/social-work.png');
+  width: 160px; /* Wider due to horizontal layout */
+  shape-margin: 12px;
+}
+
+.dd-icon--turning-point {
+  shape-outside: url('images/icons/turning-point.png');
+  width: 140px;
+  shape-margin: 18px; /* Extra margin for arrow elements */
+}
+
+.dd-icon--current-role {
+  shape-outside: url('images/icons/current-role.png');
+  width: 150px;
+  shape-margin: 14px;
+}
+
+.dd-icon--devops-future {
+  shape-outside: url('images/icons/devops-future.png');
+  width: 170px; /* Infinity symbol needs more width */
+  shape-margin: 16px;
+}
+
+/*--------------------------------------------------
+DD Text with Drop Cap
+---------------------------------------------------*/
+
+/* Text container */
+.dd-text {
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  line-height: 1.7;
+}
+
+/* Drop Cap - First letter styling */
+.dd-text::first-letter {
+  float: left;
+  font-family: var(--title-font);
+  font-size: 3.5em;
+  line-height: 0.8;
+  font-weight: 700;
+  margin-right: 0.15em;
+  margin-top: 0.08em;
+  color: var(--accent-gold, #C29E5D);
+  text-transform: uppercase;
+}
+
+/* Light section drop cap color adjustment */
+.light-section .dd-text::first-letter {
+  color: var(--deep-brown, #362C28);
+}
+
+/* Dark section drop cap */
+.dark-section .dd-text::first-letter {
+  color: var(--accent-gold, #C29E5D);
+}
+
+/*--------------------------------------------------
+Fallback for browsers without shape-outside: url() support
+Uses polygon approximations
+---------------------------------------------------*/
+@supports not (shape-outside: url('test.png')) {
+  .dd-icon--core-drivers {
     shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
-    clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  }
+
+  .dd-icon--social-work {
+    shape-outside: polygon(0% 35%, 15% 35%, 30% 20%, 50% 15%, 70% 20%, 85% 35%, 100% 35%, 100% 75%, 85% 75%, 70% 90%, 50% 95%, 30% 90%, 15% 75%, 0% 75%);
+  }
+
+  .dd-icon--turning-point {
+    shape-outside: polygon(0% 80%, 20% 50%, 40% 30%, 50% 10%, 60% 30%, 80% 50%, 100% 80%, 100% 100%, 0% 100%);
+  }
+
+  .dd-icon--current-role {
+    shape-outside: polygon(20% 0%, 80% 0%, 100% 20%, 100% 45%, 80% 50%, 60% 100%, 40% 100%, 20% 50%, 0% 45%, 0% 20%);
+  }
+
+  .dd-icon--devops-future {
+    shape-outside: polygon(0% 35%, 25% 35%, 40% 10%, 50% 0%, 60% 10%, 75% 35%, 100% 35%, 100% 65%, 75% 65%, 60% 100%, 50% 100%, 40% 100%, 25% 65%, 0% 65%);
+  }
+}
+
+/*--------------------------------------------------
+Responsive adjustments
+---------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+  .dd-icon {
+    width: 100px;
+    shape-margin: 10px;
+    margin-right: 1rem;
+  }
+
+  .dd-icon--social-work {
+    width: 120px;
+  }
+
+  .dd-icon--devops-future {
+    width: 130px;
+  }
+
+  .dd-text::first-letter {
+    font-size: 2.8em;
+  }
+
+  dd.accordion-content {
+    padding: 1em;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .dd-icon {
+    float: none;
+    display: block;
+    width: 80px;
+    margin: 0 auto 1rem auto;
+    shape-outside: none;
+  }
+
+  .dd-text {
+    text-align: left;
+  }
+
+  .dd-text::first-letter {
+    font-size: 2.5em;
+    margin-right: 0.1em;
+  }
+}
+
+/*--------------------------------------------------
+Legacy support - deprecated classes
+---------------------------------------------------*/
+/* @deprecated - Use .dd-text instead */
+.narrative-text::first-letter {
+  float: left;
+  font-size: 3em;
+  line-height: 1;
+  font-weight: bold;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
 }

@@ -13,19 +13,26 @@
 	</script>
 
     <title>Terry A. Brooks, Jr. | Let's Connect | Contact</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Get in touch with Terry Brooks - DevOps Engineer and Backend Developer" />
-    <meta name="author" content="Terry A. Brooks, Jr." />
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="favicon.ico" />
-    <link href="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@b8599ae68a0c120c6dde1a148b5ee6f871852a9b/style.css" rel="stylesheet" />
-    <link href="css/all.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Terry Brooks - DevOps Engineer and Backend Developer">
+    <meta name="author" content="Terry Brooks, Jr.">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- Typography - Primary Fonts -->
     <!-- Orbitron: Headings | Inter: Body | Bricolage Grotesque & Syne: Buttons/Callouts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Code/Terminal fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
+    <!-- Local Stylesheets -->
+    <link href="/style.css" rel="stylesheet">
 
 </head>
 
@@ -61,9 +68,9 @@
 
                 <!-- Logo -->
                 <div id="logo" class="hide-ball">
-                    <a class="ajax-link" data-type="page-transition" href="../index.html">
-                        <img class="black-logo" src="images/logo.svg" alt="Logo">
-                        <img class="white-logo" src="images/logo-white.svg" alt="Logo">
+                    <a class="ajax-link" data-type="page-transition" href="/index.html">
+                        <img class="black-logo" src="/images/logo.svg" alt="Logo">
+                        <img class="white-logo" src="/images/logo-white.svg" alt="Logo">
                     </a>
                 </div>
                 <!--/Logo -->
@@ -74,10 +81,15 @@
                         <div class="outer">
                             <div class="inner">
                                 <ul data-breakpoint="10025" class="flexnav">
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="../about.html"><div class="before-span"><span data-hover="Me">About</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="projects.html"><div class="before-span"><span data-hover="Portfolio">Projects</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="../stack.html"><div class="before-span"><span data-hover="Tools">Tech Stack</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="contact.html"><div class="before-span"><span data-hover="Say Hi">Contact</span></div></a></li>
+                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/about.html"><div class="before-span"><span data-hover="Me">About</span></div></a></li>
+                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/pages/projects.html"><div class="before-span"><span data-hover="Portfolio">Projects</span></div></a></li>
+                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/stack.html"><div class="before-span"><span data-hover="Tools">Tech Stack</span></div></a></li>
+                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="More">More</span></div></a>
+                                        <ul>
+                                            <li><a class="ajax-link" href="/pages/cv.html" data-type="page-transition">Resume</a></li>
+                                            <li><a class="ajax-link" href="/pages/contact.html" data-type="page-transition">Contact</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +98,7 @@
                 <!--/Navigation -->
 
                 <!-- Menu Burger -->
-                <div class="button-wrap right menu burger-dots">
+                <div class="button-wrap right menu burger-lines">
                     <div class="icon-wrap parallax-wrap">
                         <div class="button-icon parallax-element">
                             <div id="burger-wrapper">
@@ -253,20 +265,22 @@
     </div>
     <!--/Main Index -->
 
-    <!-- SCRIPTS -->
+    <!-- External Dependencies -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/clapat.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/plugins.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/common.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@a429560b7148f9f73018a84095f50769a9bc09e8/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- Local Scripts with cache busting -->
+    <script src="/js/clapat.js?v=1.0.1"></script>
+    <script src="/js/plugins.js?v=1.0.1"></script>
+    <script src="/js/common.js?v=1.0.1"></script>
+    <script src="/js/scripts.js?v=1.0.1"></script>
 
 </body>
 </html>
