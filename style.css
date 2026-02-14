@@ -1,8 +1,8 @@
-/*------------------------------------------------------------------
+/* ------------------------------------------------------------------
 Project:	Serano - Creative Portfolio Template
 Version:	1.2 (Typography Update)
 Primary use:	Showcase Portfolio
--------------------------------------------------------------------*/
+------------------------------------------------------------------- */
 
 /* Google Fonts Import - Primary Typography */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap');
@@ -12,7 +12,7 @@ Primary use:	Showcase Portfolio
 @import url("css/shortcodes.css");
 @import url("css/assets.css");
 
-/*------------------------------------------------------------------
+/* ------------------------------------------------------------------
 01. General Styles
 02. Magic Cursor
 03. Page Preloader
@@ -20,11 +20,11 @@ Primary use:	Showcase Portfolio
 05. Main Content
 06. Footer Elements
 07. Responsive Media Queries
--------------------------------------------------------------------*/
+------------------------------------------------------------------- */
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 01. General Settings
----------------------------------------------------*/
+--------------------------------------------------- */
 :root {
   /* Colors - Updated to match transcript specifications */
   --accent-gold: #C29E5D;
@@ -81,9 +81,9 @@ body {
   -ms-user-select: none;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Typography - Orbitron for Headings, Inter for Body
----------------------------------------------------*/
+--------------------------------------------------- */
 
 /* Headings - Orbitron (futuristic, techy) */
 h1, h2, h3, h4, h5, h6,
@@ -277,9 +277,9 @@ h6 { font-size: 18px; line-height: 36px; }
   color: #fff;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 02. Magic Cursor - Refactored
----------------------------------------------------*/
+--------------------------------------------------- */
 #magic-cursor {
   position: absolute;
   left: 0;
@@ -352,9 +352,9 @@ h6 { font-size: 18px; line-height: 36px; }
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 03. Page Preloader - Simplified
----------------------------------------------------*/
+--------------------------------------------------- */
 .preloader-wrap {
   width: 100%;
   height: 100%;
@@ -397,9 +397,9 @@ h6 { font-size: 18px; line-height: 36px; }
   content: "%";
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 04. Header Elements - Optimized
----------------------------------------------------*/
+--------------------------------------------------- */
 header {
   width: 100%;
   height: var(--header-height);
@@ -491,9 +491,9 @@ header {
 
 /* Burger menu styles — see fullscreen-menu / burger-lines / button-wrap section at end of file */
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 05. Main Content
----------------------------------------------------*/
+--------------------------------------------------- */
 #content-scroll {
   z-index: 1;
   position: relative;
@@ -509,9 +509,9 @@ header {
   overflow: hidden;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 06. Footer Elements
----------------------------------------------------*/
+--------------------------------------------------- */
 footer {
   position: relative;
   width: 100%;
@@ -542,9 +542,9 @@ footer.showcase-footer {
   left: 0;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 07. Responsive - Mobile First Approach
----------------------------------------------------*/
+--------------------------------------------------- */
 @media only screen and (max-width: 1466px) {
   :root {
     --header-height: 100px;
@@ -615,9 +615,9 @@ footer.showcase-footer {
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 08. Index Page Specific Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .index {
   background-color: var(--primary-dark);
   padding-bottom: 72px;
@@ -724,9 +724,9 @@ footer.showcase-footer {
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 09. Terminal Interface Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .terminal-window {
   width: 800px;
   height: 400px;
@@ -923,9 +923,9 @@ footer.showcase-footer {
   color: #ffff55;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 10. Terminal Preloader Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .terminal-preloader {
   position: fixed;
   top: 0;
@@ -1021,9 +1021,9 @@ footer.showcase-footer {
   animation: blink 1s infinite;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 11. About Page Specific Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .terminal-section {
   background: #0A0F0D;
   border-radius: 8px;
@@ -1099,9 +1099,9 @@ footer.showcase-footer {
   opacity: 0.8;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 12. Contact Page Specific Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .contact-section {
   padding: 4rem 0;
 }
@@ -1240,7 +1240,7 @@ dd.accordion-content {
   padding: 1em;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Accordion Icon System - Consolidated
 ---------------------------------------------------
 USAGE:
@@ -1250,7 +1250,7 @@ USAGE:
 
 EXAMPLE:
 <img src="icon.png" alt="" class="accordion-icon accordion-icon--core-drivers">
----------------------------------------------------*/
+--------------------------------------------------- */
 
 /* Base accordion icon - floated left with text wrap */
 .accordion-icon {
@@ -1307,9 +1307,9 @@ EXAMPLE:
   -webkit-clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Legacy icon classes - Deprecated, use .accordion-icon instead
----------------------------------------------------*/
+--------------------------------------------------- */
 /* @deprecated Use .accordion-icon */
 .wrap-icon,
 .wrapped-icon {
@@ -1370,10 +1370,10 @@ Legacy icon classes - Deprecated, use .accordion-icon instead
   display: block;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Narrative Text Styling
----------------------------------------------------*/
-/*--------------------------------------------------
+--------------------------------------------------- */
+/* --------------------------------------------------
 DD Element Typography & Layout System
 ---------------------------------------------------
 Implements:
@@ -1381,7 +1381,7 @@ Implements:
 2. Inline image placement with shape-aware text wrapping
 3. Per-item customization based on PNG silhouettes
 4. Section isolation between dd elements
----------------------------------------------------*/
+--------------------------------------------------- */
 
 /* Base dd element - isolated layout context */
 dd.accordion-content {
@@ -1399,10 +1399,10 @@ dd.accordion-content::after {
   clear: both;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 DD Icon System - Shape-aware text wrapping
 Uses shape-outside: url() for true alpha-based wrapping
----------------------------------------------------*/
+--------------------------------------------------- */
 
 /* Base icon class */
 .dd-icon {
@@ -1447,9 +1447,9 @@ Uses shape-outside: url() for true alpha-based wrapping
   shape-margin: 16px;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 DD Text with Drop Cap
----------------------------------------------------*/
+--------------------------------------------------- */
 
 /* Text container */
 .dd-text {
@@ -1483,10 +1483,10 @@ DD Text with Drop Cap
   color: var(--accent-gold, #C29E5D);
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Fallback for browsers without shape-outside: url() support
 Uses polygon approximations
----------------------------------------------------*/
+--------------------------------------------------- */
 @supports not (shape-outside: url('test.png')) {
   .dd-icon--core-drivers {
     shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
@@ -1509,9 +1509,9 @@ Uses polygon approximations
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Responsive adjustments
----------------------------------------------------*/
+--------------------------------------------------- */
 @media only screen and (max-width: 767px) {
   .dd-icon {
     width: 100px;
@@ -1555,9 +1555,9 @@ Responsive adjustments
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Legacy support - deprecated classes
----------------------------------------------------*/
+--------------------------------------------------- */
 /* @deprecated - Use .dd-text instead */
 .narrative-text::first-letter {
   float: left;
@@ -1590,15 +1590,15 @@ header.default-header {
   background: transparent;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
   Fullscreen Menu, Burger & Button-Wrap System
   (from template — required by partials/header.html
    and common.js burger-menu binding)
----------------------------------------------------*/
+--------------------------------------------------- */
 
 @media all and (min-width: 1025px) {
 
-	/*-- Full Screen Menu --*/
+	/* -- Full Screen Menu -- */
 
 	.fullscreen-menu .nav-height {
 		overflow-y: scroll;
@@ -1808,7 +1808,7 @@ nav, nav.open {
 	background: transparent;
 }
 
-/*-- Burger Wrapper --*/
+/* -- Burger Wrapper -- */
 
 #burger-wrapper {
 	width: 40px;
@@ -1828,7 +1828,7 @@ nav, nav.open {
 	display: none;
 }
 
-/*-- Burger Dots Variant --*/
+/* -- Burger Dots Variant -- */
 
 .burger-dots #menu-burger {
 	top: 0px;
@@ -1915,7 +1915,7 @@ nav, nav.open {
 	left: 3px;
 }
 
-/*-- Burger Lines Variant --*/
+/* -- Burger Lines Variant -- */
 
 .button-wrap.right.burger-lines {
 	right: -30px;
@@ -1968,7 +1968,7 @@ nav, nav.open {
 	top: 10px;
 }
 
-/*-- Menu Burger Color States --*/
+/* -- Menu Burger Color States -- */
 
 .light-content #menu-burger span {
 	background-color: #fff;
@@ -2003,7 +2003,7 @@ nav, nav.open {
 	color: #fff !important;
 }
 
-/*-- Button Wrap System --*/
+/* -- Button Wrap System -- */
 
 .button-wrap {
 	position: relative;
