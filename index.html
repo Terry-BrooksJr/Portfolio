@@ -40,7 +40,7 @@
 </head>
 
 
-<body class="hidden index hidden-ball smooth-scroll rounded-borders" data-primary-color="#8c6144">
+<body class="hidden index hidden-ball smooth-scroll rounded-borders" data-primary-color="#8c6144" data-header-variant="home">
 
 
     <main class="cd-main">
@@ -66,49 +66,7 @@
             <!-- Page Content -->
             <div id="clapat-page-content" class="light-content" data-bgcolor="#0A0F0D">
                 <!-- Header -->
-                <header class="fullscreen-menu invert-header" data-menucolor="#181B1F">
-                    <div id="header-container">
-                        <!-- Logo -->
-                        <div id="logo" class="hide-ball">
-                                <img id="black-logo" class="black-logo" src="images/logo.svg" alt="Logo">
-                                <img id="white-logo" class="white-logo" src="images/logo-white.svg" alt="Logo">
-                        </div>
-                        <!--/Logo -->
-                        <!-- Navigation -->
-                    <!-- Navigation -->
-                    <nav>
-                        <div class="nav-height">
-                            <div class="outer">
-                                <div class="inner">
-                                    <ul data-breakpoint="10025" class="flexnav">
-                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><div class="before-span"><span data-hover="Me">About</span></div></a></li>
-                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="pages/projects.html"><div class="before-span"><span data-hover="Portfolio">Projects</span></div></a></li>
-                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="stack.html"><div class="before-span"><span data-hover="Tools">Tech Stack</span></div></a></li>
-                                        <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="pages/contact.html"><div class="before-span"><span data-hover="Say Hi">Contact</span></div></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                    <!--/Navigation -->
-
-                    <!-- Menu Burger -->
-                    <div class="button-wrap right menu burger-dots">
-                        <div class="icon-wrap parallax-wrap">
-                            <div class="button-icon parallax-element">
-                                <div id="burger-wrapper">
-                                    <div id="menu-burger">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
-                    </div>
-                    <!--/Menu Burger -->
-                </header>
+                <div id="site-header"></div>
                 <!--/Header -->
                 <!-- Content Scroll -->
                 <div id="content-scroll">
@@ -126,19 +84,19 @@
                                             <p id="sub-welcome-message" class="caption-text">Crafting systems with purpose, precision, and curiosity. Where uptime meets attitude.</p>
 
                                             <div class="hero-cta-buttons">
-                                                <a href="pages/projects.html"
+                                                <a href="/pages/projects.html"
                                                    class="btn cta-button ajax-link"
                                                    data-type="page-transition"
                                                    role="button"
                                                    aria-label="View my portfolio projects"
                                                 >View My Work</a>
-                                                <a href="stack.html"
+                                                <a href="/stack.html"
                                                    class="btn cta-button ajax-link"
                                                    data-type="page-transition"
                                                    role="button"
                                                    aria-label="Browse the technology stack I use"
                                                 >Browse the Stack</a>
-                                                <a href="pages/cv.html"
+                                                <a href="/pages/cv.html"
                                                    class="btn cta-button ajax-link"
                                                    data-type="page-transition"
                                                    role="button"
@@ -238,6 +196,12 @@
     <script src="js/plugins.js?v=1.0.1"></script>
     <script src="js/common.js?v=1.0.1"></script>
     <script src="js/scripts.js?v=1.0.1"></script>
+<script>
+  // Header injection and handler binding handled by BurgerMenuAnimation()
+  if (typeof BurgerMenuAnimation === 'function') {
+    BurgerMenuAnimation();
+  }
+</script>
 </body>
 
 </html>

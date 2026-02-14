@@ -1,8 +1,8 @@
-/*------------------------------------------------------------------
+/* ------------------------------------------------------------------
 Project:	Serano - Creative Portfolio Template
 Version:	1.2 (Typography Update)
 Primary use:	Showcase Portfolio
--------------------------------------------------------------------*/
+------------------------------------------------------------------- */
 
 /* Google Fonts Import - Primary Typography */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap');
@@ -12,7 +12,7 @@ Primary use:	Showcase Portfolio
 @import url("css/shortcodes.css");
 @import url("css/assets.css");
 
-/*------------------------------------------------------------------
+/* ------------------------------------------------------------------
 01. General Styles
 02. Magic Cursor
 03. Page Preloader
@@ -20,11 +20,11 @@ Primary use:	Showcase Portfolio
 05. Main Content
 06. Footer Elements
 07. Responsive Media Queries
--------------------------------------------------------------------*/
+------------------------------------------------------------------- */
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 01. General Settings
----------------------------------------------------*/
+--------------------------------------------------- */
 :root {
   /* Colors - Updated to match transcript specifications */
   --accent-gold: #C29E5D;
@@ -63,15 +63,7 @@ Primary use:	Showcase Portfolio
   --transition-slow: 0.5s ease-in-out;
 }
 
-@font-face {
-  font-family: 'Unbounded';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src:
-    url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/Unbounded-Bold.woff2) format('woff2'),
-    url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/Unbounded-Bold.woff) format('woff');
-}
+/* Unbounded font removed - not used in current typography system */
 
 html,
 body {
@@ -89,9 +81,9 @@ body {
   -ms-user-select: none;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 Typography - Orbitron for Headings, Inter for Body
----------------------------------------------------*/
+--------------------------------------------------- */
 
 /* Headings - Orbitron (futuristic, techy) */
 h1, h2, h3, h4, h5, h6,
@@ -121,15 +113,22 @@ body, p, li, span,
 /* Buttons and Callouts - Bricolage Grotesque/Syne (playful character) */
 .btn,
 .cta-button,
-.button-text,
 .button-wrap,
-.ajax-link,
-nav a,
-.flexnav a,
-.menu-timeline a {
+.ajax-link {
   font-family: var(--accent-font);
   font-weight: 500;
   letter-spacing: 0.03em;
+}
+
+/* Menu / Navigation text - Title font (Orbitron) */
+.button-text,
+nav a,
+.flexnav a,
+.menu-timeline a {
+  font-family: var(--title-font);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* Code/Terminal elements */
@@ -278,9 +277,9 @@ h6 { font-size: 18px; line-height: 36px; }
   color: #fff;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 02. Magic Cursor - Refactored
----------------------------------------------------*/
+--------------------------------------------------- */
 #magic-cursor {
   position: absolute;
   left: 0;
@@ -353,9 +352,9 @@ h6 { font-size: 18px; line-height: 36px; }
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 03. Page Preloader - Simplified
----------------------------------------------------*/
+--------------------------------------------------- */
 .preloader-wrap {
   width: 100%;
   height: 100%;
@@ -398,9 +397,9 @@ h6 { font-size: 18px; line-height: 36px; }
   content: "%";
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 04. Header Elements - Optimized
----------------------------------------------------*/
+--------------------------------------------------- */
 header {
   width: 100%;
   height: var(--header-height);
@@ -454,6 +453,28 @@ header {
   display: none;
 }
 
+/* Home icon — hidden by default, replaces logo on hover */
+#logo .logo-home-icon {
+  display: none;
+  font-size: 28px;
+  color: #000;
+  line-height: 50px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#logo a:hover .black-logo,
+#logo a:hover .white-logo {
+  display: none !important;
+}
+
+#logo a:hover .logo-home-icon {
+  display: block;
+}
+
+#logo a:hover .logo-home-icon:hover {
+  transform: scale(1.15);
+}
+
 /* Show white logo on light content */
 .light-content #logo .black-logo {
   display: none;
@@ -463,90 +484,16 @@ header {
   display: block;
 }
 
-/* Burger menu improvements */
-#burger-wrapper {
-  width: 40px;
-  height: 40px;
-  float: right;
-  top: 0;
-  right: 0;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  pointer-events: initial;
+/* Light content — white home icon */
+.light-content #logo .logo-home-icon {
+  color: #fff;
 }
 
-#menu-burger {
-  width: 22px;
-  height: 18px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+/* Burger menu styles — see fullscreen-menu / burger-lines / button-wrap section at end of file */
 
-#menu-burger span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 2px;
-  opacity: 1;
-  transition: transform 0.3s ease-in-out,
-              opacity 0.3s ease-in-out,
-              background-color 0.3s ease-in-out;
-}
-
-/* Dark content - dark burger lines */
-.dark-content #menu-burger span,
-.invert-header #menu-burger span {
-  background-color: #000;
-}
-
-/* Light content - white burger lines */
-.light-content #menu-burger span {
-  background-color: #fff;
-}
-
-/* Burger dots variant (three dots) */
-.burger-dots #menu-burger {
-  width: 22px;
-  height: 22px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-.burger-dots #menu-burger span {
-  height: 4px;
-  width: 4px;
-  border-radius: 50%;
-}
-
-/* Burger lines variant (three lines) */
-.burger-lines #menu-burger span {
-  height: 2px;
-  border-radius: 2px;
-}
-
-/* Menu open state animation */
-.menu-open #menu-burger span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.menu-open #menu-burger span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-open #menu-burger span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
-/*--------------------------------------------------
+/* --------------------------------------------------
 05. Main Content
----------------------------------------------------*/
+--------------------------------------------------- */
 #content-scroll {
   z-index: 1;
   position: relative;
@@ -562,9 +509,9 @@ header {
   overflow: hidden;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 06. Footer Elements
----------------------------------------------------*/
+--------------------------------------------------- */
 footer {
   position: relative;
   width: 100%;
@@ -595,9 +542,9 @@ footer.showcase-footer {
   left: 0;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 07. Responsive - Mobile First Approach
----------------------------------------------------*/
+--------------------------------------------------- */
 @media only screen and (max-width: 1466px) {
   :root {
     --header-height: 100px;
@@ -668,9 +615,9 @@ footer.showcase-footer {
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 08. Index Page Specific Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .index {
   background-color: var(--primary-dark);
   padding-bottom: 72px;
@@ -682,7 +629,7 @@ footer.showcase-footer {
 
 .index::after {
   content: "";
-  background: url(https://blackberry-py.nyc3.cdn.digitaloceanspaces.com/circuit_board_overlay.png) no-repeat center;
+  background: url(images/circuit_board_overlay.png) no-repeat center;
   background-position: 100% bottom;
   background-size: 250px auto;
   opacity: 0.25;
@@ -706,11 +653,18 @@ footer.showcase-footer {
 }
 
 #welcome-animation {
-  font-size: 3.5em;
+  display: block;
+  font-size: clamp(1.4rem, 4.5vw, 3.5rem);
   color: var(--accent-gold);
   text-align: center;
-  margin-top: 20px;
+  margin: 0 auto;
   font-family: var(--title-font);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+  line-height: 1.2;
 }
 
 .hero-cta-buttons {
@@ -770,9 +724,9 @@ footer.showcase-footer {
   }
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 09. Terminal Interface Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .terminal-window {
   width: 800px;
   height: 400px;
@@ -969,9 +923,9 @@ footer.showcase-footer {
   color: #ffff55;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 10. Terminal Preloader Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .terminal-preloader {
   position: fixed;
   top: 0;
@@ -1067,9 +1021,9 @@ footer.showcase-footer {
   animation: blink 1s infinite;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 11. About Page Specific Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .terminal-section {
   background: #0A0F0D;
   border-radius: 8px;
@@ -1145,9 +1099,9 @@ footer.showcase-footer {
   opacity: 0.8;
 }
 
-/*--------------------------------------------------
+/* --------------------------------------------------
 12. Contact Page Specific Styles
----------------------------------------------------*/
+--------------------------------------------------- */
 .contact-section {
   padding: 4rem 0;
 }
@@ -1228,142 +1182,13 @@ footer.showcase-footer {
   color: #cccccc;
   font-size: 0.9rem;
 }
-/* Fix typing animation layout shift */
-#welcome-animation {
-  display: inline-block;
-  min-width: 20ch; /* Accommodate longest string "Добро пожаловать" */
-  text-align: center;
-}
-
-@media (max-width: 767px) {
-  #welcome-animation {
-    min-width: 18ch;
-  }
-}
-
-@media (max-width: 479px) {
-  #welcome-animation {
-    min-width: 16ch;
-  }
-}
-
+/* Welcome animation - single line, no wrap */
 /* Ensure parent container centers the typing animation */
 #hero-styles .inner {
   text-align: center;
 }
 
-/* Burger Menu Container */
-#burger-menu {
-	cursor: pointer;
-	height: 27px;
-	width: 27px;
-	margin: 50px;
-	overflow: visible;
-	position: relative;
-	z-index: 100001;
-}
-
-/* Burger Icon Lines - Base Styles */
-#burger-menu .ba > span,
-#burger-menu .ba > span:before,
-#burger-menu .ba > span:after {
-	background: #fff;
-	display: block;
-	height: 2px;
-	opacity: 1;
-	position: absolute;
-	transition: 0.3s ease-in-out;
-}
-
-#burger-menu .ba > span:before,
-#burger-menu .ba > span:after {
-	content: '';
-}
-
-/* TOP line */
-#burger-menu .ba > span:before {
-	left: 0px;
-	top: -10px;
-	width: 27px;
-}
-
-/* MIDDLE line */
-#burger-menu .ba > span {
-	right: 0px;
-	top: 13px;
-	width: 27px;
-}
-
-/* BOTTOM line */
-#burger-menu .ba > span:after {
-	left: 0px;
-	top: 10px;
-	width: 27px;
-}
-
-/* Navigation Overlay Menu */
-#ba-menu {
-	z-index: 100000;
-	min-width: 100%;
-	min-height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	visibility: hidden;
-	opacity: 0;
-	text-align: center;
-	padding-top: 20px;
-	transition: all 0.3s ease-in-out;
-}
-
-#ba-menu.overlay {
-	visibility: visible;
-	opacity: 1;
-	padding-top: 100px;
-	background: rgba(0, 0, 0, 0.9);
-}
-
-#ba-menu .ba-unordered-list {
-	padding: 0;
-}
-
-#ba-menu .ba-list {
-	list-style: none;
-}
-
-#ba-menu .ba-link {
-	color: #fff;
-	display: block;
-	font-size: 32px;
-	margin-bottom: 30px;
-	text-decoration: none;
-}
-
-#ba-menu .ba-link:hover {
-	color: #F4A300;
-}
-
-/* Burger menu open state - X animation */
-#burger-menu.open .ba > span:before {
-	top: 0px;
-	transform: rotate(90deg);
-	width: 27px;
-}
-
-#burger-menu.open .ba > span {
-	transform: rotate(-45deg);
-	top: 13px;
-	width: 27px;
-}
-
-#burger-menu.open .ba > span:after {
-	top: 0px;
-	left: 0;
-	transform: rotate(90deg);
-	opacity: 0;
-	width: 0;
-}
+/* Legacy ba-burger-menu and ba-menu blocks removed - replaced by template burger-lines system */
 
 /* Center the hero inner content */
 #hero-styles .inner {
@@ -1375,32 +1200,6 @@ footer.showcase-footer {
   text-align: center;
   padding-inline: 20px;  /* prevents edge hugging on mobile */
 }
-
-/* Keep the welcome text centered and constrained */
-#welcome-animation {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-
-  /* Prevent overflow */
-  overflow-wrap: anywhere;   /* breaks long chunks safely */
-  word-break: normal;
-  hyphens: auto;
-}
-
-#welcome-animation {
-  font-size: clamp(1.6rem, 5vw, 3.5rem);
-  line-height: 1.1;
-}
-
-#welcome-animation {
-  width: 100%;
-  max-width: 28ch; /* or whatever looks right */
-}
-
-
 
 .accordion-content {
   display: flex;
@@ -1441,44 +1240,94 @@ dd.accordion-content {
   padding: 1em;
 }
 
-.icon-wrap {
-  float: left;
-  shape-outside: url('/images/icons/core-drivers-icon.png');
-  shape-margin: 10px;
-  width: 150px;
-  height: auto;
-  margin-right: 1em;
-}
+/* --------------------------------------------------
+Accordion Icon System - Consolidated
+---------------------------------------------------
+USAGE:
+- .accordion-icon: Base class for all accordion floated icons
+- .accordion-icon--{variant}: Modifier for specific icon shapes
+  Variants: core-drivers, social-work, turning-point, current-role, devops-future
 
-.wrap-icon {
-  width: 100%;
+EXAMPLE:
+<img src="icon.png" alt="" class="accordion-icon accordion-icon--core-drivers">
+--------------------------------------------------- */
+
+/* Base accordion icon - floated left with text wrap */
+.accordion-icon {
+  float: left;
+  width: 120px;
   height: auto;
+  margin: 0 1.5rem 1rem 0;
+  shape-margin: 12px;
   display: block;
-  clip-path: inset(0%); /* needed for shape-outside to apply */
+  /* Default octagonal shape */
+  shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  -webkit-shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
 }
 
-.narrative-text::first-letter {
-  float: left;
-  font-size: 3em;
-  line-height: 1;
-  font-weight: bold;
-  margin-right: 0.1em;
-  margin-top: 0.05em;
+/* Variant: Core Drivers - irregular gem shape */
+.accordion-icon--core-drivers {
+  shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  -webkit-shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  -webkit-clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
 }
 
+/* Variant: Social Work - organic rounded shape */
+.accordion-icon--social-work {
+  shape-outside: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  clip-path: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  -webkit-shape-outside: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+  -webkit-clip-path: polygon(45% 0%, 60% 10%, 75% 28%, 82% 50%, 77% 72%, 60% 90%, 40% 92%, 20% 75%, 12% 50%, 22% 22%);
+}
+
+/* Variant: Turning Point - asymmetric crystal */
+.accordion-icon--turning-point {
+  shape-outside: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  clip-path: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  -webkit-shape-outside: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+  -webkit-clip-path: polygon(50% 0%, 68% 10%, 85% 30%, 90% 55%, 80% 80%, 60% 95%, 40% 95%, 20% 80%, 10% 50%, 25% 25%);
+}
+
+/* Variant: Current Role - badge shape */
+.accordion-icon--current-role {
+  shape-outside: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  clip-path: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  -webkit-shape-outside: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+  -webkit-clip-path: polygon(48% 0%, 64% 5%, 80% 25%, 85% 50%, 78% 80%, 60% 92%, 35% 90%, 20% 72%, 12% 45%, 28% 22%);
+}
+
+/* Variant: DevOps Future - hexagonal tech shape */
+.accordion-icon--devops-future {
+  shape-outside: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  -webkit-shape-outside: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+  -webkit-clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
+}
+
+/* --------------------------------------------------
+Legacy icon classes - Deprecated, use .accordion-icon instead
+--------------------------------------------------- */
+/* @deprecated Use .accordion-icon */
+.wrap-icon,
 .wrapped-icon {
   float: left;
-  width: 150px;
+  width: 120px;
   height: auto;
-  shape-margin: 1rem;
-  -webkit-shape-outside: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-  shape-outside: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
-  clip-path: polygon(50% 0%, 80% 5%, 100% 30%, 95% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+  margin: 0 1.5rem 1rem 0;
+  shape-margin: 12px;
+  display: block;
+  shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
+  clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
 }
 
+/* @deprecated Legacy variant mappings */
+.wrap-icon.wrap-core-drivers,
 .wrapped-icon.core-driver {
-  shape-outside: polygon(48% 0%, 65% 4%, 82% 18%, 89% 42%, 85% 65%, 68% 88%, 32% 90%, 15% 72%, 11% 44%, 20% 18%);
-  clip-path: polygon(48% 0%, 65% 4%, 82% 18%, 89% 42%, 85% 65%, 68% 88%, 32% 90%, 15% 72%, 11% 44%, 20% 18%);
+  shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
 }
 
 .wrapped-icon.social-work {
@@ -1501,41 +1350,885 @@ dd.accordion-content {
   clip-path: polygon(50% 0%, 70% 8%, 85% 30%, 88% 60%, 75% 85%, 50% 100%, 25% 85%, 15% 60%, 15% 30%, 30% 8%);
 }
 
+/* Accordion content icon container - wrapper element */
 .accordion-content .icon-container {
   float: left;
   width: 120px;
   height: 120px;
+  margin: 0 1.5rem 1rem 0;
+  shape-margin: 8px;
   shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
   clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
-  margin: 0 1.5rem 1rem 0;
   -webkit-shape-outside: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
   -webkit-clip-path: polygon(15% 0%, 85% 0%, 100% 20%, 100% 80%, 85% 100%, 15% 100%, 0% 80%, 0% 20%);
-  shape-margin: 8px;
 }
 
-.icon-container img {
-  float: left;
-  width: 130px;
+/* Images inside icon containers inherit clip from container */
+.accordion-content .icon-container img {
+  width: 100%;
   height: auto;
-  shape-outside: url(/images/icons/core-drivers-icon.png);
-  -webkit-shape-outside: url(/images/icons/core-drivers-icon.png);
-  clip-path: url(#core-drivers-clip);
-  shape-margin: 16px;
-  margin-right: 20px;
-  margin-bottom: 12px;
   display: block;
 }
-.wrap-icon {
-    float: left;
-    width: 100px;
-    shape-outside: url("/images/icons/core-drivers-icon.png");
-    -webkit-shape-outside: url("/images/icons/core-drivers-icon.png");
-    shape-margin: 1rem;
-    margin: 0 1.5rem 1rem 0;
-    clip-path: url("#core-drivers-clip");
+
+/* --------------------------------------------------
+Narrative Text Styling
+--------------------------------------------------- */
+/* --------------------------------------------------
+DD Element Typography & Layout System
+---------------------------------------------------
+Implements:
+1. Drop cap styling for first letter
+2. Inline image placement with shape-aware text wrapping
+3. Per-item customization based on PNG silhouettes
+4. Section isolation between dd elements
+--------------------------------------------------- */
+
+/* Base dd element - isolated layout context */
+dd.accordion-content {
+  position: relative;
+  overflow: hidden;
+  padding: 1.5em;
+  contain: layout style; /* Section isolation */
+  display: block;
 }
 
-.wrap-core-drivers {
+/* Clear floats within each dd to prevent layout leakage */
+dd.accordion-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------------------------
+DD Icon System - Shape-aware text wrapping
+Uses shape-outside: url() for true alpha-based wrapping
+--------------------------------------------------- */
+
+/* Base icon class */
+.dd-icon {
+  float: left;
+  width: 140px;
+  height: auto;
+  margin: 0 1.25rem 0.75rem 0;
+  shape-margin: 15px;
+  display: block;
+  /* Use the image's alpha channel for text wrapping */
+  shape-outside: url('images/icons/core-driver.png');
+  shape-image-threshold: 0.1;
+}
+
+/* Per-icon shape-outside using actual PNG alpha channels */
+.dd-icon--core-drivers {
+  shape-outside: url('images/icons/core-driver.png');
+  width: 130px;
+}
+
+.dd-icon--social-work {
+  shape-outside: url('images/icons/social-work.png');
+  width: 160px; /* Wider due to horizontal layout */
+  shape-margin: 12px;
+}
+
+.dd-icon--turning-point {
+  shape-outside: url('images/icons/turning-point.png');
+  width: 140px;
+  shape-margin: 18px; /* Extra margin for arrow elements */
+}
+
+.dd-icon--current-role {
+  shape-outside: url('images/icons/current-role.png');
+  width: 150px;
+  shape-margin: 14px;
+}
+
+.dd-icon--devops-future {
+  shape-outside: url('images/icons/devops-future.png');
+  width: 170px; /* Infinity symbol needs more width */
+  shape-margin: 16px;
+}
+
+/* --------------------------------------------------
+DD Text with Drop Cap
+--------------------------------------------------- */
+
+/* Text container */
+.dd-text {
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  line-height: 1.7;
+}
+
+/* Drop Cap - First letter styling */
+.dd-text::first-letter {
+  float: left;
+  font-family: var(--title-font);
+  font-size: 3.5em;
+  line-height: 0.8;
+  font-weight: 700;
+  margin-right: 0.15em;
+  margin-top: 0.08em;
+  color: var(--accent-gold, #C29E5D);
+  text-transform: uppercase;
+}
+
+/* Light section drop cap color adjustment */
+.light-section .dd-text::first-letter {
+  color: var(--deep-brown, #362C28);
+}
+
+/* Dark section drop cap */
+.dark-section .dd-text::first-letter {
+  color: var(--accent-gold, #C29E5D);
+}
+
+/* --------------------------------------------------
+Fallback for browsers without shape-outside: url() support
+Uses polygon approximations
+--------------------------------------------------- */
+@supports not (shape-outside: url('test.png')) {
+  .dd-icon--core-drivers {
     shape-outside: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
-    clip-path: polygon(22% 4%, 41% 0%, 71% 0%, 90% 10%, 100% 38%, 96% 67%, 79% 90%, 58% 100%, 27% 100%, 10% 81%, 0% 47%, 7% 16%);
+  }
+
+  .dd-icon--social-work {
+    shape-outside: polygon(0% 35%, 15% 35%, 30% 20%, 50% 15%, 70% 20%, 85% 35%, 100% 35%, 100% 75%, 85% 75%, 70% 90%, 50% 95%, 30% 90%, 15% 75%, 0% 75%);
+  }
+
+  .dd-icon--turning-point {
+    shape-outside: polygon(0% 80%, 20% 50%, 40% 30%, 50% 10%, 60% 30%, 80% 50%, 100% 80%, 100% 100%, 0% 100%);
+  }
+
+  .dd-icon--current-role {
+    shape-outside: polygon(20% 0%, 80% 0%, 100% 20%, 100% 45%, 80% 50%, 60% 100%, 40% 100%, 20% 50%, 0% 45%, 0% 20%);
+  }
+
+  .dd-icon--devops-future {
+    shape-outside: polygon(0% 35%, 25% 35%, 40% 10%, 50% 0%, 60% 10%, 75% 35%, 100% 35%, 100% 65%, 75% 65%, 60% 100%, 50% 100%, 40% 100%, 25% 65%, 0% 65%);
+  }
+}
+
+/* --------------------------------------------------
+Responsive adjustments
+--------------------------------------------------- */
+@media only screen and (max-width: 767px) {
+  .dd-icon {
+    width: 100px;
+    shape-margin: 10px;
+    margin-right: 1rem;
+  }
+
+  .dd-icon--social-work {
+    width: 120px;
+  }
+
+  .dd-icon--devops-future {
+    width: 130px;
+  }
+
+  .dd-text::first-letter {
+    font-size: 2.8em;
+  }
+
+  dd.accordion-content {
+    padding: 1em;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .dd-icon {
+    float: none;
+    display: block;
+    width: 80px;
+    margin: 0 auto 1rem auto;
+    shape-outside: none;
+  }
+
+  .dd-text {
+    text-align: left;
+  }
+
+  .dd-text::first-letter {
+    font-size: 2.5em;
+    margin-right: 0.1em;
+  }
+}
+
+/* --------------------------------------------------
+Legacy support - deprecated classes
+--------------------------------------------------- */
+/* @deprecated - Use .dd-text instead */
+.narrative-text::first-letter {
+  float: left;
+  font-size: 3em;
+  line-height: 1;
+  font-weight: bold;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
+}
+
+
+header.transparent-header {
+  background: transparent;
+}
+
+header.solid-header {
+  background: rgba(10, 15, 13, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+header.minimal-header {
+  background: transparent;
+}
+
+header.minimal-header .button-wrap.menu {
+  transform: scale(0.85);
+}
+
+header.default-header {
+  background: transparent;
+}
+
+/* --------------------------------------------------
+  Fullscreen Menu, Burger & Button-Wrap System
+  (from template — required by partials/header.html
+   and common.js burger-menu binding)
+--------------------------------------------------- */
+
+@media all and (min-width: 1025px) {
+
+	/* -- Full Screen Menu -- */
+
+	.fullscreen-menu .nav-height {
+		overflow-y: scroll;
+		position: relative;
+		height: 100%;
+		padding: 40px 0;
+		padding-right: 30px;
+		width: calc(100% + 30px);
+		box-sizing: border-box;
+	}
+
+	.fullscreen-menu nav {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		box-sizing: border-box;
+		visibility: visible;
+		pointer-events: none;
+		opacity: 0;
+		padding: 20px 0;
+	}
+
+	.fullscreen-menu nav.open {
+		visibility: visible;
+		pointer-events: initial;
+	}
+
+	.fullscreen-menu .flexnav {
+		max-height: 2000px;
+		-webkit-transition: all 0.2s ease-in 0.6s;
+		transition: all 0.2s ease-in 0.6s;
+		display: table;
+		width: auto;
+		padding: 0 20px;
+		box-sizing: border-box;
+		margin: 0 auto;
+		float: none;
+	}
+
+	.fullscreen-menu .flexnav.flexnav-show {
+		-webkit-transition: all .3s ease-out 0.2s;
+		transition: all .3s ease-out 0.2s;
+	}
+
+	.fullscreen-menu .flexnav li {
+		text-align: center;
+		padding: 0;
+		box-sizing: border-box;
+		float: none;
+	}
+
+	.fullscreen-menu .menu-timeline {
+		opacity: 0;
+	}
+
+	.fullscreen-menu .flexnav li ul li .touch-button {
+		height: 32px;
+	}
+
+	.fullscreen-menu .flexnav:hover li ul li a.active,
+	.fullscreen-menu .flexnav:hover li ul li:hover > a {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .flexnav .touch-button .navicon {
+		display: none;
+	}
+
+	.fullscreen-menu .flexnav li.link {
+		border-bottom: none;
+	}
+
+	.fullscreen-menu .flexnav > li > a {
+		font-family: var(--title-font);
+		font-weight: 600;
+		font-size: calc(1rem + 5vw);
+		line-height: calc(1rem + 5.5vw);
+		padding: 0 50px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		-webkit-transition: all .1s ease-in-out 0s;
+		transition: all .1s ease-in-out 0s;
+	}
+
+	.fullscreen-menu .flexnav .touch-button {
+		width: 100%;
+		display: block;
+		height: calc(1rem + 7.5vw);
+	}
+
+	.fullscreen-menu .flexnav li a {
+		color: #222;
+	}
+
+	.fullscreen-menu.invert-header .flexnav li a {
+		color: #fff;
+	}
+
+	.fullscreen-menu .flexnav:hover li a,
+	.fullscreen-menu .flexnav.hover li a {
+		opacity: 0.3;
+	}
+
+	.fullscreen-menu .flexnav li:hover a,
+	.fullscreen-menu .flexnav li a.active {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .flexnav:hover li ul li a {
+		opacity: 0.3;
+	}
+
+	.fullscreen-menu .flexnav:hover li ul li a.active,
+	.fullscreen-menu .flexnav:hover li ul li:hover > a {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .flexnav a.link::before {
+		display: none;
+	}
+
+	.fullscreen-menu .flexnav li ul {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		position: relative;
+		left: 0;
+	}
+
+	.fullscreen-menu .flexnav li ul:after {
+		display: none;
+	}
+
+	.fullscreen-menu .flexnav li ul li a {
+		padding: 3px 0;
+		font-size: 16px;
+		line-height: 26px;
+		font-weight: 500;
+		border-top: none;
+		text-transform: none;
+	}
+
+	.fullscreen-menu .flexnav ul li ul li a {
+		background: transparent;
+	}
+
+	.fullscreen-menu .flexnav li ul li > ul,
+	.fullscreen-menu .flexnav li ul.open ul.open {
+		margin-left: 0;
+		top: 0;
+	}
+
+	.fullscreen-menu .menu-timeline {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .menu-timeline .before-span {
+		opacity: 0;
+		display: block;
+		-webkit-transform: translateY(120px);
+		transform: translateY(120px);
+	}
+
+	.fullscreen-menu .flexnav li,
+	.fullscreen-menu .flexnav li a {
+		background-color: transparent;
+		border: 0;
+	}
+
+	.fullscreen-menu .flexnav li a span {
+		position: relative;
+		display: block;
+		-webkit-transition: -webkit-transform 0.2s;
+		transition: transform 0.2s;
+		transform-origin: 100% 0%;
+		overflow: hidden;
+	}
+
+	.fullscreen-menu .open .flexnav li a span {
+		overflow: visible;
+	}
+
+	.fullscreen-menu .flexnav li a span::before {
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		left: 0;
+		content: attr(data-hover);
+	}
+
+	.fullscreen-menu .flexnav li:hover a span {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+		transform-origin: 0% 0%;
+	}
+
+	.fullscreen-menu .flexnav li.hover a span {
+		-webkit-transform: translateY(-100%) !important;
+		transform: translateY(-100%) !important;
+		transform-origin: 0% 0%;
+	}
+
+} /* end @media min-width 1025px */
+
+nav, nav.open {
+	background: transparent;
+}
+
+/* -- Burger Wrapper -- */
+
+#burger-wrapper {
+	width: 40px;
+	height: 40px;
+	float: right;
+	top: 0px;
+	right: 0;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	pointer-events: initial;
+}
+
+.classic-menu .button-wrap.right.menu {
+	display: none;
+}
+
+/* -- Burger Dots Variant -- */
+
+.burger-dots #menu-burger {
+	top: 0px;
+	width: 25px;
+	height: 25px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.menu-overlay #menu-burger {
+	display: block;
+}
+
+.burger-dots #menu-burger span {
+	display: block;
+	position: absolute;
+	height: 5px;
+	width: 5px;
+	border-radius: 5px;
+	background-color: #000;
+	opacity: 1;
+	top: 8px;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out;
+	transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+#burger-wrapper .touch-button {
+	display: none;
+}
+
+.burger-dots #menu-burger span:nth-child(1) {
+	left: 0px;
+}
+
+.burger-dots #menu-burger span:nth-child(2) {
+	left: 10px;
+}
+
+.burger-dots #menu-burger span:nth-child(3) {
+	left: 20px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger span:nth-child(1) {
+	left: 10px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger span:nth-child(3) {
+	left: 10px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger.open span:nth-child(1) {
+	left: 3px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger.open span:nth-child(3) {
+	left: 3px;
+}
+
+.burger-dots #menu-burger.open span:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: 12px;
+	height: 2px;
+	width: 20px;
+	left: 3px;
+}
+
+.burger-dots #menu-burger.open span:nth-child(2) {
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+
+.burger-dots #menu-burger.open span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: 12px;
+	height: 2px;
+	width: 20px;
+	left: 3px;
+}
+
+/* -- Burger Lines Variant -- */
+
+.button-wrap.right.burger-lines {
+	right: -30px;
+}
+
+.burger-lines #menu-burger {
+	width: 16px;
+	height: 22px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.burger-lines #menu-burger span {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	opacity: 1;
+	right: 0;
+	background-color: #000;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out;
+	transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.burger-lines #menu-burger span:nth-child(1) {
+	top: 5px;
+}
+
+.burger-lines #menu-burger span:nth-child(2) {
+	top: 13px;
+}
+
+.burger-lines #menu-burger span:nth-child(3) {
+	display: none;
+}
+
+.burger-lines #menu-burger.open span:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: 10px;
+}
+
+.burger-lines #menu-burger.open span:nth-child(2) {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: 10px;
+}
+
+/* -- Menu Burger Color States -- */
+
+.light-content #menu-burger span {
+	background-color: #fff;
+}
+
+.white-header #menu-burger span {
+	background-color: #fff;
+}
+
+.light-content .white-header #menu-burger span {
+	background-color: #000;
+}
+
+.light-content .white-header.over-white-section #menu-burger span,
+.show-loader1 .light-content .white-header #menu-burger span {
+	background-color: #fff;
+}
+
+.dark-content-header #menu-burger span {
+	background-color: #000 !important;
+}
+
+.light-content-header #menu-burger span {
+	background-color: #fff !important;
+}
+
+.dark-content-header .button-text {
+	color: #000 !important;
+}
+
+.light-content-header .button-text {
+	color: #fff !important;
+}
+
+/* -- Button Wrap System -- */
+
+.button-wrap {
+	position: relative;
+	cursor: pointer;
+	top: 0px;
+	pointer-events: initial;
+	width: auto;
+	display: table;
+}
+
+.button-wrap:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.button-wrap.left {
+	float: left;
+	left: -32px;
+}
+
+.button-wrap.right {
+	float: right;
+	right: -26px;
+}
+
+#main .button-wrap.left {
+	float: none;
+	left: -24px;
+}
+
+#main .button-wrap.button-link.left {
+	float: none;
+	left: -20px;
+}
+
+#main .button-wrap.right {
+	float: none;
+	right: auto;
+}
+
+#main .button-wrap.button-link.right {
+	right: -2px;
+}
+
+.icon-wrap {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	float: left;
+}
+
+#main .icon-wrap {
+	width: 60px;
+	height: 60px;
+}
+
+.button-wrap.left .icon-wrap {
+	float: left;
+}
+
+.button-wrap.right .icon-wrap {
+	float: right;
+}
+
+#main .text-align-right .button-wrap.right {
+	float: right;
+}
+
+.button-icon {
+	height: 40px;
+	width: 40px;
+	color: #000;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.button-icon i.fa-solid.fa-sort {
+	font-size: 14px;
+	line-height: 38px;
+}
+
+.light-content .button-icon,
+.dark-section .button-icon {
+	color: #fff;
+}
+
+.light-content .light-section .button-icon {
+	color: #000;
+}
+
+.white-header .button-icon {
+	color: #fff;
+}
+
+.light-content .white-header .button-icon {
+	color: #000;
+}
+
+.button-icon i {
+	height: 40px;
+	line-height: 40px;
+	width: 40px;
+	text-align: center;
+}
+
+#main .button-icon i {
+	line-height: 40px;
+}
+
+#main .button-icon i.fa.fa-arrow-right {
+	font-size: 14px;
+}
+
+.button-text {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 30px;
+	margin: 25px 0;
+	overflow: hidden;
+	width: auto;
+	padding: 0 10px;
+	color: #000;
+	-webkit-transition: color 0.05s ease-in-out;
+	transition: color 0.05s ease-in-out;
+}
+
+#main #hero-footer .button-text span::after {
+	content: none;
+}
+
+#main .button-text {
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 500;
+	margin: 15px 0;
+	transition: transform .2s ease-out;
+}
+
+#main #hero #hero-footer .button-text {
+	font-size: 14px;
+	line-height: 30px;
+}
+
+#main .large-btn .button-text {
+	font-size: 20px !important;
+	font-weight: 500;
+	margin: 15px 0;
+	transition: transform .2s ease-out;
+}
+
+.light-content .button-text,
+.dark-section .button-text {
+	color: #fff;
+}
+
+.light-content .light-section .button-text {
+	color: #000;
+}
+
+.white-header .button-text {
+	color: #fff;
+}
+
+.light-content .white-header .button-text {
+	color: #000;
+}
+
+.light-content .white-header.over-white-section .button-text,
+.show-loader1 .light-content .white-header .button-text {
+	color: #fff;
+}
+
+.button-wrap.left a {
+	text-align: left;
+	float: left;
+}
+
+.button-wrap.right a {
+	text-align: right;
+	float: right;
+}
+
+.button-wrap.right .button-text {
+	padding-left: 0px;
+}
+
+.button-text span {
+	position: relative;
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	width: auto;
+	text-align: center;
+	transform-origin: 100% 0%;
+}
+
+.button-wrap.left .button-text span {
+	text-align: left;
+}
+
+.button-wrap.right .button-text span {
+	text-align: right;
+}
+
+.button-text span::before {
+	position: absolute;
+	width: auto;
+	top: 100%;
+	left: 0;
+	content: attr(data-hover);
+}
+
+.header-middle .button-text span::before {
+	content: attr(data-on);
+}
+
+.button-wrap:hover .button-text span {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+	transform-origin: 0% 0%;
 }

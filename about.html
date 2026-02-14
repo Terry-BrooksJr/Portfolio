@@ -16,22 +16,31 @@
     </script>
 
     <title>Terry A. Brooks, Jr. | Who I Am, What I Build | About the Engineer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Short biography about the developer"/>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/ico" href="favicon.ico" />
-    <link href="style.css" rel="stylesheet" />
-    <link href="css/all.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Short biography about the developer">
+    <meta name="author" content="Terry Brooks, Jr.">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- Typography - Primary Fonts -->
     <!-- Orbitron: Headings | Inter: Body | Bricolage Grotesque & Syne: Buttons/Callouts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Code/Terminal fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Local Stylesheets -->
+    <link href="/style.css" rel="stylesheet">
 
 </head>
 
 
-<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#8c6144">
+<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#8c6144" data-header-variant="about">
 
 
     <main>
@@ -61,76 +70,7 @@
             <div id="clapat-page-content" class="light-content" data-bgcolor="#2AA876">
 
                 <!-- Header -->
-                <header class="fullscreen-menu invert-header" data-menucolor="#181B1F">
-                    <div id="header-container">
-                        <!-- Logo -->
-                        <div id="logo" class="hide-ball">
-                            <img id="black-logo" class="black-logo" src="images/logo.svg" alt="Logo">
-                            <img id="white-logo" class="white-logo" src="images/logo-white.svg" alt="Logo">
-                        </div>
-                        <!--/Logo -->
-                        <!-- Navigation -->
-                    <div id="burger-menu">
-                            <span class="ba"></span>
-
-                        <div id="ba-menu">
-                            <ul class="ba-unordered-list">
-                                <li class="ba-list"><a class="ba-link" href="index.html">Home</a></li>
-                                <li class="ba-list"><a class="ba-link" href="pages/projects.html">Projects</a></li>
-                                <li class="ba-list"><a class="ba-link" href="stack.html">Tech Stack</a></li>
-                                <li class="ba-list"><a class="ba-link" href="pages/cv.html">Resume</a></li>
-                                <li class="ba-list"><a class="ba-link" href="pages/contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-            
-                </div>
-            </header>
-            <!--/Header -->
-            
-            
-            
-            <!-- Content Scroll -->
-            <div id="content-scroll">
-            
-            
-                <!-- Main -->
-                <div id="main">
-                
-                    <!-- Hero Section -->
-                    <div id="hero">
-                        <div id="hero-styles">
-                            <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center height-title">
-                            <div class="inner">                                    
-                                    <h1 class="hero-title caption-timeline primary-font-title"><span>Who I Am</span></h1>
-                                    <div class="hero-subtitle caption-timeline">
-                                    	<span>A backend engineer with a DevOps heartbeat — building systems that matter.<br class="destroy"> Personal narrative • Timeline • Philosophy</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-                        <!--/Navigation -->
-
-                        <!-- Menu Burger -->
-                        <div class="button-wrap right menu burger-dots">
-                            <div class="icon-wrap parallax-wrap">
-                                <div class="button-icon parallax-element">
-                                    <div id="burger-wrapper">
-                                        <div id="menu-burger">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
-                        </div>
-                        <!--/Menu Burger -->
-
-                    </div>
-                </header>
+      <div id="site-header"></div>
                 <!--/Header -->
 
 
@@ -198,6 +138,8 @@
                                                     </div>
                                                     <div class="clipped-image-gradient"></div>
                                                 </div>
+                                                <div class="button-text sticky right"><span
+                                                        data-hover="Scroll to Explore">Scroll to Explore</span></div>
                                             </div>
 
                                             <div class="clipped-image-content text-align-center content-full-width">
@@ -307,6 +249,38 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <div class="start-move-thumb" data-start="top 140%" data-stop="950%">
+                                                    <div class="move-thumb-inner">
+                                                        <div class="section-image">
+                                                            <img src="images/cards/card-workflow.png" class="item-image"
+                                                                alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="start-move-thumb" data-start="top 620%" data-stop="700%">
+                                                    <div class="move-thumb-inner">
+                                                        <div class="section-image">
+                                                            <img src="images/cards/card-yaml.png" class="item-image"
+                                                                alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="end-thumbs-wrapper">
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+                                                <div class="end-move-thumb"></div>
+
                                             </div>
 
 
@@ -361,9 +335,9 @@
                                                             </div>
                                                         </div>
                                                     </dt>
-                                                    <dd class="accordion-content">
-                    <img src="/images/icons/core-driver.png" alt="Problem Solving Icon" class="wrap-icon wrap-core-drivers">
-                                             <p class="narrative-text">At the heart of everything I do is a deep-seated commitment to problem solving. Whether it’s helping a family navigate public housing benefits or untangling a web app integration bug, I bring the same curiosity and determination to the table. I believe that every challenge—technical, social, or human—is just a solution waiting to be discovered. I’m driven by the desire to improve systems, empower people, and build things that make life smoother and more just. Solutions are my love language—tech just happens to be the dialect I speak best now.</p>
+                                                    <dd class="accordion-content" data-icon="core-drivers">
+                                                        <img src="images/icons/core-driver.png" alt="Problem Solving Icon" class="dd-icon dd-icon--core-drivers">
+                                                        <p class="dd-text">At the heart of everything I do is a deep-seated commitment to problem solving. Whether it's helping a family navigate public housing benefits or untangling a web app integration bug, I bring the same curiosity and determination to the table. I believe that every challenge—technical, social, or human—is just a solution waiting to be discovered. I'm driven by the desire to improve systems, empower people, and build things that make life smoother and more just. Solutions are my love language—tech just happens to be the dialect I speak best now.</p>
                                                     </dd>
 
                                                     <!-- Where It Started -->
@@ -377,12 +351,9 @@
                                                             </div>
                                                         </div>
                                                     </dt>
-                                                    <dd class="accordion-content">
-                                                        <div class="icon-container">
-                                             <img src="images/icons/social-work.png" alt="Social Work Icon"
-     class="wrapped-icon social-work" />
-                                                        </div>
-                                                          <p class="narrative-text">My career began on the frontlines of social work in Chicago, serving as a case manager for residents of the Chicago Housing Authority. That role wasn’t just a job—it was a mission. I was fueled by a passion for equity, social justice, and a relentless drive to reimagine how we address structural challenges. Whether advocating for better resources or designing workflows to help my team triage cases more effectively, I was always looking for ways to improve the system. That mindset never left—it just evolved.</p>
+                                                    <dd class="accordion-content" data-icon="social-work">
+                                                        <img src="images/icons/social-work.png" alt="Social Work Icon" class="dd-icon dd-icon--social-work">
+                                                        <p class="dd-text">My career began on the frontlines of social work in Chicago, serving as a case manager for residents of the Chicago Housing Authority. That role wasn't just a job—it was a mission. I was fueled by a passion for equity, social justice, and a relentless drive to reimagine how we address structural challenges. Whether advocating for better resources or designing workflows to help my team triage cases more effectively, I was always looking for ways to improve the system. That mindset never left—it just evolved.</p>
                                                     </dd>
 
                                                     <!-- Turning Point -->
@@ -396,12 +367,9 @@
                                                             </div>
                                                         </div>
                                                     </dt>
-                                                    <dd class="accordion-content">
-                                                        <div class="icon-container">
-                                            <img src="images/icons/turning-point.png" alt="Turning Point Icon"
-     class="wrapped-icon turning-point" />
-                                                        </div>
-                                                          <p class="narrative-text">In 2018, I realized something that shifted everything: not all social problems have purely social solutions. Some challenges require data, automation, and code. I saw the potential to scale my impact by learning the tools of technology—project management, automation, infrastructure, APIs. It wasn’t just a career pivot; it was an expansion of my toolbox. I embraced the tech world not to abandon my mission, but to amplify it. And the more I learned, the more I knew this was the right path forward.</p>
+                                                    <dd class="accordion-content" data-icon="turning-point">
+                                                        <img src="images/icons/turning-point.png" alt="Turning Point Icon" class="dd-icon dd-icon--turning-point">
+                                                        <p class="dd-text">In 2018, I realized something that shifted everything: not all social problems have purely social solutions. Some challenges require data, automation, and code. I saw the potential to scale my impact by learning the tools of technology—project management, automation, infrastructure, APIs. It wasn't just a career pivot; it was an expansion of my toolbox. I embraced the tech world not to abandon my mission, but to amplify it. And the more I learned, the more I knew this was the right path forward.</p>
                                                     </dd>
 
                                                     <!-- Where I Am Now -->
@@ -415,12 +383,9 @@
                                                             </div>
                                                         </div>
                                                     </dt>
-                                                    <dd class="accordion-content">
-                                                        <div class="icon-container">
-               <img src="images/icons/current-role.png" alt="Current Role Icon"
-     class="wrapped-icon current-role" />
-                                                        </div>
-                                                          <p class="narrative-text">Today, I work at the intersection of people and platforms. I bridge the gap between engineers and end-users, between stakeholders and systems. Whether I’m solving application issues, onboarding clients, or managing technical projects, I bring a customer-first mindset and a systems-thinking lens to everything I do. I collaborate with junior devs, product teams, and C-suite executives alike—translating technical jargon, untangling implementation roadblocks, and always pushing toward more stable, scalable solutions. Same mission, new medium.</p>
+                                                    <dd class="accordion-content" data-icon="current-role">
+                                                        <img src="images/icons/current-role.png" alt="Current Role Icon" class="dd-icon dd-icon--current-role">
+                                                        <p class="dd-text">Today, I work at the intersection of people and platforms. I bridge the gap between engineers and end-users, between stakeholders and systems. Whether I'm solving application issues, onboarding clients, or managing technical projects, I bring a customer-first mindset and a systems-thinking lens to everything I do. I collaborate with junior devs, product teams, and C-suite executives alike—translating technical jargon, untangling implementation roadblocks, and always pushing toward more stable, scalable solutions. Same mission, new medium.</p>
                                                     </dd>
 
                                                     <!-- Where I Am Going -->
@@ -434,12 +399,9 @@
                                                             </div>
                                                         </div>
                                                     </dt>
-                                                    <dd class="accordion-content">
-                                                        <div class="icon-container">
-                     <img src="images/icons/devops-future.png" alt="DevOps Future Icon"
-     class="wrapped-icon devops-future" />
-                                                        </div>
-                                                          <p class="narrative-text">The next evolution in my journey is DevOps. It’s where my passion for cross-functional collaboration meets my obsession with continuous improvement. I’m fascinated by how development and operations—two disciplines long at odds—are now learning to work in sync to build faster, smarter, and more reliable systems. That kind of synergy feels like home to me. As I level up in automation, observability, and CI/CD pipelines, I remain grounded in the same goal: solving hard problems and making technology more humane, one integration at a time.</p>
+                                                    <dd class="accordion-content" data-icon="devops-future">
+                                                        <img src="images/icons/devops-future.png" alt="DevOps Future Icon" class="dd-icon dd-icon--devops-future">
+                                                        <p class="dd-text">The next evolution in my journey is DevOps. It's where my passion for cross-functional collaboration meets my obsession with continuous improvement. I'm fascinated by how development and operations—two disciplines long at odds—are now learning to work in sync to build faster, smarter, and more reliable systems. That kind of synergy feels like home to me. As I level up in automation, observability, and CI/CD pipelines, I remain grounded in the same goal: solving hard problems and making technology more humane, one integration at a time.</p>
                                                     </dd>
                                                 </dl>
                                             </div>
@@ -460,7 +422,7 @@
                                                             AND LET'S BRING YOUR VISION TO LIFE</span></div>
                                                     <a class="page-title next-ajax-link-page"
                                                         data-type="page-transition" data-centerline="Say Hey"
-                                                        href="contact.html">
+                                                        href="/pages/contact.html">
                                                         <div
                                                             class="next-hero-title primary-font-title caption-timeline">
                                                             <span>Contact</span></div>
@@ -489,60 +451,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
-                                    <div class="scrolling-element right">
-                                    	<dl class="accordion has-animation">
-											<dt>
-												<span class="link"><div>Core Drivers</div></span>
-												<div class="acc-icon-wrap parallax-wrap">
-													<div class="acc-button-icon parallax-element">
-														<i class="fa fa-arrow-right"></i>
-													</div>
-												</div>
-											</dt>
-											<dd class="accordion-content"><img src="images/shortcodes/image01.jpg" alt="Core Drivers">We create stunning and user-friendly websites that make a lasting impression and drive conversions. Our passion for clean code and elegant design fuels everything we build, from concept to deployment.</dd>
-
-											<dt>
-												<span class="link"><div>Where It Started</div></span>
-												<div class="acc-icon-wrap parallax-wrap">
-													<div class="acc-button-icon parallax-element">
-														<i class="fa fa-arrow-right"></i>
-													</div>
-												</div>
-											</dt>
-											<dd class="accordion-content"><img src="images/shortcodes/image02.jpg" alt="Where It Started">Our team crafts innovative and feature-rich mobile applications that cater to the needs of modern users. The journey began with a simple curiosity about how things work under the hood, and grew into a full-blown obsession with building robust systems.</dd>
-
-											<dt>
-												<span class="link"><div>Turning Point</div></span>
-												<div class="acc-icon-wrap parallax-wrap">
-													<div class="acc-button-icon parallax-element">
-														<i class="fa fa-arrow-right"></i>
-													</div>
-												</div>
-											</dt>
-											<dd class="accordion-content"><img src="images/shortcodes/image03.jpg" alt="Turning Point">We build seamless online shopping experiences that empower businesses to reach customers globally. The moment everything clicked was when I realized that great software is not just about writing code, but about solving real problems for real people.</dd>
-
-											<dt>
-												<span class="link"><div>Where I Am Now?</div></span>
-												<div class="acc-icon-wrap parallax-wrap">
-													<div class="acc-button-icon parallax-element">
-														<i class="fa fa-arrow-right"></i>
-													</div>
-												</div>
-											</dt>
-											<dd class="accordion-content"><img src="images/shortcodes/image04.jpg" alt="Where I Am Now">Our strategic digital marketing campaigns help businesses amplify their online presence and achieve their growth goals. Today, I focus on backend architecture, DevOps practices, and building scalable infrastructure that powers modern applications.</dd>
-
-											<dt>
-												<span class="link"><div>Where I am Going</div></span>
-												<div class="acc-icon-wrap parallax-wrap">
-													<div class="acc-button-icon parallax-element">
-														<i class="fa fa-arrow-right"></i>
-													</div>
-												</div>
-											</dt>
-											<dd class="accordion-content"><img src="images/shortcodes/pinned01.jpg" alt="Where I Am Going">We design intuitive and visually appealing user interfaces that enhance user experiences and streamline interactions. The future holds deeper exploration into distributed systems, cloud-native technologies, and building tools that empower other developers.</dd>
-										
-                                    	</dl>    
+                                    <div class="footer-middle">
+                                        <div id="copyright-block" class="copyright"><span id="copyright-year"></span> ©
+                                            Terry A. Brooks, Jr.
+                                            All rights reserved.</div>
+                                    </div>
+                                    <div class="socials-wrap">
+                                        <div class="socials-icon"><i style="color:#fff"
+                                                class="fa-solid fa-share-nodes"></i></div>
+                                        <div class="socials-text" style="color:#fff">Follow Me</div>
+                                        <ul class="socials">
+                                            <li><span class="parallax-wrap"><a class="parallax-element"
+                                                        href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i
+                                                            style="color:#fff"
+                                                            class="fa-brands fa-x-twitter"></i></a></span></li>
+                                            <li><span class="parallax-wrap"><a class="parallax-element"
+                                                        href="https://github.com/Terry-BrooksJr" target="_blank"><i
+                                                            style="color:#fff"
+                                                            class="fa-brands fa-github"></i></a></span></li>
+                                            <li><span class="parallax-wrap"><a class="parallax-element"
+                                                        href="https://www.linkedin.com/in/terryabrooks/"
+                                                        target="_blank"><i class="fa-brands fa-linkedin"
+                                                            style="color:#fff"></i></a></span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </footer>
@@ -580,43 +511,48 @@
 
 
 
-    <script src="js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>
+    <!-- External Dependencies -->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <script src="js/clapat.js"></script>
-    <script src="js/plugins.js"></script>
-
-    <script src="js/common.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/scripts.js"></script>
-
+    <!-- Local Scripts with cache busting -->
+    <script src="/js/clapat.js?v=1.0.1"></script>
+    <script src="/js/plugins.js?v=1.0.1"></script>
+    <script src="/js/common.js?v=1.0.1"></script>
+    <script src="/js/scripts.js?v=1.0.1"></script>
+<script>
+  // Header injection and handler binding handled by BurgerMenuAnimation()
+  if (typeof BurgerMenuAnimation === 'function') {
+    BurgerMenuAnimation();
+  }
+</script>
 
 <svg width="0" height="0">
   <defs>
-    <clippath id="core-drivers-clip" clippathunits="objectBoundingBox">
+    <clipPath id="core-drivers-clip" clipPathUnits="objectBoundingBox">
       <polygon points="0.1 0, 0.9 0, 1 0.3, 0.95 1, 0.05 1, 0 0.3"/>
-    </clippath>
-    <clippath id="social-work-clip" clippathunits="objectBoundingBox">
+    </clipPath>
+    <clipPath id="social-work-clip" clipPathUnits="objectBoundingBox">
       <polygon points="0.1 0, 0.9 0, 1 0.2, 1 0.9, 0.1 1, 0 0.8, 0 0.2"/>
-    </clippath>
-    <clippath id="turning-point-clip" clippathunits="objectBoundingBox">
+    </clipPath>
+    <clipPath id="turning-point-clip" clipPathUnits="objectBoundingBox">
       <polygon points="0.05 0.05, 0.95 0.05, 1 0.3, 0.9 1, 0.1 1, 0 0.3"/>
-    </clippath>
-    <clippath id="current-role-clip" clippathunits="objectBoundingBox">
+    </clipPath>
+    <clipPath id="current-role-clip" clipPathUnits="objectBoundingBox">
       <polygon points="0.1 0, 0.9 0, 1 0.2, 1 0.8, 0.9 1, 0.1 1, 0 0.8, 0 0.2"/>
-    </clippath>
-    <clippath id="devops-future-clip" clippathunits="objectBoundingBox">
+    </clipPath>
+    <clipPath id="devops-future-clip" clipPathUnits="objectBoundingBox">
       <polygon points="0.15 0, 0.85 0, 1 0.2, 1 0.85, 0.85 1, 0.15 1, 0 0.85, 0 0.2"/>
-    </clippath>
+    </clipPath>
   </defs>
-</svg>,
+</svg>
 </body>
 
 </html>

@@ -13,23 +13,39 @@
 	</script>
     
     <title>Terry A. Brooks, Jr. | Deploy My Resume | Professional Summary</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Short biography about the developer" />
-    <meta name="author" content="Terry A. Brooks, Jr." />
-    <meta charset="UTF-8" />    
-    <link rel="icon" type="image/ico" href="favicon.ico" />
-    <link href="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@b8599ae68a0c120c6dde1a148b5ee6f871852a9b/style.css" rel="stylesheet" />
-    <link href="css/all.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Credentials, experience, and the systems I've helped build">
+    <meta name="author" content="Terry Brooks, Jr.">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- Typography - Primary Fonts -->
     <!-- Orbitron: Headings | Inter: Body | Bricolage Grotesque & Syne: Buttons/Callouts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Code/Terminal fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"> 
-   
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Local Stylesheets -->
+    <link href="/style.css" rel="stylesheet">
+    <style>
+        /* Custom styles for CV page */
+        .cv-sub-text {
+            font-size: 0.8em;
+            color: #777;
+            display: flex;
+            margin-top: -0.5em;
+        }
+        </style>
 </head>
 
 
-<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#125D98">
+<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#125D98" data-header-variant="cv">
 
 	
 	<main>		
@@ -57,39 +73,7 @@
         <div id="clapat-page-content" class="light-content" data-bgcolor="#125D98">
             
             <!-- Header -->
-            <header class="fullscreen-menu invert-header" data-menucolor="#125D98">
-                <div id="header-container">
-                
-                
-                <!-- Logo -->
-                <div id="logo" class="hide-ball">
-                    <a class="ajax-link" data-type="page-transition" href="../index.html">
-                        <img class="black-logo" src="images/logo.svg" alt="ClaPat Logo">
-                        <img class="white-logo" src="images/logo-white.svg" alt="ClaPat Logo">
-                    </a>
-                </div>
-                <!--/Logo -->
-                            
-                
-                <!-- Navigation -->
-                    <div id="burger-menu">
-                            <span class="ba"></span>
-
-                        <div id="ba-menu">
-                            <ul class="ba-unordered-list">
-                                <li class="ba-list"><a class="ba-link" href="../index.html">Home</a></li>
-                                <li class="ba-list"><a class="ba-link" href="../about.html">About</a></li>
-                                <li class="ba-list"><a class="ba-link" href="projects.html">Projects</a></li>
-                                <li class="ba-list"><a class="ba-link" href="../stack.html">Tech Stack</a></li>
-                                <li class="ba-list"><a class="ba-link" href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                <!--/Navigation -->
-            
-                </div>
-            </header>
+            <div id="site-header"></div>
             <!--/Header -->
             
             
@@ -132,7 +116,7 @@
                     <!--/Hero Section -->   
                          
                     
-                    <!-- Main Content -->
+                                       <!-- Main Content -->
                     <div id="main-content">
                         <!-- Main Page Content -->
                         <div id="main-page-content" class="content-max-width">
@@ -143,7 +127,7 @@
                                 
                                 <ul class="team-members-list" data-fx="1">
                                     <li class="link has-hover-image" data-img="images/team1.jpg">
-                                        <div class="team-member has-animation"><span>Since 2010</span><div class="primary-font-title">Tom Harrison</div><span>Web Designer</span></div>
+                                        <div class="team-member has-animation"><span>Graduated 2011</span><div class="school-company-title">Homewood-Flossmoor <span class="cv-sub-text">High School</span></div><span>Web Designer</span></div>
                                     </li>
                                     <li class="link has-hover-image" data-img="images/team2.jpg">
                                         <div class="team-member has-animation"><span>Since 2012</span><div class="primary-font-title">Ricky Romano</div><span>UX Designer</span></div>
@@ -164,7 +148,7 @@
                             
                             
                             <!-- Row -->
-                            <div class="content-row full row_padding_top row_padding_bottom row_padding_left row_padding_right dark-section change-header-color text-align-center" data-bgcolor="#3B060A">
+                            <div class="content-row full row_padding_top row_padding_bottom row_padding_left row_padding_right dark-section change-header-color text-align-center" data-bgcolor="#0c0c0c">
                                 
                                 <!-- Clients Table --> 
                                 <ul class="clients-table">                        
@@ -360,7 +344,7 @@
                             
                             
                             <!-- Row -->
-                            <div class="content-row full row_padding_left row_padding_right dark-section text-align-center change-header-color" data-bgcolor="#3B060A">
+                            <div class="content-row full row_padding_left row_padding_right dark-section text-align-center change-header-color" data-bgcolor="#0c0c0c">
                                 
                                 
                                 <div class="slowed-pin">
@@ -404,9 +388,9 @@
                             <div class="page-nav-wrap">
                                 <div class="page-nav-caption content-full-width text-align-center height-title">                                 
                                     <div class="inner">
-                                    	<div class="next-hero-subtitle caption-timeline"><span>UNLEASHING THE POTENTIAL OF TYPOGRAPHIC ELEMENTS</span></div>
-                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="MOVE ON" href="typography.html">
-                                            <div class="next-hero-title primary-font-title caption-timeline"><span>Typography</span></div>
+                                    	<div class="next-hero-subtitle caption-timeline"><span>READY TO COLLABORATE? LET'S CONNECT</span></div>
+                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Say Hey" href="/pages/contact.html">
+                                            <div class="next-hero-title primary-font-title caption-timeline"><span>Contact</span></div>
                                         </a>                                        
                                     </div>               
                                 </div>
@@ -422,32 +406,29 @@
                 <!--/Main -->
                 
                 <!-- Footer -->
-                <footer class="hidden">        	
+                <footer>
                     <div id="footer-container">
-                        
+
                         <div id="backtotop" class="button-wrap left">
                             <div class="icon-wrap parallax-wrap">
                                 <div class="button-icon parallax-element">
-                                    <i class="fa-solid fa-angle-up"></i>
+                                    <i style="color:#fff" class="fa-solid fa-angle-up"></i>
                                 </div>
                             </div>
-                            <div class="button-text sticky left"><span data-hover="Back Top">Back Top</span></div> 
                         </div>
-                        
                         <div class="footer-middle">
-                            <div class="copyright"> © <span id="copyright-year"></span><a class="link" target="_blank" href="https://www.brooksjr.com/">Terry A. Brooks, Jr.</a>. All rights reserved.</div>
+                            <div id="copyright-block" class="copyright"><span id="copyright-year"></span> © Terry A. Brooks, Jr.
+                                All rights reserved.</div>
                         </div>
-                        
                         <div class="socials-wrap">
-                            <div class="socials-icon"><i class="fa-solid fa-share-nodes"></i></div>
-                            <div class="socials-text">Follow Me</div>
+                            <div class="socials-icon"><i style="color:#fff" class="fa-solid fa-share-nodes"></i></div>
+                            <div class="socials-text" style="color:#fff">Follow Me</div>
                             <ul class="socials">
                                 <li><span class="parallax-wrap"><a class="parallax-element" href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i style="color:#fff" class="fa-brands fa-x-twitter"></i></a></span></li>
                                 <li><span class="parallax-wrap"><a class="parallax-element" href="https://github.com/Terry-BrooksJr" target="_blank"><i style="color:#fff" class="fa-brands fa-github"></i></a></span></li>
                                 <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i class="fa-brands fa-linkedin" style="color:#fff"></i></a></span></li>
                             </ul>
                         </div>
-                        
                     </div>
                 </footer>
                 <!--/Footer -->
@@ -483,22 +464,29 @@
     
     
 		
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/jquery.min.js"></script>       
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/Flip.min.js"></script>    
+    <!-- External Dependencies -->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&sensor=false"></script>
-    
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/clapat.js"></script>	<script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/plugins.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/common.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@5e8e24105bbceae5faf34a09fd00be54b5d6e824/js/contact.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Terry-BrooksJr/Portfolio@a429560b7148f9f73018a84095f50769a9bc09e8/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
 
+    <!-- Local Scripts with cache busting -->
+    <script src="/js/clapat.js?v=1.0.1"></script>
+    <script src="/js/plugins.js?v=1.0.1"></script>
+    <script src="/js/common.js?v=1.0.1"></script>
+    <script src="/js/scripts.js?v=1.0.1"></script>
 
+<script>
+  // Header injection and handler binding handled by BurgerMenuAnimation()
+  if (typeof BurgerMenuAnimation === 'function') {
+    BurgerMenuAnimation();
+  }
+</script>
 
 </body>
 

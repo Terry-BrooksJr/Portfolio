@@ -100,45 +100,145 @@ Function CustomFunction - Template
 Function Burger Menu Animation
 ---------------------------------------------------*/
 const BurgerMenuAnimation = () => {
-  var logoBlack = document.getElementById('black-logo');
-  var logoWhite = document.getElementById('white-logo');
-  var burgerMenu = document.getElementById('burger-menu');
-  var overlay = document.getElementById('ba-menu');
+  // Re-inject header HTML if #site-header is empty (after AJAX navigation)
+  // and bind burger + navigation click handlers from common.js FirstLoad()
+  const mount = document.getElementById('site-header');
+  if (!mount) return;
 
-  // Toggle menu function
-  const toggleMenu = () => {
-    if (burgerMenu) burgerMenu.classList.toggle("open");
-    if (overlay) overlay.classList.toggle("overlay");
+  const doBindHandlers = () => {
+    // Bind burger menu open/close (same logic as common.js FirstLoad lines 1624-1692)
+    // Uses .off() first to prevent duplicate bindings
+    $('#burger-wrapper, .menu .button-text').off('click.burger').on('click.burger', function() {
+      $('#menu-burger, nav').toggleClass('open');
+      setTimeout(function() {
+        if ($('#menu-burger').hasClass("open")) {
+          $('.flexnav').addClass('flexnav-show');
+          gsap.to('nav', {duration: 0.3, opacity:1, ease:Power2.easeInOut});
+          gsap.to($('.nav-height, nav .outer, nav .inner'), {duration: 0.3, opacity:1, ease:Power2.easeInOut});
+          $('header').addClass('over-sidebar').addClass('over-white-section');
+          if (!$('#clapat-page-content').hasClass("light-content")) {
+            $('#magic-cursor').addClass('light-content');
+          }
+          if ($('header').hasClass("invert-header")) {
+            $('#header-container').addClass('light-content-header');
+          } else {
+            $('#header-container').addClass('dark-content-header');
+          }
+          gsap.set($("nav ul ul li"), {y: 0, opacity:1});
+          gsap.set($(".menu-timeline .before-span"), {y: 160, opacity:0});
+          gsap.to($(".menu-timeline .before-span"), {duration: 0.7, y:0, opacity:1, delay:0.4, stagger:0.1, ease:Power2.easeOut});
+
+          $('.menu-timeline > .touch-button').off('click.menutl').on('click.menutl', function(e, bIndirect) {
+            if (bIndirect == true) return;
+            let currentItem = $(this);
+            $('.menu-timeline > .touch-button.active').each(function() {
+              if (currentItem.get(0) !== $(this).get(0)) {
+                $(this).trigger('click', true);
+              }
+            });
+          });
+        } else {
+          $('.flexnav').removeClass('flexnav-show');
+          gsap.to('nav', {duration: 0.3, opacity:0, delay:0.6, ease:Power2.easeInOut});
+          gsap.to($('.nav-height, nav .outer, nav .inner'), {duration: 0.3, opacity:0, delay:0.6, ease:Power2.easeInOut});
+          gsap.to($(".menu-timeline .before-span"), {duration: 0.5, y:-200, opacity:1, delay:0, stagger:0.05, ease:Power2.easeIn});
+          gsap.to($("nav ul ul li"), {duration: 0.5, y:-120, opacity:0, delay:0, stagger:0.03, ease:Power2.easeIn});
+          if (!$('#clapat-page-content').hasClass("light-content")) {
+            setTimeout(function() { $('#magic-cursor').removeClass('light-content'); }, 500);
+          }
+          if ($('header').hasClass("invert-header")) {
+            setTimeout(function() { $('#header-container').removeClass('light-content-header'); }, 500);
+          } else {
+            setTimeout(function() { $('#header-container').removeClass('dark-content-header'); }, 500);
+          }
+          setTimeout(function() {
+            $(".touch-button.active").trigger("click");
+            $('header').removeClass('over-sidebar');
+            setTimeout(function() { $('header').removeClass('over-white-section'); }, 350);
+          }, 500);
+        }
+      }, 20);
+    });
+
+    // Bind ajax-link visual transitions (common.js FirstLoad lines 1586-1609)
+    $('header a.ajax-link').off('click.ajaxheader').on('click.ajaxheader', function() {
+      $("body").addClass("show-loader");
+      setTimeout(function() {
+        $('#header-container').removeClass('light-content-header').removeClass('dark-content-header');
+      }, 50);
+      $(".flexnav").removeClass("flexnav-show");
+      $('#menu-burger').removeClass("open");
+      var bgTarget = document.querySelector("#clapat-page-content");
+      if (bgTarget) {
+        gsap.to("nav", {duration: 0.3, backgroundColor: bgTarget.getAttribute("data-bgcolor")});
+      }
+      $('header').removeClass('white-header');
+      $("#app").remove();
+      setTimeout(function() { $("#canvas-slider.active").remove(); }, 300);
+      $(".temporary-hero").remove();
+      gsap.to($(".fullscreen-menu .menu-timeline"), {duration: 0.3, y:-30, opacity:0, stagger:0.03, ease:Power2.easeIn});
+      gsap.to('#ball', {duration: 0.3, borderWidth:"4px", scale:0.5, backgroundColor:"rgba(0, 0, 0, 0)", opacity:1});
+      gsap.to($("#main, #hero-image-wrapper, #project-nav, .next-project-image, #app, #canvas-slider, #showcase-slider-webgl-holder, .showcase-pagination-wrap, #quickmenu-scroll, #blog, .next-project-image-wrapper"), {duration: 0.3, opacity:0, delay:0, ease:Power0.ease});
+      gsap.to($("#footer-container, .header-middle"), {duration: 0.3, opacity:0, ease:Power0.ease});
+      gsap.to('#show-filters, #counter-wrap', {duration: 0.2, opacity:0});
+    });
+
+    // Bind nav-specific link handler (common.js FirstLoad lines 1614-1621)
+    $('nav .ajax-link').off('click.navlink').on('click.navlink', function() {
+      $(this).parents('.menu-timeline').addClass('hover');
+      $(this).parents('.item-with-ul').addClass('hover');
+      gsap.set($(this).find('span'), {yPercent:0});
+      $('header').removeClass('white-header');
+      $("#app").remove();
+      $(".big-title-caption").remove();
+    });
+
+    // Set nav background color
+    $("nav").css('background-color', function() {
+      return $("header").data('menucolor');
+    });
   };
 
-  // Burger menu click handler
-  if (burgerMenu) {
-    burgerMenu.addEventListener('click', toggleMenu);
+  // If header content is already present, just bind handlers
+  if (mount.querySelector('header')) {
+    doBindHandlers();
+    return;
   }
 
-  // Logo click handlers (optional - keep for backwards compatibility)
-  if (logoBlack) {
-    logoBlack.addEventListener('click', function() {
-      this.classList.toggle("close");
-      toggleMenu();
-    });
-  }
-  if (logoWhite) {
-    logoWhite.addEventListener('click', function() {
-      this.classList.toggle("close");
-      toggleMenu();
-    });
-  }
-
-  // Navigation link handlers
-  document.querySelectorAll('.ba-link').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const targetPage = link.getAttribute('href');
-      console.log(`Navigating to ${targetPage}`);
-      window.location.href = targetPage;
-    });
-  });
+  // Otherwise, fetch and inject the header HTML then bind
+  const headerURL = new URL('partials/header.html', document.baseURI).toString();
+  fetch(headerURL)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`Header fetch failed: ${res.status} ${res.statusText}`);
+      }
+      return res.text();
+    })
+    .then(html => {
+      // Use DOMParser instead of innerHTML to avoid XSS risks
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      mount.replaceChildren(...doc.body.childNodes);
+      const header = mount.querySelector('header');
+      if (!header) return;
+      const variant = document.body.dataset.headerVariant || 'default';
+      header.dataset.variant = variant;
+      switch (variant) {
+        case 'home':
+          header.classList.add('transparent-header');
+          break;
+        case 'projects':
+          header.classList.add('solid-header');
+          break;
+        case 'cv':
+          header.classList.add('minimal-header');
+          break;
+        default:
+          header.classList.add('default-header');
+      }
+      doBindHandlers();
+    })
+    .catch(err => console.error('Header load failed:', err));
 };
 
   /*--------------------------------------------------
@@ -210,23 +310,27 @@ Function Height Titles
         const text = element.textContent.trim();
         const words = text.split(' ');
 
-        let finalHTML = ''; // Empty span at the beginning
+        // Build DOM nodes directly instead of using innerHTML to avoid XSS risks
+        const fragment = document.createDocumentFragment();
 
         words.forEach((word, index) => {
-          finalHTML += '<div>'; // Open a div for each word
+          const wordDiv = document.createElement('div');
           for (let i = 0; i < word.length; i++) {
-            finalHTML += `<span>${word[i]}</span>`; // Wrap each letter in a span
+            const letterSpan = document.createElement('span');
+            letterSpan.textContent = word[i];
+            wordDiv.appendChild(letterSpan);
           }
-          finalHTML += '</div>'; // Close the div for each word
+          fragment.appendChild(wordDiv);
 
           if (index !== words.length - 1) {
-            finalHTML += '<div><span></span></div>'; // Empty span and a div between words
+            const spacerDiv = document.createElement('div');
+            const spacerSpan = document.createElement('span');
+            spacerDiv.appendChild(spacerSpan);
+            fragment.appendChild(spacerDiv);
           }
         });
 
-        finalHTML += ''; // Empty span at the end
-
-        element.innerHTML = finalHTML;
+        element.replaceChildren(fragment);
       });
     }
 
@@ -2361,6 +2465,8 @@ Function Showcase Gallery
   window.LoadViaAjax = function() {
     HeightTitles();
     CleanupBeforeAjax();
+    BurgerMenuAnimation();
+    UpdateCopyright();
     FirstLoad();
     ScrollEffects();
     Sliders();
