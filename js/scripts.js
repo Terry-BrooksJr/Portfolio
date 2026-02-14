@@ -206,10 +206,19 @@ const BurgerMenuAnimation = () => {
   }
 
   // Otherwise, fetch and inject the header HTML then bind
-  fetch('/partials/header.html')
-    .then(res => res.text())
+  const headerURL = new URL('partials/header.html', document.baseURI).toString();
+  fetch(headerURL)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`Header fetch failed: ${res.status} ${res.statusText}`);
+      }
+      return res.text();
+    })
     .then(html => {
-      mount.innerHTML = html;
+      // Use DOMParser instead of innerHTML to avoid XSS risks
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      mount.replaceChildren(...doc.body.childNodes);
       const header = mount.querySelector('header');
       if (!header) return;
       const variant = document.body.dataset.headerVariant || 'default';
@@ -301,23 +310,27 @@ Function Height Titles
         const text = element.textContent.trim();
         const words = text.split(' ');
 
-        let finalHTML = ''; // Empty span at the beginning
+        // Build DOM nodes directly instead of using innerHTML to avoid XSS risks
+        const fragment = document.createDocumentFragment();
 
         words.forEach((word, index) => {
-          finalHTML += '<div>'; // Open a div for each word
+          const wordDiv = document.createElement('div');
           for (let i = 0; i < word.length; i++) {
-            finalHTML += `<span>${word[i]}</span>`; // Wrap each letter in a span
+            const letterSpan = document.createElement('span');
+            letterSpan.textContent = word[i];
+            wordDiv.appendChild(letterSpan);
           }
-          finalHTML += '</div>'; // Close the div for each word
+          fragment.appendChild(wordDiv);
 
           if (index !== words.length - 1) {
-            finalHTML += '<div><span></span></div>'; // Empty span and a div between words
+            const spacerDiv = document.createElement('div');
+            const spacerSpan = document.createElement('span');
+            spacerDiv.appendChild(spacerSpan);
+            fragment.appendChild(spacerDiv);
           }
         });
 
-        finalHTML += ''; // Empty span at the end
-
-        element.innerHTML = finalHTML;
+        element.replaceChildren(fragment);
       });
     }
 

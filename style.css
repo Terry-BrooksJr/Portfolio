@@ -653,10 +653,11 @@ footer.showcase-footer {
 }
 
 #welcome-animation {
+  display: block;
   font-size: clamp(1.4rem, 4.5vw, 3.5rem);
   color: var(--accent-gold);
   text-align: center;
-  margin-top: 20px;
+  margin: 0 auto;
   font-family: var(--title-font);
   white-space: nowrap;
   overflow: hidden;
@@ -1182,12 +1183,6 @@ footer.showcase-footer {
   font-size: 0.9rem;
 }
 /* Welcome animation - single line, no wrap */
-#welcome-animation {
-  display: block;
-  text-align: center;
-  white-space: nowrap;
-}
-
 /* Ensure parent container centers the typing animation */
 #hero-styles .inner {
   text-align: center;
@@ -1205,20 +1200,6 @@ footer.showcase-footer {
   text-align: center;
   padding-inline: 20px;  /* prevents edge hugging on mobile */
 }
-
-/* Hero welcome text - single line, scales to fit viewport */
-#welcome-animation {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-
 
 .accordion-content {
   display: flex;
