@@ -455,86 +455,7 @@ header {
   display: block;
 }
 
-/* Burger menu improvements */
-#burger-wrapper {
-  width: 40px;
-  height: 40px;
-  float: right;
-  top: 0;
-  right: 0;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  pointer-events: initial;
-}
-
-#menu-burger {
-  width: 22px;
-  height: 18px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-#menu-burger span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 2px;
-  opacity: 1;
-  transition: transform 0.3s ease-in-out,
-              opacity 0.3s ease-in-out,
-              background-color 0.3s ease-in-out;
-}
-
-/* Dark content - dark burger lines */
-.dark-content #menu-burger span,
-.invert-header #menu-burger span {
-  background-color: #000;
-}
-
-/* Light content - white burger lines */
-.light-content #menu-burger span {
-  background-color: #fff;
-}
-
-/* Burger dots variant (three dots) */
-.burger-dots #menu-burger {
-  width: 22px;
-  height: 22px;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-.burger-dots #menu-burger span {
-  height: 4px;
-  width: 4px;
-  border-radius: 50%;
-}
-
-/* Burger lines variant (three lines) */
-.burger-lines #menu-burger span {
-  height: 2px;
-  border-radius: 2px;
-}
-
-/* Menu open state animation */
-.menu-open #menu-burger span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.menu-open #menu-burger span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-open #menu-burger span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
+/* Burger menu styles — see fullscreen-menu / burger-lines / button-wrap section at end of file */
 
 /*--------------------------------------------------
 05. Main Content
@@ -1244,115 +1165,7 @@ footer.showcase-footer {
   text-align: center;
 }
 
-#ba-burger-menu {
-	cursor: pointer;
-	height: 27px;
-	width: 27px;
-	margin: 50px;
-	overflow: visible;
-	position: relative;
-	z-index: 2;
-
-	.ba > span,
-	.ba > span:before,
-	.ba span:after {
-		background: #fff;
-		display: block;
-		height: 2px;
-		opacity: 1;
-		position: absolute;
-		transition: 0.3s ease-in-out;
-	}
-
-	.ba > span:before,
-	span:after {
-		content: '';
-	}
-
-	// TOP
-	.ba > span:before {
-		left: 0px;
-		top: -10px;
-		width: 27px;
-	}
-
-	// MIDDLE
-	.ba > span {
-		right: 0px;
-		top: 13px;
-		width: 27px;
-	}
-
-	// BOTTOM
-	.ba > span:after {
-		left: 0px;
-		top: 10px;
-		width: 27px;
-	}
-
-	// ROTATION ON CLICK
-	&.close {
-		// TOP
-		.ba > span:before {
-			top: 0px;
-			transform: rotate(90deg);
-			width: 27px;
-		}
-
-		// MIDDLE
-		.ba > span {
-			transform: rotate(-45deg);
-			top: 13px;
-			width: 27px;
-		}
-
-		// BOTTOM
-		.ba > span:after {
-			top: 0px;
-			left: 0;
-			transform: rotate(90deg);
-			opacity: 0;
-			width: 0;
-		}
-	}
-}
-
-#ba-menu {
-	z-index: 100000;
-	min-width: 100%;
-	min-height: 100%;
-	position: fixed;
-	top: 0;
-	height: 0;
-	visibility: hidden;
-	opacity: 0;
-	text-align: center;
-	padding-top: 20px;
-	transition: all 0.3s ease-in-out;
-
-	&.overlay {
-		visibility: visible;
-		opacity: 1;
-		padding-top: 100px;
-		background: rgba(0, 0, 0, 0.5);
-	}
-
-	.ba-unordered-list {
-		padding: 0;
-	}
-
-	.ba-list {
-		list-style: none;
-	}
-
-	.ba-link {
-		color: #fff;
-		display: block;
-		font-size: 32px;
-		margin-bottom: 30px;
-		text-decoration: none;
-	}
-}
+/* Legacy ba-burger-menu and ba-menu blocks removed - replaced by template burger-lines system */
 
 /* Center the hero inner content */
 #hero-styles .inner {
@@ -1756,4 +1569,667 @@ Legacy support - deprecated classes
   font-weight: bold;
   margin-right: 0.1em;
   margin-top: 0.05em;
+}
+
+
+header.transparent-header {
+  background: transparent;
+}
+
+header.solid-header {
+  background: rgba(10, 15, 13, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+header.minimal-header {
+  background: transparent;
+}
+
+header.minimal-header .button-wrap.menu {
+  transform: scale(0.85);
+}
+
+header.default-header {
+  background: transparent;
+}
+
+/*--------------------------------------------------
+  Fullscreen Menu, Burger & Button-Wrap System
+  (from template — required by partials/header.html
+   and common.js burger-menu binding)
+---------------------------------------------------*/
+
+@media all and (min-width: 1025px) {
+
+	/*-- Full Screen Menu --*/
+
+	.fullscreen-menu .nav-height {
+		overflow-y: scroll;
+		position: relative;
+		height: 100%;
+		padding: 40px 0;
+		padding-right: 30px;
+		width: calc(100% + 30px);
+		box-sizing: border-box;
+	}
+
+	.fullscreen-menu nav {
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		box-sizing: border-box;
+		visibility: visible;
+		pointer-events: none;
+		opacity: 0;
+		padding: 20px 0;
+	}
+
+	.fullscreen-menu nav.open {
+		visibility: visible;
+		pointer-events: initial;
+	}
+
+	.fullscreen-menu .flexnav {
+		max-height: 2000px;
+		-webkit-transition: all 0.2s ease-in 0.6s;
+		transition: all 0.2s ease-in 0.6s;
+		display: table;
+		width: auto;
+		padding: 0 20px;
+		box-sizing: border-box;
+		margin: 0 auto;
+		float: none;
+	}
+
+	.fullscreen-menu .flexnav.flexnav-show {
+		-webkit-transition: all .3s ease-out 0.2s;
+		transition: all .3s ease-out 0.2s;
+	}
+
+	.fullscreen-menu .flexnav li {
+		text-align: center;
+		padding: 0;
+		box-sizing: border-box;
+		float: none;
+	}
+
+	.fullscreen-menu .menu-timeline {
+		opacity: 0;
+	}
+
+	.fullscreen-menu .flexnav li ul li .touch-button {
+		height: 32px;
+	}
+
+	.fullscreen-menu .flexnav:hover li ul li a.active,
+	.fullscreen-menu .flexnav:hover li ul li:hover > a {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .flexnav .touch-button .navicon {
+		display: none;
+	}
+
+	.fullscreen-menu .flexnav li.link {
+		border-bottom: none;
+	}
+
+	.fullscreen-menu .flexnav > li > a {
+		font-weight: 500;
+		font-size: calc(1rem + 8vw);
+		line-height: calc(1rem + 7.5vw);
+		padding: 0 50px;
+		-webkit-transition: all .1s ease-in-out 0s;
+		transition: all .1s ease-in-out 0s;
+		text-transform: lowercase;
+	}
+
+	.fullscreen-menu .flexnav .touch-button {
+		width: 100%;
+		display: block;
+		height: calc(1rem + 7.5vw);
+	}
+
+	.fullscreen-menu .flexnav li a {
+		color: #222;
+	}
+
+	.fullscreen-menu.invert-header .flexnav li a {
+		color: #fff;
+	}
+
+	.fullscreen-menu .flexnav:hover li a,
+	.fullscreen-menu .flexnav.hover li a {
+		opacity: 0.3;
+	}
+
+	.fullscreen-menu .flexnav li:hover a,
+	.fullscreen-menu .flexnav li a.active {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .flexnav:hover li ul li a {
+		opacity: 0.3;
+	}
+
+	.fullscreen-menu .flexnav:hover li ul li a.active,
+	.fullscreen-menu .flexnav:hover li ul li:hover > a {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .flexnav a.link::before {
+		display: none;
+	}
+
+	.fullscreen-menu .flexnav li ul {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		position: relative;
+		left: 0;
+	}
+
+	.fullscreen-menu .flexnav li ul:after {
+		display: none;
+	}
+
+	.fullscreen-menu .flexnav li ul li a {
+		padding: 3px 0;
+		font-size: 16px;
+		line-height: 26px;
+		font-weight: 500;
+		border-top: none;
+		text-transform: none;
+	}
+
+	.fullscreen-menu .flexnav ul li ul li a {
+		background: transparent;
+	}
+
+	.fullscreen-menu .flexnav li ul li > ul,
+	.fullscreen-menu .flexnav li ul.open ul.open {
+		margin-left: 0;
+		top: 0;
+	}
+
+	.fullscreen-menu .menu-timeline {
+		opacity: 1;
+	}
+
+	.fullscreen-menu .menu-timeline .before-span {
+		opacity: 0;
+		display: block;
+		-webkit-transform: translateY(120px);
+		transform: translateY(120px);
+	}
+
+	.fullscreen-menu .flexnav li,
+	.fullscreen-menu .flexnav li a {
+		background-color: transparent;
+		border: 0;
+	}
+
+	.fullscreen-menu .flexnav li a span {
+		position: relative;
+		display: block;
+		-webkit-transition: -webkit-transform 0.2s;
+		transition: transform 0.2s;
+		transform-origin: 100% 0%;
+		overflow: hidden;
+	}
+
+	.fullscreen-menu .open .flexnav li a span {
+		overflow: visible;
+	}
+
+	.fullscreen-menu .flexnav li a span::before {
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		left: 0;
+		content: attr(data-hover);
+	}
+
+	.fullscreen-menu .flexnav li:hover a span {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+		transform-origin: 0% 0%;
+	}
+
+	.fullscreen-menu .flexnav li.hover a span {
+		-webkit-transform: translateY(-100%) !important;
+		transform: translateY(-100%) !important;
+		transform-origin: 0% 0%;
+	}
+
+} /* end @media min-width 1025px */
+
+nav, nav.open {
+	background: transparent;
+}
+
+/*-- Burger Wrapper --*/
+
+#burger-wrapper {
+	width: 40px;
+	height: 40px;
+	float: right;
+	top: 0px;
+	right: 0;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	pointer-events: initial;
+}
+
+.classic-menu .button-wrap.right.menu {
+	display: none;
+}
+
+/*-- Burger Dots Variant --*/
+
+.burger-dots #menu-burger {
+	top: 0px;
+	width: 25px;
+	height: 25px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.menu-overlay #menu-burger {
+	display: block;
+}
+
+.burger-dots #menu-burger span {
+	display: block;
+	position: absolute;
+	height: 5px;
+	width: 5px;
+	border-radius: 5px;
+	background-color: #000;
+	opacity: 1;
+	top: 8px;
+	left: 0;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out;
+	transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+#burger-wrapper .touch-button {
+	display: none;
+}
+
+.burger-dots #menu-burger span:nth-child(1) {
+	left: 0px;
+}
+
+.burger-dots #menu-burger span:nth-child(2) {
+	left: 10px;
+}
+
+.burger-dots #menu-burger span:nth-child(3) {
+	left: 20px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger span:nth-child(1) {
+	left: 10px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger span:nth-child(3) {
+	left: 10px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger.open span:nth-child(1) {
+	left: 3px;
+}
+
+.button-wrap.right.menu.burger-dots .icon-wrap:hover #menu-burger.open span:nth-child(3) {
+	left: 3px;
+}
+
+.burger-dots #menu-burger.open span:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: 12px;
+	height: 2px;
+	width: 20px;
+	left: 3px;
+}
+
+.burger-dots #menu-burger.open span:nth-child(2) {
+	-webkit-transform: scale(0);
+	transform: scale(0);
+}
+
+.burger-dots #menu-burger.open span:nth-child(3) {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: 12px;
+	height: 2px;
+	width: 20px;
+	left: 3px;
+}
+
+/*-- Burger Lines Variant --*/
+
+.button-wrap.right.burger-lines {
+	right: -30px;
+}
+
+.burger-lines #menu-burger {
+	width: 16px;
+	height: 22px;
+	position: relative;
+	margin: 0 auto;
+	z-index: 2;
+	pointer-events: none;
+}
+
+.burger-lines #menu-burger span {
+	display: block;
+	position: absolute;
+	height: 2px;
+	width: 100%;
+	opacity: 1;
+	right: 0;
+	background-color: #000;
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+	-webkit-transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out;
+	transition: background-color 0.05s ease-in-out, transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.burger-lines #menu-burger span:nth-child(1) {
+	top: 5px;
+}
+
+.burger-lines #menu-burger span:nth-child(2) {
+	top: 13px;
+}
+
+.burger-lines #menu-burger span:nth-child(3) {
+	display: none;
+}
+
+.burger-lines #menu-burger.open span:nth-child(1) {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: 10px;
+}
+
+.burger-lines #menu-burger.open span:nth-child(2) {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	top: 10px;
+}
+
+/*-- Menu Burger Color States --*/
+
+.light-content #menu-burger span {
+	background-color: #fff;
+}
+
+.white-header #menu-burger span {
+	background-color: #fff;
+}
+
+.light-content .white-header #menu-burger span {
+	background-color: #000;
+}
+
+.light-content .white-header.over-white-section #menu-burger span,
+.show-loader1 .light-content .white-header #menu-burger span {
+	background-color: #fff;
+}
+
+.dark-content-header #menu-burger span {
+	background-color: #000 !important;
+}
+
+.light-content-header #menu-burger span {
+	background-color: #fff !important;
+}
+
+.dark-content-header .button-text {
+	color: #000 !important;
+}
+
+.light-content-header .button-text {
+	color: #fff !important;
+}
+
+/*-- Button Wrap System --*/
+
+.button-wrap {
+	position: relative;
+	cursor: pointer;
+	top: 0px;
+	pointer-events: initial;
+	width: auto;
+	display: table;
+}
+
+.button-wrap:after {
+	clear: both;
+	content: " ";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+.button-wrap.left {
+	float: left;
+	left: -32px;
+}
+
+.button-wrap.right {
+	float: right;
+	right: -26px;
+}
+
+#main .button-wrap.left {
+	float: none;
+	left: -24px;
+}
+
+#main .button-wrap.button-link.left {
+	float: none;
+	left: -20px;
+}
+
+#main .button-wrap.right {
+	float: none;
+	right: auto;
+}
+
+#main .button-wrap.button-link.right {
+	right: -2px;
+}
+
+.icon-wrap {
+	width: 80px;
+	height: 80px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	float: left;
+}
+
+#main .icon-wrap {
+	width: 60px;
+	height: 60px;
+}
+
+.button-wrap.left .icon-wrap {
+	float: left;
+}
+
+.button-wrap.right .icon-wrap {
+	float: right;
+}
+
+#main .text-align-right .button-wrap.right {
+	float: right;
+}
+
+.button-icon {
+	height: 40px;
+	width: 40px;
+	color: #000;
+	text-align: center;
+	line-height: 40px;
+	font-size: 18px;
+}
+
+.button-icon i.fa-solid.fa-sort {
+	font-size: 14px;
+	line-height: 38px;
+}
+
+.light-content .button-icon,
+.dark-section .button-icon {
+	color: #fff;
+}
+
+.light-content .light-section .button-icon {
+	color: #000;
+}
+
+.white-header .button-icon {
+	color: #fff;
+}
+
+.light-content .white-header .button-icon {
+	color: #000;
+}
+
+.button-icon i {
+	height: 40px;
+	line-height: 40px;
+	width: 40px;
+	text-align: center;
+}
+
+#main .button-icon i {
+	line-height: 40px;
+}
+
+#main .button-icon i.fa.fa-arrow-right {
+	font-size: 14px;
+}
+
+.button-text {
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 30px;
+	margin: 25px 0;
+	overflow: hidden;
+	width: auto;
+	padding: 0 10px;
+	color: #000;
+	-webkit-transition: color 0.05s ease-in-out;
+	transition: color 0.05s ease-in-out;
+}
+
+#main #hero-footer .button-text span::after {
+	content: none;
+}
+
+#main .button-text {
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 500;
+	margin: 15px 0;
+	transition: transform .2s ease-out;
+}
+
+#main #hero #hero-footer .button-text {
+	font-size: 14px;
+	line-height: 30px;
+}
+
+#main .large-btn .button-text {
+	font-size: 20px !important;
+	font-weight: 500;
+	margin: 15px 0;
+	transition: transform .2s ease-out;
+}
+
+.light-content .button-text,
+.dark-section .button-text {
+	color: #fff;
+}
+
+.light-content .light-section .button-text {
+	color: #000;
+}
+
+.white-header .button-text {
+	color: #fff;
+}
+
+.light-content .white-header .button-text {
+	color: #000;
+}
+
+.light-content .white-header.over-white-section .button-text,
+.show-loader1 .light-content .white-header .button-text {
+	color: #fff;
+}
+
+.button-wrap.left a {
+	text-align: left;
+	float: left;
+}
+
+.button-wrap.right a {
+	text-align: right;
+	float: right;
+}
+
+.button-wrap.right .button-text {
+	padding-left: 0px;
+}
+
+.button-text span {
+	position: relative;
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	width: auto;
+	text-align: center;
+	transform-origin: 100% 0%;
+}
+
+.button-wrap.left .button-text span {
+	text-align: left;
+}
+
+.button-wrap.right .button-text span {
+	text-align: right;
+}
+
+.button-text span::before {
+	position: absolute;
+	width: auto;
+	top: 100%;
+	left: 0;
+	content: attr(data-hover);
+}
+
+.header-middle .button-text span::before {
+	content: attr(data-on);
+}
+
+.button-wrap:hover .button-text span {
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+	transform-origin: 0% 0%;
 }

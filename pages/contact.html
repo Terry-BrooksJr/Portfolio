@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#219EBC">
+<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#219EBC"  data-header-variant="contact">
 
 	<main>
         <!-- Preloader -->
@@ -63,59 +63,7 @@
         <div id="clapat-page-content" class="light-content" data-bgcolor="#219EBC">
 
             <!-- Header -->
-            <header class="fullscreen-menu invert-header" data-menucolor="#219EBC">
-                <div id="header-container">
-
-                <!-- Logo -->
-                <div id="logo" class="hide-ball">
-                    <a class="ajax-link" data-type="page-transition" href="/index.html">
-                        <img class="black-logo" src="/images/logo.svg" alt="Logo">
-                        <img class="white-logo" src="/images/logo-white.svg" alt="Logo">
-                    </a>
-                </div>
-                <!--/Logo -->
-
-                <!-- Navigation -->
-                <nav>
-                    <div class="nav-height">
-                        <div class="outer">
-                            <div class="inner">
-                                <ul data-breakpoint="10025" class="flexnav">
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/about.html"><div class="before-span"><span data-hover="Me">About</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/pages/projects.html"><div class="before-span"><span data-hover="Portfolio">Projects</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/stack.html"><div class="before-span"><span data-hover="Tools">Tech Stack</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="More">More</span></div></a>
-                                        <ul>
-                                            <li><a class="ajax-link" href="/pages/cv.html" data-type="page-transition">Resume</a></li>
-                                            <li><a class="ajax-link" href="/pages/contact.html" data-type="page-transition">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <!--/Navigation -->
-
-                <!-- Menu Burger -->
-                <div class="button-wrap right menu burger-lines">
-                    <div class="icon-wrap parallax-wrap">
-                        <div class="button-icon parallax-element">
-                            <div id="burger-wrapper">
-                                <div id="menu-burger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
-                </div>
-                <!--/Menu Burger -->
-
-                </div>
-            </header>
+            <div id="site-header"></div>
             <!--/Header -->
 
             <!-- Content Scroll -->
@@ -265,6 +213,20 @@
     </div>
     <!--/Main Index -->
 
+    </main>
+
+    <div class="cd-cover-layer"></div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+    <div id="clone-image">
+        <div class="hero-translate"></div>
+    </div>
+
     <!-- External Dependencies -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -281,6 +243,11 @@
     <script src="/js/plugins.js?v=1.0.1"></script>
     <script src="/js/common.js?v=1.0.1"></script>
     <script src="/js/scripts.js?v=1.0.1"></script>
-
+<script>
+  // Header injection and handler binding handled by BurgerMenuAnimation()
+  if (typeof BurgerMenuAnimation === 'function') {
+    BurgerMenuAnimation();
+  }
+</script>
 </body>
 </html>

@@ -33,11 +33,19 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Local Stylesheets -->
     <link href="/style.css" rel="stylesheet">
-
+    <style>
+        /* Custom styles for CV page */
+        .cv-sub-text {
+            font-size: 0.8em;
+            color: #777;
+            display: flex;
+            margin-top: -0.5em;
+        }
+        </style>
 </head>
 
 
-<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#125D98">
+<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#125D98" data-header-variant="cv">
 
 	
 	<main>		
@@ -65,59 +73,7 @@
         <div id="clapat-page-content" class="light-content" data-bgcolor="#125D98">
             
             <!-- Header -->
-            <header class="fullscreen-menu invert-header" data-menucolor="#125D98">
-                <div id="header-container">
-
-                <!-- Logo -->
-                <div id="logo" class="hide-ball">
-                    <a class="ajax-link" data-type="page-transition" href="/index.html">
-                        <img class="black-logo" src="/images/logo.svg" alt="Logo">
-                        <img class="white-logo" src="/images/logo-white.svg" alt="Logo">
-                    </a>
-                </div>
-                <!--/Logo -->
-
-                <!-- Navigation -->
-                <nav>
-                    <div class="nav-height">
-                        <div class="outer">
-                            <div class="inner">
-                                <ul data-breakpoint="10025" class="flexnav">
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/about.html"><div class="before-span"><span data-hover="Me">About</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/pages/projects.html"><div class="before-span"><span data-hover="Portfolio">Projects</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="/stack.html"><div class="before-span"><span data-hover="Tools">Tech Stack</span></div></a></li>
-                                    <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="More">More</span></div></a>
-                                        <ul>
-                                            <li><a class="ajax-link" href="/pages/cv.html" data-type="page-transition">Resume</a></li>
-                                            <li><a class="ajax-link" href="/pages/contact.html" data-type="page-transition">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-                <!--/Navigation -->
-
-                <!-- Menu Burger -->
-                <div class="button-wrap right menu burger-lines">
-                    <div class="icon-wrap parallax-wrap">
-                        <div class="button-icon parallax-element">
-                            <div id="burger-wrapper">
-                                <div id="menu-burger">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
-                </div>
-                <!--/Menu Burger -->
-
-                </div>
-            </header>
+            <div id="site-header"></div>
             <!--/Header -->
             
             
@@ -160,7 +116,7 @@
                     <!--/Hero Section -->   
                          
                     
-                    <!-- Main Content -->
+                                       <!-- Main Content -->
                     <div id="main-content">
                         <!-- Main Page Content -->
                         <div id="main-page-content" class="content-max-width">
@@ -171,7 +127,7 @@
                                 
                                 <ul class="team-members-list" data-fx="1">
                                     <li class="link has-hover-image" data-img="images/team1.jpg">
-                                        <div class="team-member has-animation"><span>Since 2010</span><div class="primary-font-title">Tom Harrison</div><span>Web Designer</span></div>
+                                        <div class="team-member has-animation"><span>Graduated 2011</span><div class="school-company-title">Homewood-Flossmoor <span class="cv-sub-text">High School</span></div><span>Web Designer</span></div>
                                     </li>
                                     <li class="link has-hover-image" data-img="images/team2.jpg">
                                         <div class="team-member has-animation"><span>Since 2012</span><div class="primary-font-title">Ricky Romano</div><span>UX Designer</span></div>
@@ -192,7 +148,7 @@
                             
                             
                             <!-- Row -->
-                            <div class="content-row full row_padding_top row_padding_bottom row_padding_left row_padding_right dark-section change-header-color text-align-center" data-bgcolor="#3B060A">
+                            <div class="content-row full row_padding_top row_padding_bottom row_padding_left row_padding_right dark-section change-header-color text-align-center" data-bgcolor="#0c0c0c">
                                 
                                 <!-- Clients Table --> 
                                 <ul class="clients-table">                        
@@ -388,7 +344,7 @@
                             
                             
                             <!-- Row -->
-                            <div class="content-row full row_padding_left row_padding_right dark-section text-align-center change-header-color" data-bgcolor="#3B060A">
+                            <div class="content-row full row_padding_left row_padding_right dark-section text-align-center change-header-color" data-bgcolor="#0c0c0c">
                                 
                                 
                                 <div class="slowed-pin">
@@ -427,19 +383,19 @@
                         <!--/Main Page Content -->
                         
                         
-                        <!-- Page Navigation -->
+                        <!-- Page Navigation --> 
                         <div id="page-nav">
                             <div class="page-nav-wrap">
-                                <div class="page-nav-caption content-full-width text-align-center height-title">
+                                <div class="page-nav-caption content-full-width text-align-center height-title">                                 
                                     <div class="inner">
                                     	<div class="next-hero-subtitle caption-timeline"><span>READY TO COLLABORATE? LET'S CONNECT</span></div>
                                         <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Say Hey" href="/pages/contact.html">
                                             <div class="next-hero-title primary-font-title caption-timeline"><span>Contact</span></div>
-                                        </a>
-                                    </div>
+                                        </a>                                        
+                                    </div>               
                                 </div>
                             </div>
-                        </div>
+                        </div>      
                         <!--/Page Navigation -->
                         
                                 
@@ -525,7 +481,12 @@
     <script src="/js/common.js?v=1.0.1"></script>
     <script src="/js/scripts.js?v=1.0.1"></script>
 
-
+<script>
+  // Header injection and handler binding handled by BurgerMenuAnimation()
+  if (typeof BurgerMenuAnimation === 'function') {
+    BurgerMenuAnimation();
+  }
+</script>
 
 </body>
 
