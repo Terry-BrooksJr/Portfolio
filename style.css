@@ -113,15 +113,22 @@ body, p, li, span,
 /* Buttons and Callouts - Bricolage Grotesque/Syne (playful character) */
 .btn,
 .cta-button,
-.button-text,
 .button-wrap,
-.ajax-link,
-nav a,
-.flexnav a,
-.menu-timeline a {
+.ajax-link {
   font-family: var(--accent-font);
   font-weight: 500;
   letter-spacing: 0.03em;
+}
+
+/* Menu / Navigation text - Title font (Orbitron) */
+.button-text,
+nav a,
+.flexnav a,
+.menu-timeline a {
+  font-family: var(--title-font);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 /* Code/Terminal elements */
@@ -446,6 +453,28 @@ header {
   display: none;
 }
 
+/* Home icon — hidden by default, replaces logo on hover */
+#logo .logo-home-icon {
+  display: none;
+  font-size: 28px;
+  color: #000;
+  line-height: 50px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#logo a:hover .black-logo,
+#logo a:hover .white-logo {
+  display: none !important;
+}
+
+#logo a:hover .logo-home-icon {
+  display: block;
+}
+
+#logo a:hover .logo-home-icon:hover {
+  transform: scale(1.15);
+}
+
 /* Show white logo on light content */
 .light-content #logo .black-logo {
   display: none;
@@ -453,6 +482,11 @@ header {
 
 .light-content #logo .white-logo {
   display: block;
+}
+
+/* Light content — white home icon */
+.light-content #logo .logo-home-icon {
+  color: #fff;
 }
 
 /* Burger menu styles — see fullscreen-menu / burger-lines / button-wrap section at end of file */
@@ -619,11 +653,17 @@ footer.showcase-footer {
 }
 
 #welcome-animation {
-  font-size: 3.5em;
+  font-size: clamp(1.4rem, 4.5vw, 3.5rem);
   color: var(--accent-gold);
   text-align: center;
   margin-top: 20px;
   font-family: var(--title-font);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
+  line-height: 1.2;
 }
 
 .hero-cta-buttons {
@@ -1141,23 +1181,11 @@ footer.showcase-footer {
   color: #cccccc;
   font-size: 0.9rem;
 }
-/* Fix typing animation layout shift */
+/* Welcome animation - single line, no wrap */
 #welcome-animation {
-  display: inline-block;
-  min-width: 20ch; /* Accommodate longest string "Добро пожаловать" */
+  display: block;
   text-align: center;
-}
-
-@media (max-width: 767px) {
-  #welcome-animation {
-    min-width: 18ch;
-  }
-}
-
-@media (max-width: 479px) {
-  #welcome-animation {
-    min-width: 16ch;
-  }
+  white-space: nowrap;
 }
 
 /* Ensure parent container centers the typing animation */
@@ -1178,28 +1206,16 @@ footer.showcase-footer {
   padding-inline: 20px;  /* prevents edge hugging on mobile */
 }
 
-/* Keep the welcome text centered and constrained */
+/* Hero welcome text - single line, scales to fit viewport */
 #welcome-animation {
   display: block;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-
-  /* Prevent overflow */
-  overflow-wrap: anywhere;   /* breaks long chunks safely */
-  word-break: normal;
-  hyphens: auto;
-}
-
-#welcome-animation {
-  font-size: clamp(1.6rem, 5vw, 3.5rem);
-  line-height: 1.1;
-}
-
-#welcome-animation {
-  width: 100%;
-  max-width: 28ch; /* or whatever looks right */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
@@ -1677,13 +1693,15 @@ header.default-header {
 	}
 
 	.fullscreen-menu .flexnav > li > a {
-		font-weight: 500;
-		font-size: calc(1rem + 8vw);
-		line-height: calc(1rem + 7.5vw);
+		font-family: var(--title-font);
+		font-weight: 600;
+		font-size: calc(1rem + 5vw);
+		line-height: calc(1rem + 5.5vw);
 		padding: 0 50px;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
 		-webkit-transition: all .1s ease-in-out 0s;
 		transition: all .1s ease-in-out 0s;
-		text-transform: lowercase;
 	}
 
 	.fullscreen-menu .flexnav .touch-button {
