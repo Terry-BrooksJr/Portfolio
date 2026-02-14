@@ -2918,8 +2918,8 @@ window.LoadViaAjax = function () {
   JustifiedGrid();
   Lightbox();
   PlayVideo();
-  ContactForm();
-  ContactMap();
+  if (typeof ContactForm === 'function') ContactForm();
+  if (typeof ContactMap === 'function') ContactMap();
   CustomFunction();
 };
 
@@ -2930,4 +2930,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 console.log('Scripts initialized.');
-s
