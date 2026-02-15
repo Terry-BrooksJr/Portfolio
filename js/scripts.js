@@ -2930,3 +2930,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 console.log('Scripts initialized.');
+s
