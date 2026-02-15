@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'code_here', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <title>Terry A. Brooks, Jr. | Something New Is Brewing | Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Something new is in the works. Stay tuned for the next evolution in backend engineering and DevOps innovation.">
+    <meta name="author" content="Terry Brooks, Jr.">
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#0c0c0c">
+    <!-- Typography - Primary Fonts -->
+    <!-- Orbitron: Headings | Inter: Body | Bricolage Grotesque & Syne: Buttons/Callouts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Code/Terminal fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Local Stylesheets -->
+    <link href="/style.css" rel="stylesheet">
+    <link href="/css/flipdown.css" rel="stylesheet">
+
+    <style>
+        /* Coming Soon Page Styles */
+
+        /* Override: hero-title is sized for single short words (~25vw).
+           "Coming Soon" is two words — scale down so it fits within the viewport
+           while white-space:nowrap and overflow:visible remain intact. */
+        .height-title .hero-title {
+            font-size: clamp(2rem, 10vw, 12rem);
+            line-height: 1.1;
+        }
+
+        .countdown-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0 40px;
+        }
+
+        .countdown-label {
+            font-family: var(--title-font, 'Orbitron', sans-serif);
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 30px;
+        }
+
+        .coming-soon-terminal {
+            background: #0a0a0a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 30px;
+            font-family: var(--code-font, 'JetBrains Mono', monospace);
+            font-size: 14px;
+            line-height: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .coming-soon-terminal .terminal-line {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .coming-soon-terminal .terminal-line .cmd {
+            color: var(--accent-teal, #219EBC);
+        }
+
+        .coming-soon-terminal .terminal-line .flag {
+            color: var(--accent-gold, #C29E5D);
+        }
+
+        .coming-soon-terminal .terminal-line .output {
+            color: #2AA876;
+        }
+
+        .coming-soon-terminal .terminal-line .error {
+            color: var(--accent-clay, #DB3A34);
+        }
+
+        .coming-soon-terminal .cursor-blink {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--accent-teal, #219EBC);
+            animation: blink-cursor 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        @keyframes blink-cursor {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .notify-form-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 0;
+            margin-top: 20px;
+        }
+
+        .notify-form input[type="email"] {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-family: var(--body-font, 'Inter', sans-serif);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .notify-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .notify-form input[type="email"]:focus {
+            border-color: var(--accent-teal, #219EBC);
+        }
+
+        .notify-form button {
+            padding: 14px 28px;
+            border: 1px solid var(--accent-teal, #219EBC);
+            border-radius: 0 4px 4px 0;
+            background: var(--accent-teal, #219EBC);
+            color: #fff;
+            font-family: var(--title-font, 'Orbitron', sans-serif);
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .notify-form button:hover {
+            background: transparent;
+            color: var(--accent-teal, #219EBC);
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .status-item {
+            text-align: center;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .status-item:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .status-item .status-icon {
+            font-size: 28px;
+            color: var(--accent-teal, #219EBC);
+            margin-bottom: 16px;
+        }
+
+        .status-item h4 {
+            font-family: var(--title-font, 'Orbitron', sans-serif);
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .status-item p {
+            font-family: var(--body-font, 'Inter', sans-serif);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .progress-bar-wrapper {
+            max-width: 400px;
+            margin: 20px auto 0;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-teal, #219EBC), var(--accent-gold, #C29E5D));
+            border-radius: 2px;
+            width: 0%;
+            transition: width 2s ease-out;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-family: var(--code-font, 'JetBrains Mono', monospace);
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* FlipDown theme override for dark bg */
+        .flipdown.flipdown__theme-dark .rotor-group-heading:before {
+            color: rgba(255, 255, 255, 0.5);
+            font-family: var(--title-font, 'Orbitron', sans-serif);
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .flipdown.flipdown__theme-dark .rotor,
+        .flipdown.flipdown__theme-dark .rotor-top,
+        .flipdown.flipdown__theme-dark .rotor-leaf-front {
+            color: #FFFFFF;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .flipdown.flipdown__theme-dark .rotor-bottom,
+        .flipdown.flipdown__theme-dark .rotor-leaf-rear {
+            color: #EFEFEF;
+            background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .flipdown.flipdown__theme-dark .rotor:after {
+            border-top: solid 1px rgba(255, 255, 255, 0.04);
+        }
+
+        .flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):before,
+        .flipdown.flipdown__theme-dark .rotor-group:nth-child(n+2):nth-child(-n+3):after {
+            background-color: var(--accent-teal, #219EBC);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--accent-teal, #219EBC);
+            margin: 0 auto 30px;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .notify-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .notify-form input[type="email"] {
+                border-right: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 4px;
+            }
+
+            .notify-form button {
+                border-radius: 4px;
+                width: 100%;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#219EBC"
+    data-header-variant="coming-soon">
+
+    <main>
+        <!-- Preloader -->
+        <div class="preloader-wrap" data-centerLine="Initializing">
+            <div class="outer">
+                <div class="inner">
+                    <div class="trackbar">
+                        <div class="preloader-intro">
+                            <span>Initializing</span>
+                        </div>
+                        <div class="loadbar"></div>
+                        <div class="percentage-wrapper">
+                            <div class="percentage" id="precent"></div>
+                        </div>
+                    </div>
+
+                    <div class="percentage-intro">Please wait, something new is loading...</div>
+                </div>
+            </div>
+        </div>
+        <!--/Preloader -->
+
+        <div class="cd-index cd-main-content">
+
+            <!-- Page Content -->
+            <div id="clapat-page-content" class="light-content" data-bgcolor="#0c0c0c">
+
+                <!-- Header -->
+                <div id="site-header"></div>
+                <!--/Header -->
+
+                <!-- Content Scroll -->
+                <div id="content-scroll">
+
+                    <div id="main">
+                        <!-- Hero Section -->
+                        <div id="hero">
+                            <div id="hero-styles">
+                                <div id="hero-caption"
+                                    class="content-full-width parallax-scroll-caption text-align-center height-title">
+                                    <div class="inner">
+                                        <h1 class="hero-title caption-timeline primary-font-title"><span>Coming
+                                                Soon</span></h1>
+                                        <div class="hero-subtitle caption-timeline">
+                                            <span>Something new is being engineered behind the scenes. <br
+                                                    class="destroy"> A new project is deploying to production
+                                                soon.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="hero-footer" class="has-border">
+                                    <div class="hero-footer-left">
+                                        <div class="button-wrap right scroll-down">
+                                            <div class="icon-wrap parallax-wrap">
+                                                <div class="button-icon parallax-element">
+                                                    <i class="fa fa-angle-down"></i>
+                                                </div>
+                                            </div>
+                                            <div class="button-text sticky right"><span
+                                                    data-hover="Scroll">Scroll</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="hero-footer-right">
+                                        <div id="info-text">Stay Tuned</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Hero Section -->
+
+                        <!-- Main Content -->
+                        <div id="main-content">
+                            <div id="main-page-content" class="content-max-width">
+
+                                <!-- Countdown Section -->
+                                <div class="content-row full row_padding_top row_padding_bottom dark-section text-align-center"
+                                    data-bgcolor="#0c0c0c">
+
+                                    <div class="countdown-label has-animation" data-delay="100">Launching In</div>
+
+                                    <div class="countdown-wrapper has-animation" data-delay="200">
+                                        <div id="flipdown" class="flipdown"></div>
+                                    </div>
+
+                                    <!-- Progress Bar -->
+                                    <div class="progress-bar-wrapper has-animation" data-delay="300">
+                                        <div class="progress-track">
+                                            <div class="progress-fill" id="build-progress"></div>
+                                        </div>
+                                        <div class="progress-label">
+                                            <span id="ci-stage">Initializing pipeline…</span>
+                                            <span id="progress-percent">0%</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--/Countdown Section -->
+
+                                <!-- Marquee Text -->
+                                <div class="content-row full" data-bgcolor="#0A0F0D">
+                                    <div class="marquee-text-wrapper">
+                                        <h2 class="marquee-text bw big-title primary-font-title">BUILDING &bull; TESTING
+                                            &bull; DEPLOYING &bull; BUILDING &bull; TESTING &bull; DEPLOYING &bull;</h2>
+                                    </div>
+                                </div>
+                                <!--/Marquee Text -->
+
+                                <!-- Terminal Status Section -->
+                                <div class="content-row full row_padding_top row_padding_bottom dark-section"
+                                    data-bgcolor="#0c0c0c">
+
+                                    <div class="one_half">
+                                        <div class="has-animation" data-delay="100">
+                                            <h2 class="primary-font-title" style="margin-bottom:10px;">What's Cooking?
+                                            </h2>
+                                            <div class="section-divider" style="margin:0 0 20px 0;"></div>
+                                            <p style="color:rgba(255,255,255,0.6); line-height:1.8; font-size:16px;">
+                                                New additions are actively in development. Thanks for your patience
+                                                while we tidy things up.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="one_half last">
+                                        <div class="coming-soon-terminal has-animation" data-delay="200">
+                                            <div class="terminal-line"><span class="cmd">$</span> git status</div>
+                                            <div class="terminal-line"><span class="output">On branch:
+                                                    feature/next-big-thing</span></div>
+                                            <div class="terminal-line"><span class="output">Changes staged for
+                                                    commit:</span></div>
+                                            <div class="terminal-line">&nbsp;&nbsp;<span class="flag">modified:</span>
+                                                src/core/engine.py</div>
+                                            <div class="terminal-line">&nbsp;&nbsp;<span class="flag">new file:</span>
+                                                src/api/endpoints.py</div>
+                                            <div class="terminal-line">&nbsp;&nbsp;<span class="flag">new file:</span>
+                                                infra/terraform/main.tf</div>
+                                            <div class="terminal-line">&nbsp;</div>
+                                            <div class="terminal-line"><span class="cmd">$</span> python manage.py test
+                                            </div>
+                                            <div class="terminal-line"><span class="output">Running 47 tests...
+                                                    OK</span></div>
+                                            <div class="terminal-line">&nbsp;</div>
+                                            <div class="terminal-line"><span class="cmd">$</span> docker build <span
+                                                    class="flag">-t</span> next-project .</div>
+                                            <div class="terminal-line"><span class="output">Successfully built
+                                                    a3f7c2d</span></div>
+                                            <div class="terminal-line"><span class="cmd">$</span> <span
+                                                    class="cursor-blink"></span></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--/Terminal Status Section -->
+
+                                <!-- Counters Section -->
+                                <div class="content-row full row_padding_top row_padding_bottom dark-section text-align-center"
+                                    data-bgcolor="#0A0F0D">
+
+                                    <div class="one_third">
+                                        <div class="has-animation" data-delay="100">
+                                            <div class="number-counter-wrap">
+                                                <h2 class="number-counter" data-target="47" data-symbol="+">0</h2>
+                                            </div>
+                                            <p
+                                                style="color:rgba(255,255,255,0.5); margin-top:10px; font-family:var(--title-font); font-size:11px; letter-spacing:2px; text-transform:uppercase;">
+                                                Tests Passing</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="one_third">
+                                        <div class="has-animation" data-delay="200">
+                                            <div class="number-counter-wrap">
+                                                <h2 id="build-complete" class="number-counter" data-symbol="%">0</h2>
+                                            </div>
+                                            <p
+                                                style="color:rgba(255,255,255,0.5); margin-top:10px; font-family:var(--title-font); font-size:11px; letter-spacing:2px; text-transform:uppercase;">
+                                                Build Complete</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="one_third last">
+                                        <div class="has-animation" data-delay="300">
+                                            <div class="number-counter-wrap">
+                                                <h2 class="number-counter" data-target="12" data-symbol="">0</h2>
+                                            </div>
+                                            <p
+                                                style="color:rgba(255,255,255,0.5); margin-top:10px; font-family:var(--title-font); font-size:11px; letter-spacing:2px; text-transform:uppercase;">
+                                                Microservices</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--/Counters Section -->
+
+                                <!-- Icon Boxes - What to Expect -->
+                                <div class="content-row full row_padding_top row_padding_bottom dark-section"
+                                    data-bgcolor="#0c0c0c">
+
+                                    <div class="text-align-center has-animation" data-delay="100">
+                                        <h2 class="primary-font-title" style="margin-bottom:10px;">What to Expect</h2>
+                                        <div class="section-divider"></div>
+                                    </div>
+
+                                    <div class="status-grid has-animation" data-delay="200">
+
+                                        <div class="status-item">
+                                            <div class="status-icon"><i class="fa-solid fa-code"></i></div>
+                                            <h4>Project Gallery</h4>
+<p>A curated collection of projects highlighting problem-solving, design decisions, and technical execution.</p>
+                                        </div>
+
+                                        <div class="status-item">
+                                            <div class="status-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                                            <h4>Digital Curriculum Vitae</h4>
+                              <p>An interactive, continuously updated profile highlighting skills, experience, and real-world work.</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!--/Icon Boxes -->
+
+                                <!-- Marquee Text 2 -->
+                                <div class="content-row full" data-bgcolor="#0A0F0D">
+                                    <div class="marquee-text-wrapper">
+                                        <h2 class="marquee-text fw big-title primary-font-title">STAY TUNED &bull;
+                                            LAUNCHING SOON &bull; STAY TUNED &bull; LAUNCHING SOON &bull;</h2>
+                                    </div>
+                                </div>
+                                <!--/Marquee Text 2 -->
+
+                                <!-- Notify Section -->
+                                <div class="content-row full row_padding_top row_padding_bottom dark-section text-align-center"
+                                    data-bgcolor="#0c0c0c">
+
+
+
+
+                                    <!-- Social Links -->
+                                    <div class="has-animation" data-delay="300" style="margin-top:50px;">
+                                        <p
+                                            style="color:rgba(255,255,255,0.35); font-family:var(--title-font); font-size:11px; letter-spacing:3px; text-transform:uppercase; margin-bottom:20px;">
+                                            Follow the Build</p>
+                                        <div style="display:flex; justify-content:center; gap:20px;">
+                                            <a href="https://github.com/Terry-BrooksJr" target="_blank"
+                                                style="color:rgba(255,255,255,0.5); font-size:22px; transition:color 0.3s ease;">
+                                                <i class="fa-brands fa-github"></i>
+                                            </a>
+                                            <a href="https://www.linkedin.com/in/terryabrooks/" target="_blank"
+                                                style="color:rgba(255,255,255,0.5); font-size:22px; transition:color 0.3s ease;">
+                                                <i class="fa-brands fa-linkedin"></i>
+                                            </a>
+                                            <a href="https://twitter.com/NomadicSaaS_PM" target="_blank"
+                                                style="color:rgba(255,255,255,0.5); font-size:22px; transition:color 0.3s ease;">
+                                                <i class="fa-brands fa-x-twitter"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--/Notify Section -->
+
+                                <!-- Page Navigation -->
+                                <div id="page-nav">
+                                    <div class="page-nav-wrap">
+                                        <div class="page-nav-caption content-full-width text-align-center height-title">
+                                            <div class="inner">
+                                                <div class="next-hero-subtitle caption-timeline"><span>BACK TO</span>
+                                                </div>
+                                                <a class="page-title next-ajax-link-page" data-type="page-transition"
+                                                    data-centerline="Home" href="/index.html">
+                                                    <div class="next-hero-title primary-font-title caption-timeline">
+                                                        <span>Home</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/Page Navigation -->
+
+                            </div>
+                        </div>
+                        <!--/Main Content -->
+
+                    </div>
+                    <!--/Main -->
+
+                </div>
+                <!--/Content Scroll -->
+
+            </div>
+            <!--/Page Content -->
+
+            <!-- Footer -->
+            <footer>
+                <div id="footer-container">
+                    <div id="backtotop" class="button-wrap left">
+                        <div class="icon-wrap parallax-wrap">
+                            <div class="button-icon parallax-element">
+                                <i style="color:#fff" class="fa-solid fa-angle-up"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-middle">
+                        <div id="copyright-block" class="copyright"><span id="copyright-year"></span> &copy; Terry A.
+                            Brooks, Jr. All rights reserved.</div>
+                    </div>
+                    <div class="socials-wrap">
+                        <div class="socials-icon"><i style="color:#fff" class="fa-solid fa-share-nodes"></i></div>
+                        <div class="socials-text" style="color:#fff">Follow Me</div>
+                        <ul class="socials">
+                            <li><span class="parallax-wrap"><a class="parallax-element"
+                                        href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i style="color:#fff"
+                                            class="fa-brands fa-x-twitter"></i></a></span></li>
+                            <li><span class="parallax-wrap"><a class="parallax-element"
+                                        href="https://github.com/Terry-BrooksJr" target="_blank"><i style="color:#fff"
+                                            class="fa-brands fa-github"></i></a></span></li>
+                            <li><span class="parallax-wrap"><a class="parallax-element"
+                                        href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i
+                                            class="fa-brands fa-linkedin" style="color:#fff"></i></a></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+            <!--/Footer -->
+
+        </div>
+        <!--/Main Index -->
+
+    </main>
+
+    <div class="cd-cover-layer"></div>
+    <div id="magic-cursor">
+        <div id="ball">
+            <div id="ball-drag-x"></div>
+            <div id="ball-drag-y"></div>
+            <div id="ball-loader"></div>
+        </div>
+    </div>
+    <div id="clone-image">
+        <div class="hero-translate"></div>
+    </div>
+
+    <!-- External Dependencies -->
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.4.0/smooth-scrollbar.js'></script>
+
+    <!-- Local Scripts -->
+    <script src="/js/clapat.js?v=1.0.1"></script>
+    <script src="/js/plugins.js?v=1.0.1"></script>
+    <script src="/js/common.js?v=1.0.1"></script>
+    <script src="/js/scripts.js?v=1.0.1"></script>
+    <script src="/js/flipdown.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            if (typeof BurgerMenuAnimation === 'function') {
+                BurgerMenuAnimation();
+            }
+
+            // -- CI/CD stage labels mapped to percentage ranges --
+            var CI_STAGES = [
+                { min: 0, max: 10, label: 'Bootstrapping build environment' },
+                { min: 10, max: 25, label: 'Resolving dependencies' },
+                { min: 25, max: 45, label: 'Compiling services' },
+                { min: 45, max: 65, label: 'Running test suite' },
+                { min: 65, max: 80, label: 'Static analysis & linting' },
+                { min: 80, max: 92, label: 'Packaging artifacts' },
+                { min: 92, max: 99, label: 'Deploying to production' },
+                { min: 99, max: 101, label: 'Finalizing release' }
+            ];
+
+            function getCIStage(percent) {
+                for (var i = 0; i < CI_STAGES.length; i++) {
+                    if (percent >= CI_STAGES[i].min && percent < CI_STAGES[i].max) {
+                        return CI_STAGES[i].label;
+                    }
+                }
+                return 'Standing by…';
+            }
+
+            // -- Configuration --
+            // Total countdown duration in seconds (20 days).
+            var TOTAL_DURATION_SECONDS = 20 * 24 * 60 * 60;
+
+            // Fixed launch date: March 7, 2026 00:00:00 UTC.
+            // Change this to your actual target launch date.
+            var LAUNCH_EPOCH = Math.floor(new Date('2026-03-05T00:00:00Z').getTime() / 1000);
+            var START_EPOCH = LAUNCH_EPOCH - TOTAL_DURATION_SECONDS;
+
+            // -- FlipDown countdown --
+            if (typeof FlipDown === 'function') {
+                try {
+                    new FlipDown(LAUNCH_EPOCH, 'flipdown', {
+                        theme: 'dark',
+                        headings: ['Days', 'Hours', 'Minutes', 'Seconds']
+                    }).start();
+                } catch (e) {
+                    console.warn('FlipDown initialization failed:', e);
+                }
+            } else {
+                console.warn('FlipDown not available');
+            }
+
+            // -- Time-based progress bar --
+            var bar = document.getElementById('build-progress');
+            var percentEl = document.getElementById('progress-percent');
+            var stageEl = document.getElementById('ci-stage'); // optional
+            var buildCompleteEl = document.getElementById('build-complete'); // optional counter
+
+            if (!bar || !percentEl) {
+                console.warn('Progress bar elements missing: build-progress or progress-percent not found');
+                return;
+            }
+
+            if (!buildCompleteEl) {
+                console.warn('build-complete counter element not found — counter will not update');
+            }
+
+            var totalDuration = LAUNCH_EPOCH - START_EPOCH;
+
+            function tick() {
+                var now = Math.floor(Date.now() / 1000);
+                var elapsed = now - START_EPOCH;
+
+                // Clamp between 0 and 100
+                var percent = Math.floor(Math.min(Math.max((elapsed / totalDuration) * 100, 0), 100));
+
+                bar.style.width = percent + '%';
+                percentEl.textContent = percent + '%';
+
+                if (stageEl) {
+                    stageEl.textContent = getCIStage(percent);
+                }
+
+                if (buildCompleteEl) {
+                    buildCompleteEl.textContent = percent;
+                }
+
+                if (percent >= 100) {
+                    clearInterval(timer);
+                }
+            }
+
+            tick();
+            var timer = setInterval(tick, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
