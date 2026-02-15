@@ -45,11 +45,15 @@
         /* Coming Soon Page Styles */
 
         /* Override: hero-title is sized for single short words (~25vw).
-           "Coming Soon" is two words — scale down so it fits within the viewport
-           while white-space:nowrap and overflow:visible remain intact. */
+           "Coming Soon" is two words — scale down so it fits within the viewport.
+           Must beat content.css base + responsive rules that re-set font-size,
+           and neutralise white-space:nowrap so text can wrap on narrow screens. */
         .height-title .hero-title {
-            font-size: clamp(2rem, 10vw, 12rem);
+            font-size: clamp(2rem, 10vw, 12rem) !important;
             line-height: 1.1;
+            white-space: normal;
+            overflow: hidden;
+            word-break: break-word;
         }
 
         .countdown-wrapper {
