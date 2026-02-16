@@ -206,7 +206,7 @@ Function Burger Menu Animation
     }
 
     // Otherwise, fetch and inject the header HTML then bind
-    const headerURL = new URL('partials/header.html', document.baseURI).toString();
+    const headerURL = new URL('/pages/partials/header.html', document.baseURI).toString();
     fetch(headerURL)
       .then(res => {
         if (!res.ok) {
@@ -2918,8 +2918,8 @@ window.LoadViaAjax = function () {
   JustifiedGrid();
   Lightbox();
   PlayVideo();
-  ContactForm();
-  ContactMap();
+  if (typeof ContactForm === 'function') ContactForm();
+  if (typeof ContactMap === 'function') ContactMap();
   CustomFunction();
 };
 
@@ -2930,4 +2930,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 console.log('Scripts initialized.');
-s
