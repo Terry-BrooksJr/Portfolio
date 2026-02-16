@@ -44,13 +44,8 @@
     <style>
         /* Coming Soon Page Styles */
 
-        /* Override: hero-title is sized for single short words (~25vw).
-           "Coming Soon" is two words — the global fix in content.css handles
-           wrapping, but we keep a tighter size for this page's aesthetic. */
-        .height-title .hero-title {
-            font-size: clamp(2rem, 10vw, 12rem) !important;
-            line-height: 1.1;
-        }
+        /* hero-title shrink-to-fit is handled by the auto-scaler in
+           scripts.js — no font-size override needed here. */
 
         .countdown-wrapper {
             display: flex;

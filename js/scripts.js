@@ -17,6 +17,9 @@ jQuery(function ($) {
     try {
       HeightTitles();
     } catch (e) { console.warn('HeightTitles failed:', e); }
+    try {
+      FitHeroTitles();
+    } catch (e) { console.warn('FitHeroTitles failed:', e); }
 
     try {
       PageLoad();
@@ -420,6 +423,45 @@ Function Height Titles
 
 
   };// End Height Titles
+
+
+  /*--------------------------------------------------
+	Fit Hero Titles — shrink font-size so hero titles
+	stay on a single line without overflowing the viewport.
+	Must run AFTER HeightTitles() has split text into spans.
+---------------------------------------------------*/
+
+  const FitHeroTitles = () => {
+    const titles = document.querySelectorAll('.height-title .hero-title');
+    if (!titles.length) return;
+
+    titles.forEach((title) => {
+      // Reset inline font-size so we measure from the CSS value
+      title.style.fontSize = '';
+
+      const computed = window.getComputedStyle(title);
+      let fontSize = parseFloat(computed.fontSize);
+      const minFontSize = 16; // never shrink below 16px
+
+      // Available width = parent's content width
+      const container = title.parentElement;
+      if (!container) return;
+      const available = container.clientWidth;
+
+      // Shrink until the title fits or we hit the floor
+      while (title.scrollWidth > available && fontSize > minFontSize) {
+        fontSize -= 1;
+        title.style.fontSize = fontSize + 'px';
+      }
+    });
+  };
+
+  // Re-fit on window resize (debounced) — bound once
+  let fitResizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(fitResizeTimer);
+    fitResizeTimer = setTimeout(FitHeroTitles, 200);
+  });
 
 
   /*--------------------------------------------------
@@ -2497,6 +2539,7 @@ Function Showcase Gallery
 
   window.LoadViaAjax = function () {
     HeightTitles();
+    FitHeroTitles();
     CleanupBeforeAjax();
     BurgerMenuAnimation();
     UpdateCopyright();
@@ -2903,6 +2946,7 @@ function ShowcaseGallery() {
 // Export for Ajax loading
 window.LoadViaAjax = function () {
   HeightTitles();
+  FitHeroTitles();
   CleanupBeforeAjax();
   FirstLoad();
   ScrollEffects();
