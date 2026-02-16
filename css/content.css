@@ -156,7 +156,10 @@
 	.height-title .hero-title {
 		position:relative;
 		overflow:visible;
-		white-space: nowrap;
+		white-space: normal;
+		overflow-wrap: break-word;
+		word-break: break-word;
+		max-width: 100%;
 	}
 	
 	.height-title .hero-title div {
