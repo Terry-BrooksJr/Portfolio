@@ -206,7 +206,7 @@ Function Burger Menu Animation
     }
 
     // Otherwise, fetch and inject the header HTML then bind
-    const headerURL = new URL('partials/header.html', document.baseURI).toString();
+    const headerURL = new URL('/pages/partials/header.html', document.baseURI).toString();
     fetch(headerURL)
       .then(res => {
         if (!res.ok) {
