@@ -155,7 +155,7 @@
 	
 	.height-title .hero-title {
 		position:relative;
-		overflow:hidden;
+		overflow:visible;
 		white-space: nowrap;
 		max-width: 100%;
 	}
