@@ -45,16 +45,11 @@
         /* Coming Soon Page Styles */
 
         /* Override: hero-title is sized for single short words (~25vw).
-           "Coming Soon" is two words — scale down so it fits within the viewport.
-           Must beat content.css base + responsive rules that re-set font-size,
-           and neutralise white-space:nowrap so text can wrap on narrow screens. */
+           "Coming Soon" is two words — the global fix in content.css handles
+           wrapping, but we keep a tighter size for this page's aesthetic. */
         .height-title .hero-title {
             font-size: clamp(2rem, 10vw, 12rem) !important;
             line-height: 1.1;
-            white-space: normal;
-            overflow: hidden;
-            overflow-wrap: break-word;
-            word-break: break-word;
         }
 
         .countdown-wrapper {
@@ -244,7 +239,7 @@
             background: linear-gradient(90deg, var(--accent-teal, #219EBC), var(--accent-gold, #C29E5D));
             border-radius: 2px;
             width: 0%;
-            transition: width 2s ease-out;
+            transition: width 1s linear;
         }
 
         .progress-label {
@@ -492,7 +487,7 @@
                                     <div class="one_third">
                                         <div class="has-animation" data-delay="200">
                                             <div class="number-counter-wrap">
-                                                <h2 id="build-complete" class="number-counter" data-symbol="%">0</h2>
+                                                <h2 id="build-complete" class="number-counter" data-target="0" data-symbol="%">0</h2>
                                             </div>
                                             <p
                                                 style="color:rgba(255,255,255,0.5); margin-top:10px; font-family:var(--title-font); font-size:11px; letter-spacing:2px; text-transform:uppercase;">
@@ -714,8 +709,7 @@
             // Total countdown duration in seconds (20 days).
             var TOTAL_DURATION_SECONDS = 20 * 24 * 60 * 60;
 
-            // Fixed launch date: March 7, 2026 00:00:00 UTC.
-            // Change this to your actual target launch date.
+            // Fixed launch date: March 5, 2026 00:00:00 UTC.
             var LAUNCH_EPOCH = Math.floor(new Date('2026-03-05T00:00:00Z').getTime() / 1000);
             var START_EPOCH = LAUNCH_EPOCH - TOTAL_DURATION_SECONDS;
 
