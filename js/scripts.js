@@ -436,23 +436,47 @@ Function Height Titles
     if (!titles.length) return;
 
     titles.forEach((title) => {
-      // Reset inline font-size so we measure from the CSS value
+      // Reset inline font-size so we measure from the CSS-defined value
       title.style.fontSize = '';
 
       const computed = window.getComputedStyle(title);
-      let fontSize = parseFloat(computed.fontSize);
+      const maxFontSize = parseFloat(computed.fontSize);
       const minFontSize = 16; // never shrink below 16px
 
-      // Available width = parent's content width
-      const container = title.parentElement;
+      // Walk up to the nearest ancestor whose width is viewport-constrained
+      // (.inner is a flex child that expands to content — skip it).
+      // Use the .content-full-width / .content-max-width wrapper or fall
+      // back to the closest element with a fixed/percentage width.
+      let container = title.closest('.content-full-width, .content-max-width');
+      if (!container) container = title.parentElement;
       if (!container) return;
-      const available = container.clientWidth;
 
-      // Shrink until the title fits or we hit the floor
-      while (title.scrollWidth > available && fontSize > minFontSize) {
-        fontSize -= 1;
-        title.style.fontSize = fontSize + 'px';
+      const containerStyle = window.getComputedStyle(container);
+      const available = container.clientWidth
+        - parseFloat(containerStyle.paddingLeft)
+        - parseFloat(containerStyle.paddingRight);
+
+      if (available <= 0) return; // layout not ready
+
+      // If it already fits at the CSS size, nothing to do
+      if (title.scrollWidth <= available) return;
+
+      // Binary search for the largest font-size that fits
+      let lo = minFontSize;
+      let hi = maxFontSize;
+
+      while (hi - lo > 0.5) {
+        const mid = (lo + hi) / 2;
+        title.style.fontSize = mid + 'px';
+        if (title.scrollWidth > available) {
+          hi = mid;
+        } else {
+          lo = mid;
+        }
       }
+
+      // Use the lower bound to guarantee no overflow
+      title.style.fontSize = Math.floor(lo) + 'px';
     });
   };
 

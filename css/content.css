@@ -79,6 +79,8 @@
 		display: block;
 		width: auto;
 		height: auto;
+		min-width: 0;
+		max-width: 100%;
 	}
 	
 	#hero-caption.text-align-center .inner {
@@ -155,7 +157,7 @@
 	
 	.height-title .hero-title {
 		position:relative;
-		overflow:hidden;
+		overflow:visible;
 		white-space: nowrap;
 		max-width: 100%;
 	}
