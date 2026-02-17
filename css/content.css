@@ -79,6 +79,8 @@
 		display: block;
 		width: auto;
 		height: auto;
+		min-width: 0;
+		max-width: 100%;
 	}
 	
 	#hero-caption.text-align-center .inner {

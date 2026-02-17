@@ -443,10 +443,20 @@ Function Height Titles
       const maxFontSize = parseFloat(computed.fontSize);
       const minFontSize = 16; // never shrink below 16px
 
-      // Available width = parent's content-box width
-      const container = title.parentElement;
+      // Walk up to the nearest ancestor whose width is viewport-constrained
+      // (.inner is a flex child that expands to content — skip it).
+      // Use the .content-full-width / .content-max-width wrapper or fall
+      // back to the closest element with a fixed/percentage width.
+      let container = title.closest('.content-full-width, .content-max-width');
+      if (!container) container = title.parentElement;
       if (!container) return;
-      const available = container.clientWidth;
+
+      const containerStyle = window.getComputedStyle(container);
+      const available = container.clientWidth
+        - parseFloat(containerStyle.paddingLeft)
+        - parseFloat(containerStyle.paddingRight);
+
+      if (available <= 0) return; // layout not ready
 
       // If it already fits at the CSS size, nothing to do
       if (title.scrollWidth <= available) return;
