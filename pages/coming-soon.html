@@ -482,7 +482,7 @@
                                     <div class="one_third">
                                         <div class="has-animation" data-delay="200">
                                             <div class="number-counter-wrap">
-                                                <h2 id="build-complete" class="number-counter" data-target="0" data-symbol="%">0</h2>
+                                                <h2 id="build-complete" class="number-counter" data-symbol="%">0</h2>
                                             </div>
                                             <p
                                                 style="color:rgba(255,255,255,0.5); margin-top:10px; font-family:var(--title-font); font-size:11px; letter-spacing:2px; text-transform:uppercase;">
@@ -738,6 +738,7 @@
             }
 
             var totalDuration = LAUNCH_EPOCH - START_EPOCH;
+            var lastPercent = -1;
 
             function tick() {
                 var now = Math.floor(Date.now() / 1000);
@@ -745,6 +746,10 @@
 
                 // Clamp between 0 and 100
                 var percent = Math.floor(Math.min(Math.max((elapsed / totalDuration) * 100, 0), 100));
+
+                // Skip redundant DOM writes when percent hasn't changed
+                if (percent === lastPercent) return;
+                lastPercent = percent;
 
                 bar.style.width = percent + '%';
                 percentEl.textContent = percent + '%';
@@ -755,6 +760,7 @@
 
                 if (buildCompleteEl) {
                     buildCompleteEl.textContent = percent;
+                    buildCompleteEl.setAttribute('data-target', percent);
                 }
 
                 if (percent >= 100) {
