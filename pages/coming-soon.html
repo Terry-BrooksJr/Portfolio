@@ -482,7 +482,7 @@
                                     <div class="one_third">
                                         <div class="has-animation" data-delay="200">
                                             <div class="number-counter-wrap">
-                                                <h2 id="build-complete" class="number-counter" data-target="0" data-symbol="%">0</h2>
+                                                <h2 id="build-complete" data-symbol="%">0</h2>
                                             </div>
                                             <p
                                                 style="color:rgba(255,255,255,0.5); margin-top:10px; font-family:var(--title-font); font-size:11px; letter-spacing:2px; text-transform:uppercase;">
@@ -755,6 +755,7 @@
 
                 if (buildCompleteEl) {
                     buildCompleteEl.textContent = percent;
+                    buildCompleteEl.setAttribute('data-target', percent);
                 }
 
                 if (percent >= 100) {
