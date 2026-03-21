@@ -1318,7 +1318,7 @@ Function Scroll Effects
 			});
 		});
 		
-		var counter = gsap.utils.toArray('.number-counter:not(#build-complete)');
+		var counter = gsap.utils.toArray('.number-counter[data-target]');
 		counter.forEach(function(countNumber) {
 			gsap.fromTo(countNumber, {innerText: countNumber.innerText}, {innerText: function() {return Math.floor(parseFloat(countNumber.getAttribute('data-target')));},
 				duration: 1,
