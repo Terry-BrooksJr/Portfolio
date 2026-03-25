@@ -7,14 +7,14 @@
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		
+
 		ga('create', 'code_here', 'auto');
 		ga('send', 'pageview');
 	</script>
-    
+
     <title>Terry A. Brooks, Jr. | Deploy My Resume | Professional Summary</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Credentials, experience, and the systems I've helped build">
+    <meta name="description" content="Credentials, experience, and the systems I've helped build — all in one deployable summary.">
     <meta name="author" content="Terry Brooks, Jr.">
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
@@ -34,25 +34,99 @@
     <!-- Local Stylesheets -->
     <link href="/style.css" rel="stylesheet">
     <style>
-        /* Custom styles for CV page */
-        .cv-sub-text {
-            font-size: 0.8em;
-            color: #777;
-            display: flex;
-            margin-top: -0.5em;
+        /* CV Page — custom overrides */
+        .cv-metric-label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 0.35em;
+            opacity: 0.65;
         }
-        </style>
+        .cv-role-meta {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-top: 0.3em;
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-weight: 400;
+        }
+        .cv-bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.5em 0 0;
+        }
+        .cv-bullet-list li {
+            padding: 0.45em 0;
+            padding-left: 1.4em;
+            position: relative;
+            line-height: 1.65;
+        }
+        .cv-bullet-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #125D98;
+        }
+        .cv-download-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        .cv-download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.9rem 2.25rem;
+            border: 1px solid rgba(255,255,255,0.35);
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.25s, border-color 0.25s;
+        }
+        .cv-download-link:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: #fff;
+            color: #fff;
+        }
+        .cv-skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75em;
+        }
+        .cv-skills-tags span {
+            display: inline-block;
+            padding: 0.3em 0.85em;
+            border: 1px solid rgba(18,93,152,0.3);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .dark-section .cv-bullet-list li::before {
+            color: rgba(255,255,255,0.6);
+        }
+        .dark-section .cv-skills-tags span {
+            border-color: rgba(255,255,255,0.25);
+        }
+    </style>
 </head>
 
 
 <body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#125D98" data-header-variant="cv">
 
-	
-	<main>		
+
+	<main>
         <!-- Preloader -->
         <div class="preloader-wrap" data-centerLine="Loading">
             <div class="outer">
-                <div class="inner">                    
+                <div class="inner">
                     <div class="trackbar">
                     	<div class="preloader-intro">
                         	<span>Loading</span>
@@ -60,40 +134,40 @@
                         <div class="loadbar"></div>
                         <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
                     </div>
-                    
-                    <div class="percentage-intro">Please wait, content is loading</div>                     
+
+                    <div class="percentage-intro">Please wait, content is loading</div>
                 </div>
             </div>
         </div>
-        <!--/Preloader -->     
-        
+        <!--/Preloader -->
+
         <div class="cd-index cd-main-content">
-    
+
         <!-- Page Content -->
         <div id="clapat-page-content" class="light-content" data-bgcolor="#125D98">
-            
+
             <!-- Header -->
             <div id="site-header"></div>
             <!--/Header -->
-            
-            
-            
+
+
+
             <!-- Content Scroll -->
             <div id="content-scroll">
-            
-            
+
+
                 <!-- Main -->
                 <div id="main">
-                
+
                     <!-- Hero Section -->
                     <div id="hero">
                         <div id="hero-styles">
                             <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center height-title">
-                                <div class="inner">                                    
+                                <div class="inner">
                                     <h1 class="hero-title caption-timeline primary-font-title"><span>Deploy My Resume</span></h1>
                                     <div class="hero-subtitle caption-timeline">
-                                    	<span>Credentials, experience, and the systems I've helped build — <br class="destroy"> all in one deployable summary. Download PDF • Print-friendly • Always up-to-date</span>
-                                    </div>                                   
+                                    	<span>Credentials, experience, and the systems I've helped build — <br class="destroy"> all in one deployable summary.</span>
+                                    </div>
                                 </div>
                             </div>
                             <div id="hero-footer" class="has-border">
@@ -104,307 +178,583 @@
                                                 <i class="fa-solid fa-angle-down"></i>
                                             </div>
                                         </div>
-                                        <div class="button-text sticky right"><span data-hover="Scroll to Explore">Scroll to Explore</span></div> 
+                                        <div class="button-text sticky right"><span data-hover="Scroll to Explore">Scroll to Explore</span></div>
                                     </div>
                                 </div>
                                 <div class="hero-footer-right">
-                    				<div id="info-text">Featured Elements</div>
+                                    <a href="/CV_TerryBrooksJr.pdf" download class="button-wrap left">
+                                        <div class="icon-wrap parallax-wrap">
+                                            <div class="button-icon parallax-element">
+                                                <i class="fa-solid fa-download"></i>
+                                            </div>
+                                        </div>
+                                        <div class="button-text sticky left"><span data-hover="Download PDF">Download PDF</span></div>
+                                    </a>
                                 </div>
-                            </div>                                  
+                            </div>
                         </div>
-                    </div>                      
-                    <!--/Hero Section -->   
-                         
-                    
-                                       <!-- Main Content -->
+                    </div>
+                    <!--/Hero Section -->
+
+
+                    <!-- Main Content -->
                     <div id="main-content">
                         <!-- Main Page Content -->
                         <div id="main-page-content" class="content-max-width">
-                            
-                            
-                            <!-- Row -->
+
+
+                            <!-- Row: Marquee — Role Keywords -->
                             <div class="content-row full row_padding_bottom light-section" data-bgcolor="#fff">
-                                
-                                <ul class="team-members-list" data-fx="1">
-                                    <li class="link has-hover-image" data-img="images/team1.jpg">
-                                        <div class="team-member has-animation"><span>Graduated 2011</span><div class="school-company-title">Homewood-Flossmoor <span class="cv-sub-text">High School</span></div><span>Web Designer</span></div>
-                                    </li>
-                                    <li class="link has-hover-image" data-img="images/team2.jpg">
-                                        <div class="team-member has-animation"><span>Since 2012</span><div class="primary-font-title">Ricky Romano</div><span>UX Designer</span></div>
-                                    </li>
-                                    <li class="link has-hover-image" data-img="images/team3.jpg">
-                                        <div class="team-member has-animation"><span>Since 2014</span><div class="primary-font-title">Jane Reeves</div><span>Art Director</span></div>
-                                    </li>
-                                    <li class="link has-hover-image" data-img="images/team4.jpg">
-                                        <div class="team-member has-animation"><span>Since 2016</span><div class="primary-font-title">Billy Craft</div><span>Developer</span></div>
-                                    </li>
-                                    <li class="link has-hover-image" data-img="images/team5.jpg">
-                                        <div class="team-member has-animation"><span>Since 2018</span><div class="primary-font-title">Cheryl Mezines</div><span>Support Guy</span></div>
-                                    </li>
-                                </ul>
-                                
-                            </div> 
-                            <!--/Row -->
-                            
-                            
-                            <!-- Row -->
-                            <div class="content-row full row_padding_top row_padding_bottom row_padding_left row_padding_right dark-section change-header-color text-align-center" data-bgcolor="#0c0c0c">
-                                
-                                <!-- Clients Table --> 
-                                <ul class="clients-table">                        
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-01.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-02.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-03.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-04.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-05.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-06.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-07.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>
-                                    <li class="link">
-                                        <a target="_blank" href="https://www.clapat.com/"><img src="images/client-08.png" alt="client"></a>
-                                        <div class="overlay"></div>
-                                    </li>                        
-                                </ul>
-                                <!--/Clients Table -->
-                                
-                            </div> 
-                            <!--/Row -->
-                           
-                           
-                           <!-- Row -->
-                            <div class="content-row row_padding_top light-section" data-bgcolor="#fff">
-                                    
-                                <dl class="accordion has-animation">
-                                    <dt>
-                                        <span class="link"><div>Friendly Support</div></span>
-                                        <div class="acc-icon-wrap parallax-wrap">
-                                            <div class="acc-button-icon parallax-element">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </div>
-                                        </div>
-                                    </dt>
-                                    <dd class="accordion-content">We will be with you every step of the way. It’s a promise!</dd>
 
-                                    <dt>
-                                        <span class="link"><div>Money Back</div></span>
-                                        <div class="acc-icon-wrap parallax-wrap">
-                                            <div class="acc-button-icon parallax-element">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </div>
-                                        </div>
-                                    </dt>
-                                    <dd class="accordion-content">If you don’t like our theme, we will refund all your money back.</dd>
+                                <div class="marquee-text-wrapper">
+                                    <h2 class="marquee-text fw big-title primary-font-title">Application Support &nbsp;•&nbsp; DevOps &nbsp;•&nbsp; Python &nbsp;•&nbsp; Django &nbsp;•&nbsp; Docker &nbsp;•&nbsp; Kubernetes &nbsp;•&nbsp; AWS &nbsp;•&nbsp; CI/CD &nbsp;•&nbsp; Data Engineering &nbsp;•&nbsp; Technical Implementation &nbsp;•&nbsp;</h2>
+                                </div>
 
-                                    <dt>
-                                        <span class="link"><div>Premium Quality</div></span>
-                                        <div class="acc-icon-wrap parallax-wrap">
-                                            <div class="acc-button-icon parallax-element">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </div>
-                                        </div>
-                                    </dt>
-                                    <dd class="accordion-content">All Themes are made by Envato Elite Author - ClaPat</dd>
-                                    
-                                    <dt>
-                                        <span class="link"><div>Custom Work</div></span>
-                                        <div class="acc-icon-wrap parallax-wrap">
-                                            <div class="acc-button-icon parallax-element">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </div>
-                                        </div>
-                                    </dt>
-                                    <dd class="accordion-content">Send us a message with everything you need to customize.</dd>
-                                </dl>
-                                
-                                <hr><hr><hr>
-                                
-                           </div> 
-                           <!--/Row -->
-                           
-                           
-                           <!-- Row -->
-                            <div class="content-row row_padding_bottom light-section" data-bgcolor="#fff">
-                                    
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Professional Profile — Pinned -->
+                            <div class="content-row row_padding_top row_padding_bottom light-section change-header-color has-clip-path" data-bgcolor="#fff">
+                                <hr class="destroy">
+                                <hr class="destroy">
+
+                                <div class="pinned-section">
+                                    <div class="pinned-element left">
+                                        <h2 class="big-title primary-font-title no-margins">
+                                            <span class="has-mask-fill">Professional</span><br>
+                                            <span class="has-mask-fill">Profile</span>
+                                        </h2>
+                                    </div>
+
+                                    <div class="scrolling-element right">
+                                        <dl class="accordion has-animation">
+
+                                            <dt>
+                                                <span class="link"><div>At a Glance</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p class="dd-text">Customer-obsessed, solution-focused technical support, implementation, and onboarding professional — excited to bring a user-centric approach and passion for delivering innovative solutions. Operating at the intersection of people and platforms, bridging the gap between engineers and end-users, between stakeholders and systems.</p>
+                                                <div style="margin-top:1.5rem; display:flex; gap:2rem; flex-wrap:wrap;">
+                                                    <div>
+                                                        <div style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Location</div>
+                                                        <div style="font-size:0.9rem; margin-top:0.25em;">Baltimore, MD 21217</div>
+                                                    </div>
+                                                    <div>
+                                                        <div style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Email</div>
+                                                        <div style="font-size:0.9rem; margin-top:0.25em;"><a href="mailto:Terry.Arthur@BrooksJr.com" style="color:inherit;">Terry.Arthur@BrooksJr.com</a></div>
+                                                    </div>
+                                                    <div>
+                                                        <div style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Phone</div>
+                                                        <div style="font-size:0.9rem; margin-top:0.25em;"><a href="tel:4439835591" style="color:inherit;">443.983.5591</a></div>
+                                                    </div>
+                                                    <div>
+                                                        <div style="font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">LinkedIn</div>
+                                                        <div style="font-size:0.9rem; margin-top:0.25em;"><a href="https://www.linkedin.com/in/terryabrooks/" target="_blank" style="color:inherit;">linkedin.com/in/terryabrooks</a></div>
+                                                    </div>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>What I Bring</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p class="dd-text">A rare combination of social science empathy and engineering precision. I translate technical jargon, untangle implementation roadblocks, and always push toward more stable, scalable solutions. Whether collaborating with junior devs, product teams, or C-suite executives — the mission stays the same: solve hard problems and make technology more humane.</p>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>Where I'm Headed</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p class="dd-text">The next evolution of my journey is DevOps — where cross-functional collaboration meets continuous improvement. Fascinated by how development and operations are learning to work in sync to build faster, smarter, and more reliable systems. Leveling up in automation, observability, and CI/CD pipelines while remaining grounded in the same goal: one integration at a time.</p>
+                                            </dd>
+
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <hr class="destroy">
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Work Experience — Single Accordion -->
+                            <div class="content-row row_padding_top row_padding_bottom light-section" data-bgcolor="#fff">
+
                                 <dl class="accordion bigger-acc has-animation">
-                                    <dt>
-                                        <span class="link primary-font-title"><div>Friendly Support</div></span>
-                                        <div class="acc-icon-wrap parallax-wrap">
-                                            <div class="acc-button-icon parallax-element">
-                                                <i class="fa fa-arrow-right"></i>
-                                            </div>
-                                        </div>
-                                    </dt>
-                                    <dd class="accordion-content">Our dedicated team is always here to provide you with friendly and reliable support. We prioritize your satisfaction and are committed to assisting you every step of the way.</dd>
 
                                     <dt>
-                                        <span class="link primary-font-title"><div>Money Back</div></span>
+                                        <span class="link">
+                                            <div class="primary-font-title">Application Support Engineer</div>
+                                            <div class="cv-role-meta">Learnosity &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Jun 2023 — Present</div>
+                                        </span>
                                         <div class="acc-icon-wrap parallax-wrap">
                                             <div class="acc-button-icon parallax-element">
                                                 <i class="fa fa-arrow-right"></i>
                                             </div>
                                         </div>
                                     </dt>
-                                    <dd class="accordion-content">We value your trust and confidence in our product. If you're not completely satisfied with your purchase, we offer a hassle-free money-back guarantee. Your satisfaction is our top priority.</dd>
+                                    <dd class="accordion-content">
+                                        <ul class="cv-bullet-list">
+                                            <li>Contribute to developing and improving the knowledge base, empowering users to find answers independently and reducing the need for direct support.</li>
+                                            <li>Collaborate closely with product development and engineering teams to escalate and prioritize reported bugs, glitches, and user feedback — owning those issues through resolution.</li>
+                                            <li>Provide step-by-step guidance enabling users to effectively navigate and utilize EdTech's APIs and platforms.</li>
+                                            <li>Communicate clearly and professionally with a diverse customer base at varying levels of technical fluency via email and video meetings to diagnose technical issues.</li>
+                                            <li>Troubleshoot and resolve the usage, implementation, and integration of 5+ product APIs, ensuring a seamless developer experience.</li>
+                                            <li>Identify and resolve technical issues including account setup, network settings, and configuration challenges.</li>
+                                            <li>Deliver remote assistance and develop Proof of Concept solutions that utilize streamlined implementations and established best practices tailored to customer needs.</li>
+                                        </ul>
+                                        <div class="cv-skills-tags" style="margin-top:1.25rem;">
+                                            <span>EdTech APIs</span><span>Technical Support</span><span>Knowledge Base</span><span>Bug Triage</span><span>REST APIs</span><span>Postman</span>
+                                        </div>
+                                    </dd>
 
                                     <dt>
-                                        <span class="link primary-font-title"><div>Premium Quality</div></span>
+                                        <span class="link">
+                                            <div class="primary-font-title">Implementation Engineer</div>
+                                            <div class="cv-role-meta">Chooch.ai &nbsp;·&nbsp; San Mateo &nbsp;·&nbsp; Feb 2023 — Jul 2023 &nbsp;·&nbsp; Contract</div>
+                                        </span>
                                         <div class="acc-icon-wrap parallax-wrap">
                                             <div class="acc-button-icon parallax-element">
                                                 <i class="fa fa-arrow-right"></i>
                                             </div>
                                         </div>
                                     </dt>
-                                    <dd class="accordion-content">Our website template is crafted with meticulous attention to detail and a focus on delivering a premium experience. From stunning design elements to seamless functionality, we ensure that our template meets the highest quality standards.</dd>
-                                    
+                                    <dd class="accordion-content">
+                                        <ul class="cv-bullet-list">
+                                            <li>Served as primary technical implementation resource for new and existing customers and partners, coordinating with ML training, sales engineering, and application engineering teams.</li>
+                                            <li>Leveraged Docker, Docker Swarm, and Kubernetes to design custom, efficient, and comprehensive implementations and deployment processes.</li>
+                                            <li>Offered technical consultancy on IoT Edge computing infrastructure and component configuration to achieve desired performance targets.</li>
+                                            <li>Developed and provided technical training for customers to support implementations and ongoing satisfaction.</li>
+                                            <li>Assisted with overall technical design and diagnostic tests to ensure features and performance met customer quality standards.</li>
+                                            <li>Participated in all phases of design, test, and implementation — helping to modify project scope and troubleshoot problems with efficiency.</li>
+                                            <li>Performed data analysis to assess modifications needed and determine how well new implementations performed post-deployment.</li>
+                                        </ul>
+                                        <div class="cv-skills-tags" style="margin-top:1.25rem;">
+                                            <span>Docker</span><span>Docker Swarm</span><span>Kubernetes</span><span>IoT Edge</span><span>ML Pipelines</span><span>Technical Training</span>
+                                        </div>
+                                    </dd>
+
                                     <dt>
-                                        <span class="link primary-font-title"><div>Custom Work</div></span>
+                                        <span class="link">
+                                            <div class="primary-font-title">Data Engineer</div>
+                                            <div class="cv-role-meta">Coursedog &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Apr 2022 — Feb 2023</div>
+                                        </span>
                                         <div class="acc-icon-wrap parallax-wrap">
                                             <div class="acc-button-icon parallax-element">
                                                 <i class="fa fa-arrow-right"></i>
                                             </div>
                                         </div>
                                     </dt>
-                                    <dd class="accordion-content">We understand that every website is unique, and our template allows for customization to match your specific needs. With our flexible framework, you can easily tailor the template to create a website that reflects your vision and stands out from the crowd.</dd>
+                                    <dd class="accordion-content">
+                                        <ul class="cv-bullet-list">
+                                            <li>Partnered with client functional and technical resources to identify, collate, and assemble complex relational data stored in disparate virtualized storage solutions for efficient product implementation.</li>
+                                            <li>Designed private REST APIs with unidirectional (GET) and bidirectional (POST, PUT, DELETE) functionality, directing projects through development, testing, and integration.</li>
+                                            <li>Identified, designed, and implemented internal process improvements: automating manual processes with reusable Python and JavaScript assets, optimizing data delivery, and re-designing infrastructure for greater scalability using Agile principles.</li>
+                                            <li>Executed initial extraction, transformation, and loading (ETL) of customer data into the web application from APIs, ensuring data congruity, API functionality, and web application parsing and validation.</li>
+                                            <li>Researched technical trends in Jenzabar (student information system) to assess upcoming changes and measure their impact on integrations and feature requests.</li>
+                                        </ul>
+                                        <div class="cv-skills-tags" style="margin-top:1.25rem;">
+                                            <span>Python</span><span>JavaScript</span><span>REST APIs</span><span>ETL / Data Pipelines</span><span>Postman</span><span>Agile</span><span>JSON</span>
+                                        </div>
+                                    </dd>
+
+                                    <dt>
+                                        <span class="link">
+                                            <div class="primary-font-title">Solutions Engineering Onboarding Specialist</div>
+                                            <div class="cv-role-meta">Mode Analytics &nbsp;·&nbsp; San Francisco &nbsp;·&nbsp; Jan 2021 — Jan 2022</div>
+                                        </span>
+                                        <div class="acc-icon-wrap parallax-wrap">
+                                            <div class="acc-button-icon parallax-element">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        <ul class="cv-bullet-list">
+                                            <li>Curbed churn risk and developed product loyalty with recently acquired customers by owning the full post-sales relationship — building successful implementation plans and driving adoption of Mode as a core analytics and BI component.</li>
+                                            <li>Conducted comprehensive discovery during project kickoffs to deeply understand the organization, industry, data types, and primary use cases for Mode.</li>
+                                            <li>Partnered with customers to navigate change management and drive adoption as a new way of working within their business, providing best practices suited to their specific requirements.</li>
+                                            <li>Served as subject matter expert on technical aspects of migrating data sources, users, and data assets from all major competitors — often creating custom API programs in Python to support customer migrations.</li>
+                                            <li>Provided expert training on functionality, features, and best practices — supporting data analysts, engineers, and developers via async SQL/Python code reviews and concurrent working sessions.</li>
+                                        </ul>
+                                        <div class="cv-skills-tags" style="margin-top:1.25rem;">
+                                            <span>Python</span><span>SQL</span><span>Data Migration</span><span>Customer Success</span><span>BI / Analytics</span><span>Onboarding</span>
+                                        </div>
+                                    </dd>
+
+                                    <dt>
+                                        <span class="link">
+                                            <div class="primary-font-title">Customer Success Onboarding Specialist</div>
+                                            <div class="cv-role-meta">Olo &nbsp;·&nbsp; New York City &nbsp;·&nbsp; Nov 2018 — Apr 2020</div>
+                                        </span>
+                                        <div class="acc-icon-wrap parallax-wrap">
+                                            <div class="acc-button-icon parallax-element">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        <ul class="cv-bullet-list">
+                                            <li>Drove the strategic development, flawless execution, and successful implementation of intricate technical plans for mid-market to enterprise-level clients (100–600 vendors) — achieving 80% deployment of contracted vendors within the specified timeframe.</li>
+                                            <li>Transformed the customer onboarding process, resulting in a 30% reduction in onboarding time and a 5-week shortening of the overall onboarding cycle.</li>
+                                            <li>Proactively resolved escalated issues related to new vendor merchant accounts, Point-Of-Sale (POS) integration, and order transmission from third-party marketplaces (DoorDash, UberEats, Postmates).</li>
+                                            <li>Boosted software adoption by 15% through a continuous strategy of developing client-specific case studies and delivering targeted product solution consultations.</li>
+                                            <li>Slashed stalled adoptions by 10% by creating dynamic data assets to report on customer success metrics and implementation statistics, enabling predictive insights and data-driven decisions.</li>
+                                        </ul>
+                                        <div class="cv-skills-tags" style="margin-top:1.25rem;">
+                                            <span>POS Integration</span><span>3rd-Party Marketplaces</span><span>Enterprise Onboarding</span><span>Data Reporting</span><span>Customer Success</span>
+                                        </div>
+                                    </dd>
+
                                 </dl>
-                                
-                           </div> 
-                           <!--/Row -->
-                           
-                           
-                           <!-- Row -->
-                            <div class="content-row row_padding_bottom light-section" data-bgcolor="#fff">
-                                
-                                <div class="marquee-text-wrapper">
-                                    <h2 class="marquee-text bw big-title primary-font-title">Create a forward content marquee that reverses its direction when scrolling up.</h2>
-                                </div>
-                                
-                                <hr>
-                                
-                                <div class="marquee-text-wrapper">
-                                    <h2 class="marquee-text fw big-title primary-font-title">Create a backward content marquee that reverses its direction when scrolling up.</h2>
-                                </div>
-                                
-                            </div> 
+
+                            </div>
                             <!--/Row -->
-                            
-                            
-                            <!-- Row -->
-                            <div class="content-row row_padding_bottom light-section text-align-center" data-bgcolor="#fff">
-                                
-                            	<div class="one_third">
-                                	<h2 class="number-counter" data-target="500" data-symbol="+">0</h2>
-                            	</div>
-                                
+
+
+                            <!-- Row: Key Metrics — Number Counters -->
+                            <div class="content-row row_padding_top row_padding_bottom dark-section text-align-center change-header-color" data-bgcolor="#0c0c0c">
+
                                 <div class="one_third">
-                                	<h2 class="number-counter" data-target="3000" data-symbol="$">0</h2>
+                                    <h2 class="number-counter" data-target="30" data-symbol="%">0</h2>
+                                    <span class="cv-metric-label">Onboarding Time Reduction</span>
                                 </div>
-                                
+
+                                <div class="one_third">
+                                    <h2 class="number-counter" data-target="80" data-symbol="%">0</h2>
+                                    <span class="cv-metric-label">On-Time Vendor Deployment</span>
+                                </div>
+
                                 <div class="one_third last">
-                                	<h2 class="number-counter" data-target="100" data-symbol="%">0</h2>
+                                    <h2 class="number-counter" data-target="15" data-symbol="%">0</h2>
+                                    <span class="cv-metric-label">Platform Adoption Boost</span>
                                 </div>
-                            </div> 
+
+                            </div>
                             <!--/Row -->
-                            
-                            
-                            <!-- Row -->
-                            <div class="content-row row_padding_bottom light-section" data-bgcolor="#fff">
-                                
-                                <div class="title-moving-outer">
-                                	<h2 class="big-title title-moving-forward primary-font-title">We are trusted by over 30,000 clients to power stunning portfolio websites.</h2>
+
+
+                            <!-- Row: Education — Pinned Section -->
+                            <div class="content-row row_padding_top row_padding_bottom light-section change-header-color has-clip-path" data-bgcolor="#fff">
+                                <hr class="destroy">
+                                <hr class="destroy">
+
+                                <div class="pinned-section">
+                                    <div class="pinned-element left">
+                                        <h2 class="big-title primary-font-title no-margins">
+                                            <span class="has-mask-fill">Education</span><br>
+                                            <span class="has-mask-fill">&amp; Training</span>
+                                        </h2>
+                                    </div>
+
+                                    <div class="scrolling-element right">
+                                        <dl class="accordion has-animation">
+
+                                            <dt>
+                                                <span class="link"><div>Full Stack Engineering Certificate</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p style="margin:0; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Coding Dojo · Colorado Technical University &nbsp;·&nbsp; Dec 2021 — Jun 2022</p>
+                                                <p class="dd-text" style="margin-top:0.75em;">Intensive full-stack software engineering program covering Python, Django, JavaScript, and database design. Emphasized hands-on project development with real-world deployment workflows and agile methodology.</p>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>Master of Public Administration</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p style="margin:0; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Penn State University, Harrisburg &nbsp;·&nbsp; Aug 2017 — May 2019</p>
+                                                <p class="dd-text" style="margin-top:0.75em;">Advanced graduate studies in public policy, organizational management, and data-informed decision making. Built a foundation in systems thinking, stakeholder communication, and program evaluation that directly informs my approach to technical implementation and customer success.</p>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>Bachelor of Social Work</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p style="margin:0; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Illinois State University, Normal &nbsp;·&nbsp; Jan 2007 — Nov 2011</p>
+                                                <p class="dd-text" style="margin-top:0.75em;">Foundation in human systems, community organizing, and social justice advocacy. Developed the empathy-driven, equity-focused approach that continues to shape how I communicate with end-users, de-escalate technical frustration, and design accessible solutions.</p>
+                                            </dd>
+
+                                        </dl>
+                                    </div>
                                 </div>
-                                
+
+                                <hr class="destroy">
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Skills Marquee -->
+                            <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#125D98">
+
+                                <div class="marquee-text-wrapper">
+                                    <h2 class="marquee-text bw big-title primary-font-title">AWS &nbsp;·&nbsp; Python &nbsp;·&nbsp; Django &nbsp;·&nbsp; Docker &nbsp;·&nbsp; Kubernetes &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; Kafka &nbsp;·&nbsp; CI/CD &nbsp;·&nbsp; PostgreSQL &nbsp;·&nbsp; MongoDB &nbsp;·&nbsp; Go &nbsp;·&nbsp; JavaScript &nbsp;·&nbsp; Node.js &nbsp;·&nbsp;</h2>
+                                </div>
+
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Technical Skills — Pinned Section -->
+                            <div class="content-row row_padding_top row_padding_bottom light-section change-header-color has-clip-path" data-bgcolor="#fff">
+                                <hr class="destroy">
+                                <hr class="destroy">
+
+                                <div class="pinned-section">
+                                    <div class="pinned-element left">
+                                        <h2 class="big-title primary-font-title no-margins">
+                                            <span class="has-mask-fill">Technical</span><br>
+                                            <span class="has-mask-fill">Competencies</span>
+                                        </h2>
+                                    </div>
+
+                                    <div class="scrolling-element right">
+                                        <dl class="accordion bigger-acc has-animation">
+
+                                            <dt>
+                                                <span class="link primary-font-title"><div>Cloud &amp; Infrastructure</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <div class="cv-skills-tags">
+                                                    <span>Amazon Web Services</span>
+                                                    <span>S3</span><span>EC2</span><span>RedShift</span><span>DynamoDB</span><span>RDS</span><span>Data Pipeline</span>
+                                                    <span>Docker</span><span>Kubernetes</span><span>Terraform</span>
+                                                    <span>Infrastructure as Code (IaC)</span>
+                                                    <span>Serverless Computing</span>
+                                                    <span>Cloud-based Integrations (iPaaS)</span>
+                                                    <span>Linux / UNIX Server Administration</span>
+                                                    <span>Configuration Management</span>
+                                                    <span>Ansible</span><span>Puppet</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link primary-font-title"><div>Languages &amp; Frameworks</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <div class="cv-skills-tags">
+                                                    <span>Python</span><span>JavaScript</span><span>Node.js</span>
+                                                    <span>Go</span><span>C#</span><span>PHP</span>
+                                                    <span>Django</span><span>Express.js</span>
+                                                    <span>HTML &amp; CSS</span>
+                                                    <span>Bash / Shell Scripting</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link primary-font-title"><div>Data, APIs &amp; Integration</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <div class="cv-skills-tags">
+                                                    <span>REST API Design</span>
+                                                    <span>Data Pipelines / ETL</span>
+                                                    <span>SQL (DQL, DDL, DML, DCL)</span>
+                                                    <span>PostgreSQL</span><span>MySQL</span><span>Oracle</span><span>Snowflake</span>
+                                                    <span>MongoDB</span><span>Redis</span><span>Cassandra</span>
+                                                    <span>Kafka</span>
+                                                    <span>Data Analytics</span>
+                                                    <span>Integrations Engineering</span>
+                                                    <span>Zapier</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link primary-font-title"><div>DevOps &amp; CI/CD</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <div class="cv-skills-tags">
+                                                    <span>CI/CD Pipelines</span>
+                                                    <span>GitHub</span><span>GitLab</span>
+                                                    <span>Version Control / Git</span>
+                                                    <span>Scrum / Agile</span>
+                                                    <span>Jira</span>
+                                                    <span>DevOps</span>
+                                                    <span>Developer Advocacy</span>
+                                                    <span>Serverless Development</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link primary-font-title"><div>Platforms &amp; Support Tools</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <div class="cv-skills-tags">
+                                                    <span>Technical Product Support (Tiers 2 &amp; 3)</span>
+                                                    <span>Technical Documentation</span>
+                                                    <span>Technical Software Implementation</span>
+                                                    <span>Zendesk</span>
+                                                    <span>Project Management</span>
+                                                    <span>Complex Problem Solving</span>
+                                                    <span>Communication Skills</span>
+                                                    <span>Creative Thinking</span>
+                                                </div>
+                                            </dd>
+
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <hr class="destroy">
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Volunteer Work — Pinned Section -->
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0c0c0c">
+                                <hr class="destroy">
+                                <hr class="destroy">
+
+                                <div class="pinned-section">
+                                    <div class="pinned-element left">
+                                        <h2 class="big-title primary-font-title no-margins">
+                                            <span class="has-mask-fill">Giving</span><br>
+                                            <span class="has-mask-fill">Back</span>
+                                        </h2>
+                                    </div>
+
+                                    <div class="scrolling-element right">
+                                        <dl class="accordion has-animation">
+
+                                            <dt>
+                                                <span class="link"><div>Virtual Crisis Counselor &mdash; Crisis Text Line</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p style="margin:0 0 0.75rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">New York City &nbsp;·&nbsp; November 2019 — Present</p>
+                                                <p class="dd-text">I dedicate six hours every week to providing remote counseling to individuals who are at risk or currently in crisis. My aim is to offer a safe and supportive environment for clients to discuss their concerns and receive guidance. Deeply motivated by my background in social work and extensive training in crisis counseling.</p>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>Member &mdash; Blacks in Technology</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p style="margin:0 0 0.75rem; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.55; font-family:'Syne',sans-serif;">Baltimore &nbsp;·&nbsp; January 2020 — Present</p>
+                                                <p class="dd-text">I work alongside fellow tech professionals who share the same passion for enriching and improving the professional and social discourse of people of color in the technology industry. Our aim is to engage the community and provide support to young individuals who aspire to enter the tech field.</p>
+                                            </dd>
+
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <hr class="destroy">
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Moving Titles + Download CTA -->
+                            <div class="content-row row_padding_top row_padding_bottom light-section" data-bgcolor="#fff">
+
+                                <div class="title-moving-outer">
+                                    <h2 class="big-title title-moving-forward primary-font-title">Available for New Opportunities &nbsp;·&nbsp; Open to DevOps &amp; Platform Engineering Roles &nbsp;·&nbsp;</h2>
+                                </div>
+
                                 <hr>
-                                
+
                                 <div class="title-moving-outer">
-                                	<h2 class="big-title title-moving-backward primary-font-title">We are trusted by over 30,000 clients to power stunning portfolio websites.</h2>
+                                    <h2 class="big-title title-moving-backward primary-font-title">Customer-Obsessed &nbsp;·&nbsp; Solution-Focused &nbsp;·&nbsp; Systems-Thinking &nbsp;·&nbsp; Baltimore, MD &nbsp;·&nbsp;</h2>
                                 </div>
-                                
-                            </div> 
-                            <!--/Row -->
-                            
-                            
-                            <!-- Row -->
-                            <div class="content-row full row_padding_left row_padding_right dark-section text-align-center change-header-color" data-bgcolor="#0c0c0c">
-                                
-                                
-                                <div class="slowed-pin">
-                                    <div class="slowed-text">
-                                        <h2 class="big-title primary-font-title">This text will gradually <br> slow down its <br> movement speed until <br> all the images below <br> it have been scrolled <br> through</h2>
-                                    </div>
-                                    
-                                    <div class="slowed-images">
-                                        <div class="slowed-image">
-                                            <img src="images/shortcodes/image01.jpg" class="link" alt="Image">
-                                        </div>
-                                        <div class="slowed-image">
-                                            <img src="images/shortcodes/image02.jpg" class="link" alt="Image">
-                                        </div>
-                                        <div class="slowed-image">
-                                            <img src="images/shortcodes/image03.jpg" class="link" alt="Image">
-                                        </div>
-                                        <div class="slowed-image">
-                                            <img src="images/shortcodes/image04.jpg" class="link" alt="Image">
-                                        </div>
-                                        <div class="slowed-image">
-                                            <img src="images/shortcodes/image01.jpg" class="link" alt="Image">
-                                        </div>
-                                        <div class="slowed-image">
-                                            <img src="images/shortcodes/image01.jpg" class="link" alt="Image">
-                                        </div>                                        
-                                    </div>
-                                    
+
+                                <div class="cv-download-wrap">
+                                    <a href="/CV_TerryBrooksJr.pdf" download class="cv-download-link">
+                                        <i class="fa-solid fa-file-arrow-down"></i>
+                                        <span>Download Full CV (PDF)</span>
+                                    </a>
                                 </div>
-                                
-                            </div> 
+
+                            </div>
                             <!--/Row -->
-                            
-                        
+
+
                         </div>
                         <!--/Main Page Content -->
-                        
-                        
-                        <!-- Page Navigation --> 
+
+
+                        <!-- Page Navigation -->
                         <div id="page-nav">
                             <div class="page-nav-wrap">
-                                <div class="page-nav-caption content-full-width text-align-center height-title">                                 
+                                <div class="page-nav-caption content-full-width text-align-center height-title">
                                     <div class="inner">
                                     	<div class="next-hero-subtitle caption-timeline"><span>READY TO COLLABORATE? LET'S CONNECT</span></div>
                                         <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Say Hey" href="/pages/contact.html">
                                             <div class="next-hero-title primary-font-title caption-timeline"><span>Contact</span></div>
-                                        </a>                                        
-                                    </div>               
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>      
+                        </div>
                         <!--/Page Navigation -->
-                        
-                                
+
+
                     </div>
-                    <!--/Main Content --> 
-                
+                    <!--/Main Content -->
+
                 </div>
                 <!--/Main -->
-                
+
                 <!-- Footer -->
                 <footer>
                     <div id="footer-container">
@@ -432,23 +782,23 @@
                     </div>
                 </footer>
                 <!--/Footer -->
-            
-        
+
+
         	</div>
             <!--/Content Scroll -->
-            
-            
+
+
             <div id="app"></div>
-            
-            
-		</div>    
-        <!--/Page Content -->
-    
+
+
 		</div>
-	</main>    
-    
-    
-    
+        <!--/Page Content -->
+
+		</div>
+	</main>
+
+
+
     <div class="cd-cover-layer"></div>
     <div id="magic-cursor">
         <div id="ball">
@@ -461,9 +811,9 @@
     	<div class="hero-translate"></div>
     </div>
     <div id="rotate-device"></div>
-    
-    
-		
+
+
+
     <!-- External Dependencies -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
