@@ -1596,6 +1596,19 @@ header.default-header {
    and common.js burger-menu binding)
 --------------------------------------------------- */
 
+/*
+ * JS sets nav background-color via data-menucolor (#0c0c0c) as an inline
+ * style on every load. At ≥1025px the nav is position:fixed + opacity:0 so
+ * the background is invisible. Below 1025px the nav is in static flow and
+ * that inline background renders as a black box in the header.
+ * Use !important to beat the inline style and keep the nav transparent
+ * while the menu is closed; once JS adds .open the rule no longer matches
+ * and the dark overlay background correctly shows through.
+ */
+.fullscreen-menu nav:not(.open) {
+    background-color: transparent !important;
+}
+
 @media all and (min-width: 1025px) {
 
 	/* -- Full Screen Menu -- */
@@ -2240,7 +2253,8 @@ nav, nav.open {
             Muted Gold #C29E5D · Tech Teal #219EBC · Warm Gray #D8CABF
    ═══════════════════════════════════════════════════════════ */
 
-:root {
+/* Palette tokens scoped to .cv-page — no global bleed */
+.cv-page {
     --cv-black:  #0F0F0F;
     --cv-brown:  #362C28;
     --cv-gold:   #C29E5D;
@@ -2433,3 +2447,193 @@ nav, nav.open {
     outline: 2px solid var(--cv-gold);
     outline-offset: 3px;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT PAGE — Afro-Futurist Theme
+   Scoped to .contact-page so styles survive AJAX page transitions.
+   Teal leads, Gold supports (inverted from CV page).
+   ═══════════════════════════════════════════════════════════ */
+
+/* Palette tokens scoped to .contact-page — no global bleed */
+.contact-page {
+    --ct-black:  #0F0F0F;
+    --ct-brown:  #362C28;
+    --ct-gold:   #C29E5D;
+    --ct-teal:   #219EBC;
+    --ct-warm:   #D8CABF;
+    --ct-clay:   #DB3A34;
+    --ct-signal: #FFDD57;
+}
+
+/* ── Typography overrides ──────────────────────────────── */
+.contact-page .primary-font-title {
+    font-family: 'Space Grotesk', 'Syne', sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* ── Accordion — teal accents (vs gold on CV) ──────────── */
+.contact-page .acc-button-icon i {
+    color: var(--ct-teal) !important;
+}
+.contact-page dl.accordion dt.accordion-active > span.link,
+.contact-page dl.accordion dt.accordion-active > span.link .primary-font-title {
+    color: var(--ct-teal) !important;
+}
+.contact-page dl.accordion dt {
+    border-color: rgba(33, 158, 188, 0.2);
+}
+.contact-page dl.accordion dt:hover > span.link {
+    color: var(--ct-teal);
+}
+
+/* ── Marquee — teal text ───────────────────────────────── */
+.contact-page .marquee-text {
+    color: var(--ct-teal);
+    opacity: 0.85;
+}
+
+/* ── Moving titles ─────────────────────────────────────── */
+.contact-page .title-moving-forward,
+.contact-page .title-moving-backward {
+    color: var(--ct-warm);
+    opacity: 0.75;
+}
+
+/* ── Accordion link text ───────────────────────────────── */
+.contact-page .accordion-content a {
+    color: var(--ct-gold);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.contact-page .accordion-content a:hover {
+    color: var(--ct-teal);
+}
+.contact-page .dd-text {
+    color: var(--ct-warm);
+    line-height: 1.75;
+}
+
+/* ── hr dividers ───────────────────────────────────────── */
+.contact-page hr:not(.destroy) {
+    border-color: rgba(33, 158, 188, 0.2);
+}
+
+/* ── Contact channel meta label ────────────────────────── */
+.ct-channel-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ct-warm);
+    opacity: 0.65;
+    margin-top: 0.35em;
+    display: block;
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-weight: 400;
+}
+
+/* ── Contact detail labels and values inside accordion ── */
+.ct-detail-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ct-teal);
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    display: block;
+    margin-bottom: 0.25em;
+    opacity: 0.9;
+}
+.ct-detail-value {
+    font-size: 0.95rem;
+    color: var(--ct-warm);
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 1.25rem;
+}
+.ct-detail-value a {
+    color: var(--ct-gold) !important;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.ct-detail-value a:hover {
+    color: var(--ct-teal) !important;
+}
+
+/* ── Status dot — Signal Yellow ────────────────────────── */
+.ct-status-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #FFDD57;
+    margin-right: 0.5em;
+    vertical-align: middle;
+    box-shadow: 0 0 6px rgba(255, 221, 87, 0.6);
+}
+.ct-status-line {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ct-warm);
+    font-family: 'JetBrains Mono', monospace;
+    opacity: 0.75;
+}
+
+/* ── Gold platform-handle tags (inverts CV teal tags) ─── */
+.ct-platform-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+}
+.ct-platform-tags span {
+    display: inline-block;
+    padding: 0.28em 0.8em;
+    border: 1px solid var(--ct-gold);
+    color: var(--ct-gold);
+    font-size: 0.67rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(194, 158, 93, 0.07);
+    transition: background 0.2s, color 0.2s;
+}
+.ct-platform-tags span:hover {
+    background: var(--ct-gold);
+    color: var(--ct-black);
+}
+
+/* ── CTA — teal fill (vs gold fill on CV) ──────────────── */
+.ct-cta-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+.ct-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 2.75rem;
+    background: var(--ct-teal);
+    border: 1px solid var(--ct-teal);
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--ct-black);
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.ct-cta-link:hover,
+.ct-cta-link:focus,
+.ct-cta-link:active {
+    background: transparent;
+    border-color: var(--ct-teal);
+    color: var(--ct-teal);
+    outline: 2px solid var(--ct-teal);
+    outline-offset: 3px;
+}
+
+/* ── Utility colour aliases ─────────────────────────────── */
+.clr-secondary { color: var(--ct-gold); }
+.clr-primary   { color: var(--ct-teal); }
+.clr-highlight { color: var(--ct-warm); }

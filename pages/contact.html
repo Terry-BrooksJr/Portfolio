@@ -28,215 +28,13 @@
     <meta name="theme-color" content="#0F0F0F">
     <!-- Typography — Afro-futurist theme -->
     <!-- Space Grotesk: headings | Inter: Body | Syne: Buttons/callouts | Orbitron: retained for Montoya compat -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- IDs match headTags pattern in common.js so fonts are re-injected on AJAX navigation -->
+    <link id="google-fonts-contact-primary" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Code/Terminal fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link id="google-fonts-contact-mono" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Local Stylesheets -->
     <link href="/style.css" rel="stylesheet">
 
-    <style>
-        /* ═══════════════════════════════════════════════════════════
-           AFRO-FUTURIST THEME — CONTACT PAGE
-           Subtle variation from CV: Teal leads, Gold supports.
-           CV page: Gold primary, Teal secondary
-           Contact page: Teal primary, Gold secondary
-           Shared palette, swapped emotional weight.
-           ═══════════════════════════════════════════════════════════ */
-
-        :root {
-            --ct-black:  #0F0F0F;
-            --ct-brown:  #362C28;
-            --ct-gold:   #C29E5D;
-            --ct-teal:   #219EBC;
-            --ct-warm:   #D8CABF;
-            --ct-clay:   #DB3A34;
-            --ct-signal: #FFDD57;
-        }
-
-        /* ── Typography overrides ──────────────────────────────── */
-        #clapat-page-content .primary-font-title {
-            font-family: 'Space Grotesk', 'Syne', sans-serif !important;
-            letter-spacing: -0.01em;
-        }
-
-        /* ── Accordion — teal accents (vs gold on CV) ──────────── */
-        #clapat-page-content .acc-button-icon i {
-            color: var(--ct-teal) !important;
-        }
-        #clapat-page-content dl.accordion dt.accordion-active > span.link,
-        #clapat-page-content dl.accordion dt.accordion-active > span.link .primary-font-title {
-            color: var(--ct-teal) !important;
-        }
-        #clapat-page-content dl.accordion dt {
-            border-color: rgba(33, 158, 188, 0.2);
-        }
-        #clapat-page-content dl.accordion dt:hover > span.link {
-            color: var(--ct-teal);
-        }
-
-        /* ── Marquee — teal text ───────────────────────────────── */
-        #clapat-page-content .marquee-text {
-            color: var(--ct-teal);
-            opacity: 0.85;
-        }
-
-        /* ── Moving titles ─────────────────────────────────────── */
-        #clapat-page-content .title-moving-forward,
-        #clapat-page-content .title-moving-backward {
-            color: var(--ct-warm);
-            opacity: 0.75;
-        }
-
-        /* ── team-members-list — teal hover meta ───────────────── */
-        #clapat-page-content .team-member .ct-channel-meta {
-            color: var(--ct-teal);
-        }
-
-        /* ── Inline meta override (accordion dd) ───────────────── */
-        #clapat-page-content .accordion-content a {
-            color: var(--ct-gold);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        #clapat-page-content .accordion-content a:hover {
-            color: var(--ct-teal);
-        }
-        #clapat-page-content .dd-text {
-            color: var(--ct-warm);
-            line-height: 1.75;
-        }
-
-        /* ── hr dividers ───────────────────────────────────────── */
-        #clapat-page-content hr:not(.destroy) {
-            border-color: rgba(33, 158, 188, 0.2);
-        }
-
-        /* ── Contact channel meta label ────────────────────────── */
-        .ct-channel-meta {
-            font-size: 0.72rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--ct-warm);
-            opacity: 0.65;
-            margin-top: 0.35em;
-            display: block;
-            font-family: 'Space Grotesk', 'Syne', sans-serif;
-            font-weight: 400;
-        }
-
-        /* ── Contact detail labels inside accordion ────────────── */
-        .ct-detail-label {
-            font-size: 0.65rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--ct-teal);
-            font-family: 'Space Grotesk', 'Syne', sans-serif;
-            display: block;
-            margin-bottom: 0.25em;
-            opacity: 0.9;
-        }
-        .ct-detail-value {
-            font-size: 0.95rem;
-            color: var(--ct-warm);
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 1.25rem;
-        }
-        .ct-detail-value a {
-            color: var(--ct-gold) !important;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .ct-detail-value a:hover {
-            color: var(--ct-teal) !important;
-        }
-
-        /* ── Status dot — Signal Yellow ────────────────────────── */
-        .ct-status-dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #FFDD57;
-            margin-right: 0.5em;
-            vertical-align: middle;
-            box-shadow: 0 0 6px rgba(255, 221, 87, 0.6);
-        }
-        .ct-status-line {
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--ct-warm);
-            font-family: 'JetBrains Mono', monospace;
-            opacity: 0.75;
-        }
-
-        /* ── Gold skill-style tags for platform handles ─────────── */
-        /* (inverts CV teal tags → gold on contact page) */
-        .ct-platform-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.45rem;
-            margin-top: 0.9rem;
-        }
-        .ct-platform-tags span {
-            display: inline-block;
-            padding: 0.28em 0.8em;
-            border: 1px solid var(--ct-gold);
-            color: var(--ct-gold);
-            font-size: 0.67rem;
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-            font-family: 'JetBrains Mono', monospace;
-            background: rgba(194, 158, 93, 0.07);
-            transition: background 0.2s, color 0.2s;
-        }
-        .ct-platform-tags span:hover {
-            background: var(--ct-gold);
-            color: var(--ct-black);
-        }
-
-        /* ── CTA wrap ───────────────────────────────────────────── */
-        .ct-cta-wrap {
-            display: flex;
-            justify-content: center;
-            margin-top: 3.5rem;
-        }
-        /* Primary CTA — teal fill (vs gold fill on CV) */
-        .ct-cta-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.85rem;
-            padding: 1rem 2.75rem;
-            background: var(--ct-teal);
-            border: 1px solid var(--ct-teal);
-            font-family: 'Space Grotesk', 'Syne', sans-serif;
-            font-size: 0.78rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: var(--ct-black);
-            text-decoration: none;
-            transition: background 0.25s, color 0.25s, border-color 0.25s;
-        }
-        .ct-cta-link:hover,
-        .ct-cta-link:focus,
-        .ct-cta-link:active {
-            background: transparent;
-            border-color: var(--ct-teal);
-            color: var(--ct-teal);
-            outline: 2px solid var(--ct-teal);
-            outline-offset: 3px;
-        }
-        .clr-secondary{
-            color: var(--ct-gold);
-        }
-        .clr-primary{
-            color: var(--ct-teal);
-        }
-        .clr-highlight{
-            color: var(--ct-warm);
-        }
-    </style>
 </head>
 
 
@@ -263,7 +61,7 @@
         <div class="cd-index cd-main-content">
 
         <!-- Page Content -->
-        <div id="clapat-page-content" class="light-content" data-bgcolor="#0F0F0F">
+        <div id="clapat-page-content" class="light-content contact-page" data-bgcolor="#0F0F0F">
 
             <!-- Header -->
             <div id="site-header"></div>
@@ -537,7 +335,7 @@
                                 <div class="page-nav-caption content-full-width text-align-center height-title">
                                     <div class="inner">
                                         <div class="next-hero-subtitle caption-timeline"><span>BACK TO</span></div>
-                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Deploy" href="../about.html">
+                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Home" href="../index.html">
                                             <div class="next-hero-title primary-font-title caption-timeline"><span>HOME</span></div>
                                         </a>
                                     </div>
@@ -631,6 +429,13 @@
       if (typeof gsap === 'undefined') return;
       var span = document.querySelector('#contact-title span');
       if (!span) return;
+      // Guard: skip if this element has already been animated by us,
+      // preventing double-fire on AJAX re-entry or hot-reload cycles.
+      if (span.dataset.contactSlideApplied) return;
+      span.dataset.contactSlideApplied = 'true';
+      // Stop any in-flight Montoya tweens targeting this element before
+      // we set our own initial state, avoiding transform conflicts.
+      gsap.killTweensOf(span);
       // Override Montoya's initial y:120 → start from the left instead
       gsap.set(span, { x: -80, y: 0, scaleY: 1, opacity: 0 });
       // Animate in from left with the same timing as Montoya's title reveal
