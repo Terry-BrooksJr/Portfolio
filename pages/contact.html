@@ -14,44 +14,238 @@
 
     <title>Terry A. Brooks, Jr. | Let's Connect | Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Get in touch with Terry Brooks - DevOps Engineer and Backend Developer">
+    <meta name="description" content="Get in touch with Terry A. Brooks, Jr. — backend engineer, technical implementer, and future DevOps practitioner based in Baltimore, MD.">
     <meta name="author" content="Terry Brooks, Jr.">
     <meta charset="UTF-8">
     <script src="https://kit.fontawesome.com/58e27c88da.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
-    <!-- Typography - Primary Fonts -->
-    <!-- Orbitron: Headings | Inter: Body | Bricolage Grotesque & Syne: Buttons/Callouts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0F0F0F">
+    <!-- Typography — Afro-futurist theme -->
+    <!-- Space Grotesk: headings | Inter: Body | Syne: Buttons/callouts | Orbitron: retained for Montoya compat -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Bricolage+Grotesque:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Code/Terminal fonts -->
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Local Stylesheets -->
     <link href="/style.css" rel="stylesheet">
 
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           AFRO-FUTURIST THEME — CONTACT PAGE
+           Subtle variation from CV: Teal leads, Gold supports.
+           CV page: Gold primary, Teal secondary
+           Contact page: Teal primary, Gold secondary
+           Shared palette, swapped emotional weight.
+           ═══════════════════════════════════════════════════════════ */
+
+        :root {
+            --ct-black:  #0F0F0F;
+            --ct-brown:  #362C28;
+            --ct-gold:   #C29E5D;
+            --ct-teal:   #219EBC;
+            --ct-warm:   #D8CABF;
+            --ct-clay:   #DB3A34;
+            --ct-signal: #FFDD57;
+        }
+
+        /* ── Typography overrides ──────────────────────────────── */
+        #clapat-page-content .primary-font-title {
+            font-family: 'Space Grotesk', 'Syne', sans-serif !important;
+            letter-spacing: -0.01em;
+        }
+
+        /* ── Accordion — teal accents (vs gold on CV) ──────────── */
+        #clapat-page-content .acc-button-icon i {
+            color: var(--ct-teal) !important;
+        }
+        #clapat-page-content dl.accordion dt.accordion-active > span.link,
+        #clapat-page-content dl.accordion dt.accordion-active > span.link .primary-font-title {
+            color: var(--ct-teal) !important;
+        }
+        #clapat-page-content dl.accordion dt {
+            border-color: rgba(33, 158, 188, 0.2);
+        }
+        #clapat-page-content dl.accordion dt:hover > span.link {
+            color: var(--ct-teal);
+        }
+
+        /* ── Marquee — teal text ───────────────────────────────── */
+        #clapat-page-content .marquee-text {
+            color: var(--ct-teal);
+            opacity: 0.85;
+        }
+
+        /* ── Moving titles ─────────────────────────────────────── */
+        #clapat-page-content .title-moving-forward,
+        #clapat-page-content .title-moving-backward {
+            color: var(--ct-warm);
+            opacity: 0.75;
+        }
+
+        /* ── team-members-list — teal hover meta ───────────────── */
+        #clapat-page-content .team-member .ct-channel-meta {
+            color: var(--ct-teal);
+        }
+
+        /* ── Inline meta override (accordion dd) ───────────────── */
+        #clapat-page-content .accordion-content a {
+            color: var(--ct-gold);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        #clapat-page-content .accordion-content a:hover {
+            color: var(--ct-teal);
+        }
+        #clapat-page-content .dd-text {
+            color: var(--ct-warm);
+            line-height: 1.75;
+        }
+
+        /* ── hr dividers ───────────────────────────────────────── */
+        #clapat-page-content hr:not(.destroy) {
+            border-color: rgba(33, 158, 188, 0.2);
+        }
+
+        /* ── Contact channel meta label ────────────────────────── */
+        .ct-channel-meta {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ct-warm);
+            opacity: 0.65;
+            margin-top: 0.35em;
+            display: block;
+            font-family: 'Space Grotesk', 'Syne', sans-serif;
+            font-weight: 400;
+        }
+
+        /* ── Contact detail labels inside accordion ────────────── */
+        .ct-detail-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ct-teal);
+            font-family: 'Space Grotesk', 'Syne', sans-serif;
+            display: block;
+            margin-bottom: 0.25em;
+            opacity: 0.9;
+        }
+        .ct-detail-value {
+            font-size: 0.95rem;
+            color: var(--ct-warm);
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 1.25rem;
+        }
+        .ct-detail-value a {
+            color: var(--ct-gold) !important;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .ct-detail-value a:hover {
+            color: var(--ct-teal) !important;
+        }
+
+        /* ── Status dot — Signal Yellow ────────────────────────── */
+        .ct-status-dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #FFDD57;
+            margin-right: 0.5em;
+            vertical-align: middle;
+            box-shadow: 0 0 6px rgba(255, 221, 87, 0.6);
+        }
+        .ct-status-line {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ct-warm);
+            font-family: 'JetBrains Mono', monospace;
+            opacity: 0.75;
+        }
+
+        /* ── Gold skill-style tags for platform handles ─────────── */
+        /* (inverts CV teal tags → gold on contact page) */
+        .ct-platform-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+            margin-top: 0.9rem;
+        }
+        .ct-platform-tags span {
+            display: inline-block;
+            padding: 0.28em 0.8em;
+            border: 1px solid var(--ct-gold);
+            color: var(--ct-gold);
+            font-size: 0.67rem;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(194, 158, 93, 0.07);
+            transition: background 0.2s, color 0.2s;
+        }
+        .ct-platform-tags span:hover {
+            background: var(--ct-gold);
+            color: var(--ct-black);
+        }
+
+        /* ── CTA wrap ───────────────────────────────────────────── */
+        .ct-cta-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 3.5rem;
+        }
+        /* Primary CTA — teal fill (vs gold fill on CV) */
+        .ct-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 1rem 2.75rem;
+            background: var(--ct-teal);
+            border: 1px solid var(--ct-teal);
+            font-family: 'Space Grotesk', 'Syne', sans-serif;
+            font-size: 0.78rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--ct-black);
+            text-decoration: none;
+            transition: background 0.25s, color 0.25s, border-color 0.25s;
+        }
+        .ct-cta-link:hover,
+        .ct-cta-link:focus,
+        .ct-cta-link:active {
+            background: transparent;
+            border-color: var(--ct-teal);
+            color: var(--ct-teal);
+            outline: 2px solid var(--ct-teal);
+            outline-offset: 3px;
+        }
+    </style>
 </head>
 
-<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#219EBC"  data-header-variant="contact">
+
+<body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#219EBC" data-header-variant="contact">
 
 	<main>
         <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Loading">
+        <div class="preloader-wrap" data-centerLine="Connecting">
             <div class="outer">
                 <div class="inner">
                     <div class="trackbar">
                     	<div class="preloader-intro">
-                        	<span>Loading</span>
+                        	<span>Connecting</span>
                         </div>
                         <div class="loadbar"></div>
                         <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
                     </div>
-
-                    <div class="percentage-intro">Please wait, connecting...</div>
+                    <div class="percentage-intro">Establishing connection…</div>
                 </div>
             </div>
         </div>
@@ -60,7 +254,7 @@
         <div class="cd-index cd-main-content">
 
         <!-- Page Content -->
-        <div id="clapat-page-content" class="light-content" data-bgcolor="#219EBC">
+        <div id="clapat-page-content" class="light-content" data-bgcolor="#0F0F0F">
 
             <!-- Header -->
             <div id="site-header"></div>
@@ -69,7 +263,9 @@
             <!-- Content Scroll -->
             <div id="content-scroll">
 
+                <!-- Main -->
                 <div id="main">
+
                     <!-- Hero Section -->
                     <div id="hero">
                         <div id="hero-styles">
@@ -77,7 +273,7 @@
                                 <div class="inner">
                                     <h1 class="hero-title caption-timeline primary-font-title"><span>Let's Connect</span></h1>
                                     <div class="hero-subtitle caption-timeline">
-                                    	<span>Ready to collaborate on your next system architecture? <br class="destroy"> Drop me a line or connect through your preferred platform.</span>
+                                    	<span>Ready to collaborate on your next build? <br class="destroy"> Drop a line — I respond to every message.</span>
                                     </div>
                                 </div>
                             </div>
@@ -86,121 +282,335 @@
                                 	<div class="button-wrap right scroll-down">
                                         <div class="icon-wrap parallax-wrap">
                                             <div class="button-icon parallax-element">
-                                                <i class="fa fa-angle-down"></i>
+                                                <i class="fa-solid fa-angle-down"></i>
                                             </div>
                                         </div>
-                                        <div class="button-text sticky right"><span data-hover="Scroll">Scroll</span></div>
+                                        <div class="button-text sticky right"><span data-hover="Scroll to Explore">Scroll to Explore</span></div>
                                     </div>
                                 </div>
-                            	<div class="hero-footer-right">
-                                    <div id="info-text">Get In Touch</div>
+                                <div class="hero-footer-right">
+                                    <div id="info-text">
+                                        <span class="ct-status-dot"></span>
+                                        <span class="ct-status-line">Available for new roles</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--/Hero Section -->
 
+
                     <!-- Main Content -->
                     <div id="main-content">
                         <div id="main-page-content" class="content-max-width">
 
-                            <!-- Contact Methods -->
-                            <div class="content-row full row_padding_top row_padding_bottom light-section contact-section" data-bgcolor="#000000">
 
-                                <div class="one_half">
-                                    <div class="contact-method">
-                                        <h3><i class="fa fa-envelope"></i> Email</h3>
-                                        <p>For project inquiries, collaboration opportunities, or technical discussions.</p>
-                                        <p><strong>terry.arthur@brooksjr.com</strong></p>
-                                    </div>
+                            <!-- Row: Marquee -->
+                            <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#362C28">
 
-                                </div>
-
-
-                                    <div class="contact-method">
-                                        <h3><i class="fa fa-code"></i> Code Reviews</h3>
-                                        <p>Need a second pair of eyes on your backend architecture or DevOps setup?</p>
-                                        <p>Happy to review and provide constructive feedback.</p>
-                                    </div>
+                                <div class="marquee-text-wrapper">
+                                    <h2 class="marquee-text fw big-title primary-font-title">Open to Collaboration &nbsp;·&nbsp; L2/L3 Technical Support &nbsp;·&nbsp; Backend Engineering &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Open to Relocation &nbsp;·&nbsp; Remote-Friendly &nbsp;·&nbsp;</h2>
                                 </div>
 
                             </div>
-                            <!--/Contact Methods -->
+                            <!--/Row -->
 
-                            <!-- Social Links -->
-                            <div class="content-row full row_padding_top row_padding_bottom dark-section" data-bgcolor="#3E2723">
 
-                                <div class="text-align-center">
-                                    <h2 class="primary-font-title">Find Me Online</h2>
-                                    <p>Connect through your preferred platform</p>
+                            <!-- Row: How to Reach Me — Pinned -->
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0F0F0F">
+                                <hr class="destroy">
+                                <hr class="destroy">
+
+                                <div class="pinned-section">
+                                    <div class="pinned-element left">
+                                        <h2 class="big-title primary-font-title no-margins">
+                                            <span class="has-mask-fill">Say</span><br>
+                                            <span class="has-mask-fill">Hello</span>
+                                        </h2>
+                                    </div>
+
+                                    <div class="scrolling-element right">
+                                        <dl class="accordion has-animation">
+
+                                            <dt>
+                                                <span class="link"><div>Email</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <span class="ct-detail-label">Primary</span>
+                                                <p class="ct-detail-value"><a href="mailto:Terry.Arthur@BrooksJr.com">Terry.Arthur@BrooksJr.com</a></p>
+                                                <p class="dd-text">For project inquiries, collaboration opportunities, or technical discussions — email is the fastest way to reach me. I aim to respond within 24 hours on weekdays.</p>
+                                                <div class="ct-platform-tags" style="margin-top:1rem;">
+                                                    <span>Project Inquiries</span>
+                                                    <span>Collaboration</span>
+                                                    <span>Technical Discussions</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>Code Reviews</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p class="dd-text">Need a second pair of eyes on your backend architecture, API design, or DevOps setup? I'm happy to review and provide constructive, actionable feedback. Open to async reviews via GitHub PR comments or a scheduled working session.</p>
+                                                <div class="ct-platform-tags" style="margin-top:1rem;">
+                                                    <span>Backend Architecture</span>
+                                                    <span>API Design</span>
+                                                    <span>DevOps &amp; CI/CD</span>
+                                                    <span>Python / Django</span>
+                                                    <span>Docker &amp; K8s</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>Current Availability</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <span class="ct-detail-label">Status</span>
+                                                <p class="ct-detail-value">
+                                                    <span class="ct-status-dot"></span>
+                                                    <span style="color:var(--ct-warm);">Open to new full-time roles</span>
+                                                </p>
+                                                <p class="dd-text">Actively pursuing backend engineering, platform engineering, DevOps, and L2/L3 technical support roles. Based in Baltimore, MD — fully comfortable with remote, hybrid, or in-person arrangements. Open to relocation for the right opportunity. Open to contract engagements while searching for a permanent position.</p>
+                                                <div class="ct-platform-tags" style="margin-top:1rem;">
+                                                    <span>Full-Time</span>
+                                                    <span>Contract</span>
+                                                    <span>Remote</span>
+                                                    <span>Hybrid</span>
+                                                    <span>Baltimore, MD</span>
+                                                    <span>Open to Relocation</span>
+                                                </div>
+                                            </dd>
+
+                                            <dt>
+                                                <span class="link"><div>What I'm Looking For</div></span>
+                                                <div class="acc-icon-wrap parallax-wrap">
+                                                    <div class="acc-button-icon parallax-element">
+                                                        <i class="fa fa-arrow-right"></i>
+                                                    </div>
+                                                </div>
+                                            </dt>
+                                            <dd class="accordion-content">
+                                                <p class="dd-text">Teams where I can grow in DevOps, platform engineering, backend systems, or L2/L3 technical support — ideally somewhere that values cross-functional communication as much as technical depth. I thrive in environments that care about reliability, observability, and building things that genuinely help people.</p>
+                                                <div class="ct-platform-tags" style="margin-top:1rem;">
+                                                    <span>DevOps</span>
+                                                    <span>Platform Engineering</span>
+                                                    <span>Backend Systems</span>
+                                                    <span>L2/L3 Technical Support</span>
+                                                    <span>Technical Engineering</span>
+                                                    <span>Mission-Driven</span>
+                                                </div>
+                                            </dd>
+
+                                        </dl>
+                                    </div>
                                 </div>
 
-                                <div class="social-links">
-                                    <a href="https://github.com/Terry-BrooksJr" target="_blank" class="social-link">
-                                        <div class="social-icon"><i class="fa-brands fa-github"></i></div>
-                                        <h4>GitHub</h4>
-                                        <p>Explore my repositories and open source contributions</p>
-                                    </a>
+                                <hr class="destroy">
+                            </div>
+                            <!--/Row -->
 
-                                    <a href="https://www.linkedin.com/in/terryabrooks/" target="_blank" class="social-link">
-                                        <div class="social-icon"><i class="fa-brands fa-linkedin"></i></div>
-                                        <h4>LinkedIn</h4>
-                                        <p>Professional network and career updates</p>
-                                    </a>
 
-                                    <a href="https://twitter.com/NomadicSaaS_PM" target="_blank" class="social-link">
-                                        <div class="social-icon"><i class="fa-brands fa-x-twitter"></i></div>
-                                        <h4>Twitter</h4>
-                                        <p>Tech thoughts, DevOps insights, and industry commentary</p>
+                            <!-- Row: Find Me Online — Team Members List -->
+                            <div class="content-row full row_padding_top dark-section change-header-color" data-bgcolor="#362C28">
+
+                                <ul class="team-members-list" data-fx="1">
+                                    <li class="link has-hover-image" data-img="images/shortcodes/image02.jpg">
+                                        <div class="team-member has-animation">
+                                            <span>github.com/Terry-BrooksJr</span>
+                                            <div class="primary-font-title">GitHub</div>
+                                            <span class="ct-channel-meta">Repositories &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; Code</span>
+                                        </div>
+                                    </li>
+                                    <li class="link has-hover-image" data-img="images/shortcodes/image03.jpg">
+                                        <div class="team-member has-animation">
+                                            <span>linkedin.com/in/terryabrooks</span>
+                                            <div class="primary-font-title">LinkedIn</div>
+                                            <span class="ct-channel-meta">Professional Network &nbsp;·&nbsp; Career Updates</span>
+                                        </div>
+                                    </li>
+                                    <li class="link has-hover-image" data-img="images/shortcodes/image04.jpg">
+                                        <div class="team-member has-animation">
+                                            <span>@NomadicSaaS_PM</span>
+                                            <div class="primary-font-title">Twitter / X</div>
+                                            <span class="ct-channel-meta">Tech Thoughts &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Commentary</span>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Platform links accordion -->
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#362C28">
+
+                                <dl class="accordion bigger-acc has-animation">
+
+                                    <dt>
+                                        <span class="link">
+                                            <div class="primary-font-title">GitHub</div>
+                                            <div class="ct-channel-meta">Terry-BrooksJr &nbsp;·&nbsp; Repositories &amp; Contributions</div>
+                                        </span>
+                                        <div class="acc-icon-wrap parallax-wrap">
+                                            <div class="acc-button-icon parallax-element">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        <p class="dd-text">Browse my public repositories, open source contributions, and personal projects. Backend services, Django applications, DevOps tooling, and automation scripts live here.</p>
+                                        <div class="ct-platform-tags" style="margin-top:1rem;">
+                                            <span>Python</span><span>Django</span><span>Docker</span><span>Bash</span><span>APIs</span>
+                                        </div>
+                                        <p style="margin-top:1.25rem;">
+                                            <a href="https://github.com/Terry-BrooksJr" target="_blank" style="font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;">github.com/Terry-BrooksJr &nbsp;→</a>
+                                        </p>
+                                    </dd>
+
+                                    <dt>
+                                        <span class="link">
+                                            <div class="primary-font-title">LinkedIn</div>
+                                            <div class="ct-channel-meta">terryabrooks &nbsp;·&nbsp; Professional Network</div>
+                                        </span>
+                                        <div class="acc-icon-wrap parallax-wrap">
+                                            <div class="acc-button-icon parallax-element">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        <p class="dd-text">Connect professionally for career opportunities, referrals, or industry discussion. Full work history, recommendations, and professional endorsements all live here.</p>
+                                        <p style="margin-top:1.25rem;">
+                                            <a href="https://www.linkedin.com/in/terryabrooks/" target="_blank" style="font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;">linkedin.com/in/terryabrooks &nbsp;→</a>
+                                        </p>
+                                    </dd>
+
+                                    <dt>
+                                        <span class="link">
+                                            <div class="primary-font-title">Twitter / X</div>
+                                            <div class="ct-channel-meta">@NomadicSaaS_PM &nbsp;·&nbsp; Tech Commentary</div>
+                                        </span>
+                                        <div class="acc-icon-wrap parallax-wrap">
+                                            <div class="acc-button-icon parallax-element">
+                                                <i class="fa fa-arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        <p class="dd-text">Tech thoughts, DevOps insights, SaaS commentary, and the occasional hot take on what's actually broken in modern software delivery. Follow along for the unfiltered engineering perspective.</p>
+                                        <p style="margin-top:1.25rem;">
+                                            <a href="https://twitter.com/NomadicSaaS_PM" target="_blank" style="font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;">@NomadicSaaS_PM &nbsp;→</a>
+                                        </p>
+                                    </dd>
+
+                                </dl>
+
+                            </div>
+                            <!--/Row -->
+
+
+                            <!-- Row: Moving Titles + CTA -->
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0F0F0F">
+
+                                <div class="title-moving-outer">
+                                    <h2 class="big-title title-moving-forward primary-font-title">Don't just lurk — let's actually build something &nbsp;·&nbsp;</h2>
+                                </div>
+
+                                <hr>
+
+                                <div class="title-moving-outer">
+                                    <h2 class="big-title title-moving-backward primary-font-title">Baltimore, MD &nbsp;·&nbsp; Open to Relocation &nbsp;·&nbsp; L2/L3 Technical Support &nbsp;·&nbsp; Available Now &nbsp;·&nbsp;</h2>
+                                </div>
+
+                                <div class="ct-cta-wrap">
+                                    <a href="mailto:Terry.Arthur@BrooksJr.com" class="ct-cta-link">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                        <span>Send a Message</span>
                                     </a>
                                 </div>
 
                             </div>
-                            <!--/Social Links -->
+                            <!--/Row -->
+
 
                         </div>
+                        <!--/Main Page Content -->
+
+
+                        <!-- Page Navigation -->
+                        <div id="page-nav">
+                            <div class="page-nav-wrap">
+                                <div class="page-nav-caption content-full-width text-align-center height-title">
+                                    <div class="inner">
+                                        <div class="next-hero-subtitle caption-timeline"><span>SEE THE FULL CREDENTIALS</span></div>
+                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Deploy" href="/pages/cv.html">
+                                            <div class="next-hero-title primary-font-title caption-timeline"><span>CV</span></div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Page Navigation -->
+
+
                     </div>
                     <!--/Main Content -->
 
                 </div>
                 <!--/Main -->
 
+                <!-- Footer -->
+                <footer>
+                    <div id="footer-container">
+
+                        <div id="backtotop" class="button-wrap left">
+                            <div class="icon-wrap parallax-wrap">
+                                <div class="button-icon parallax-element">
+                                    <i style="color:#fff" class="fa-solid fa-angle-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-middle">
+                            <div id="copyright-block" class="copyright"><span id="copyright-year"></span> © Terry A. Brooks, Jr. All rights reserved.</div>
+                        </div>
+                        <div class="socials-wrap">
+                            <div class="socials-icon"><i style="color:#fff" class="fa-solid fa-share-nodes"></i></div>
+                            <div class="socials-text" style="color:#fff">Follow Me</div>
+                            <ul class="socials">
+                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i style="color:#fff" class="fa-brands fa-x-twitter"></i></a></span></li>
+                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://github.com/Terry-BrooksJr" target="_blank"><i style="color:#fff" class="fa-brands fa-github"></i></a></span></li>
+                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i class="fa-brands fa-linkedin" style="color:#fff"></i></a></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+                <!--/Footer -->
+
             </div>
             <!--/Content Scroll -->
+
+            <div id="app"></div>
 
         </div>
         <!--/Page Content -->
 
-        <!-- Footer -->
-        <footer>
-            <div id="footer-container">
-                <div id="backtotop" class="button-wrap left">
-                    <div class="icon-wrap parallax-wrap">
-                        <div class="button-icon parallax-element">
-                            <i style="color:#fff" class="fa-solid fa-angle-up"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-middle">
-                    <div id="copyright-block" class="copyright"><span id="copyright-year"></span> © Terry A. Brooks, Jr. All rights reserved.</div>
-                </div>
-                <div class="socials-wrap">
-                    <div class="socials-icon"><i style="color:#fff" class="fa-solid fa-share-nodes"></i></div>
-                    <div class="socials-text" style="color:#fff">Follow Me</div>
-                    <ul class="socials">
-                        <li><span class="parallax-wrap"><a class="parallax-element" href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i style="color:#fff" class="fa-brands fa-x-twitter"></i></a></span></li>
-                        <li><span class="parallax-wrap"><a class="parallax-element" href="https://github.com/Terry-BrooksJr" target="_blank"><i style="color:#fff" class="fa-brands fa-github"></i></a></span></li>
-                        <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i class="fa-brands fa-linkedin" style="color:#fff"></i></a></span></li>
-                    </ul>
-                </div>
-            </div>
-        </footer>
-        <!--/Footer -->
-
-    </div>
-    <!--/Main Index -->
-
+        </div>
     </main>
+
 
     <div class="cd-cover-layer"></div>
     <div id="magic-cursor">
@@ -213,9 +623,11 @@
     <div id="clone-image">
         <div class="hero-translate"></div>
     </div>
+    <div id="rotate-device"></div>
+
 
     <!-- External Dependencies -->
-    <script src='https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/js/bootstrap.bundle.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -230,11 +642,14 @@
     <script src="/js/plugins.js?v=1.0.1"></script>
     <script src="/js/common.js?v=1.0.1"></script>
     <script src="/js/scripts.js?v=1.0.1"></script>
+
 <script>
   // Header injection and handler binding handled by BurgerMenuAnimation()
   if (typeof BurgerMenuAnimation === 'function') {
     BurgerMenuAnimation();
   }
 </script>
+
 </body>
+
 </html>
