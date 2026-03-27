@@ -227,6 +227,15 @@
             outline: 2px solid var(--ct-teal);
             outline-offset: 3px;
         }
+        .clr-secondary{
+            color: var(--ct-gold);
+        }
+        .clr-primary{
+            color: var(--ct-teal);
+        }
+        .clr-highlight{
+            color: var(--ct-warm);
+        }
     </style>
 </head>
 
@@ -271,7 +280,7 @@
                         <div id="hero-styles">
                             <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center height-title">
                                 <div class="inner">
-                                    <h1 class="hero-title caption-timeline primary-font-title"><span>Let's Connect</span></h1>
+                                    <h1 id="contact-title" class="hero-title caption-timeline primary-font-title"><span>Slide In My DMs</span></h1>
                                     <div class="hero-subtitle caption-timeline">
                                     	<span>Ready to collaborate on your next build? <br class="destroy"> Drop a line — I respond to every message.</span>
                                     </div>
@@ -309,7 +318,7 @@
                             <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#362C28">
 
                                 <div class="marquee-text-wrapper">
-                                    <h2 class="marquee-text fw big-title primary-font-title">Open to Collaboration &nbsp;·&nbsp; L2/L3 Technical Support &nbsp;·&nbsp; Backend Engineering &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Open to Relocation &nbsp;·&nbsp; Remote-Friendly &nbsp;·&nbsp;</h2>
+                                    <h2 class="marquee-text fw big-title primary-font-title"><span class="clr-primary">Open to Collaboration</span> &nbsp;·&nbsp; <span class="clr-secondary">L2/L3 Technical Support</span> &nbsp;·&nbsp; <span class="clr-highlight">Backend Engineering</span> &nbsp;·&nbsp; <span class="clr-primary">DevOps</span> &nbsp;·&nbsp; <span class="clr-secondary">Open to Relocation</span> &nbsp;·&nbsp; <span class="clr-highlight">Remote-Friendly</span> &nbsp;·&nbsp;</h2>
                                 </div>
 
                             </div>
@@ -348,6 +357,8 @@
                                                     <span>Project Inquiries</span>
                                                     <span>Collaboration</span>
                                                     <span>Technical Discussions</span>
+                                                    <span>Non-Profit Technical Initiatives</span>
+
                                                 </div>
                                             </dd>
 
@@ -420,37 +431,6 @@
                                 </div>
 
                                 <hr class="destroy">
-                            </div>
-                            <!--/Row -->
-
-
-                            <!-- Row: Find Me Online — Team Members List -->
-                            <div class="content-row full row_padding_top dark-section change-header-color" data-bgcolor="#362C28">
-
-                                <ul class="team-members-list" data-fx="1">
-                                    <li class="link has-hover-image" data-img="images/shortcodes/image02.jpg">
-                                        <div class="team-member has-animation">
-                                            <span>github.com/Terry-BrooksJr</span>
-                                            <div class="primary-font-title">GitHub</div>
-                                            <span class="ct-channel-meta">Repositories &nbsp;·&nbsp; Open Source &nbsp;·&nbsp; Code</span>
-                                        </div>
-                                    </li>
-                                    <li class="link has-hover-image" data-img="images/shortcodes/image03.jpg">
-                                        <div class="team-member has-animation">
-                                            <span>linkedin.com/in/terryabrooks</span>
-                                            <div class="primary-font-title">LinkedIn</div>
-                                            <span class="ct-channel-meta">Professional Network &nbsp;·&nbsp; Career Updates</span>
-                                        </div>
-                                    </li>
-                                    <li class="link has-hover-image" data-img="images/shortcodes/image04.jpg">
-                                        <div class="team-member has-animation">
-                                            <span>@NomadicSaaS_PM</span>
-                                            <div class="primary-font-title">Twitter / X</div>
-                                            <span class="ct-channel-meta">Tech Thoughts &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Commentary</span>
-                                        </div>
-                                    </li>
-                                </ul>
-
                             </div>
                             <!--/Row -->
 
@@ -556,9 +536,9 @@
                             <div class="page-nav-wrap">
                                 <div class="page-nav-caption content-full-width text-align-center height-title">
                                     <div class="inner">
-                                        <div class="next-hero-subtitle caption-timeline"><span>SEE THE FULL CREDENTIALS</span></div>
-                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Deploy" href="/pages/cv.html">
-                                            <div class="next-hero-title primary-font-title caption-timeline"><span>CV</span></div>
+                                        <div class="next-hero-subtitle caption-timeline"><span>BACK TO</span></div>
+                                        <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="Deploy" href="../about.html">
+                                            <div class="next-hero-title primary-font-title caption-timeline"><span>HOME</span></div>
                                         </a>
                                     </div>
                                 </div>
@@ -586,15 +566,6 @@
                         </div>
                         <div class="footer-middle">
                             <div id="copyright-block" class="copyright"><span id="copyright-year"></span> © Terry A. Brooks, Jr. All rights reserved.</div>
-                        </div>
-                        <div class="socials-wrap">
-                            <div class="socials-icon"><i style="color:#fff" class="fa-solid fa-share-nodes"></i></div>
-                            <div class="socials-text" style="color:#fff">Follow Me</div>
-                            <ul class="socials">
-                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://twitter.com/NomadicSaaS_PM" target="_blank"><i style="color:#fff" class="fa-brands fa-x-twitter"></i></a></span></li>
-                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://github.com/Terry-BrooksJr" target="_blank"><i style="color:#fff" class="fa-brands fa-github"></i></a></span></li>
-                                <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.linkedin.com/in/terryabrooks/" target="_blank"><i class="fa-brands fa-linkedin" style="color:#fff"></i></a></span></li>
-                            </ul>
                         </div>
                     </div>
                 </footer>
@@ -650,6 +621,41 @@
   }
 </script>
 
+<script>
+  // Override #contact-title animation: slide in from left instead of
+  // Montoya's default scaleY scramble. Runs after Montoya scripts have
+  // called gsap.set (which sets y:120, opacity:0 on all .hero-title spans).
+  // We wait one tick so our set() lands after theirs, then animate x→0.
+  (function () {
+    function applySlideInLeft() {
+      if (typeof gsap === 'undefined') return;
+      var span = document.querySelector('#contact-title span');
+      if (!span) return;
+      // Override Montoya's initial y:120 → start from the left instead
+      gsap.set(span, { x: -80, y: 0, scaleY: 1, opacity: 0 });
+      // Animate in from left with the same timing as Montoya's title reveal
+      gsap.to(span, {
+        duration: 0.95,
+        x: 0,
+        opacity: 1,
+        ease: 'power3.out',
+        delay: 0.85
+      });
+    }
+    // requestAnimationFrame ensures Montoya's synchronous gsap.set calls
+    // have already run before we override the span's inline transform
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () {
+        requestAnimationFrame(applySlideInLeft);
+      });
+    } else {
+      requestAnimationFrame(applySlideInLeft);
+    }
+  })();
+</script>
+
 </body>
 
 </html>
+
+
