@@ -2232,3 +2232,204 @@ nav, nav.open {
 	transform: translateY(-100%);
 	transform-origin: 0% 0%;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   CV PAGE — Afro-Futurist Theme
+   Scoped to .cv-page so styles survive AJAX page transitions.
+   Palette: Rich Black #0F0F0F · Deep Brown #362C28
+            Muted Gold #C29E5D · Tech Teal #219EBC · Warm Gray #D8CABF
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+    --cv-black:  #0F0F0F;
+    --cv-brown:  #362C28;
+    --cv-gold:   #C29E5D;
+    --cv-teal:   #219EBC;
+    --cv-warm:   #D8CABF;
+    --cv-clay:   #DB3A34;
+    --cv-signal: #FFDD57;
+}
+
+/* ── Typography overrides ──────────────────────────────── */
+.cv-page .primary-font-title {
+    font-family: 'Space Grotesk', 'Syne', sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* ── Accordion — gold accents ──────────────────────────── */
+.cv-page .acc-button-icon i {
+    color: var(--cv-gold) !important;
+}
+.cv-page dl.accordion dt.accordion-active > span.link,
+.cv-page dl.accordion dt.accordion-active > span.link .primary-font-title {
+    color: var(--cv-gold) !important;
+}
+.cv-page dl.accordion dt {
+    border-color: rgba(194, 158, 93, 0.2);
+}
+.cv-page dl.accordion dt:hover > span.link {
+    color: var(--cv-gold);
+}
+
+/* ── Number counters ───────────────────────────────────── */
+.cv-page .number-counter {
+    color: var(--cv-gold) !important;
+    font-family: 'Space Grotesk', 'Syne', sans-serif !important;
+    font-size: clamp(3rem, 8vw, 6rem);
+}
+
+/* ── Marquee text ──────────────────────────────────────── */
+.cv-page .marquee-text {
+    color: var(--cv-gold);
+    opacity: 0.85;
+}
+
+/* ── Moving titles ─────────────────────────────────────── */
+.cv-page .title-moving-forward,
+.cv-page .title-moving-backward {
+    color: var(--cv-warm);
+    opacity: 0.75;
+}
+
+/* ── Hero download button ──────────────────────────────── */
+.cv-page .button-icon i.fa-download {
+    color: var(--cv-gold) !important;
+}
+
+/* ── Accordion link text ───────────────────────────────── */
+.cv-page .accordion-content a {
+    color: var(--cv-teal);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.cv-page .accordion-content a:hover {
+    color: var(--cv-gold);
+}
+
+/* ── Inline-style overrides for meta spans inside dd ───── */
+.cv-page .accordion-content > p[style] {
+    color: var(--cv-gold) !important;
+    opacity: 1 !important;
+    font-family: 'Space Grotesk', 'Syne', sans-serif !important;
+}
+.cv-page .accordion-content div[style] > div[style] {
+    color: var(--cv-gold) !important;
+    opacity: 1 !important;
+}
+.cv-page .accordion-content div[style] > div + div {
+    color: var(--cv-warm) !important;
+}
+
+/* ── dd-text body copy ─────────────────────────────────── */
+.cv-page .dd-text {
+    color: var(--cv-warm);
+    line-height: 1.75;
+}
+
+/* ── Pinned section heading accent ─────────────────────── */
+.cv-page .pinned-element .has-mask-fill {
+    --clr-bg: var(--cv-brown);
+}
+
+/* ── hr dividers in dark context ───────────────────────── */
+.cv-page hr:not(.destroy) {
+    border-color: rgba(194, 158, 93, 0.2);
+}
+
+/* ── CV custom components ──────────────────────────────── */
+
+.cv-role-meta {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cv-warm);
+    opacity: 0.65;
+    margin-top: 0.35em;
+    display: block;
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-weight: 400;
+}
+
+.cv-metric-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 0.6em;
+    color: var(--cv-warm);
+    opacity: 0.6;
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+}
+
+.cv-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.75em 0 0;
+}
+.cv-bullet-list li {
+    padding: 0.5em 0 0.5em 1.65em;
+    position: relative;
+    line-height: 1.72;
+    color: var(--cv-warm);
+    font-size: 0.94rem;
+}
+.cv-bullet-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--cv-gold);
+}
+
+.cv-skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 1.1rem;
+}
+.cv-skills-tags span {
+    display: inline-block;
+    padding: 0.28em 0.8em;
+    border: 1px solid var(--cv-teal);
+    color: var(--cv-teal);
+    font-size: 0.67rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(33, 158, 188, 0.07);
+    transition: background 0.2s, color 0.2s;
+}
+.cv-skills-tags span:hover {
+    background: var(--cv-teal);
+    color: var(--cv-black);
+}
+
+.cv-download-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+.cv-download-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1rem 2.75rem;
+    background: var(--cv-gold);
+    border: 1px solid var(--cv-gold);
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--cv-black);
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+.cv-download-link:hover,
+.cv-download-link:focus,
+.cv-download-link:active {
+    background: transparent;
+    border-color: var(--cv-gold);
+    color: var(--cv-gold);
+    outline: 2px solid var(--cv-gold);
+    outline-offset: 3px;
+}
