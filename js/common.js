@@ -3445,21 +3445,39 @@ Function Core
 					var head = document.head;
 					var newPageRawHead = event.match(/<head[^>]*>([\s\S.]*)<\/head>/i)[0];
 					newPageHead = document.createElement('head');
-					
+
 					newPageHead.innerHTML = newPageRawHead;
 
 					var oldHeadTags = head.querySelectorAll(headTags);
 					var newHeadTags = newPageHead.querySelectorAll(headTags);
-					
-					// append new and remove old tags
-					for (let i = 0; i < newHeadTags.length; i++) {
-						if (typeof oldHeadTags[i] !== 'undefined') {
-							head.insertBefore(newHeadTags[i], oldHeadTags[i].nextElementSibling);
-							head.removeChild(oldHeadTags[i]);
+
+					// ID-keyed reconciliation: avoids index-mismatch bugs when pages
+					// have different numbers of matching head tags (e.g. cv.html has
+					// two google-fonts links; other pages may have zero or one).
+					// 1. Collect incoming ids before any DOM moves.
+					var newTagIds = new Set();
+					newHeadTags.forEach(function(t) { if (t.id) newTagIds.add(t.id); });
+
+					// 2. Insert or update each incoming tag, matched by id.
+					newHeadTags.forEach(function(newTag) {
+						var existing = newTag.id ? head.querySelector('#' + newTag.id) : null;
+						if (existing) {
+							// Only swap if the content actually changed (e.g. different href).
+							if (existing.outerHTML !== newTag.outerHTML) {
+								head.insertBefore(newTag, existing.nextElementSibling);
+								head.removeChild(existing);
+							}
 						} else {
-							head.insertBefore(newHeadTags[i], newHeadTags[i - 1]);
+							head.appendChild(newTag);
 						}
-					}
+					});
+
+					// 3. Remove stale old tags whose id is absent from the incoming page.
+					oldHeadTags.forEach(function(oldTag) {
+						if (oldTag.id && !newTagIds.has(oldTag.id) && head.contains(oldTag)) {
+							head.removeChild(oldTag);
+						}
+					});
 					
 					$('html, body').scrollTop(0);
 				  
