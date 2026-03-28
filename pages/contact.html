@@ -411,13 +411,6 @@
     <script src="/js/scripts.js?v=1.0.1"></script>
 
 <script>
-  // Header injection and handler binding handled by BurgerMenuAnimation()
-  if (typeof BurgerMenuAnimation === 'function') {
-    BurgerMenuAnimation();
-  }
-</script>
-
-<script>
   // Override #contact-title animation: slide in from left instead of
   // Montoya's default scaleY scramble. Runs after Montoya scripts have
   // called gsap.set (which sets y:120, opacity:0 on all .hero-title spans).
