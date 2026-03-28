@@ -3455,12 +3455,12 @@ Function Core
 					// have different numbers of matching head tags (e.g. cv.html has
 					// two google-fonts links; other pages may have zero or one).
 					// 1. Collect incoming ids before any DOM moves.
-					var newTagIds = new Set();
+					const newTagIds = new Set();
 					newHeadTags.forEach(function(t) { if (t.id) newTagIds.add(t.id); });
 
 					// 2. Insert or update each incoming tag, matched by id.
 					newHeadTags.forEach(function(newTag) {
-						var existing = newTag.id ? head.querySelector('#' + newTag.id) : null;
+						const existing = newTag.id ? head.querySelector('#' + newTag.id) : null;
 						if (existing) {
 							// Only swap if the content actually changed (e.g. different href).
 							if (existing.outerHTML !== newTag.outerHTML) {
