@@ -3465,7 +3465,7 @@ Function Core
 							// Only swap if the content actually changed (e.g. different href).
 							if (existing.outerHTML !== newTag.outerHTML) {
 								head.insertBefore(newTag, existing.nextElementSibling);
-								head.removeChild(existing);
+								existing.remove();
 							}
 						} else {
 							head.appendChild(newTag);
@@ -3475,7 +3475,7 @@ Function Core
 					// 3. Remove stale old tags whose id is absent from the incoming page.
 					oldHeadTags.forEach(function(oldTag) {
 						if (oldTag.id && !newTagIds.has(oldTag.id) && head.contains(oldTag)) {
-							head.removeChild(oldTag);
+							oldTag.remove();
 						}
 					});
 					
