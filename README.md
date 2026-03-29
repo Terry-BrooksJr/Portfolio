@@ -3,7 +3,7 @@
 
 
 ## What is it?
-This is the Updated 2024 Terry Brooks, Jr. Developer Portfolio ReModel project. This project is a personal portfolio site that highlights the Web Development, DevOps, and Backend Engineering skills of Terry A. Brooks.
+This is the Updated 2026 Terry Brooks, Jr. Developer Portfolio ReModel project. This project is a personal portfolio site that highlights the Web Development, DevOps, and Backend Engineering skills of Terry A. Brooks.
 
 
 ## Built With 
