@@ -2262,6 +2262,10 @@ nav, nav.open {
     --cv-warm:   #D8CABF;
     --cv-clay:   #DB3A34;
     --cv-signal: #FFDD57;
+    --cv-forest: #0A2416;
+    /* Pan-African */
+    --pan-red:   #CC0000;
+    --pan-green: #006400;
 }
 
 /* ── Typography overrides ──────────────────────────────── */
@@ -2418,14 +2422,48 @@ nav, nav.open {
 }
 
 .cv-cta-section {
+    position: relative;
+    isolation: isolate;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.cv-cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    left: calc((100% - 100vw) / 2);
+    background: linear-gradient(160deg, var(--cv-brown) 0%, var(--cv-black) 100%);
+    z-index: -1;
+}
 .cv-cta-section .title-moving-outer {
     width: 100%;
+}
+
+/* Professional Profile — forest green full-bleed gradient */
+.cv-profile-section {
+    position: relative;
+    isolation: isolate;
+}
+.cv-profile-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    left: calc((100% - 100vw) / 2);
+    background: linear-gradient(160deg, var(--cv-forest) 0%, var(--cv-black) 100%);
+    z-index: -1;
+}
+
+/* Pan-African marquee colors */
+.cv-page .marquee-text.fw {
+    color: var(--pan-red);
+}
+.cv-page .marquee-text.bw {
+    color: var(--pan-green);
 }
 .cv-download-wrap {
     display: flex;
