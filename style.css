@@ -2417,10 +2417,24 @@ nav, nav.open {
     color: var(--cv-black);
 }
 
+.cv-cta-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cv-cta-section .title-moving-outer {
+    width: 100%;
+}
 .cv-download-wrap {
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
     margin-top: 3.5rem;
+    width: 100vw;
+    margin-left: 20em;
 }
 .cv-download-link {
     display: inline-flex;
@@ -2436,7 +2450,7 @@ nav, nav.open {
     font-weight: 600;
     color: var(--cv-black);
     text-decoration: none;
-    transition: background 0.25s, color 0.25s, border-color 0.25s;
+    transition: background 0.25s, color 0.25s, border-color 0.25s, outline-color 0.25s;
 }
 .cv-download-link:hover,
 .cv-download-link:focus,
@@ -2446,6 +2460,19 @@ nav, nav.open {
     color: var(--cv-gold);
     outline: 2px solid var(--cv-gold);
     outline-offset: 3px;
+}
+.cv-download-link[href*="linkedin"] {
+    background: var(--cv-teal);
+    border-color: var(--cv-teal);
+    color: var(--cv-black);
+}
+.cv-download-link[href*="linkedin"]:hover,
+.cv-download-link[href*="linkedin"]:focus,
+.cv-download-link[href*="linkedin"]:active {
+    background: transparent;
+    border-color: var(--cv-teal);
+    color: var(--cv-teal);
+    outline-color: var(--cv-teal);
 }
 
 /* ═══════════════════════════════════════════════════════════
