@@ -26,19 +26,35 @@ Primary use:	Showcase Portfolio
 01. General Settings
 --------------------------------------------------- */
 :root {
-  /* Colors - Updated to match transcript specifications */
-  --accent-gold: #C29E5D;
-  --accent-teal: #219EBC;
-  --deep-brown: #362C28;
-  --warm-gray: #D8CABF;
-  --black: #0F0F0F;
+  /* ── Pan-African Futuristic Palette ──────────────────────
+     Rooted in the three Pan-African banner colors:
+       Red  #CE1126  — liberation, sacrifice
+       Gold #FCD116  — mineral wealth, bright future
+       Green #009A44 — land, agriculture, natural wealth
+     Extended with deep-space black and electric neon for
+     the Afrofuturist dimension.
+  ─────────────────────────────────────────────────────── */
+  --paf-red:     #CE1126;   /* Pan-African red   */
+  --paf-green:   #009A44;   /* Pan-African green */
+  --paf-gold:    #FCD116;   /* Pan-African gold  */
+  --paf-electric:#00FF7F;   /* neon electric green — Afrofuturist accent */
+  --paf-black:   #060606;   /* deep-space black  */
+  --paf-panel:   #0D0D0D;   /* slightly lifted panel surface */
+  --paf-cream:   #F0EBD8;   /* warm cream text   */
+
+  /* Semantic aliases (used throughout the site) */
+  --accent-gold: var(--paf-gold);          /* was var(--paf-gold) */
+  --accent-teal: var(--paf-green);         /* was #219EBC */
+  --deep-brown:  var(--paf-panel);         /* was #362C28 */
+  --warm-gray:   var(--paf-cream);         /* was #D8CABF */
+  --black:       var(--paf-black);         /* was #0F0F0F */
 
   /* Legacy color support (for gradual transition) */
   --primary-dark: var(--black);
   --primary-light: var(--warm-gray);
   --secondary: var(--accent-teal);
-  --accent-clay: #DB3A34;
-  --highlight-yellow: #FFDD57;
+  --accent-clay: var(--paf-red);           /* was #DB3A34 */
+  --highlight-yellow: var(--paf-gold);     /* was #FFDD57 */
   --alt-background: var(--deep-brown);
 
   /* Typography - New Implementation */
@@ -649,7 +665,7 @@ footer.showcase-footer {
 
 .btn:hover {
   color: #fff;
-  background-color: #8a2522;
+  background-color: #CE1126;
 }
 
 #welcome-animation {
@@ -735,7 +751,7 @@ footer.showcase-footer {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
-  background: #0A0F0D;
+  background: #060606;
   font-family: 'JetBrains Mono', 'Courier New', monospace;
   font-size: 14px;
   line-height: 1.4;
@@ -781,7 +797,7 @@ footer.showcase-footer {
 
 .terminal-body {
   flex: 1;
-  background: #0A0F0D;
+  background: #060606;
   padding: 20px;
   overflow-y: auto;
   position: relative;
@@ -1025,7 +1041,7 @@ footer.showcase-footer {
 11. About Page Specific Styles
 --------------------------------------------------- */
 .terminal-section {
-  background: #0A0F0D;
+  background: #060606;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
   font-family: 'JetBrains Mono', 'Courier New', monospace;
@@ -1165,7 +1181,7 @@ footer.showcase-footer {
 }
 
 .ping-terminal {
-  background: #0A0F0D;
+  background: #060606;
   border-radius: 8px;
   padding: 1.5rem;
   font-family: var(--code-font);
@@ -1469,18 +1485,18 @@ DD Text with Drop Cap
   font-weight: 700;
   margin-right: 0.15em;
   margin-top: 0.08em;
-  color: var(--accent-gold, #C29E5D);
+  color: var(--accent-gold, var(--paf-gold));
   text-transform: uppercase;
 }
 
 /* Light section drop cap color adjustment */
 .light-section .dd-text::first-letter {
-  color: var(--deep-brown, #362C28);
+  color: var(--deep-brown, #0D0D0D);
 }
 
 /* Dark section drop cap */
 .dark-section .dd-text::first-letter {
-  color: var(--accent-gold, #C29E5D);
+  color: var(--accent-gold, var(--paf-gold));
 }
 
 /* --------------------------------------------------
@@ -2249,18 +2265,18 @@ nav, nav.open {
 /* ═══════════════════════════════════════════════════════════
    CV PAGE — Afro-Futurist Theme
    Scoped to .cv-page so styles survive AJAX page transitions.
-   Palette: Rich Black #0F0F0F · Deep Brown #362C28
-            Muted Gold #C29E5D · Tech Teal #219EBC · Warm Gray #D8CABF
+   Palette: Deep Black #060606 · Panel #0D0D0D
+            Pan-African Gold #FCD116 · Pan-African Green #009A44 · Cream #F0EBD8
    ═══════════════════════════════════════════════════════════ */
 
 /* Palette tokens scoped to .cv-page — no global bleed */
 .cv-page {
-    --cv-black:  #0F0F0F;
-    --cv-brown:  #362C28;
-    --cv-gold:   #C29E5D;
-    --cv-teal:   #219EBC;
-    --cv-warm:   #D8CABF;
-    --cv-clay:   #DB3A34;
+    --cv-black:  var(--paf-black);    /* #060606  */
+    --cv-brown:  var(--paf-panel);    /* #0D0D0D  */
+    --cv-gold:   var(--paf-gold);     /* #FCD116  */
+    --cv-teal:   var(--paf-green);    /* #009A44  */
+    --cv-warm:   var(--paf-cream);    /* #F0EBD8  */
+    --cv-clay:   var(--paf-red);      /* #CE1126  */
     --cv-signal: #FFDD57;
     --cv-forest: #0A2416;
     /* Pan-African */
@@ -2283,7 +2299,7 @@ nav, nav.open {
     color: var(--cv-gold) !important;
 }
 .cv-page dl.accordion dt {
-    border-color: rgba(194, 158, 93, 0.2);
+    border-color: rgba(252, 209, 22, 0.2);
 }
 .cv-page dl.accordion dt:hover > span.link {
     color: var(--cv-gold);
@@ -2351,7 +2367,7 @@ nav, nav.open {
 
 /* ── hr dividers in dark context ───────────────────────── */
 .cv-page hr:not(.destroy) {
-    border-color: rgba(194, 158, 93, 0.2);
+    border-color: rgba(252, 209, 22, 0.2);
 }
 
 /* ── CV custom components ──────────────────────────────── */
@@ -2521,13 +2537,13 @@ nav, nav.open {
 
 /* Palette tokens scoped to .contact-page — no global bleed */
 .contact-page {
-    --ct-black:  #0F0F0F;
-    --ct-brown:  #362C28;
-    --ct-gold:   #C29E5D;
-    --ct-teal:   #219EBC;
-    --ct-warm:   #D8CABF;
-    --ct-clay:   #DB3A34;
-    --ct-signal: #FFDD57;
+    --ct-black:  var(--paf-black);    /* #060606  */
+    --ct-brown:  var(--paf-panel);    /* #0D0D0D  */
+    --ct-gold:   var(--paf-gold);     /* #FCD116  */
+    --ct-teal:   var(--paf-green);    /* #009A44  */
+    --ct-warm:   var(--paf-cream);    /* #F0EBD8  */
+    --ct-clay:   var(--paf-red);      /* #CE1126  */
+    --ct-signal: var(--paf-gold);     /* #FCD116  */
 }
 
 /* ── Typography overrides ──────────────────────────────── */
@@ -2658,7 +2674,7 @@ nav, nav.open {
     letter-spacing: 0.09em;
     text-transform: uppercase;
     font-family: 'JetBrains Mono', monospace;
-    background: rgba(194, 158, 93, 0.07);
+    background: rgba(252, 209, 22, 0.07);
     transition: background 0.2s, color 0.2s;
 }
 .ct-platform-tags span:hover {
@@ -2702,3 +2718,338 @@ nav, nav.open {
 .clr-secondary { color: var(--ct-gold); }
 .clr-primary   { color: var(--ct-teal); }
 .clr-highlight { color: var(--ct-warm); }
+
+
+/* ==========================================================
+   08. Project Modal — Portfolio Lightbox
+   z-index: 9000  (below cursor 10000 / preloader 9999)
+   Triggered by .proj-modal-trigger[data-modal="<id>"]
+   ========================================================== */
+
+/* ── Overlay container ─────────────────────────────────── */
+.proj-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    align-items: flex-end;
+    pointer-events: none;
+    visibility: hidden;
+}
+.proj-modal.is-open {
+    pointer-events: all;
+    visibility: visible;
+}
+
+/* ── Backdrop ──────────────────────────────────────────── */
+.proj-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 8, 7, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    opacity: 0;
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+.proj-modal.is-open .proj-modal__backdrop {
+    opacity: 1;
+}
+
+/* ── Panel — slides up from bottom ────────────────────── */
+.proj-modal__panel {
+    position: relative;
+    width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+    background: #0A0A0A;
+    border-top: 1px solid rgba(252, 209, 22, 0.25);
+    border-radius: 20px 20px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    transform: translateY(100%);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--paf-gold) #0A0A0A;
+}
+.proj-modal__panel::-webkit-scrollbar        { width: 4px; }
+.proj-modal__panel::-webkit-scrollbar-track  { background: #0A0A0A; }
+.proj-modal__panel::-webkit-scrollbar-thumb  { background: var(--paf-gold); border-radius: 4px; }
+.proj-modal.is-open .proj-modal__panel {
+    transform: translateY(0);
+}
+
+/* ── Close button ──────────────────────────────────────── */
+.proj-modal__close {
+    position: absolute;
+    top: 28px;
+    right: 32px;
+    width: 44px;
+    height: 44px;
+    background: rgba(252, 209, 22, 0.12);
+    border: 1px solid rgba(252, 209, 22, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+}
+.proj-modal__close:hover {
+    background: rgba(252, 209, 22, 0.25);
+    border-color: var(--paf-gold);
+    transform: rotate(90deg);
+}
+.proj-modal__close::before,
+.proj-modal__close::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 1.5px;
+    background: var(--paf-gold);
+    border-radius: 2px;
+}
+.proj-modal__close::before { transform: rotate(45deg); }
+.proj-modal__close::after  { transform: rotate(-45deg); }
+
+/* ── Image pane ────────────────────────────────────────── */
+.proj-modal__image {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Default dark canvas — works for both light and dark logos */
+    background-color: #0a0807;
+}
+/* Safari Leader: logo sits on white/light-blue — give it a clean neutral surround */
+#modal-safari .proj-modal__image {
+    background-color: #0A1A0A;
+}
+/* The Dozens: logo already has a black bg — match it exactly */
+#modal-dozens .proj-modal__image {
+    background-color: #000;
+}
+.proj-modal__image img {
+    width: 100%;
+    height: 100%;
+    /* contain = full image always visible, never cropped */
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    padding: 32px;
+    /* no scale trick needed — contain keeps full image in frame */
+    transform: scale(0.96);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.proj-modal.is-open .proj-modal__image img {
+    transform: scale(1);
+}
+.proj-modal__image-overlay {
+    position: absolute;
+    inset: 0;
+    /* subtle vignette only — don't obscure the logo */
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.35) 100%);
+    pointer-events: none;
+}
+
+/* ── Content pane ──────────────────────────────────────── */
+.proj-modal__content {
+    padding: 60px 52px 52px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Meta row */
+.proj-modal__meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.proj-modal__year {
+    font-family: var(--code-font);
+    font-size: 12px;
+    color: var(--accent-gold);
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border: 1px solid rgba(252, 209, 22, 0.35);
+    border-radius: 20px;
+}
+.proj-modal__category {
+    font-family: var(--body-font);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(240, 235, 216, 0.55);
+}
+
+/* Title */
+.proj-modal__title {
+    font-family: var(--title-font);
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--warm-gray);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0;
+}
+.proj-modal__title em {
+    font-style: normal;
+    color: var(--accent-gold);
+}
+
+/* Description */
+.proj-modal__desc {
+    font-family: var(--body-font);
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(240, 235, 216, 0.72);
+    margin: 0;
+}
+
+/* Tech stack */
+.proj-modal__stack-label {
+    font-family: var(--code-font);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: rgba(252, 209, 22, 0.6);
+    margin-bottom: 10px;
+}
+.proj-modal__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.stack-tag {
+    font-family: var(--code-font);
+    font-size: 11px;
+    color: var(--accent-gold);
+    border: 1px solid rgba(252, 209, 22, 0.3);
+    border-radius: 4px;
+    padding: 4px 10px;
+    letter-spacing: 0.05em;
+    transition: background 0.2s, border-color 0.2s;
+}
+.stack-tag:hover {
+    background: rgba(252, 209, 22, 0.1);
+    border-color: var(--accent-gold);
+}
+
+/* Links */
+.proj-modal__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 8px;
+}
+.proj-modal__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--accent-font);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 6px;
+    transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+}
+.proj-modal__link--primary {
+    background: var(--accent-gold);
+    color: #0A0A0A;
+    border: 1px solid var(--accent-gold);
+}
+.proj-modal__link--primary:hover {
+    background: #d4b06e;
+    color: #0A0A0A;
+    transform: translateY(-2px);
+}
+.proj-modal__link--secondary {
+    background: transparent;
+    color: var(--warm-gray);
+    border: 1px solid rgba(240, 235, 216, 0.25);
+}
+.proj-modal__link--secondary:hover {
+    border-color: var(--warm-gray);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* ── Responsive ────────────────────────────────────────── */
+@media (max-width: 860px) {
+    .proj-modal__panel {
+        grid-template-columns: 1fr;
+        max-height: 96vh;
+        border-radius: 16px 16px 0 0;
+    }
+    .proj-modal__image {
+        min-height: 240px;
+    }
+    .proj-modal__content {
+        padding: 36px 28px 40px;
+    }
+    .proj-modal__close {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+/* ── Portfolio grid: slide-caption text on dark section ─── */
+/* Grid sections are now dark (#0D0D0D). Use PAF gold for the
+   hover title so it pops against the dark background. */
+#main-content.portfolio-page .showcase-portfolio .slide-caption .slide-title,
+#main-content.portfolio-page .showcase-portfolio .slide-caption .slide-title span {
+    color: var(--paf-gold) !important;
+}
+#main-content.portfolio-page .showcase-portfolio .slide-caption .slide-cat,
+#main-content.portfolio-page .showcase-portfolio .slide-caption .slide-cat span {
+    color: var(--paf-cream) !important;
+    opacity: 0.8;
+}
+
+/* ── Portfolio grid: modal trigger overlay ─────────────── */
+/* The .slide-link is an empty <a> inside .img-mask.
+   The theme only sizes it under .disable-ajaxload, so we
+   do it ourselves so any click on the card hits the trigger. */
+.showcase-portfolio .proj-modal-trigger {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: block;
+    cursor: pointer;
+}
+
+/* ── Portfolio grid: logo-style thumbnails ─────────────── */
+/* Applied to .clapat-item.logo-thumb — shows the full image
+   rather than cropping it to fill the card area            */
+.showcase-portfolio .clapat-item.logo-thumb .section-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.showcase-portfolio .clapat-item.logo-thumb .section-image .item-image,
+.showcase-portfolio .clapat-item.logo-thumb .grid__item-img {
+    object-fit: contain;
+    object-position: center;
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+}
+/* Per-project background colours matching the modal panes */
+.showcase-portfolio .clapat-item.logo-thumb--safari .section-image {
+    background-color: #0A1A0A;
+}
+.showcase-portfolio .clapat-item.logo-thumb--dozens .section-image {
+    background-color: #000;
+}

@@ -84,6 +84,10 @@ jQuery(function ($) {
     try {
       UpdateCopyright();
     } catch (e) { console.warn('UpdateCopyright failed:', e); }
+
+    try {
+      CustomFunction();
+    } catch (e) { console.warn('CustomFunction failed:', e); }
   });
 
 
@@ -94,7 +98,79 @@ Function CustomFunction - Template
 
   const CustomFunction = () => {
 
-    //Add here your custom js code
+    /*--------------------------------------------------
+    Project Modal Controller
+    ---------------------------------------------------
+    WHY CAPTURE PHASE?
+    The Montoya theme binds a jQuery click handler to every
+    .trigger-item (our .slide-inner) in ShowcasePortfolio().
+    jQuery handlers run in the BUBBLING phase (bottom-up).
+    A bubbling listener on `document` fires AFTER the
+    .trigger-item handler, so stopPropagation() there is
+    too late to prevent the theme's page-transition animation.
+
+    Using capture=true (addEventListener 3rd arg) fires our
+    listener TOP-DOWN before any bubbling handler at any
+    element level, letting us intercept and stop the event
+    before .trigger-item ever sees it.
+
+    WHY ONE-TIME GUARD?
+    CustomFunction() is called by LoadViaAjax() on every
+    AJAX page load. The capture listener lives on `document`
+    and survives navigation, so we only bind it once.
+    ---------------------------------------------------*/
+    if (!window._projModalInit) {
+      window._projModalInit = true;
+
+      let _activeModal = null;
+
+      const _openModal = (id) => {
+        const modal = document.getElementById(id);
+        if (!modal) return;
+        _activeModal = modal;
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => {
+          const closeBtn = modal.querySelector('.proj-modal__close');
+          if (closeBtn) closeBtn.focus();
+        }, 560);
+      };
+
+      const _closeModal = (modal) => {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        _activeModal = null;
+      };
+
+      // ── Thumbnail click — CAPTURE phase ──────────────
+      // Fires before jQuery's .trigger-item bubbling handler,
+      // preventing the theme's page-transition animation.
+      document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.proj-modal-trigger');
+        if (!trigger) return;
+        e.preventDefault();
+        e.stopPropagation(); // kills .trigger-item jQuery handler
+        _openModal(trigger.getAttribute('data-modal'));
+      }, true); // <-- capture phase
+
+      // ── Close button & backdrop — bubble phase ────────
+      // These are inside the modal (outside .trigger-item),
+      // so no conflict with the theme; bubbling is fine.
+      document.addEventListener('click', (e) => {
+        const closeBtn = e.target.closest('.proj-modal__close');
+        const backdrop = e.target.closest('.proj-modal__backdrop');
+        if (closeBtn) { _closeModal(closeBtn.closest('.proj-modal')); return; }
+        if (backdrop) { _closeModal(backdrop.closest('.proj-modal')); }
+      });
+
+      // ── Escape key ────────────────────────────────────
+      document.addEventListener('keydown', (e) => {
+        if ((e.key === 'Escape' || e.key === 'Esc') && _activeModal) {
+          _closeModal(_activeModal);
+        }
+      });
+    }
 
   };
 
