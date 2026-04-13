@@ -185,15 +185,14 @@ Function Burger Menu Animation
     if (!mount) return;
 
     const doBindHandlers = () => {
-      // Bind burger menu open/close (same logic as common.js FirstLoad lines 1624-1692)
-      // Uses .off() first to prevent duplicate bindings
+      // Bind burger menu open/close — right-side slide drawer
+      // Uses .off() first to prevent duplicate bindings on re-init
       $('#burger-wrapper, .menu .button-text').off('click.burger').on('click.burger', function () {
         $('#menu-burger, nav').toggleClass('open');
         setTimeout(function () {
           if ($('#menu-burger').hasClass("open")) {
             $('.flexnav').addClass('flexnav-show');
-            gsap.to('nav', { duration: 0.3, opacity: 1, ease: Power2.easeInOut });
-            gsap.to($('.nav-height, nav .outer, nav .inner'), { duration: 0.3, opacity: 1, ease: Power2.easeInOut });
+            $('#nav-backdrop').addClass('visible');
             $('header').addClass('over-sidebar').addClass('over-white-section');
             if (!$('#clapat-page-content').hasClass("light-content")) {
               $('#magic-cursor').addClass('light-content');
@@ -204,8 +203,8 @@ Function Burger Menu Animation
               $('#header-container').addClass('dark-content-header');
             }
             gsap.set($("nav ul ul li"), { y: 0, opacity: 1 });
-            gsap.set($(".menu-timeline .before-span"), { y: 160, opacity: 0 });
-            gsap.to($(".menu-timeline .before-span"), { duration: 0.7, y: 0, opacity: 1, delay: 0.4, stagger: 0.1, ease: Power2.easeOut });
+            gsap.set($(".menu-timeline .before-span"), { y: 60, opacity: 0 });
+            gsap.to($(".menu-timeline .before-span"), { duration: 0.6, y: 0, opacity: 1, delay: 0.35, stagger: 0.1, ease: Power2.easeOut });
 
             $('.menu-timeline > .touch-button').off('click.menutl').on('click.menutl', function (e, bIndirect) {
               if (bIndirect == true) return;
@@ -218,10 +217,9 @@ Function Burger Menu Animation
             });
           } else {
             $('.flexnav').removeClass('flexnav-show');
-            gsap.to('nav', { duration: 0.3, opacity: 0, delay: 0.6, ease: Power2.easeInOut });
-            gsap.to($('.nav-height, nav .outer, nav .inner'), { duration: 0.3, opacity: 0, delay: 0.6, ease: Power2.easeInOut });
-            gsap.to($(".menu-timeline .before-span"), { duration: 0.5, y: -200, opacity: 1, delay: 0, stagger: 0.05, ease: Power2.easeIn });
-            gsap.to($("nav ul ul li"), { duration: 0.5, y: -120, opacity: 0, delay: 0, stagger: 0.03, ease: Power2.easeIn });
+            $('#nav-backdrop').removeClass('visible');
+            gsap.to($(".menu-timeline .before-span"), { duration: 0.4, y: -60, opacity: 0, delay: 0, stagger: 0.05, ease: Power2.easeIn });
+            gsap.to($("nav ul ul li"), { duration: 0.4, y: -60, opacity: 0, delay: 0, stagger: 0.03, ease: Power2.easeIn });
             if (!$('#clapat-page-content').hasClass("light-content")) {
               setTimeout(function () { $('#magic-cursor').removeClass('light-content'); }, 500);
             }
@@ -247,15 +245,13 @@ Function Burger Menu Animation
         }, 50);
         $(".flexnav").removeClass("flexnav-show");
         $('#menu-burger').removeClass("open");
-        var bgTarget = document.querySelector("#clapat-page-content");
-        if (bgTarget) {
-          gsap.to("nav", { duration: 0.3, backgroundColor: bgTarget.getAttribute("data-bgcolor") });
-        }
+        $('nav').removeClass('open');
+        $('#nav-backdrop').removeClass('visible');
         $('header').removeClass('white-header');
         $("#app").remove();
         setTimeout(function () { $("#canvas-slider.active").remove(); }, 300);
         $(".temporary-hero").remove();
-        gsap.to($(".fullscreen-menu .menu-timeline"), { duration: 0.3, y: -30, opacity: 0, stagger: 0.03, ease: Power2.easeIn });
+        gsap.to($(".fullscreen-menu .menu-timeline .before-span"), { duration: 0.25, y: -40, opacity: 0, stagger: 0.04, ease: Power2.easeIn });
         gsap.to('#ball', { duration: 0.3, borderWidth: "4px", scale: 0.5, backgroundColor: "rgba(0, 0, 0, 0)", opacity: 1 });
         gsap.to($("#main, #hero-image-wrapper, #project-nav, .next-project-image, #app, #canvas-slider, #showcase-slider-webgl-holder, .showcase-pagination-wrap, #quickmenu-scroll, #blog, .next-project-image-wrapper"), { duration: 0.3, opacity: 0, delay: 0, ease: Power0.ease });
         gsap.to($("#footer-container, .header-middle"), { duration: 0.3, opacity: 0, ease: Power0.ease });

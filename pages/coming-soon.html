@@ -307,26 +307,24 @@
 <body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#219EBC"
     data-header-variant="coming-soon">
 
-    <main>
-        <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Initializing">
-            <div class="outer">
-                <div class="inner">
-                    <div class="trackbar">
-                        <div class="preloader-intro">
-                            <span>Initializing</span>
-                        </div>
-                        <div class="loadbar"></div>
-                        <div class="percentage-wrapper">
-                            <div class="percentage" id="precent"></div>
-                        </div>
+    <main class="cd-main">
+        <!-- Terminal Preloader -->
+        <div class="terminal-preloader" id="terminal-preloader">
+            <div class="terminal-boot-window">
+                <div class="terminal-boot-header">
+                    <div class="boot-buttons">
+                        <div class="boot-button boot-close"></div>
+                        <div class="boot-button boot-minimize"></div>
+                        <div class="boot-button boot-maximize"></div>
                     </div>
-
-                    <div class="percentage-intro">Please wait, something new is loading...</div>
+                    <div class="boot-title">terry@backend-systems: ~</div>
+                </div>
+                <div class="terminal-boot-body" id="boot-output">
+                    <!-- Boot sequence will be populated by JavaScript -->
                 </div>
             </div>
         </div>
-        <!--/Preloader -->
+        <!--/Terminal Preloader -->
 
         <div class="cd-index cd-main-content">
 

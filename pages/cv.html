@@ -38,29 +38,29 @@
 <body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#FCD116" data-header-variant="cv">
 
 
-	<main>
-        <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Loading">
-            <div class="outer">
-                <div class="inner">
-                    <div class="trackbar">
-                    	<div class="preloader-intro">
-                        	<span>Loading</span>
-                        </div>
-                        <div class="loadbar"></div>
-                        <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
+	<main class="cd-main">
+        <!-- Terminal Preloader -->
+        <div class="terminal-preloader" id="terminal-preloader">
+            <div class="terminal-boot-window">
+                <div class="terminal-boot-header">
+                    <div class="boot-buttons">
+                        <div class="boot-button boot-close"></div>
+                        <div class="boot-button boot-minimize"></div>
+                        <div class="boot-button boot-maximize"></div>
                     </div>
-
-                    <div class="percentage-intro">Please wait, content is loading</div>
+                    <div class="boot-title">terry@backend-systems: ~</div>
+                </div>
+                <div class="terminal-boot-body" id="boot-output">
+                    <!-- Boot sequence will be populated by JavaScript -->
                 </div>
             </div>
         </div>
-        <!--/Preloader -->
+        <!--/Terminal Preloader -->
 
         <div class="cd-index cd-main-content">
 
         <!-- Page Content -->
-        <div id="clapat-page-content" class="light-content cv-page" data-bgcolor="#060606">
+        <div id="clapat-page-content" class="light-content cv-page" data-bgcolor="#0E0C01">
 
             <!-- Header -->
             <div id="site-header"></div>
@@ -120,7 +120,7 @@
 
 
                             <!-- Row: Marquee — Role Keywords -->
-                            <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#060606">
+                            <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0C01">
 
                                 <div class="marquee-text-wrapper">
                                     <h2 class="marquee-text fw big-title primary-font-title">Application Support &nbsp;•&nbsp; L2/L3 Technical Engineering &nbsp;•&nbsp; DevOps &nbsp;•&nbsp; Python &nbsp;•&nbsp; Django &nbsp;•&nbsp; Docker &nbsp;•&nbsp; Kubernetes &nbsp;•&nbsp; AWS &nbsp;•&nbsp; CI/CD &nbsp;•&nbsp; Open to Relocation &nbsp;•&nbsp; Data Engineering &nbsp;•&nbsp; Technical Implementation &nbsp;•&nbsp;</h2>
@@ -131,7 +131,7 @@
 
 
                             <!-- Row: Professional Profile — Pinned -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color cv-profile-section" data-bgcolor="#0D0D0D">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color cv-profile-section" data-bgcolor="#0E0C01">
                                 <hr class="destroy">
                                 <hr class="destroy">
 
@@ -211,7 +211,7 @@
 
 
                             <!-- Row: Work Experience — Single Accordion -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#060606">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0C01">
 
                                 <dl class="accordion bigger-acc has-animation">
 
@@ -346,7 +346,7 @@
 
 
                             <!-- Row: Key Metrics — Number Counters -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section text-align-center change-header-color" data-bgcolor="#0D0D0D">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section text-align-center change-header-color" data-bgcolor="#0E0C01">
 
                                 <div class="one_third">
                                     <h2 class="number-counter" data-target="30" data-symbol="%">0</h2>
@@ -368,7 +368,7 @@
 
 
                             <!-- Row: Education — Pinned Section -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0D0D0D">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0C01">
                                 <hr class="destroy">
                                 <hr class="destroy">
 
@@ -432,7 +432,7 @@
 
 
                             <!-- Row: Skills Marquee -->
-                            <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#060606">
+                            <div class="content-row full row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0C01">
 
                                 <div class="marquee-text-wrapper">
                                     <h2 class="marquee-text bw big-title primary-font-title">AWS &nbsp;·&nbsp; Python &nbsp;·&nbsp; Django &nbsp;·&nbsp; Docker &nbsp;·&nbsp; Kubernetes &nbsp;·&nbsp; Terraform &nbsp;·&nbsp; Kafka &nbsp;·&nbsp; CI/CD &nbsp;·&nbsp; PostgreSQL &nbsp;·&nbsp; MongoDB &nbsp;·&nbsp; Go &nbsp;·&nbsp; JavaScript &nbsp;·&nbsp; Node.js &nbsp;·&nbsp;</h2>
@@ -443,7 +443,7 @@
 
 
                             <!-- Row: Technical Skills — Pinned Section -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#060606">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0C01">
                                 <hr class="destroy">
                                 <hr class="destroy">
 
@@ -572,7 +572,7 @@
 
 
                             <!-- Row: Volunteer Work — Pinned Section -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0D0D0D">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0C01">
                                 <hr class="destroy">
                                 <hr class="destroy">
 
@@ -623,7 +623,7 @@
 
 
                             <!-- Row: Moving Titles + Download CTA -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color cv-cta-section" data-bgcolor="#060606">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color cv-cta-section" data-bgcolor="#0E0C01">
 
                                 <div class="title-moving-outer">
                                     <h2 class="big-title title-moving-forward primary-font-title">Available for New Opportunities &nbsp;·&nbsp; DevOps &nbsp;·&nbsp; Platform Engineering &nbsp;·&nbsp; L2/L3 Technical Engineering &nbsp;·&nbsp;</h2>

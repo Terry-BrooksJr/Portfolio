@@ -39,26 +39,24 @@
 <body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#009A44" data-header-variant="about">
 
 
-    <main>
-        <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Loading">
-            <div class="outer">
-                <div class="inner">
-                    <div class="trackbar">
-                        <div class="preloader-intro">
-                            <span>Loading</span>
-                        </div>
-                        <div class="loadbar"></div>
-                        <div class="percentage-wrapper">
-                            <div class="percentage" id="precent"></div>
-                        </div>
+    <main class="cd-main">
+        <!-- Terminal Preloader -->
+        <div class="terminal-preloader" id="terminal-preloader">
+            <div class="terminal-boot-window">
+                <div class="terminal-boot-header">
+                    <div class="boot-buttons">
+                        <div class="boot-button boot-close"></div>
+                        <div class="boot-button boot-minimize"></div>
+                        <div class="boot-button boot-maximize"></div>
                     </div>
-
-                    <div class="percentage-intro">Please wait, content is loading</div>
+                    <div class="boot-title">terry@backend-systems: ~</div>
+                </div>
+                <div class="terminal-boot-body" id="boot-output">
+                    <!-- Boot sequence will be populated by JavaScript -->
                 </div>
             </div>
         </div>
-        <!--/Preloader -->
+        <!--/Terminal Preloader -->
 
         <div class="cd-index cd-main-content">
 
@@ -314,7 +312,7 @@
                                                         </div>
                                                     </dt>
                                                     <dd class="accordion-content" data-icon="core-drivers">
-                                                        <img src="/images/icons/core-driver.svg" alt="Problem Solving Icon" class="dd-icon dd-icon--core-drivers">
+                                                        <img src="/images/icons/core-driver.png" alt="Problem Solving Icon" class="dd-icon dd-icon--core-drivers">
                                                         <p class="dd-text">At the heart of everything I do is a deep-seated commitment to problem solving. Whether it's helping a family navigate public housing benefits or untangling a web app integration bug, I bring the same curiosity and determination to the table. I believe that every challenge—technical, social, or human—is just a solution waiting to be discovered. I'm driven by the desire to improve systems, empower people, and build things that make life smoother and more just. Solutions are my love language—tech just happens to be the dialect I speak best now.</p>
                                                     </dd>
 

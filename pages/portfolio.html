@@ -38,29 +38,29 @@
 <body class="hidden hidden-ball smooth-scroll rounded-borders" data-primary-color="#CE1126" data-header-variant="portfolio">
 
 
-	<main>
-        <!-- Preloader -->
-        <div class="preloader-wrap" data-centerLine="Loading">
-            <div class="outer">
-                <div class="inner">
-                    <div class="trackbar">
-                    	<div class="preloader-intro">
-                        	<span>Loading</span>
-                        </div>
-                        <div class="loadbar"></div>
-                        <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
+	<main class="cd-main">
+        <!-- Terminal Preloader -->
+        <div class="terminal-preloader" id="terminal-preloader">
+            <div class="terminal-boot-window">
+                <div class="terminal-boot-header">
+                    <div class="boot-buttons">
+                        <div class="boot-button boot-close"></div>
+                        <div class="boot-button boot-minimize"></div>
+                        <div class="boot-button boot-maximize"></div>
                     </div>
-
-                    <div class="percentage-intro">Please wait, content is loading</div>
+                    <div class="boot-title">terry@backend-systems: ~</div>
+                </div>
+                <div class="terminal-boot-body" id="boot-output">
+                    <!-- Boot sequence will be populated by JavaScript -->
                 </div>
             </div>
         </div>
-        <!--/Preloader -->
+        <!--/Terminal Preloader -->
 
         <div class="cd-index cd-main-content">
 
         <!-- Page Content -->
-        <div id="clapat-page-content" class="light-content" data-bgcolor="#060606">
+        <div id="clapat-page-content" class="light-content" data-bgcolor="#0E0202">
 
             <!-- Header -->
             <div id="site-header"></div>
@@ -112,7 +112,7 @@
 
 
                             <!-- Portfolio Filter -->
-                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0D0D0D">
+                            <div class="content-row row_padding_top row_padding_bottom dark-section change-header-color" data-bgcolor="#0E0202">
                                 <div class="content-max-width">
                                     <div class="filters-options-wrapper">
                                         <a id="all" class="filter-option is_active" href="#" data-filter="">
@@ -134,7 +134,7 @@
 
 
                             <!-- Portfolio Grid -->
-                            <div class="content-row dark-section change-header-color" data-bgcolor="#0D0D0D">
+                            <div class="content-row dark-section change-header-color" data-bgcolor="#0E0202">
 
                                 <div id="itemsWrapperLinks">
                                     <div id="itemsWrapper" class="webgl-fitthumbs fx-seven">
