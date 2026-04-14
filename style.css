@@ -2940,6 +2940,24 @@ nav, nav.open {
     border: 1px solid rgba(252, 209, 22, 0.35);
     border-radius: 20px;
 }
+.proj-modal__status_live {
+    font-family: var(--code-font);
+    font-size: 12px;
+    color: var(--paf-electric);
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border: 1px solid rgba(11, 144, 25, 0.35);
+    border-radius: 20px;
+}
+.proj-modal__status_in-progess {
+    font-family: var(--code-font);
+    font-size: 12px;
+    color: var(--paf-cream);
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border: 1px solid rgba(191, 12, 30, 0.35);
+    border-radius: 20px;
+}
 .proj-modal__category {
     font-family: var(--body-font);
     font-size: 12px;
@@ -3113,6 +3131,9 @@ nav, nav.open {
 }
 .showcase-portfolio .clapat-item.logo-thumb--dozens .section-image {
     background-color: #000;
+}
+.showcase-portfolio .clapat-item.logo-thumb--nett-hands .section-image {
+    background-color: #0E0202;
 }
 
 /* Light section wrapper with clip effects background */
