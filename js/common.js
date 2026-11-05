@@ -64,7 +64,7 @@ Function Scroll Effects
 			
 		
 		
-		let enableSmoothScrollMobile = true;
+		let enableSmoothScrollMobile = false;
 		if( isMobile() ){
 			
 			if( !enableSmoothScrollMobile ){
@@ -529,6 +529,8 @@ Function Scroll Effects
 		
 		// Clipped Image 
 		gsap.utils.toArray('.clipped-image-wrapper').forEach((clippedImageWrapper) => {
+			// Phones show the video inline (css/mobile.css), so skip the pinned reveal.
+			if (window.matchMedia('(max-width: 767px)').matches) return;
   
 			const clippedImagePin = clippedImageWrapper.querySelector(".clipped-image-pin");
 			const clippedImage = clippedImageWrapper.querySelector(".clipped-image");
