@@ -470,25 +470,31 @@ header {
 }
 
 /* Home icon — hidden by default, replaces logo on hover */
+#logo a {
+  display: block;
+  position: relative;
+}
+
 #logo .logo-home-icon {
   display: none;
+  position: absolute;
+  top: 38%;
+  left: 52%;
   font-size: 28px;
   color: #000;
-  line-height: 50px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  line-height: 1;
+  transform: translate(-50%, -50%);
 }
 
-#logo a:hover .black-logo,
-#logo a:hover .white-logo {
-  display: none !important;
-}
+/* Fade the logo rather than removing it, so the link keeps its size under the cursor */
+@media (hover: hover) {
+  #logo a:hover img {
+    opacity: 0;
+  }
 
-#logo a:hover .logo-home-icon {
-  display: block;
-}
-
-#logo a:hover .logo-home-icon:hover {
-  transform: scale(1.15);
+  #logo a:hover .logo-home-icon {
+    display: block;
+  }
 }
 
 /* Show white logo on light content */
@@ -549,9 +555,24 @@ header {
   }
 }
 
+/* Leave room below the image so the heading and buttons fit on the first screen */
+@media (min-width: 768px) {
+  #hero-image {
+    max-height: max(320px, calc(100vh - 200px));
+    object-position: center 15%;
+  }
+}
+
 #content-scroll {
   z-index: 1;
   position: relative;
+}
+
+/* Center the capped wrapper on wide screens. Full-bleed sections such as the
+   About video position themselves from it and shift left when it isn't centered. */
+.content-max-width {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .smooth-scroll #content-scroll {
@@ -682,20 +703,6 @@ footer.showcase-footer {
   opacity: 0.9;
 }
 
-.index::after {
-  content: "";
-  background: url(images/circuit_board_overlay.png) no-repeat center;
-  background-position: 100% bottom;
-  background-size: 250px auto;
-  opacity: 0.25;
-  top: 0;
-  left: 0;
-  bottom: 5%;
-  right: 5%;
-  position: absolute;
-  z-index: -1;
-}
-
 .btn {
   background-color: var(--accent-clay);
   color: #fff;
@@ -720,6 +727,15 @@ footer.showcase-footer {
   width: 100%;
   max-width: 100%;
   line-height: 1.2;
+  min-height: 1.2em; /* keep the line's height while Typed.js erases the text */
+}
+
+/* Long headings wrap on phones; min-height stops the layout jumping as Typed.js changes the text */
+@media (max-width: 767px) {
+  #welcome-animation {
+    white-space: normal;
+    min-height: 2.4em;
+  }
 }
 
 .hero-cta-buttons {
@@ -2546,10 +2562,10 @@ nav, nav.open {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 3.5rem;
-    width: 100vw;
-    margin-left: 20em;
+    width: 100%;
 }
 .cv-download-link {
     display: inline-flex;
@@ -3140,4 +3156,245 @@ nav, nav.open {
 #main-page-content > div.light-section-wrapper.clip-effects {
     background-color: #009A44 !important;
     color: #ffffff !important;
+}
+
+/* --------------------------------------------------
+   Next-page link and footer bar (all pages)
+   Keeps the theme's markup and letter animation.
+--------------------------------------------------- */
+.page-nav-caption .next-hero-subtitle {
+  margin-bottom: 28px;
+  opacity: 1;
+  color: var(--paf-gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.height-title .next-hero-title {
+  font-size: min(16vw, 36vh);
+  line-height: 1;
+  margin-left: 0;
+  transition: color 0.3s ease;
+}
+
+.height-title .next-hero-title span {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.light-content .page-title:hover .next-hero-title,
+.page-title:focus-visible .next-hero-title {
+  color: var(--paf-gold);
+}
+
+#footer-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  height: auto;
+  margin: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+#footer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80px;
+  right: 80px;
+  height: 1px;
+  background: rgba(240, 235, 216, 0.16);
+}
+
+#footer-container .button-wrap.left {
+  position: static;
+  float: none;
+  justify-self: start;
+  margin: 0;
+  pointer-events: auto;
+}
+
+#footer-container .footer-middle {
+  position: static;
+  width: auto;
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+#footer-container .socials-wrap {
+  position: static;
+  float: none;
+  justify-self: end;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+#footer-container .socials-icon,
+#footer-container .socials-text {
+  display: none;
+}
+
+#footer-container .socials {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#footer-container .socials li,
+#footer-container .socials li span {
+  display: block;
+  margin: 0;
+}
+
+#footer-container .socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(240, 235, 216, 0.25);
+  border-radius: 50%;
+  pointer-events: auto;
+  transition: border-color 0.25s ease;
+}
+
+#footer-container .socials a i {
+  transition: color 0.25s ease;
+}
+
+#footer-container .socials a:hover,
+#footer-container .socials a:focus-visible {
+  border-color: var(--paf-gold);
+}
+
+#footer-container .socials a:hover i,
+#footer-container .socials a:focus-visible i {
+  color: var(--paf-gold) !important;
+}
+
+/* Gold is too low-contrast on the green About background */
+[data-bgcolor="#009A44"] .page-nav-caption .next-hero-subtitle {
+  color: var(--paf-cream);
+}
+
+.light-content[data-bgcolor="#009A44"] .page-title:hover .next-hero-title,
+[data-bgcolor="#009A44"] .page-title:focus-visible .next-hero-title {
+  color: var(--paf-black);
+}
+
+[data-bgcolor="#009A44"] #footer-container .socials a:hover,
+[data-bgcolor="#009A44"] #footer-container .socials a:focus-visible {
+  border-color: var(--paf-black);
+}
+
+[data-bgcolor="#009A44"] #footer-container .socials a:hover i,
+[data-bgcolor="#009A44"] #footer-container .socials a:focus-visible i {
+  color: var(--paf-black) !important;
+}
+
+/* --------------------------------------------------
+   Compact header on scroll (tablet and desktop)
+   js/scripts.js adds body.header-scrolled. Phones always
+   use the compact header in css/mobile.css.
+--------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --header-compact-height: 72px;
+  }
+
+  /* On a pseudo-element because blur on <header> itself would become the
+     containing block for the fixed menu panel inside it. */
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-compact-height);
+    background: rgba(14, 12, 1, 0.88);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .header-scrolled header::before {
+    opacity: 1;
+  }
+
+  .header-scrolled header.solid-header {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  #logo img {
+    transform-origin: top left;
+    transition: transform 0.3s ease, clip-path 0.3s ease, opacity 0.15s ease-in-out;
+  }
+
+  /* Crop to the mark, dropping the name, and fit it inside the bar */
+  .header-scrolled #logo img {
+    transform: translate(-57px, -24px) scale(0.85);
+    clip-path: inset(18% 26% 42% 30%);
+  }
+
+  /* Match the link to the compact mark so it can't block clicks below the bar */
+  .header-scrolled #logo a {
+    width: 74px;
+    height: 44px;
+    transform: translateY(-11px);
+  }
+
+  .header-scrolled #logo .logo-home-icon {
+    top: 50%;
+    left: 50%;
+  }
+
+  .button-wrap.right.burger-lines {
+    transition: top 0.3s ease;
+  }
+
+  .header-scrolled .button-wrap.right.burger-lines {
+    top: -14px;
+  }
+
+  /* The theme darkens these over .change-header-color rows, but the bar is always dark */
+  .header-scrolled header .button-text,
+  .header-scrolled header .button-text span {
+    color: #fff !important;
+  }
+
+  .header-scrolled header #menu-burger span {
+    background-color: #fff !important;
+  }
+}
+
+/* The header has more padding here, so everything starts 10px lower */
+@media (min-width: 1467px) {
+  .header-scrolled #logo a {
+    transform: translateY(-21px);
+  }
+
+  .header-scrolled .button-wrap.right.burger-lines {
+    top: -24px;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: reduce) {
+  header::before,
+  #logo img,
+  .button-wrap.right.burger-lines {
+    transition: none;
+  }
 }

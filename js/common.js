@@ -64,7 +64,7 @@ Function Scroll Effects
 			
 		
 		
-		let enableSmoothScrollMobile = true;
+		let enableSmoothScrollMobile = false;
 		if( isMobile() ){
 			
 			if( !enableSmoothScrollMobile ){
@@ -529,6 +529,8 @@ Function Scroll Effects
 		
 		// Clipped Image 
 		gsap.utils.toArray('.clipped-image-wrapper').forEach((clippedImageWrapper) => {
+			// Phones show the video inline (css/mobile.css), so skip the pinned reveal.
+			if (window.matchMedia('(max-width: 767px)').matches) return;
   
 			const clippedImagePin = clippedImageWrapper.querySelector(".clipped-image-pin");
 			const clippedImage = clippedImageWrapper.querySelector(".clipped-image");
@@ -1407,7 +1409,11 @@ Function Scroll Effects
 				setTimeout(function() {
 					var changeHeaderColor = gsap.utils.toArray('.change-header-color');	
 					changeHeaderColor.forEach(function(changeHeaderElement) {						
-						var pageHeader = document.querySelector('header');							
+						// Look the header up each time: it loads async and is replaced on AJAX navigation.
+						var setWhiteHeader = function(isWhite) {
+							var pageHeader = document.querySelector('header');
+							if (pageHeader) pageHeader.classList.toggle('white-header', isWhite);
+						};							
 						gsap.to(changeHeaderElement, {
 							scrollTrigger: {
 								trigger: changeHeaderElement,
@@ -1415,16 +1421,16 @@ Function Scroll Effects
 								end: () => `+=${changeHeaderElement.offsetHeight}`,
 								//markers: true,
 								onEnter: function() {
-									pageHeader.classList.add('white-header');
+									setWhiteHeader(true);
 								},
 								onEnterBack: function() {
-									pageHeader.classList.add('white-header');
+									setWhiteHeader(true);
 								},
 								onLeave: function() {
-									pageHeader.classList.remove('white-header');
+									setWhiteHeader(false);
 								},
 								onLeaveBack: function() {
-									pageHeader.classList.remove('white-header');
+									setWhiteHeader(false);
 								} 
 							}
 						});
@@ -3448,6 +3454,18 @@ Function Core
 				  
 				 	var clapat_title = event.match(/<title[^>]*>([^<]+)<\/title>/)[1];
 					$('head title').html( clapat_title );
+
+					// .load() only swaps .cd-main-content, so copy the target page's <body>
+					// settings across. .data() is set too because jQuery caches data attributes.
+					var newBodyTag = event.match(/<body([^>]*)>/i);
+					if (newBodyTag) {
+						var newBody = new DOMParser().parseFromString('<body' + newBodyTag[1] + '></body>', 'text/html').body;
+						document.body.classList.toggle('index', newBody.classList.contains('index'));
+						['primary-color', 'header-variant'].forEach(function(name) {
+							var value = newBody.getAttribute('data-' + name);
+							if (value !== null) $('body').attr('data-' + name, value).data(name, value);
+						});
+					}
 				  
 					// if we have Elementor inline styles in the target page
 					headTags = [

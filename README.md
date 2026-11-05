@@ -10,10 +10,10 @@ Personal portfolio site for Terry A. Brooks, Jr. — highlighting Backend Engine
 | Page | Path | Description |
 |------|------|-------------|
 | Home | `/index.html` | Landing page |
-| About | `/about.html` | Background & story |
+| About | `/pages/about.html` | Background & story |
 | CV / Resume | `/pages/cv.html` | Full interactive CV with downloadable PDF |
-| Projects | `/pages/projects.html` | Project showcase |
-| Contact | `/pages/contact.html` | Contact form |
+| Portfolio | `/pages/portfolio.html` | Project showcase |
+| Contact | `/pages/contact.html` | Contact details and links |
 
 ---
 
@@ -45,20 +45,17 @@ Personal portfolio site for Terry A. Brooks, Jr. — highlighting Backend Engine
 
 ## Design System
 
-The CV and Contact pages use an **Afro-Futurist** design language with a scoped token palette:
+The site uses an **Afro-Futurist** design language built on a Pan-African palette, defined in `style.css`:
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--cv-black` | `#0F0F0F` | Base background |
-| `--cv-brown` | `#362C28` | Warm accent sections |
-| `--cv-gold` | `#C29E5D` | Primary CTA, headings |
-| `--cv-teal` | `#219EBC` | LinkedIn, secondary CTA |
-| `--cv-warm` | `#D8CABF` | Body text on dark |
-| `--cv-forest` | `#0A2416` | Profile section gradient |
-| `--cv-clay` | `#DB3A34` | Alerts / emphasis |
-| `--cv-signal` | `#FFDD57` | Highlight |
-| `--pan-red` | `#CC0000` | Pan-African marquee (roles) |
-| `--pan-green` | `#006400` | Pan-African marquee (skills) |
+| `--paf-red` | `#CE1126` | Pan-African red |
+| `--paf-green` | `#009A44` | Pan-African green |
+| `--paf-gold` | `#FCD116` | Pan-African gold |
+| `--paf-electric` | `#00FF7F` | Neon accent |
+| `--paf-black` | `#0E0C01` | Base background |
+| `--paf-panel` | `#0E0C01` | Panel surface |
+| `--paf-cream` | `#F0EBD8` | Text on dark |
 
 ---
 

@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Terry A. Brooks, Jr. | Portfolio",
+    "short_name": "Terry Brooks",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "theme_color": "#0E0C01",
+    "background_color": "#0E0C01",
     "display": "standalone"
 }

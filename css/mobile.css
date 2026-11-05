@@ -1,0 +1,513 @@
+/* --------------------------------------------------
+   Phone layout (loaded with media="(max-width: 767px)")
+
+   This file loads after style.css and holds every phone
+   override in one place. Desktop never downloads it as a
+   render-blocking style, and nothing here affects it.
+
+   Contents
+   01. Tokens
+   02. Header and menu
+   03. Page frame and spacing
+   04. Hero
+   05. Home
+   06. Footer and next-page link
+   07. About
+   08. Portfolio and project modal
+   09. CV
+   10. Contact
+-------------------------------------------------- */
+
+/* 01. Tokens ------------------------------------- */
+:root {
+  --header-height: 64px;
+  --footer-height: auto;
+  --m-gutter: 20px;
+  --m-section: 40px;
+  --m-tap: 48px;
+}
+
+/* 02. Header and menu ---------------------------- */
+header {
+  height: var(--header-height);
+  background-color: rgba(14, 12, 1, 0.88) !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+#header-container {
+  height: var(--header-height);
+  padding: 0 var(--m-gutter);
+}
+
+#logo {
+  left: 0;
+  top: 6px;
+}
+
+#logo img {
+  height: 52px;
+}
+
+header .button-wrap.right.burger-lines {
+  position: absolute;
+  top: 0;
+  right: 8px;
+  width: var(--m-tap);
+  height: var(--header-height);
+  margin: 0;
+  transform: none;
+}
+
+header .button-wrap.menu .button-text {
+  display: none;
+}
+
+header .button-wrap.menu .icon-wrap {
+  width: var(--m-tap);
+  height: var(--header-height);
+}
+
+/* The menu drops down as a full-width sheet under the header */
+.fullscreen-menu .flexnav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--paf-black);
+  border-bottom: 1px solid var(--paf-gold);
+}
+
+.fullscreen-menu .flexnav li {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(240, 235, 216, 0.12);
+}
+
+.fullscreen-menu .flexnav li:last-child {
+  border-bottom: 0;
+}
+
+.fullscreen-menu .flexnav li a {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  padding: 0 var(--m-gutter);
+  background: transparent;
+  color: var(--paf-cream);
+  font-size: 1.15rem;
+  text-align: left;
+  text-decoration: none;
+}
+
+.fullscreen-menu .flexnav li a span {
+  color: var(--paf-cream);
+  text-decoration: none;
+}
+
+/* 03. Page frame and spacing --------------------- */
+.content-full-width,
+.content-max-width {
+  padding-left: var(--m-gutter);
+  padding-right: var(--m-gutter);
+  box-sizing: border-box;
+}
+
+/* These wrappers nest, which would double the gutter */
+.content-max-width .content-max-width,
+.content-max-width .content-full-width {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.content-row {
+  min-height: 0;
+}
+
+.pinned-section {
+  margin: 0;
+}
+
+.pinned-element {
+  height: auto;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.row_padding_top {
+  padding-top: var(--m-section);
+}
+
+.row_padding_bottom {
+  padding-bottom: var(--m-section);
+}
+
+.big-title {
+  font-size: clamp(1.75rem, 8vw, 2.25rem);
+  line-height: 1.15;
+}
+
+.marquee-text-wrapper {
+  margin: 0;
+}
+
+.marquee-text,
+.big-title.title-moving-forward,
+.big-title.title-moving-backward {
+  font-size: clamp(1.25rem, 6vw, 1.6rem);
+}
+
+/* 04. Hero --------------------------------------- */
+br.destroy {
+  display: none;
+}
+
+/* The theme writes viewport heights inline on these blocks, hence !important */
+#hero #hero-caption {
+  height: auto !important;
+  max-height: none;
+  min-height: 0;
+  padding-top: calc(var(--header-height) + 40px);
+  padding-bottom: 96px;
+}
+
+/* #hero-caption already holds the gutter, and FitHeroTitles measures against it */
+#hero #hero-caption .inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* 05. Home --------------------------------------- */
+.index {
+  padding: 0;
+  opacity: 1;
+}
+
+#hero-image {
+  max-height: 52vh;
+  max-height: 52svh;
+  object-position: center 12%;
+}
+
+.hero-cta-buttons .btn {
+  min-height: var(--m-tap);
+}
+
+/* 06. Footer and next-page link ------------------ */
+.page-nav-caption.height-title {
+  height: auto !important;
+  padding-top: var(--m-section);
+  padding-bottom: var(--m-section);
+}
+
+.height-title .next-hero-title,
+.next-hero-title {
+  font-size: 18vw;
+}
+
+.page-nav-caption .next-hero-subtitle {
+  margin-bottom: 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
+footer {
+  position: relative;
+}
+
+#footer-container {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: auto;
+  margin: 0;
+  padding: 16px var(--m-gutter) 24px;
+  text-align: center;
+}
+
+#footer-container .button-wrap.left {
+  position: static;
+  float: none;
+  height: var(--m-tap);
+  margin: 0;
+  transform: none;
+}
+
+#footer-container .button-wrap.left .icon-wrap {
+  height: var(--m-tap);
+}
+
+#footer-container .footer-middle {
+  position: static;
+  width: 100%;
+  margin: 0;
+  transform: none;
+}
+
+#footer-container .socials-wrap {
+  position: static;
+  float: none;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+#footer-container .socials-icon,
+#footer-container .socials-text {
+  display: none;
+}
+
+#footer-container .socials {
+  position: static;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+#footer-container .socials li,
+#footer-container .socials li span {
+  display: block;
+  margin: 0;
+  opacity: 1;
+  transform: none;
+}
+
+#footer-container .socials a {
+  width: 44px;
+  height: 44px;
+}
+
+#footer-container::before {
+  left: var(--m-gutter);
+  right: var(--m-gutter);
+}
+
+/* 07. About -------------------------------------- */
+/* The clip-path definitions svg at the end of <body> should not take up space */
+body > svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* common.js skips the pinned reveal on phones, so the video sits in the page */
+.clipped-image-wrapper,
+.clipped-image-pin {
+  height: auto;
+}
+
+.clipped-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  clip-path: none;
+}
+
+.clipped-image-gradient,
+.clipped-image-content,
+.clipped-image-pin > .button-text {
+  display: none;
+}
+
+.move-thumbs-wrapper {
+  height: auto;
+  padding: var(--m-section) var(--m-gutter);
+  box-sizing: border-box;
+}
+
+.start-thumbs-caption {
+  position: static;
+  width: 100%;
+  height: auto;
+  margin: 0 0 24px;
+  padding: 0;
+  text-align: center;
+  transform: none;
+}
+
+.start-thumbs-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px !important;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.start-move-thumb,
+.start-move-thumb:nth-of-type(3n + 2),
+.start-move-thumb:nth-of-type(3n + 3) {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0 !important;
+  padding: 0;
+  transform: none !important;
+}
+
+.start-move-thumb .move-thumb-inner {
+  position: static;
+  width: 100%;
+  transform: none !important;
+}
+
+.start-move-thumb:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 6px);
+  justify-self: center;
+}
+
+.end-thumbs-wrapper {
+  display: none;
+}
+
+/* 08. Portfolio and project modal ---------------- */
+.filters-options-wrapper {
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.filter-option {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 16px;
+  border: 1px solid rgba(240, 235, 216, 0.25);
+  border-radius: 22px;
+  opacity: 1;
+  text-decoration: none;
+}
+
+.filter-option span,
+.filter-option span::before {
+  color: var(--paf-cream);
+  text-decoration: none;
+}
+
+.filter-option.is_active {
+  border-color: var(--paf-gold);
+}
+
+.filter-option.is_active span,
+.filter-option.is_active span::before {
+  color: var(--paf-gold);
+}
+
+.showcase-portfolio,
+.showcase-portfolio .clapat-item,
+.showcase-portfolio .clapat-item:nth-of-type(n) {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Title and category stack under the image */
+.showcase-portfolio .clapat-item,
+.showcase-portfolio .clapat-item:nth-of-type(n) {
+  margin-bottom: 88px;
+}
+
+.showcase-portfolio .slide-caption {
+  height: calc(100% + 68px);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.showcase-portfolio .slide-caption .slide-title {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.showcase-portfolio .slide-caption .slide-cat {
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0.75;
+}
+
+.showcase-portfolio .clapat-item .slide-date {
+  top: 12px;
+  left: 12px;
+}
+
+.proj-modal__panel {
+  max-height: 92vh;
+  max-height: 92dvh;
+}
+
+.proj-modal__image {
+  min-height: 0;
+  height: 30vh;
+}
+
+.proj-modal__content {
+  padding: 24px var(--m-gutter) 32px;
+}
+
+.proj-modal__meta {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.proj-modal__status_in_progress {
+  font-size: 0.8rem;
+}
+
+.proj-modal__close {
+  position: sticky;
+  top: 12px;
+  right: 12px;
+  margin: 12px 12px -56px auto;
+  z-index: 5;
+}
+
+/* 09. CV ----------------------------------------- */
+.cv-role-meta,
+.ct-channel-meta,
+.cv-metric-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+
+.cv-download-wrap {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+  margin: 32px 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cv-download-link {
+  justify-content: center;
+  min-height: var(--m-tap);
+  padding: 12px 16px;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+/* 10. Contact ------------------------------------ */
+.ct-cta-link {
+  justify-content: center;
+  min-height: var(--m-tap);
+}
