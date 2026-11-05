@@ -1,4 +1,4 @@
-/* global gsap, ScrollTrigger, imagesLoaded, Flip, Power2, Power3, Power4, Linear, Elastic, ClapatSlider */
+/* global gsap, ScrollTrigger, Scrollbar, imagesLoaded, Flip, Power2, Power3, Power4, Linear, Elastic, ClapatSlider */
 /* eslint-env browser, jquery */
 
 jQuery(function ($) {
@@ -97,6 +97,18 @@ Function CustomFunction - Template
 ---------------------------------------------------*/
 
   const CustomFunction = () => {
+
+    // Compact header once the page scrolls. The ticker reads whichever scroller is
+    // active, so it keeps working after AJAX navigation replaces the page content.
+    if (!window._headerScrollInit) {
+      window._headerScrollInit = true;
+      gsap.ticker.add(() => {
+        const scrollArea = document.querySelector('#content-scroll');
+        const scrollbar = window.Scrollbar && scrollArea && Scrollbar.get(scrollArea);
+        const scrollTop = scrollbar ? scrollbar.offset.y : window.scrollY;
+        document.body.classList.toggle('header-scrolled', scrollTop > 40);
+      });
+    }
 
     /*--------------------------------------------------
     Project Modal Controller
