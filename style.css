@@ -3151,3 +3151,146 @@ nav, nav.open {
     background-color: #009A44 !important;
     color: #ffffff !important;
 }
+
+/* --------------------------------------------------
+   Next-page link and footer bar (all pages)
+   Keeps the theme's markup and letter animation.
+--------------------------------------------------- */
+.page-nav-caption .next-hero-subtitle {
+  margin-bottom: 28px;
+  opacity: 1;
+  color: var(--paf-gold);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.height-title .next-hero-title {
+  font-size: min(16vw, 36vh);
+  line-height: 1;
+  margin-left: 0;
+  transition: color 0.3s ease;
+}
+
+.height-title .next-hero-title span {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.light-content .page-title:hover .next-hero-title,
+.page-title:focus-visible .next-hero-title {
+  color: var(--paf-gold);
+}
+
+#footer-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+  height: auto;
+  margin: 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+#footer-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 80px;
+  right: 80px;
+  height: 1px;
+  background: rgba(240, 235, 216, 0.16);
+}
+
+#footer-container .button-wrap.left {
+  position: static;
+  float: none;
+  justify-self: start;
+  margin: 0;
+  pointer-events: auto;
+}
+
+#footer-container .footer-middle {
+  position: static;
+  width: auto;
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+#footer-container .socials-wrap {
+  position: static;
+  float: none;
+  justify-self: end;
+  width: auto;
+  height: auto;
+  margin: 0;
+}
+
+#footer-container .socials-icon,
+#footer-container .socials-text {
+  display: none;
+}
+
+#footer-container .socials {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#footer-container .socials li,
+#footer-container .socials li span {
+  display: block;
+  margin: 0;
+}
+
+#footer-container .socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(240, 235, 216, 0.25);
+  border-radius: 50%;
+  pointer-events: auto;
+  transition: border-color 0.25s ease;
+}
+
+#footer-container .socials a i {
+  transition: color 0.25s ease;
+}
+
+#footer-container .socials a:hover,
+#footer-container .socials a:focus-visible {
+  border-color: var(--paf-gold);
+}
+
+#footer-container .socials a:hover i,
+#footer-container .socials a:focus-visible i {
+  color: var(--paf-gold) !important;
+}
+
+/* Gold is too low-contrast on the green About background */
+[data-bgcolor="#009A44"] .page-nav-caption .next-hero-subtitle {
+  color: var(--paf-cream);
+}
+
+.light-content[data-bgcolor="#009A44"] .page-title:hover .next-hero-title,
+[data-bgcolor="#009A44"] .page-title:focus-visible .next-hero-title {
+  color: var(--paf-black);
+}
+
+[data-bgcolor="#009A44"] #footer-container .socials a:hover,
+[data-bgcolor="#009A44"] #footer-container .socials a:focus-visible {
+  border-color: var(--paf-black);
+}
+
+[data-bgcolor="#009A44"] #footer-container .socials a:hover i,
+[data-bgcolor="#009A44"] #footer-container .socials a:focus-visible i {
+  color: var(--paf-black) !important;
+}

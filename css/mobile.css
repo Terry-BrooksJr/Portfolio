@@ -206,18 +206,13 @@ br.destroy {
 
 .height-title .next-hero-title,
 .next-hero-title {
-  font-size: 15vw;
-  line-height: 1.1;
+  font-size: 18vw;
 }
 
-.height-title .next-hero-title span {
-  font-size: inherit;
-  line-height: inherit;
-}
-
-.next-hero-subtitle {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+.page-nav-caption .next-hero-subtitle {
+  margin-bottom: 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
 }
 
 footer {
@@ -291,11 +286,13 @@ footer {
 }
 
 #footer-container .socials a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--m-tap);
-  height: var(--m-tap);
+  width: 44px;
+  height: 44px;
+}
+
+#footer-container::before {
+  left: var(--m-gutter);
+  right: var(--m-gutter);
 }
 
 /* 07. About -------------------------------------- */
