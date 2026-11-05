@@ -470,25 +470,31 @@ header {
 }
 
 /* Home icon — hidden by default, replaces logo on hover */
+#logo a {
+  display: block;
+  position: relative;
+}
+
 #logo .logo-home-icon {
   display: none;
+  position: absolute;
+  top: 38%;
+  left: 52%;
   font-size: 28px;
   color: #000;
-  line-height: 50px;
-  transition: transform 0.3s ease, color 0.3s ease;
+  line-height: 1;
+  transform: translate(-50%, -50%);
 }
 
-#logo a:hover .black-logo,
-#logo a:hover .white-logo {
-  display: none !important;
-}
+/* Fade the logo rather than removing it, so the link keeps its size under the cursor */
+@media (hover: hover) {
+  #logo a:hover img {
+    opacity: 0;
+  }
 
-#logo a:hover .logo-home-icon {
-  display: block;
-}
-
-#logo a:hover .logo-home-icon:hover {
-  transform: scale(1.15);
+  #logo a:hover .logo-home-icon {
+    display: block;
+  }
 }
 
 /* Show white logo on light content */
@@ -3293,4 +3299,102 @@ nav, nav.open {
 [data-bgcolor="#009A44"] #footer-container .socials a:hover i,
 [data-bgcolor="#009A44"] #footer-container .socials a:focus-visible i {
   color: var(--paf-black) !important;
+}
+
+/* --------------------------------------------------
+   Compact header on scroll (tablet and desktop)
+   js/scripts.js adds body.header-scrolled. Phones always
+   use the compact header in css/mobile.css.
+--------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --header-compact-height: 72px;
+  }
+
+  /* On a pseudo-element because blur on <header> itself would become the
+     containing block for the fixed menu panel inside it. */
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-compact-height);
+    background: rgba(14, 12, 1, 0.88);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .header-scrolled header::before {
+    opacity: 1;
+  }
+
+  .header-scrolled header.solid-header {
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  #logo img {
+    transform-origin: top left;
+    transition: transform 0.3s ease, clip-path 0.3s ease, opacity 0.15s ease-in-out;
+  }
+
+  /* Crop to the mark, dropping the name, and fit it inside the bar */
+  .header-scrolled #logo img {
+    transform: translate(-57px, -24px) scale(0.85);
+    clip-path: inset(18% 26% 42% 30%);
+  }
+
+  /* Match the link to the compact mark so it can't block clicks below the bar */
+  .header-scrolled #logo a {
+    width: 74px;
+    height: 44px;
+    transform: translateY(-11px);
+  }
+
+  .header-scrolled #logo .logo-home-icon {
+    top: 50%;
+    left: 50%;
+  }
+
+  .button-wrap.right.burger-lines {
+    transition: top 0.3s ease;
+  }
+
+  .header-scrolled .button-wrap.right.burger-lines {
+    top: -14px;
+  }
+
+  /* The theme darkens these over .change-header-color rows, but the bar is always dark */
+  .header-scrolled header .button-text,
+  .header-scrolled header .button-text span {
+    color: #fff !important;
+  }
+
+  .header-scrolled header #menu-burger span {
+    background-color: #fff !important;
+  }
+}
+
+/* The header has more padding here, so everything starts 10px lower */
+@media (min-width: 1467px) {
+  .header-scrolled #logo a {
+    transform: translateY(-21px);
+  }
+
+  .header-scrolled .button-wrap.right.burger-lines {
+    top: -24px;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: reduce) {
+  header::before,
+  #logo img,
+  .button-wrap.right.burger-lines {
+    transition: none;
+  }
 }
