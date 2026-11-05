@@ -323,6 +323,10 @@ Function Burger Menu Animation
         default:
           header.classList.add('default-header');
         }
+        // A section's trigger may have fired before this header existed.
+        const overColorSection = ScrollTrigger.getAll().some(({ isActive, trigger }) =>
+          isActive && trigger && trigger.classList.contains('change-header-color'));
+        header.classList.toggle('white-header', overColorSection);
         doBindHandlers();
       })
       .catch(err => console.error('Header load failed:', err));
