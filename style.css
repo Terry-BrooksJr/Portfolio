@@ -2556,10 +2556,10 @@ nav, nav.open {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 3.5rem;
-    width: 100vw;
-    margin-left: 20em;
+    width: 100%;
 }
 .cv-download-link {
     display: inline-flex;
