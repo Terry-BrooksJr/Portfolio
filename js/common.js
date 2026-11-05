@@ -1409,7 +1409,11 @@ Function Scroll Effects
 				setTimeout(function() {
 					var changeHeaderColor = gsap.utils.toArray('.change-header-color');	
 					changeHeaderColor.forEach(function(changeHeaderElement) {						
-						var pageHeader = document.querySelector('header');							
+						// Look the header up each time: it loads async and is replaced on AJAX navigation.
+						var setWhiteHeader = function(isWhite) {
+							var pageHeader = document.querySelector('header');
+							if (pageHeader) pageHeader.classList.toggle('white-header', isWhite);
+						};							
 						gsap.to(changeHeaderElement, {
 							scrollTrigger: {
 								trigger: changeHeaderElement,
@@ -1417,16 +1421,16 @@ Function Scroll Effects
 								end: () => `+=${changeHeaderElement.offsetHeight}`,
 								//markers: true,
 								onEnter: function() {
-									pageHeader.classList.add('white-header');
+									setWhiteHeader(true);
 								},
 								onEnterBack: function() {
-									pageHeader.classList.add('white-header');
+									setWhiteHeader(true);
 								},
 								onLeave: function() {
-									pageHeader.classList.remove('white-header');
+									setWhiteHeader(false);
 								},
 								onLeaveBack: function() {
-									pageHeader.classList.remove('white-header');
+									setWhiteHeader(false);
 								} 
 							}
 						});
