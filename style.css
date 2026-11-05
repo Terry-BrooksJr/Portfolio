@@ -549,6 +549,14 @@ header {
   }
 }
 
+/* Leave room below the image so the heading and buttons fit on the first screen */
+@media (min-width: 768px) {
+  #hero-image {
+    max-height: max(320px, calc(100vh - 200px));
+    object-position: center 15%;
+  }
+}
+
 #content-scroll {
   z-index: 1;
   position: relative;
@@ -682,20 +690,6 @@ footer.showcase-footer {
   opacity: 0.9;
 }
 
-.index::after {
-  content: "";
-  background: url(images/circuit_board_overlay.png) no-repeat center;
-  background-position: 100% bottom;
-  background-size: 250px auto;
-  opacity: 0.25;
-  top: 0;
-  left: 0;
-  bottom: 5%;
-  right: 5%;
-  position: absolute;
-  z-index: -1;
-}
-
 .btn {
   background-color: var(--accent-clay);
   color: #fff;
@@ -720,6 +714,15 @@ footer.showcase-footer {
   width: 100%;
   max-width: 100%;
   line-height: 1.2;
+  min-height: 1.2em; /* keep the line's height while Typed.js erases the text */
+}
+
+/* Long headings wrap on phones; min-height stops the layout jumping as Typed.js changes the text */
+@media (max-width: 767px) {
+  #welcome-animation {
+    white-space: normal;
+    min-height: 2.4em;
+  }
 }
 
 .hero-cta-buttons {

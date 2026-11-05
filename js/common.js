@@ -3448,6 +3448,18 @@ Function Core
 				  
 				 	var clapat_title = event.match(/<title[^>]*>([^<]+)<\/title>/)[1];
 					$('head title').html( clapat_title );
+
+					// .load() only swaps .cd-main-content, so copy the target page's <body>
+					// settings across. .data() is set too because jQuery caches data attributes.
+					var newBodyTag = event.match(/<body([^>]*)>/i);
+					if (newBodyTag) {
+						var newBody = new DOMParser().parseFromString('<body' + newBodyTag[1] + '></body>', 'text/html').body;
+						document.body.classList.toggle('index', newBody.classList.contains('index'));
+						['primary-color', 'header-variant'].forEach(function(name) {
+							var value = newBody.getAttribute('data-' + name);
+							if (value !== null) $('body').attr('data-' + name, value).data(name, value);
+						});
+					}
 				  
 					// if we have Elementor inline styles in the target page
 					headTags = [
