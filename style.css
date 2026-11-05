@@ -562,6 +562,13 @@ header {
   position: relative;
 }
 
+/* Center the capped wrapper on wide screens. Full-bleed sections such as the
+   About video position themselves from it and shift left when it isn't centered. */
+.content-max-width {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .smooth-scroll #content-scroll {
   position: absolute;
   top: 0;
