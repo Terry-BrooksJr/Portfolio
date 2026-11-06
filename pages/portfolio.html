@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Local Stylesheets -->
     <link href="/style.css" rel="stylesheet">
-    <link href="/css/mobile.css?v=1.0.6" rel="stylesheet" media="(max-width: 767px)">
+    <link href="/css/mobile.css?v=1.0.7" rel="stylesheet" media="(max-width: 767px)">
 
 </head>
 
@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="hero-footer-right">
-                    				<div id="info-text">3 Projects</div>
+                    				<div id="info-text">4 Projects</div>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +204,27 @@
                                                 </div>
                                             </div>
                                             <!--/Project 03 -->
+
+
+                                            <!-- Project 04: Accord -->
+                                            <div class="clapat-item api-filter logo-thumb logo-thumb--accord">
+                                                <div class="slide-inner trigger-item" data-centerLine="VIEW">
+                                                    <div class="img-mask">
+                                                        <a class="slide-link proj-modal-trigger" href="#" data-modal="modal-accord" aria-label="View Accord project details"></a>
+                                                        <div class="section-image trigger-item-link">
+                                                            <img src="/images/projects/accord-icon.png" class="item-image grid__item-img" alt="Accord — Integrations Platform" />
+                                                        </div>
+                                                        <img src="/images/projects/accord-icon.png" class="grid__item-img grid__item-img--large" alt="Accord — Integrations Platform" />
+                                                    </div>
+                                                    <div class="slide-caption trigger-item-link-secondary">
+                                                        <div class="slide-title primary-font-title"><span><em>Accord</em></span></div>
+                                                        <div class="slide-date"><span>2026</span></div>
+                                                        <div class="slide-cat"><span>Integrations Platform &middot; In Progress</span></div>
+                                                        <div class="slide-icon"><i class="arrow-icon-down"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/Project 04 -->
 
 
                                         </div>
@@ -424,7 +445,7 @@
             <div class="proj-modal__content">
                 <div class="proj-modal__meta">
                     <span class="proj-modal__year">2024</span>
-                    <span class="proj-modal__status_in-progess">In Progress - Code Review (Relaunch)</span>
+                    <span class="proj-modal__status_in_progress">In Progress - Code Review (Relaunch)</span>
                     <span class="proj-modal__category">Frontend &amp; Employee Management</span>
                 </div>
 
@@ -463,6 +484,61 @@
     </div>
     <!--/Modal: Nett Hands Homecare -->
 
+
+    <!-- Modal: Accord -->
+    <div class="proj-modal" id="modal-accord" role="dialog" aria-modal="true" aria-labelledby="modal-title-accord">
+        <div class="proj-modal__backdrop"></div>
+        <div class="proj-modal__panel">
+            <button class="proj-modal__close" aria-label="Close modal"></button>
+
+            <div class="proj-modal__image">
+                <img src="/images/projects/accord-icon.png" alt="Accord logo">
+                <div class="proj-modal__image-overlay"></div>
+            </div>
+
+            <div class="proj-modal__content">
+                <div class="proj-modal__meta">
+                    <span class="proj-modal__year">2026</span>
+                    <span class="proj-modal__status_in_progress">In Progress</span>
+                    <span class="proj-modal__category">Integrations Platform</span>
+                </div>
+
+                <h2 class="proj-modal__title" id="modal-title-accord">
+                    <em>Accord</em>
+                </h2>
+
+                <p class="proj-modal__desc">
+                    A personal integrations platform for keeping independent systems in agreement, even
+                    when providers retry, fail or deliver events out of order. In progress now: a Go webhook
+                    gateway that verifies Stripe events and records every delivery in Postgres as original,
+                    duplicate or rejected. Plaid, Shippo and Zendesk are planned next, followed by
+                    event-driven workflows, failure recovery and reconciliation. A learning project, not a
+                    commercial product, with all of its code written by hand. It will live at accord.watch.
+                </p>
+
+                <div>
+                    <div class="proj-modal__stack-label">// Tech Stack</div>
+                    <div class="proj-modal__stack">
+                        <span class="stack-tag">Go</span>
+                        <span class="stack-tag">PostgreSQL</span>
+                        <span class="stack-tag">GORM</span>
+                        <span class="stack-tag">Alembic</span>
+                        <span class="stack-tag">Docker</span>
+                        <span class="stack-tag">Stripe Webhooks</span>
+                    </div>
+                </div>
+
+                <div class="proj-modal__links">
+                    <a class="proj-modal__link proj-modal__link--primary"
+                       href="https://github.com/Terry-BrooksJr/accord" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Modal: Accord -->
+
 		</div>
 	</main>
 
@@ -495,10 +571,10 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" integrity="sha384-cMrTlShXEGSdSFA359p+3aVUxK/R+0TAfbRZMcTlAn8yqzxEDj05QsS65nTFMMj4" crossorigin="anonymous"></script>
 
     <!-- Local Scripts with cache busting -->
-    <script src="/js/clapat.js?v=1.0.6"></script>
-    <script src="/js/plugins.js?v=1.0.6"></script>
-    <script src="/js/common.js?v=1.0.6"></script>
-    <script src="/js/scripts.js?v=1.0.6"></script>
+    <script src="/js/clapat.js?v=1.0.7"></script>
+    <script src="/js/plugins.js?v=1.0.7"></script>
+    <script src="/js/common.js?v=1.0.7"></script>
+    <script src="/js/scripts.js?v=1.0.7"></script>
 
 
 </body>

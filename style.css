@@ -2791,6 +2791,110 @@ nav, nav.open {
     outline-offset: 3px;
 }
 
+/* ── Contact form (posts to self-hosted Formgrid) ───────── */
+.ct-form-title {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.ct-form {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem 2rem;
+    max-width: 760px;
+    margin: 0 auto 4rem;
+}
+.ct-form-field-full {
+    grid-column: 1 / -1;
+}
+.ct-form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ct-gold);
+}
+.contact-page .ct-form-field input,
+.contact-page .ct-form-field textarea {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(240, 235, 216, 0.4);
+    border-radius: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ct-warm);
+    transition: border-color 0.25s;
+}
+.contact-page .ct-form-field textarea {
+    min-height: 10rem;
+    resize: vertical;
+}
+.contact-page .ct-form-field input:focus,
+.contact-page .ct-form-field textarea:focus {
+    border-bottom-color: var(--ct-teal);
+    outline: 2px solid var(--ct-teal);
+    outline-offset: 3px;
+}
+.ct-form-hp {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+}
+.ct-form-actions {
+    display: flex;
+    justify-content: center;
+}
+.ct-form-actions .ct-cta-link {
+    cursor: pointer;
+}
+.ct-form-actions .ct-cta-link:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+/* Appended to <body>: fixed positioning fails inside the smooth scroller's transform */
+.ct-form-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 2rem;
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 32px);
+    padding: 0.5rem 0.75rem 0.5rem 1.75rem;
+    background: var(--paf-green);
+    font-family: 'Space Grotesk', 'Syne', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #02030E;
+}
+.ct-form-toast-close {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: inherit;
+    cursor: pointer;
+}
+.ct-form-toast-close:focus-visible {
+    outline: 2px solid #02030E;
+    outline-offset: -4px;
+}
+
 /* ── Utility colour aliases ─────────────────────────────── */
 .clr-secondary { color: var(--ct-gold); }
 .clr-primary   { color: var(--ct-teal); }
@@ -2965,7 +3069,7 @@ nav, nav.open {
     border: 1px solid rgba(11, 144, 25, 0.35);
     border-radius: 20px;
 }
-.proj-modal__status_in-progess {
+.proj-modal__status_in_progress {
     font-family: var(--code-font);
     font-size: 12px;
     color: var(--paf-cream);
@@ -3150,6 +3254,13 @@ nav, nav.open {
 }
 .showcase-portfolio .clapat-item.logo-thumb--nett-hands .section-image {
     background-color: #0E0202;
+}
+.showcase-portfolio .clapat-item.logo-thumb--accord .section-image {
+    background-color: #0E0C01;
+}
+/* Room for the italic D, which the title mask would otherwise clip */
+.showcase-portfolio .clapat-item.logo-thumb--accord .slide-title em {
+    padding-right: 0.1em;
 }
 
 /* Light section wrapper with clip effects background */
