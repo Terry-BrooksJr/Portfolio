@@ -511,3 +511,21 @@ body > svg {
   justify-content: center;
   min-height: var(--m-tap);
 }
+
+.ct-form {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+.ct-form-actions .ct-cta-link {
+  width: 100%;
+}
+
+.ct-form-toast {
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  transform: none;
+  max-width: none;
+  text-align: center;
+}

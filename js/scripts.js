@@ -110,6 +110,22 @@ Function CustomFunction - Template
       });
     }
 
+    // Formgrid redirects here with ?sent=1 after a successful submit. That is always
+    // a full page load, and the page opens on the hero, far above the form, so the
+    // confirmation is a toast. Removing the param keeps a reload from showing it again.
+    const contactParams = new URLSearchParams(window.location.search);
+    if (contactParams.get('sent') === '1' && document.querySelector('.contact-page')) {
+      contactParams.delete('sent');
+      const contactQuery = contactParams.toString();
+      history.replaceState(null, '', window.location.pathname + (contactQuery ? `?${contactQuery}` : '') + window.location.hash);
+      const toast = document.createElement('div');
+      toast.className = 'ct-form-toast';
+      toast.setAttribute('role', 'status');
+      toast.textContent = 'Message sent. I\'ll get back to you soon.';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 10000);
+    }
+
     /*--------------------------------------------------
     Project Modal Controller
     ---------------------------------------------------
