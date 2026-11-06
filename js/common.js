@@ -528,9 +528,8 @@ Function Scroll Effects
 		
 		
 		// Clipped Image 
-		gsap.utils.toArray('.clipped-image-wrapper').forEach((clippedImageWrapper) => {
-			// Phones show the video inline (css/mobile.css), so skip the pinned reveal.
-			if (window.matchMedia('(max-width: 767px)').matches) return;
+		const setupClippedImage = (clippedImageWrapper) => {
+			let isActive = true;
   
 			const clippedImagePin = clippedImageWrapper.querySelector(".clipped-image-pin");
 			const clippedImage = clippedImageWrapper.querySelector(".clipped-image");
@@ -551,7 +550,7 @@ Function Scroll Effects
 			}		
 			
 			imagesLoaded('body', function() {
-				setClippedImageWrapperProperties();
+				if (isActive) setClippedImageWrapperProperties();
 			});
 				
 			
@@ -599,7 +598,21 @@ Function Scroll Effects
 				pin: true,
 				pinSpacing: false,
 			});
+			
+			return () => {
+				isActive = false;
+				window.removeEventListener('resize', setClippedImageWrapperProperties);
+				gsap.set([clippedImageWrapper, clippedImage, clippedImageGradient, clippedImageContent], { clearProps: 'height,paddingTop' });
+			};
   
+		};
+		
+		// Phones show the video inline (css/mobile.css), so the pinned reveal only runs
+		// above that breakpoint. matchMedia builds and removes it when a rotation crosses it.
+		if (window._clippedImageMedia) window._clippedImageMedia.revert();
+		window._clippedImageMedia = gsap.matchMedia();
+		gsap.utils.toArray('.clipped-image-wrapper').forEach((clippedImageWrapper) => {
+			window._clippedImageMedia.add('not all and (max-width: 767px)', () => setupClippedImage(clippedImageWrapper));
 		});
 		
 		
@@ -1405,10 +1418,12 @@ Function Scroll Effects
 
 		
 		if ($('.change-header-color').length > 0) {
+			// Collected now, because this callback can run after navigation has replaced the page.
+			var changeHeaderColor = gsap.utils.toArray('.change-header-color');
 			imagesLoaded('body', function() {
 				setTimeout(function() {
-					var changeHeaderColor = gsap.utils.toArray('.change-header-color');	
 					changeHeaderColor.forEach(function(changeHeaderElement) {						
+						if (!changeHeaderElement.isConnected) return;
 						// Look the header up each time: it loads async and is replaced on AJAX navigation.
 						var setWhiteHeader = function(isWhite) {
 							var pageHeader = document.querySelector('header');
