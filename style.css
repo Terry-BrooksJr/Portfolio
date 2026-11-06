@@ -2965,7 +2965,7 @@ nav, nav.open {
     border: 1px solid rgba(11, 144, 25, 0.35);
     border-radius: 20px;
 }
-.proj-modal__status_in-progess {
+.proj-modal__status_in_progress {
     font-family: var(--code-font);
     font-size: 12px;
     color: var(--paf-cream);
@@ -3150,6 +3150,13 @@ nav, nav.open {
 }
 .showcase-portfolio .clapat-item.logo-thumb--nett-hands .section-image {
     background-color: #0E0202;
+}
+.showcase-portfolio .clapat-item.logo-thumb--accord .section-image {
+    background-color: #0E0C01;
+}
+/* Room for the italic D, which the title mask would otherwise clip */
+.showcase-portfolio .clapat-item.logo-thumb--accord .slide-title em {
+    padding-right: 0.1em;
 }
 
 /* Light section wrapper with clip effects background */

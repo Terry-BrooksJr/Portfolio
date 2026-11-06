@@ -97,7 +97,7 @@
                                     </div>
                                 </div>
                                 <div class="hero-footer-right">
-                    				<div id="info-text">3 Projects</div>
+                    				<div id="info-text">4 Projects</div>
                                 </div>
                             </div>
                         </div>
@@ -204,6 +204,27 @@
                                                 </div>
                                             </div>
                                             <!--/Project 03 -->
+
+
+                                            <!-- Project 04: Accord -->
+                                            <div class="clapat-item api-filter logo-thumb logo-thumb--accord">
+                                                <div class="slide-inner trigger-item" data-centerLine="VIEW">
+                                                    <div class="img-mask">
+                                                        <a class="slide-link proj-modal-trigger" href="#" data-modal="modal-accord" aria-label="View Accord project details"></a>
+                                                        <div class="section-image trigger-item-link">
+                                                            <img src="/images/projects/accord.png" class="item-image grid__item-img" alt="Accord — Payments &amp; Settlement Platform" />
+                                                        </div>
+                                                        <img src="/images/projects/accord.png" class="grid__item-img grid__item-img--large" alt="Accord — Payments &amp; Settlement Platform" />
+                                                    </div>
+                                                    <div class="slide-caption trigger-item-link-secondary">
+                                                        <div class="slide-title primary-font-title"><span><em>Accord</em></span></div>
+                                                        <div class="slide-date"><span>2026</span></div>
+                                                        <div class="slide-cat"><span>Payments &amp; Settlement &middot; In Progress</span></div>
+                                                        <div class="slide-icon"><i class="arrow-icon-down"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/Project 04 -->
 
 
                                         </div>
@@ -424,7 +445,7 @@
             <div class="proj-modal__content">
                 <div class="proj-modal__meta">
                     <span class="proj-modal__year">2024</span>
-                    <span class="proj-modal__status_in-progess">In Progress - Code Review (Relaunch)</span>
+                    <span class="proj-modal__status_in_progress">In Progress - Code Review (Relaunch)</span>
                     <span class="proj-modal__category">Frontend &amp; Employee Management</span>
                 </div>
 
@@ -462,6 +483,49 @@
         </div>
     </div>
     <!--/Modal: Nett Hands Homecare -->
+
+
+    <!-- Modal: Accord -->
+    <div class="proj-modal" id="modal-accord" role="dialog" aria-modal="true" aria-labelledby="modal-title-accord">
+        <div class="proj-modal__backdrop"></div>
+        <div class="proj-modal__panel">
+            <button class="proj-modal__close" aria-label="Close modal"></button>
+
+            <div class="proj-modal__image">
+                <img src="/images/projects/accord.png" alt="Accord logo">
+                <div class="proj-modal__image-overlay"></div>
+            </div>
+
+            <div class="proj-modal__content">
+                <div class="proj-modal__meta">
+                    <span class="proj-modal__year">2026</span>
+                    <span class="proj-modal__status_in_progress">In Progress</span>
+                    <span class="proj-modal__category">Payments &amp; Settlement</span>
+                </div>
+
+                <h2 class="proj-modal__title" id="modal-title-accord">
+                    <em>Accord</em>
+                </h2>
+
+                <p class="proj-modal__desc">
+                    Accord uses Stripe as its external payment and settlement provider. It initiates
+                    payment and refund operations through Stripe's API, consumes Stripe lifecycle events
+                    through webhooks, and maintains a canonical internal representation of payment state.
+                    It then reconciles Stripe payment and payout records against internal records and
+                    downstream banking data. It will live at accord.watch.
+                </p>
+
+                <div>
+                    <div class="proj-modal__stack-label">// Tech Stack</div>
+                    <div class="proj-modal__stack">
+                        <span class="stack-tag">Stripe API</span>
+                        <span class="stack-tag">Stripe Webhooks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Modal: Accord -->
 
 		</div>
 	</main>
