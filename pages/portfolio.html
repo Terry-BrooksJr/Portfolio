@@ -212,14 +212,14 @@
                                                     <div class="img-mask">
                                                         <a class="slide-link proj-modal-trigger" href="#" data-modal="modal-accord" aria-label="View Accord project details"></a>
                                                         <div class="section-image trigger-item-link">
-                                                            <img src="/images/projects/accord.png" class="item-image grid__item-img" alt="Accord — Payments &amp; Settlement Platform" />
+                                                            <img src="/images/projects/accord-icon.png" class="item-image grid__item-img" alt="Accord — Integrations Platform" />
                                                         </div>
-                                                        <img src="/images/projects/accord.png" class="grid__item-img grid__item-img--large" alt="Accord — Payments &amp; Settlement Platform" />
+                                                        <img src="/images/projects/accord-icon.png" class="grid__item-img grid__item-img--large" alt="Accord — Integrations Platform" />
                                                     </div>
                                                     <div class="slide-caption trigger-item-link-secondary">
                                                         <div class="slide-title primary-font-title"><span><em>Accord</em></span></div>
                                                         <div class="slide-date"><span>2026</span></div>
-                                                        <div class="slide-cat"><span>Payments &amp; Settlement &middot; In Progress</span></div>
+                                                        <div class="slide-cat"><span>Integrations Platform &middot; In Progress</span></div>
                                                         <div class="slide-icon"><i class="arrow-icon-down"></i></div>
                                                     </div>
                                                 </div>
@@ -492,7 +492,7 @@
             <button class="proj-modal__close" aria-label="Close modal"></button>
 
             <div class="proj-modal__image">
-                <img src="/images/projects/accord.png" alt="Accord logo">
+                <img src="/images/projects/accord-icon.png" alt="Accord logo">
                 <div class="proj-modal__image-overlay"></div>
             </div>
 
@@ -500,7 +500,7 @@
                 <div class="proj-modal__meta">
                     <span class="proj-modal__year">2026</span>
                     <span class="proj-modal__status_in_progress">In Progress</span>
-                    <span class="proj-modal__category">Payments &amp; Settlement</span>
+                    <span class="proj-modal__category">Integrations Platform</span>
                 </div>
 
                 <h2 class="proj-modal__title" id="modal-title-accord">
@@ -508,19 +508,31 @@
                 </h2>
 
                 <p class="proj-modal__desc">
-                    Accord uses Stripe as its external payment and settlement provider. It initiates
-                    payment and refund operations through Stripe's API, consumes Stripe lifecycle events
-                    through webhooks, and maintains a canonical internal representation of payment state.
-                    It then reconciles Stripe payment and payout records against internal records and
-                    downstream banking data. It will live at accord.watch.
+                    A personal integrations platform for keeping independent systems in agreement, even
+                    when providers retry, fail or deliver events out of order. In progress now: a Go webhook
+                    gateway that verifies Stripe events and records every delivery in Postgres as original,
+                    duplicate or rejected. Plaid, Shippo and Zendesk are planned next, followed by
+                    event-driven workflows, failure recovery and reconciliation. A learning project, not a
+                    commercial product, with all of its code written by hand. It will live at accord.watch.
                 </p>
 
                 <div>
                     <div class="proj-modal__stack-label">// Tech Stack</div>
                     <div class="proj-modal__stack">
-                        <span class="stack-tag">Stripe API</span>
+                        <span class="stack-tag">Go</span>
+                        <span class="stack-tag">PostgreSQL</span>
+                        <span class="stack-tag">GORM</span>
+                        <span class="stack-tag">Alembic</span>
+                        <span class="stack-tag">Docker</span>
                         <span class="stack-tag">Stripe Webhooks</span>
                     </div>
+                </div>
+
+                <div class="proj-modal__links">
+                    <a class="proj-modal__link proj-modal__link--primary"
+                       href="https://github.com/Terry-BrooksJr/accord" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
                 </div>
             </div>
         </div>
