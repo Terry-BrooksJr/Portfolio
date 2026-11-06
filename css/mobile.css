@@ -527,5 +527,6 @@ body > svg {
   bottom: 16px;
   transform: none;
   max-width: none;
-  text-align: center;
+  justify-content: space-between;
+  padding-left: 1rem;
 }

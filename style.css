@@ -2856,20 +2856,43 @@ nav, nav.open {
 .ct-form-actions .ct-cta-link {
     cursor: pointer;
 }
+.ct-form-actions .ct-cta-link:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
 /* Appended to <body>: fixed positioning fails inside the smooth scroller's transform */
 .ct-form-toast {
     position: fixed;
     left: 50%;
     bottom: 2rem;
     z-index: 100000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     transform: translateX(-50%);
     max-width: calc(100vw - 32px);
-    padding: 1rem 1.75rem;
+    padding: 0.5rem 0.75rem 0.5rem 1.75rem;
     background: var(--paf-green);
     font-family: 'Space Grotesk', 'Syne', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
     color: #02030E;
+}
+.ct-form-toast-close {
+    width: 44px;
+    height: 44px;
+    flex: none;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: inherit;
+    cursor: pointer;
+}
+.ct-form-toast-close:focus-visible {
+    outline: 2px solid #02030E;
+    outline-offset: -4px;
 }
 
 /* ── Utility colour aliases ─────────────────────────────── */

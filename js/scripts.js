@@ -121,9 +121,32 @@ Function CustomFunction - Template
       const toast = document.createElement('div');
       toast.className = 'ct-form-toast';
       toast.setAttribute('role', 'status');
-      toast.textContent = 'Message sent. I\'ll get back to you soon.';
+      const toastText = document.createElement('span');
+      toastText.textContent = 'Message sent. I\'ll get back to you soon.';
+      const toastClose = document.createElement('button');
+      toastClose.type = 'button';
+      toastClose.className = 'ct-form-toast-close';
+      toastClose.setAttribute('aria-label', 'Dismiss');
+      toastClose.textContent = '\u00D7';
+      toastClose.addEventListener('click', () => toast.remove());
+      toast.append(toastText, toastClose);
       document.body.appendChild(toast);
       setTimeout(() => toast.remove(), 10000);
+    }
+
+    // Disable the button once a valid submit starts so a double click can't send two
+    // messages. pageshow re-enables it when the Back button restores the page from cache.
+    if (!window._ctFormInit) {
+      window._ctFormInit = true;
+      document.addEventListener('submit', (e) => {
+        if (e.target.matches('.ct-form')) {
+          e.target.querySelector('button[type="submit"]').disabled = true;
+        }
+      });
+      window.addEventListener('pageshow', () => {
+        const submitButton = document.querySelector('.ct-form button[type="submit"]');
+        if (submitButton) submitButton.disabled = false;
+      });
     }
 
     /*--------------------------------------------------
