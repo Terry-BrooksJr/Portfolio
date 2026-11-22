@@ -110,6 +110,45 @@ Function CustomFunction - Template
       });
     }
 
+    // Formgrid redirects here with ?sent=1 after a successful submit. That is always
+    // a full page load, and the page opens on the hero, far above the form, so the
+    // confirmation is a toast. Removing the param keeps a reload from showing it again.
+    const contactParams = new URLSearchParams(window.location.search);
+    if (contactParams.get('sent') === '1' && document.querySelector('.contact-page')) {
+      contactParams.delete('sent');
+      const contactQuery = contactParams.toString();
+      history.replaceState(null, '', window.location.pathname + (contactQuery ? `?${contactQuery}` : '') + window.location.hash);
+      const toast = document.createElement('div');
+      toast.className = 'ct-form-toast';
+      toast.setAttribute('role', 'status');
+      const toastText = document.createElement('span');
+      toastText.textContent = 'Message sent. I\'ll get back to you soon.';
+      const toastClose = document.createElement('button');
+      toastClose.type = 'button';
+      toastClose.className = 'ct-form-toast-close';
+      toastClose.setAttribute('aria-label', 'Dismiss');
+      toastClose.textContent = '\u00D7';
+      toastClose.addEventListener('click', () => toast.remove());
+      toast.append(toastText, toastClose);
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 10000);
+    }
+
+    // Disable the button once a valid submit starts so a double click can't send two
+    // messages. pageshow re-enables it when the Back button restores the page from cache.
+    if (!window._ctFormInit) {
+      window._ctFormInit = true;
+      document.addEventListener('submit', (e) => {
+        if (e.target.matches('.ct-form')) {
+          e.target.querySelector('button[type="submit"]').disabled = true;
+        }
+      });
+      window.addEventListener('pageshow', () => {
+        const submitButton = document.querySelector('.ct-form button[type="submit"]');
+        if (submitButton) submitButton.disabled = false;
+      });
+    }
+
     /*--------------------------------------------------
     Project Modal Controller
     ---------------------------------------------------
