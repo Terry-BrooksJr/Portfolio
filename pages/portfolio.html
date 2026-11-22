@@ -32,6 +32,18 @@
     <link href="/style.css" rel="stylesheet">
     <link href="/css/mobile.css?v=1.0.7" rel="stylesheet" media="(max-width: 767px)">
 
+<style>
+.proj-modal__category {
+    font-family: var(--code-font);
+    font-size: 12px;
+    color: var(--secondary);
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border: 1px solid rgba(110, 20,70, 0.35);
+    border-radius: 20px;
+}
+</style>
+
 </head>
 
 
@@ -508,7 +520,7 @@
                 </h2>
 
                 <p class="proj-modal__desc">
-                    A personal integrations platform for keeping independent systems in agreement, even
+                    An integrations platform for keeping independent systems in agreement, even
                     when providers retry, fail or deliver events out of order. In progress now: a Go webhook
                     gateway that verifies Stripe events and records every delivery in Postgres as original,
                     duplicate or rejected. Plaid, Shippo and Zendesk are planned next, followed by
@@ -520,11 +532,11 @@
                     <div class="proj-modal__stack-label">// Tech Stack</div>
                     <div class="proj-modal__stack">
                         <span class="stack-tag">Go</span>
+                        <span class="stack-tag">Python</span>
                         <span class="stack-tag">PostgreSQL</span>
                         <span class="stack-tag">GORM</span>
                         <span class="stack-tag">Alembic</span>
                         <span class="stack-tag">Docker</span>
-                        <span class="stack-tag">Stripe Webhooks</span>
                     </div>
                 </div>
 
@@ -532,6 +544,10 @@
                     <a class="proj-modal__link proj-modal__link--primary"
                        href="https://github.com/Terry-BrooksJr/accord" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                        <a class="proj-modal__link proj-modal__link--secondary"
+                       href="https://accord.watch" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Frontend
                     </a>
                 </div>
             </div>
